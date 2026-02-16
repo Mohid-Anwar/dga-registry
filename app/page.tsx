@@ -1,6 +1,6 @@
 "use client";
 import * as React from "react";
-import { OpenInV0Button } from "@/components/open-in-v0-button";
+// import { OpenInV0Button } from "@/components/open-in-v0-button";
 
 import { Button } from "@/registry/dga/ui/button";
 import { useDirection } from "@/registry/dga/ui/direction";
