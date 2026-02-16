@@ -30,7 +30,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
       <body>
-        <DirectionProvider direction="rtl">{children}</DirectionProvider>
+        <DirectionProvider dir="rtl" direction="rtl">{children}</DirectionProvider>
       </body>
     </html>
   );
