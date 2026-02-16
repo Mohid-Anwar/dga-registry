@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { DirectionProvider } from "@/registry/dga/ui/direction";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -19,15 +20,17 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html
+      lang="ar"
+      dir="ltr"
+      className={`${geistSans.variable} ${geistMono.variable}`}
+    >
+      <body>
+        <DirectionProvider direction="rtl">{children}</DirectionProvider>
       </body>
     </html>
   );

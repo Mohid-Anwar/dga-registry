@@ -1,77 +1,1317 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "acme",
-  "homepage": "https://acme.com",
+  "name": "dga",
+  "homepage": "https://dga.com",
   "items": [
     {
-      "name": "hello-world",
-      "type": "registry:component",
-      "title": "Hello World",
-      "description": "A simple hello world component",
-      "registryDependencies": ["button"],
+      "name": "index",
+      "type": "registry:style",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "devDependencies": [
+        "tw-animate-css"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [],
+      "cssVars": {}
+    },
+    {
+      "name": "style",
+      "type": "registry:style",
+      "dependencies": [
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "devDependencies": [
+        "tw-animate-css"
+      ],
+      "registryDependencies": [
+        "utils"
+      ],
+      "files": [],
+      "cssVars": {}
+    },
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-accordion"
+      ],
       "files": [
         {
-          "path": "registry/new-york/blocks/hello-world/hello-world.tsx",
-          "type": "registry:component"
+          "path": "registry/dga/ui/accordion.tsx",
+          "type": "registry:ui"
         }
       ]
     },
     {
-      "name": "example-form",
-      "type": "registry:component",
-      "title": "Example Form",
-      "description": "A contact form with Zod validation.",
-      "dependencies": ["zod"],
-      "registryDependencies": ["button", "input", "label", "textarea", "card"],
+      "name": "alert",
+      "type": "registry:ui",
       "files": [
         {
-          "path": "registry/new-york/blocks/example-form/example-form.tsx",
-          "type": "registry:component"
+          "path": "registry/dga/ui/alert.tsx",
+          "type": "registry:ui"
         }
       ]
     },
     {
-      "name": "complex-component",
-      "type": "registry:component",
-      "title": "Complex Component",
-      "description": "A complex component showing hooks, libs and components.",
-      "registryDependencies": ["card"],
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-alert-dialog"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
       "files": [
         {
-          "path": "registry/new-york/blocks/complex-component/page.tsx",
-          "type": "registry:page",
-          "target": "app/pokemon/page.tsx"
-        },
+          "path": "registry/dga/ui/alert-dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "aspect-ratio",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-aspect-ratio"
+      ],
+      "files": [
         {
-          "path": "registry/new-york/blocks/complex-component/components/pokemon-card.tsx",
-          "type": "registry:component"
-        },
+          "path": "registry/dga/ui/aspect-ratio.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-avatar"
+      ],
+      "files": [
         {
-          "path": "registry/new-york/blocks/complex-component/components/pokemon-image.tsx",
-          "type": "registry:component"
-        },
+          "path": "registry/dga/ui/avatar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-slot"
+      ],
+      "files": [
         {
-          "path": "registry/new-york/blocks/complex-component/lib/pokemon.ts",
+          "path": "registry/dga/ui/badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-slot"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/breadcrumb.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-slot"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button-group",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "button",
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/button-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "calendar",
+      "type": "registry:ui",
+      "dependencies": [
+        "react-day-picker@latest",
+        "date-fns"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/calendar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/dga/ui/card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "carousel",
+      "type": "registry:ui",
+      "dependencies": [
+        "embla-carousel-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/carousel.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "chart",
+      "type": "registry:ui",
+      "dependencies": [
+        "recharts@2.15.4",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "card"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/chart.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-checkbox"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-collapsible"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/collapsible.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "command",
+      "type": "registry:ui",
+      "dependencies": [
+        "cmdk"
+      ],
+      "registryDependencies": [
+        "dialog"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/command.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-context-menu"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/context-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-dialog"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "drawer",
+      "type": "registry:ui",
+      "dependencies": [
+        "vaul",
+        "@radix-ui/react-dialog"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/drawer.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-dropdown-menu"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/dropdown-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "empty",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/dga/ui/empty.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "field",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "label",
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/field.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "form",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-label",
+        "@radix-ui/react-slot",
+        "@hookform/resolvers",
+        "zod",
+        "react-hook-form"
+      ],
+      "registryDependencies": [
+        "button",
+        "label"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/form.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hover-card",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-hover-card"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/hover-card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/dga/ui/input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input-group",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "button",
+        "input",
+        "textarea"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/input-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input-otp",
+      "type": "registry:ui",
+      "dependencies": [
+        "input-otp"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/input-otp.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "item",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/item.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-label"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/label.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "menubar",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-menubar"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/menubar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "navigation-menu",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-navigation-menu"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/navigation-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/pagination.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-popover"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/popover.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-progress"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/progress.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-radio-group"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/radio-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "resizable",
+      "type": "registry:ui",
+      "dependencies": [
+        "react-resizable-panels"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/resizable.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-scroll-area"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/scroll-area.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-select"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/select.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-separator"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/separator.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-dialog"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/sheet.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-slot",
+        "class-variance-authority",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "separator",
+        "sheet",
+        "tooltip",
+        "input",
+        "use-mobile",
+        "skeleton"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/sidebar.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "tailwind": {
+        "config": {
+          "theme": {
+            "extend": {
+              "colors": {
+                "sidebar": {
+                  "DEFAULT": "hsl(var(--sidebar-background))",
+                  "foreground": "hsl(var(--sidebar-foreground))",
+                  "primary": "hsl(var(--sidebar-primary))",
+                  "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
+                  "accent": "hsl(var(--sidebar-accent))",
+                  "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
+                  "border": "hsl(var(--sidebar-border))",
+                  "ring": "hsl(var(--sidebar-ring))"
+                }
+              }
+            }
+          }
+        }
+      },
+      "cssVars": {
+        "light": {
+          "sidebar-background": "0 0% 98%",
+          "sidebar-foreground": "240 5.3% 26.1%",
+          "sidebar-primary": "240 5.9% 10%",
+          "sidebar-primary-foreground": "0 0% 98%",
+          "sidebar-accent": "240 4.8% 95.9%",
+          "sidebar-accent-foreground": "240 5.9% 10%",
+          "sidebar-border": "220 13% 91%",
+          "sidebar-ring": "217.2 91.2% 59.8%"
+        },
+        "dark": {
+          "sidebar-background": "240 5.9% 10%",
+          "sidebar-foreground": "240 4.8% 95.9%",
+          "sidebar-primary": "224.3 76.3% 48%",
+          "sidebar-primary-foreground": "0 0% 100%",
+          "sidebar-accent": "240 3.7% 15.9%",
+          "sidebar-accent-foreground": "240 4.8% 95.9%",
+          "sidebar-border": "240 3.7% 15.9%",
+          "sidebar-ring": "217.2 91.2% 59.8%"
+        }
+      }
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/dga/ui/skeleton.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-slider"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/slider.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sonner",
+      "type": "registry:ui",
+      "dependencies": [
+        "sonner",
+        "next-themes"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/sonner.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "spinner",
+      "type": "registry:ui",
+      "dependencies": [
+        "class-variance-authority"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/spinner.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-switch"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/switch.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/dga/ui/table.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-tabs"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/dga/ui/textarea.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toggle",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-toggle"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/toggle.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toggle-group",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-toggle-group"
+      ],
+      "registryDependencies": [
+        "toggle"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/toggle-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-tooltip"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "kbd",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/dga/ui/kbd.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "native-select",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/dga/ui/native-select.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "utils",
+      "type": "registry:lib",
+      "dependencies": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/lib/utils.ts",
           "type": "registry:lib"
-        },
+        }
+      ]
+    },
+    {
+      "name": "use-mobile",
+      "type": "registry:hook",
+      "files": [
         {
-          "path": "registry/new-york/blocks/complex-component/hooks/use-pokemon.ts",
+          "path": "registry/dga/hooks/use-mobile.ts",
           "type": "registry:hook"
         }
       ]
     },
     {
-      "name": "example-with-css",
-      "type": "registry:component",
-      "title": "Example with CSS",
-      "description": "A login form with a CSS file.",
+      "name": "theme-stone",
+      "type": "registry:theme",
+      "cssVars": {
+        "light": {
+          "background": "oklch(1 0 0)",
+          "foreground": "oklch(0.147 0.004 49.25)",
+          "card": "oklch(1 0 0)",
+          "card-foreground": "oklch(0.147 0.004 49.25)",
+          "popover": "oklch(1 0 0)",
+          "popover-foreground": "oklch(0.147 0.004 49.25)",
+          "primary": "oklch(0.216 0.006 56.043)",
+          "primary-foreground": "oklch(0.985 0.001 106.423)",
+          "secondary": "oklch(0.97 0.001 106.424)",
+          "secondary-foreground": "oklch(0.216 0.006 56.043)",
+          "muted": "oklch(0.97 0.001 106.424)",
+          "muted-foreground": "oklch(0.553 0.013 58.071)",
+          "accent": "oklch(0.97 0.001 106.424)",
+          "accent-foreground": "oklch(0.216 0.006 56.043)",
+          "destructive": "oklch(0.577 0.245 27.325)",
+          "border": "oklch(0.923 0.003 48.717)",
+          "input": "oklch(0.923 0.003 48.717)",
+          "ring": "oklch(0.709 0.01 56.259)",
+          "chart-1": "oklch(0.646 0.222 41.116)",
+          "chart-2": "oklch(0.6 0.118 184.704)",
+          "chart-3": "oklch(0.398 0.07 227.392)",
+          "chart-4": "oklch(0.828 0.189 84.429)",
+          "chart-5": "oklch(0.769 0.188 70.08)",
+          "radius": "0.625rem",
+          "sidebar": "oklch(0.985 0.001 106.423)",
+          "sidebar-foreground": "oklch(0.147 0.004 49.25)",
+          "sidebar-primary": "oklch(0.216 0.006 56.043)",
+          "sidebar-primary-foreground": "oklch(0.985 0.001 106.423)",
+          "sidebar-accent": "oklch(0.97 0.001 106.424)",
+          "sidebar-accent-foreground": "oklch(0.216 0.006 56.043)",
+          "sidebar-border": "oklch(0.923 0.003 48.717)",
+          "sidebar-ring": "oklch(0.709 0.01 56.259)"
+        },
+        "dark": {
+          "background": "oklch(0.147 0.004 49.25)",
+          "foreground": "oklch(0.985 0.001 106.423)",
+          "card": "oklch(0.216 0.006 56.043)",
+          "card-foreground": "oklch(0.985 0.001 106.423)",
+          "popover": "oklch(0.216 0.006 56.043)",
+          "popover-foreground": "oklch(0.985 0.001 106.423)",
+          "primary": "oklch(0.923 0.003 48.717)",
+          "primary-foreground": "oklch(0.216 0.006 56.043)",
+          "secondary": "oklch(0.268 0.007 34.298)",
+          "secondary-foreground": "oklch(0.985 0.001 106.423)",
+          "muted": "oklch(0.268 0.007 34.298)",
+          "muted-foreground": "oklch(0.709 0.01 56.259)",
+          "accent": "oklch(0.268 0.007 34.298)",
+          "accent-foreground": "oklch(0.985 0.001 106.423)",
+          "destructive": "oklch(0.704 0.191 22.216)",
+          "border": "oklch(1 0 0 / 10%)",
+          "input": "oklch(1 0 0 / 15%)",
+          "ring": "oklch(0.553 0.013 58.071)",
+          "chart-1": "oklch(0.488 0.243 264.376)",
+          "chart-2": "oklch(0.696 0.17 162.48)",
+          "chart-3": "oklch(0.769 0.188 70.08)",
+          "chart-4": "oklch(0.627 0.265 303.9)",
+          "chart-5": "oklch(0.645 0.246 16.439)",
+          "sidebar": "oklch(0.216 0.006 56.043)",
+          "sidebar-foreground": "oklch(0.985 0.001 106.423)",
+          "sidebar-primary": "oklch(0.488 0.243 264.376)",
+          "sidebar-primary-foreground": "oklch(0.985 0.001 106.423)",
+          "sidebar-accent": "oklch(0.268 0.007 34.298)",
+          "sidebar-accent-foreground": "oklch(0.985 0.001 106.423)",
+          "sidebar-border": "oklch(1 0 0 / 10%)",
+          "sidebar-ring": "oklch(0.553 0.013 58.071)"
+        }
+      }
+    },
+    {
+      "name": "theme-zinc",
+      "type": "registry:theme",
+      "cssVars": {
+        "light": {
+          "background": "oklch(1 0 0)",
+          "foreground": "oklch(0.141 0.005 285.823)",
+          "card": "oklch(1 0 0)",
+          "card-foreground": "oklch(0.141 0.005 285.823)",
+          "popover": "oklch(1 0 0)",
+          "popover-foreground": "oklch(0.141 0.005 285.823)",
+          "primary": "oklch(0.21 0.006 285.885)",
+          "primary-foreground": "oklch(0.985 0 0)",
+          "secondary": "oklch(0.967 0.001 286.375)",
+          "secondary-foreground": "oklch(0.21 0.006 285.885)",
+          "muted": "oklch(0.967 0.001 286.375)",
+          "muted-foreground": "oklch(0.552 0.016 285.938)",
+          "accent": "oklch(0.967 0.001 286.375)",
+          "accent-foreground": "oklch(0.21 0.006 285.885)",
+          "destructive": "oklch(0.577 0.245 27.325)",
+          "border": "oklch(0.92 0.004 286.32)",
+          "input": "oklch(0.92 0.004 286.32)",
+          "ring": "oklch(0.705 0.015 286.067)",
+          "chart-1": "oklch(0.646 0.222 41.116)",
+          "chart-2": "oklch(0.6 0.118 184.704)",
+          "chart-3": "oklch(0.398 0.07 227.392)",
+          "chart-4": "oklch(0.828 0.189 84.429)",
+          "chart-5": "oklch(0.769 0.188 70.08)",
+          "radius": "0.625rem",
+          "sidebar": "oklch(0.985 0 0)",
+          "sidebar-foreground": "oklch(0.141 0.005 285.823)",
+          "sidebar-primary": "oklch(0.21 0.006 285.885)",
+          "sidebar-primary-foreground": "oklch(0.985 0 0)",
+          "sidebar-accent": "oklch(0.967 0.001 286.375)",
+          "sidebar-accent-foreground": "oklch(0.21 0.006 285.885)",
+          "sidebar-border": "oklch(0.92 0.004 286.32)",
+          "sidebar-ring": "oklch(0.705 0.015 286.067)"
+        },
+        "dark": {
+          "background": "oklch(0.141 0.005 285.823)",
+          "foreground": "oklch(0.985 0 0)",
+          "card": "oklch(0.21 0.006 285.885)",
+          "card-foreground": "oklch(0.985 0 0)",
+          "popover": "oklch(0.21 0.006 285.885)",
+          "popover-foreground": "oklch(0.985 0 0)",
+          "primary": "oklch(0.92 0.004 286.32)",
+          "primary-foreground": "oklch(0.21 0.006 285.885)",
+          "secondary": "oklch(0.274 0.006 286.033)",
+          "secondary-foreground": "oklch(0.985 0 0)",
+          "muted": "oklch(0.274 0.006 286.033)",
+          "muted-foreground": "oklch(0.705 0.015 286.067)",
+          "accent": "oklch(0.274 0.006 286.033)",
+          "accent-foreground": "oklch(0.985 0 0)",
+          "destructive": "oklch(0.704 0.191 22.216)",
+          "border": "oklch(1 0 0 / 10%)",
+          "input": "oklch(1 0 0 / 15%)",
+          "ring": "oklch(0.552 0.016 285.938)",
+          "chart-1": "oklch(0.488 0.243 264.376)",
+          "chart-2": "oklch(0.696 0.17 162.48)",
+          "chart-3": "oklch(0.769 0.188 70.08)",
+          "chart-4": "oklch(0.627 0.265 303.9)",
+          "chart-5": "oklch(0.645 0.246 16.439)",
+          "sidebar": "oklch(0.21 0.006 285.885)",
+          "sidebar-foreground": "oklch(0.985 0 0)",
+          "sidebar-primary": "oklch(0.488 0.243 264.376)",
+          "sidebar-primary-foreground": "oklch(0.985 0 0)",
+          "sidebar-accent": "oklch(0.274 0.006 286.033)",
+          "sidebar-accent-foreground": "oklch(0.985 0 0)",
+          "sidebar-border": "oklch(1 0 0 / 10%)",
+          "sidebar-ring": "oklch(0.552 0.016 285.938)"
+        }
+      }
+    },
+    {
+      "name": "theme-neutral",
+      "type": "registry:theme",
+      "cssVars": {
+        "light": {
+          "background": "oklch(1 0 0)",
+          "foreground": "oklch(0.145 0 0)",
+          "card": "oklch(1 0 0)",
+          "card-foreground": "oklch(0.145 0 0)",
+          "popover": "oklch(1 0 0)",
+          "popover-foreground": "oklch(0.145 0 0)",
+          "primary": "oklch(0.205 0 0)",
+          "primary-foreground": "oklch(0.985 0 0)",
+          "secondary": "oklch(0.97 0 0)",
+          "secondary-foreground": "oklch(0.205 0 0)",
+          "muted": "oklch(0.97 0 0)",
+          "muted-foreground": "oklch(0.556 0 0)",
+          "accent": "oklch(0.97 0 0)",
+          "accent-foreground": "oklch(0.205 0 0)",
+          "destructive": "oklch(0.577 0.245 27.325)",
+          "border": "oklch(0.922 0 0)",
+          "input": "oklch(0.922 0 0)",
+          "ring": "oklch(0.708 0 0)",
+          "chart-1": "oklch(0.646 0.222 41.116)",
+          "chart-2": "oklch(0.6 0.118 184.704)",
+          "chart-3": "oklch(0.398 0.07 227.392)",
+          "chart-4": "oklch(0.828 0.189 84.429)",
+          "chart-5": "oklch(0.769 0.188 70.08)",
+          "radius": "0.625rem",
+          "sidebar": "oklch(0.985 0 0)",
+          "sidebar-foreground": "oklch(0.145 0 0)",
+          "sidebar-primary": "oklch(0.205 0 0)",
+          "sidebar-primary-foreground": "oklch(0.985 0 0)",
+          "sidebar-accent": "oklch(0.97 0 0)",
+          "sidebar-accent-foreground": "oklch(0.205 0 0)",
+          "sidebar-border": "oklch(0.922 0 0)",
+          "sidebar-ring": "oklch(0.708 0 0)"
+        },
+        "dark": {
+          "background": "oklch(0.145 0 0)",
+          "foreground": "oklch(0.985 0 0)",
+          "card": "oklch(0.205 0 0)",
+          "card-foreground": "oklch(0.985 0 0)",
+          "popover": "oklch(0.205 0 0)",
+          "popover-foreground": "oklch(0.985 0 0)",
+          "primary": "oklch(0.922 0 0)",
+          "primary-foreground": "oklch(0.205 0 0)",
+          "secondary": "oklch(0.269 0 0)",
+          "secondary-foreground": "oklch(0.985 0 0)",
+          "muted": "oklch(0.269 0 0)",
+          "muted-foreground": "oklch(0.708 0 0)",
+          "accent": "oklch(0.269 0 0)",
+          "accent-foreground": "oklch(0.985 0 0)",
+          "destructive": "oklch(0.704 0.191 22.216)",
+          "border": "oklch(1 0 0 / 10%)",
+          "input": "oklch(1 0 0 / 15%)",
+          "ring": "oklch(0.556 0 0)",
+          "chart-1": "oklch(0.488 0.243 264.376)",
+          "chart-2": "oklch(0.696 0.17 162.48)",
+          "chart-3": "oklch(0.769 0.188 70.08)",
+          "chart-4": "oklch(0.627 0.265 303.9)",
+          "chart-5": "oklch(0.645 0.246 16.439)",
+          "sidebar": "oklch(0.205 0 0)",
+          "sidebar-foreground": "oklch(0.985 0 0)",
+          "sidebar-primary": "oklch(0.488 0.243 264.376)",
+          "sidebar-primary-foreground": "oklch(0.985 0 0)",
+          "sidebar-accent": "oklch(0.269 0 0)",
+          "sidebar-accent-foreground": "oklch(0.985 0 0)",
+          "sidebar-border": "oklch(1 0 0 / 10%)",
+          "sidebar-ring": "oklch(0.556 0 0)"
+        }
+      }
+    },
+    {
+      "name": "theme-gray",
+      "type": "registry:theme",
+      "cssVars": {
+        "light": {
+          "background": "oklch(1 0 0)",
+          "foreground": "oklch(0.13 0.028 261.692)",
+          "card": "oklch(1 0 0)",
+          "card-foreground": "oklch(0.13 0.028 261.692)",
+          "popover": "oklch(1 0 0)",
+          "popover-foreground": "oklch(0.13 0.028 261.692)",
+          "primary": "oklch(0.21 0.034 264.665)",
+          "primary-foreground": "oklch(0.985 0.002 247.839)",
+          "secondary": "oklch(0.967 0.003 264.542)",
+          "secondary-foreground": "oklch(0.21 0.034 264.665)",
+          "muted": "oklch(0.967 0.003 264.542)",
+          "muted-foreground": "oklch(0.551 0.027 264.364)",
+          "accent": "oklch(0.967 0.003 264.542)",
+          "accent-foreground": "oklch(0.21 0.034 264.665)",
+          "destructive": "oklch(0.577 0.245 27.325)",
+          "border": "oklch(0.928 0.006 264.531)",
+          "input": "oklch(0.928 0.006 264.531)",
+          "ring": "oklch(0.707 0.022 261.325)",
+          "chart-1": "oklch(0.646 0.222 41.116)",
+          "chart-2": "oklch(0.6 0.118 184.704)",
+          "chart-3": "oklch(0.398 0.07 227.392)",
+          "chart-4": "oklch(0.828 0.189 84.429)",
+          "chart-5": "oklch(0.769 0.188 70.08)",
+          "radius": "0.625rem",
+          "sidebar": "oklch(0.985 0.002 247.839)",
+          "sidebar-foreground": "oklch(0.13 0.028 261.692)",
+          "sidebar-primary": "oklch(0.21 0.034 264.665)",
+          "sidebar-primary-foreground": "oklch(0.985 0.002 247.839)",
+          "sidebar-accent": "oklch(0.967 0.003 264.542)",
+          "sidebar-accent-foreground": "oklch(0.21 0.034 264.665)",
+          "sidebar-border": "oklch(0.928 0.006 264.531)",
+          "sidebar-ring": "oklch(0.707 0.022 261.325)"
+        },
+        "dark": {
+          "background": "oklch(0.13 0.028 261.692)",
+          "foreground": "oklch(0.985 0.002 247.839)",
+          "card": "oklch(0.21 0.034 264.665)",
+          "card-foreground": "oklch(0.985 0.002 247.839)",
+          "popover": "oklch(0.21 0.034 264.665)",
+          "popover-foreground": "oklch(0.985 0.002 247.839)",
+          "primary": "oklch(0.928 0.006 264.531)",
+          "primary-foreground": "oklch(0.21 0.034 264.665)",
+          "secondary": "oklch(0.278 0.033 256.848)",
+          "secondary-foreground": "oklch(0.985 0.002 247.839)",
+          "muted": "oklch(0.278 0.033 256.848)",
+          "muted-foreground": "oklch(0.707 0.022 261.325)",
+          "accent": "oklch(0.278 0.033 256.848)",
+          "accent-foreground": "oklch(0.985 0.002 247.839)",
+          "destructive": "oklch(0.704 0.191 22.216)",
+          "border": "oklch(1 0 0 / 10%)",
+          "input": "oklch(1 0 0 / 15%)",
+          "ring": "oklch(0.551 0.027 264.364)",
+          "chart-1": "oklch(0.488 0.243 264.376)",
+          "chart-2": "oklch(0.696 0.17 162.48)",
+          "chart-3": "oklch(0.769 0.188 70.08)",
+          "chart-4": "oklch(0.627 0.265 303.9)",
+          "chart-5": "oklch(0.645 0.246 16.439)",
+          "sidebar": "oklch(0.21 0.034 264.665)",
+          "sidebar-foreground": "oklch(0.985 0.002 247.839)",
+          "sidebar-primary": "oklch(0.488 0.243 264.376)",
+          "sidebar-primary-foreground": "oklch(0.985 0.002 247.839)",
+          "sidebar-accent": "oklch(0.278 0.033 256.848)",
+          "sidebar-accent-foreground": "oklch(0.985 0.002 247.839)",
+          "sidebar-border": "oklch(1 0 0 / 10%)",
+          "sidebar-ring": "oklch(0.551 0.027 264.364)"
+        }
+      }
+    },
+    {
+      "name": "theme-slate",
+      "type": "registry:theme",
+      "cssVars": {
+        "light": {
+          "background": "oklch(1 0 0)",
+          "foreground": "oklch(0.129 0.042 264.695)",
+          "card": "oklch(1 0 0)",
+          "card-foreground": "oklch(0.129 0.042 264.695)",
+          "popover": "oklch(1 0 0)",
+          "popover-foreground": "oklch(0.129 0.042 264.695)",
+          "primary": "oklch(0.208 0.042 265.755)",
+          "primary-foreground": "oklch(0.984 0.003 247.858)",
+          "secondary": "oklch(0.968 0.007 247.896)",
+          "secondary-foreground": "oklch(0.208 0.042 265.755)",
+          "muted": "oklch(0.968 0.007 247.896)",
+          "muted-foreground": "oklch(0.554 0.046 257.417)",
+          "accent": "oklch(0.968 0.007 247.896)",
+          "accent-foreground": "oklch(0.208 0.042 265.755)",
+          "destructive": "oklch(0.577 0.245 27.325)",
+          "border": "oklch(0.929 0.013 255.508)",
+          "input": "oklch(0.929 0.013 255.508)",
+          "ring": "oklch(0.704 0.04 256.788)",
+          "chart-1": "oklch(0.646 0.222 41.116)",
+          "chart-2": "oklch(0.6 0.118 184.704)",
+          "chart-3": "oklch(0.398 0.07 227.392)",
+          "chart-4": "oklch(0.828 0.189 84.429)",
+          "chart-5": "oklch(0.769 0.188 70.08)",
+          "radius": "0.625rem",
+          "sidebar": "oklch(0.984 0.003 247.858)",
+          "sidebar-foreground": "oklch(0.129 0.042 264.695)",
+          "sidebar-primary": "oklch(0.208 0.042 265.755)",
+          "sidebar-primary-foreground": "oklch(0.984 0.003 247.858)",
+          "sidebar-accent": "oklch(0.968 0.007 247.896)",
+          "sidebar-accent-foreground": "oklch(0.208 0.042 265.755)",
+          "sidebar-border": "oklch(0.929 0.013 255.508)",
+          "sidebar-ring": "oklch(0.704 0.04 256.788)"
+        },
+        "dark": {
+          "background": "oklch(0.129 0.042 264.695)",
+          "foreground": "oklch(0.984 0.003 247.858)",
+          "card": "oklch(0.208 0.042 265.755)",
+          "card-foreground": "oklch(0.984 0.003 247.858)",
+          "popover": "oklch(0.208 0.042 265.755)",
+          "popover-foreground": "oklch(0.984 0.003 247.858)",
+          "primary": "oklch(0.929 0.013 255.508)",
+          "primary-foreground": "oklch(0.208 0.042 265.755)",
+          "secondary": "oklch(0.279 0.041 260.031)",
+          "secondary-foreground": "oklch(0.984 0.003 247.858)",
+          "muted": "oklch(0.279 0.041 260.031)",
+          "muted-foreground": "oklch(0.704 0.04 256.788)",
+          "accent": "oklch(0.279 0.041 260.031)",
+          "accent-foreground": "oklch(0.984 0.003 247.858)",
+          "destructive": "oklch(0.704 0.191 22.216)",
+          "border": "oklch(1 0 0 / 10%)",
+          "input": "oklch(1 0 0 / 15%)",
+          "ring": "oklch(0.551 0.027 264.364)",
+          "chart-1": "oklch(0.488 0.243 264.376)",
+          "chart-2": "oklch(0.696 0.17 162.48)",
+          "chart-3": "oklch(0.769 0.188 70.08)",
+          "chart-4": "oklch(0.627 0.265 303.9)",
+          "chart-5": "oklch(0.645 0.246 16.439)",
+          "sidebar": "oklch(0.208 0.042 265.755)",
+          "sidebar-foreground": "oklch(0.984 0.003 247.858)",
+          "sidebar-primary": "oklch(0.488 0.243 264.376)",
+          "sidebar-primary-foreground": "oklch(0.984 0.003 247.858)",
+          "sidebar-accent": "oklch(0.279 0.041 260.031)",
+          "sidebar-accent-foreground": "oklch(0.984 0.003 247.858)",
+          "sidebar-border": "oklch(1 0 0 / 10%)",
+          "sidebar-ring": "oklch(0.551 0.027 264.364)"
+        }
+      }
+    },
+    {
+      "name": "sidebar-demo",
+      "type": "registry:internal",
       "files": [
         {
-          "path": "registry/new-york/blocks/example-with-css/example-card.tsx",
+          "path": "registry/dga/internal/sidebar-demo.tsx",
           "type": "registry:component"
-        },
+        }
+      ]
+    },
+    {
+      "name": "sidebar-header",
+      "type": "registry:internal",
+      "files": [
         {
-          "path": "registry/new-york/blocks/example-with-css/example-card.css",
+          "path": "registry/dga/internal/sidebar-header.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-footer",
+      "type": "registry:internal",
+      "files": [
+        {
+          "path": "registry/dga/internal/sidebar-footer.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-group",
+      "type": "registry:internal",
+      "files": [
+        {
+          "path": "registry/dga/internal/sidebar-group.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-group-collapsible",
+      "type": "registry:internal",
+      "files": [
+        {
+          "path": "registry/dga/internal/sidebar-group-collapsible.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-group-action",
+      "type": "registry:internal",
+      "files": [
+        {
+          "path": "registry/dga/internal/sidebar-group-action.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-menu",
+      "type": "registry:internal",
+      "files": [
+        {
+          "path": "registry/dga/internal/sidebar-menu.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-menu-action",
+      "type": "registry:internal",
+      "files": [
+        {
+          "path": "registry/dga/internal/sidebar-menu-action.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-menu-sub",
+      "type": "registry:internal",
+      "files": [
+        {
+          "path": "registry/dga/internal/sidebar-menu-sub.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-menu-collapsible",
+      "type": "registry:internal",
+      "files": [
+        {
+          "path": "registry/dga/internal/sidebar-menu-collapsible.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-menu-badge",
+      "type": "registry:internal",
+      "files": [
+        {
+          "path": "registry/dga/internal/sidebar-menu-badge.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-rsc",
+      "type": "registry:internal",
+      "files": [
+        {
+          "path": "registry/dga/internal/sidebar-rsc.tsx",
+          "type": "registry:component"
+        }
+      ]
+    },
+    {
+      "name": "sidebar-controlled",
+      "type": "registry:internal",
+      "files": [
+        {
+          "path": "registry/dga/internal/sidebar-controlled.tsx",
           "type": "registry:component"
         }
       ]

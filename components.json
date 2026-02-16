@@ -1,14 +1,18 @@
 {
   "$schema": "https://ui.shadcn.com/schema.json",
-  "style": "new-york",
+  "style": "dga",
   "rsc": true,
   "tsx": true,
+  "rtl": true,
   "tailwind": {
     "config": "",
     "css": "app/globals.css",
     "baseColor": "neutral",
     "cssVariables": true,
     "prefix": ""
+  },
+  "registries": {
+    "@dga": "https://dga-registry.vercel.app/r/{name}.json"
   },
   "aliases": {
     "components": "@/components",

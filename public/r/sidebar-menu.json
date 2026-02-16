@@ -1,0 +1,12 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sidebar-menu",
+  "files": [
+    {
+      "path": "registry/dga/internal/sidebar-menu.tsx",
+      "content": "\"use client\";\r\n\r\nimport {\r\n  FrameIcon,\r\n  LifeBuoyIcon,\r\n  MapIcon,\r\n  PieChartIcon,\r\n  SendIcon,\r\n} from \"lucide-react\";\r\n\r\nimport {\r\n  Sidebar,\r\n  SidebarContent,\r\n  SidebarGroup,\r\n  SidebarGroupContent,\r\n  SidebarGroupLabel,\r\n  SidebarMenu,\r\n  SidebarMenuButton,\r\n  SidebarMenuItem,\r\n  SidebarProvider,\r\n} from \"@/registry/dga/ui/sidebar\";\r\n\r\nconst projects = [\r\n  {\r\n    name: \"Design Engineering\",\r\n    url: \"#\",\r\n    icon: FrameIcon,\r\n  },\r\n  {\r\n    name: \"Sales & Marketing\",\r\n    url: \"#\",\r\n    icon: PieChartIcon,\r\n  },\r\n  {\r\n    name: \"Travel\",\r\n    url: \"#\",\r\n    icon: MapIcon,\r\n  },\r\n  {\r\n    name: \"Support\",\r\n    url: \"#\",\r\n    icon: LifeBuoyIcon,\r\n  },\r\n  {\r\n    name: \"Feedback\",\r\n    url: \"#\",\r\n    icon: SendIcon,\r\n  },\r\n];\r\n\r\nexport default function AppSidebar() {\r\n  return (\r\n    <SidebarProvider>\r\n      <Sidebar>\r\n        <SidebarContent>\r\n          <SidebarGroup>\r\n            <SidebarGroupLabel>Projects</SidebarGroupLabel>\r\n            <SidebarGroupContent>\r\n              <SidebarMenu>\r\n                {projects.map((project) => (\r\n                  <SidebarMenuItem key={project.name}>\r\n                    <SidebarMenuButton asChild>\r\n                      <a href={project.url}>\r\n                        <project.icon />\r\n                        <span>{project.name}</span>\r\n                      </a>\r\n                    </SidebarMenuButton>\r\n                  </SidebarMenuItem>\r\n                ))}\r\n              </SidebarMenu>\r\n            </SidebarGroupContent>\r\n          </SidebarGroup>\r\n        </SidebarContent>\r\n      </Sidebar>\r\n    </SidebarProvider>\r\n  );\r\n}\r\n",
+      "type": "registry:component"
+    }
+  ],
+  "type": "registry:internal"
+}
