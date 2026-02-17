@@ -12,7 +12,7 @@
     "prefix": ""
   },
   "registries": {
-    "@dga": "https://dga-registry.vercel.app/r"
+    "@dga": "https://dga-registry.vercel.app/r/{name}.json"
   },
   "aliases": {
     "components": "@/components",
