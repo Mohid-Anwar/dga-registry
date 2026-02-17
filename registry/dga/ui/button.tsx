@@ -9,16 +9,25 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        default:
+          "bg-button-primary-default text-primary-foreground hover:bg-button-primary-hovered active:bg-button-primary-pressed data-[state=open]:bg-button-primary-selected focus-visible:bg-button-primary-focused",
         destructive:
-          "bg-destructive text-white hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40 dark:bg-destructive/60",
+          "bg-button-danger-primary-default text-white hover:bg-button-danger-primary-hovered active:bg-button-danger-primary-pressed data-[state=open]:bg-button-danger-primary-selected focus-visible:bg-button-danger-primary-focused focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40",
+        "destructive-secondary":
+          "bg-button-danger-secondary-default text-button-danger-primary-default hover:bg-button-danger-secondary-hovered active:bg-button-danger-secondary-pressed data-[state=open]:bg-button-danger-secondary-selected focus-visible:bg-button-danger-secondary-focused border border-border-error-light",
         outline:
-          "border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
+          "border border-border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+          "bg-button-neutral-default text-text-default hover:bg-button-neutral-hovered active:bg-button-neutral-pressed data-[state=open]:bg-button-neutral-selected focus-visible:bg-button-neutral-focused border border-border-neutral-primary",
         ghost:
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
+        black:
+          "bg-button-black-default text-white hover:bg-button-black-hovered active:bg-button-black-pressed data-[state=open]:bg-button-black-selected focus-visible:bg-button-black-focused",
+        "on-color":
+          "bg-button-oncolor-default text-text-default hover:bg-button-oncolor-hovered active:bg-button-oncolor-pressed data-[state=open]:bg-button-oncolor-selected focus-visible:bg-button-oncolor-focused",
+        transparent:
+          "bg-button-transparent-default hover:bg-button-transparent-hovered active:bg-button-transparent-pressed data-[state=open]:bg-button-transparent-selected focus-visible:bg-button-transparent-focused text-primary",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
