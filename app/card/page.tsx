@@ -65,7 +65,7 @@ export default function CardDemo() {
         </h2>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {/* Background station */}
-          <Card>
+          <Card className="border-amber-400">
             <img
               src={IMG_BG}
               alt="Background station"
@@ -76,6 +76,7 @@ export default function CardDemo() {
               <CardDescription>
                 Background stations are not influenced significantly by single
                 sources but by an integrated contribution of all sources.
+                (Colored Border)
               </CardDescription>
             </CardContent>
             <CardFooter>
@@ -270,7 +271,7 @@ export default function CardDemo() {
           </Card>
 
           {/* Station 2 */}
-          <Card className="pt-0">
+          <Card>
             <img
               src={IMG_SUBURBAN}
               alt="Station image"
