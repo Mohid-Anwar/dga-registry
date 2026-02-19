@@ -22,8 +22,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  tabs
 }: {
   children: React.ReactNode
+  tabs?: React.ReactNode
 }) {
   return (
     <html
@@ -34,6 +36,7 @@ export default function RootLayout({
       <body>
         <DirectionProvider dir="rtl" direction="rtl">
           {children}
+          {tabs}
         </DirectionProvider>
       </body>
     </html>

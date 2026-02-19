@@ -296,3 +296,11 @@
   --sidebar-border: hsl(240 3.7% 15.9%);
   --sidebar-ring: hsl(217.2 91.2% 59.8%);
 }
+
+@font-face {
+  font-family: 'IBM Plex Sans Arabic';
+  src: url('/fonts/IBM_Plex_Sans/static/IBMPlexSans-Medium.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

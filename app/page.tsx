@@ -4,6 +4,7 @@ import * as React from "react"
 
 import { Button } from "@/registry/dga/ui/button"
 
+
 export default function Home() {
   const [direction, setDirection] = React.useState("rtl")
 
@@ -30,7 +31,6 @@ export default function Home() {
   return (
     <div
       className="flex min-h-screen flex-col items-center justify-center"
-      style={{ direction }}
     >
       <h1 className="mb-8 text-4xl font-bold">Welcome To DGA Components</h1>
       <div className="flex flex-col gap-6">
@@ -66,6 +66,8 @@ export default function Home() {
             LTR
           </Button>
         </div>
+        {/* Demo Tabs Section */}
+        
       </div>
     </div>
   )
