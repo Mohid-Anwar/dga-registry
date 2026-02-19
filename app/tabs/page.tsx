@@ -10,7 +10,7 @@ export default function TabsPage() {
           <TabsTrigger value="account">Account</TabsTrigger>
           <TabsTrigger value="password">Password</TabsTrigger>
           <TabsTrigger value="settings">Settings</TabsTrigger>
-          <TabsTrigger value="settings">Fourth</TabsTrigger>
+          <TabsTrigger value="fourth">Fourth</TabsTrigger>
         </TabsList>
         <TabsContent value="account">
           <div className="p-4">Account tab content goes here.</div>
@@ -20,6 +20,9 @@ export default function TabsPage() {
         </TabsContent>
         <TabsContent value="settings">
           <div className="p-4">Settings tab content goes here.</div>
+        </TabsContent>
+        <TabsContent value="fourth">
+          <div className="p-4">Fourth tab content goes here.</div>
         </TabsContent>
       </Tabs>
     </main>
