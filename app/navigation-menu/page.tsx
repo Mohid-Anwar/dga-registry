@@ -12,7 +12,7 @@ export default function NavigationMenuPage() {
   }
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center p-8" dir={dir}>
+    <div className="min-h-screen p-8" dir={dir}>
       <button
         type="button"
         onClick={toggleLanguage}
@@ -21,13 +21,15 @@ export default function NavigationMenuPage() {
         {lang === "ar" ? "English" : "العربية"}
       </button>
       
-      <div className="mb-8 text-center">
-        <h1 className="text-3xl font-bold mb-2">Navigation Menu</h1>
-        <p className="text-muted-foreground">
-          A collection of links for navigating websites.
-        </p>
+      <div className="flex flex-col items-center pt-20">
+        <div className="mb-8 text-center">
+          <h1 className="text-3xl font-bold mb-2">Navigation Menu</h1>
+          <p className="text-muted-foreground">
+            A collection of links for navigating websites.
+          </p>
+        </div>
+        <NavigationMenuRtl dir={dir} lang={lang} />
       </div>
-      <NavigationMenuRtl dir={dir} lang={lang} />
     </div>
   )
 }
