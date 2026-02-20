@@ -187,6 +187,16 @@
         {
           "path": "registry/dga/ui/card.tsx",
           "type": "registry:ui"
+        },
+        {
+          "path": "styles/tokens.css",
+          "type": "registry:component",
+          "target": "styles/tokens.css"
+        },
+        {
+          "path": "app/globals.css",
+          "type": "registry:component",
+          "target": "app/globals.css"
         }
       ]
     },
