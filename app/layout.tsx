@@ -21,14 +21,16 @@ export const metadata: Metadata = {
 }
 
 export default function RootLayout({
-  children,
+  children
 }: {
   children: React.ReactNode
 }) {
+  let lang = "en"
+  const dir = lang === "ar" ? "rtl" : "ltr"
   return (
     <html
-      lang="ar"
-      dir="rtl"
+      lang={lang}
+      dir={dir}
       className={`${geistSans.variable} ${geistMono.variable}`}
     >
       <body>

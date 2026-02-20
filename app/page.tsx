@@ -5,6 +5,7 @@ import * as React from "react"
 import { useAppDirection } from "@/components/direction-context"
 import { Button } from "@/registry/dga/ui/button"
 
+
 export default function Home() {
   const { direction, setDirection } = useAppDirection()
 
@@ -25,7 +26,9 @@ export default function Home() {
   ]
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center">
+    <div
+      className="flex min-h-screen flex-col items-center justify-center"
+    >
       <h1 className="mb-8 text-4xl font-bold">Welcome To DGA Components</h1>
       <div className="flex flex-col gap-6">
         {/* Button grid: 4 per row, 12 total */}
@@ -60,6 +63,8 @@ export default function Home() {
             LTR
           </Button>
         </div>
+        {/* Demo Tabs Section */}
+        
       </div>
     </div>
   )
