@@ -179,10 +179,10 @@ export function NavigationMenuRtl({ dir, lang }: NavigationMenuRtlProps) {
   const { t, language } = useTranslation(translations, lang)
 
   return (
-    <NavigationMenu dir={dir}>
-      <NavigationMenuList>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>{t.gettingStarted}</NavigationMenuTrigger>
+    <NavigationMenu dir={dir} className="h-full nav">
+      <NavigationMenuList className="h-full">
+        <NavigationMenuItem className="h-full">
+          <NavigationMenuTrigger className="h-full">{t.gettingStarted}</NavigationMenuTrigger>
           <NavigationMenuContent
             dir={dir}
             data-lang={dir === "rtl" ? language : undefined}
@@ -200,8 +200,8 @@ export function NavigationMenuRtl({ dir, lang }: NavigationMenuRtlProps) {
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
-        <NavigationMenuItem className="hidden md:flex">
-          <NavigationMenuTrigger>{t.components}</NavigationMenuTrigger>
+        <NavigationMenuItem className="h-full md:flex">
+          <NavigationMenuTrigger className="h-full">{t.components}</NavigationMenuTrigger>
           <NavigationMenuContent
             dir={dir}
             data-lang={dir === "rtl" ? language : undefined}
@@ -219,7 +219,7 @@ export function NavigationMenuRtl({ dir, lang }: NavigationMenuRtlProps) {
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
-        <NavigationMenuItem>
+        <NavigationMenuItem className="h-full">
           <NavigationMenuLink
             asChild
             className={navigationMenuTriggerStyle()}

@@ -28,7 +28,9 @@ export default function NavigationMenuPage() {
             A collection of links for navigating websites.
           </p>
         </div>
-        <NavigationMenuRtl dir={dir} lang={lang} />
+        <div className="h-16 border border-border rounded-md">
+          <NavigationMenuRtl dir={dir} lang={lang} />
+        </div>
       </div>
     </div>
   )
