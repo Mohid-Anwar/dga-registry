@@ -14,7 +14,7 @@ export default function Home() {
     { label: "Card", enabled: true, href: "/card" },
     { label: "Table", enabled: true, href: "/table" },
     { label: "Tabs", enabled: true, href: "/tabs" },
-    { label: "Button 5", enabled: false },
+    { label: "Navigation Menu", enabled: true, href: "/navigation-menu" },
     { label: "Button 6", enabled: false },
     { label: "Button 7", enabled: false },
     { label: "Button 8", enabled: false },
