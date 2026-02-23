@@ -141,11 +141,6 @@
           "path": "styles/tokens.css",
           "type": "registry:component",
           "target": "styles/tokens.css"
-        },
-        {
-          "path": "app/globals.css",
-          "type": "registry:component",
-          "target": "app/globals.css"
         }
       ]
     },
@@ -192,11 +187,6 @@
           "path": "styles/tokens.css",
           "type": "registry:component",
           "target": "styles/tokens.css"
-        },
-        {
-          "path": "app/globals.css",
-          "type": "registry:component",
-          "target": "app/globals.css"
         }
       ]
     },
@@ -729,6 +719,11 @@
         {
           "path": "registry/dga/ui/table.tsx",
           "type": "registry:ui"
+        },
+        {
+          "path": "styles/tokens.css",
+          "type": "registry:component",
+          "target": "styles/tokens.css"
         }
       ]
     },
