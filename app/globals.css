@@ -126,3 +126,9 @@
   font-style: normal;
   font-display: swap;
 }
+
+
+
+.nav > div {
+  height: 100%;
+}
