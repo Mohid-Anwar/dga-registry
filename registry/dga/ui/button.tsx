@@ -10,24 +10,24 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-button-primary-default text-primary-foreground hover:bg-button-primary-hovered active:bg-button-primary-pressed data-[state=open]:bg-button-primary-selected focus-visible:bg-button-primary-focused",
+          "bg-[var(--button-button-background-primary-default)] text-primary-foreground hover:bg-[var(--button-button-background-primary-hovered)] active:bg-[var(--button-button-background-primary-pressed)] data-[state=open]:bg-[var(--button-button-background-primary-selected)] focus-visible:bg-[var(--button-button-background-primary-focused)]",
         destructive:
-          "bg-button-danger-primary-default text-white hover:bg-button-danger-primary-hovered active:bg-button-danger-primary-pressed data-[state=open]:bg-button-danger-primary-selected focus-visible:bg-button-danger-primary-focused focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40",
+          "bg-[var(--button-button-background-danger-primary-default)] text-white hover:bg-[var(--button-button-background-danger-primary-hovered)] active:bg-[var(--button-button-background-danger-primary-pressed)] data-[state=open]:bg-[var(--button-button-background-danger-primary-selected)] focus-visible:bg-[var(--button-button-background-danger-primary-focused)] focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40",
         "destructive-secondary":
-          "bg-button-danger-secondary-default text-button-danger-primary-default hover:bg-button-danger-secondary-hovered active:bg-button-danger-secondary-pressed data-[state=open]:bg-button-danger-secondary-selected focus-visible:bg-button-danger-secondary-focused border border-border-error-light",
+          "bg-[var(--button-button-background-danger-secondary-default)] text-[var(--button-button-background-danger-primary-default)] hover:bg-[var(--button-button-background-danger-secondary-hovered)] active:bg-[var(--button-button-background-danger-secondary-pressed)] data-[state=open]:bg-[var(--button-button-background-danger-secondary-selected)] focus-visible:bg-[var(--button-button-background-danger-secondary-focused)] border border-[var(--border-error-light)]",
         outline:
           "border border-border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
         secondary:
-          "bg-button-neutral-default text-text-default hover:bg-button-neutral-hovered active:bg-button-neutral-pressed data-[state=open]:bg-button-neutral-selected focus-visible:bg-button-neutral-focused border border-border-neutral-primary",
+          "bg-[var(--button-button-background-neutral-default)] text-[var(--text-text-default)] hover:bg-[var(--button-button-background-neutral-hovered)] active:bg-[var(--button-button-background-neutral-pressed)] data-[state=open]:bg-[var(--button-button-background-neutral-selected)] focus-visible:bg-[var(--button-button-background-neutral-focused)] border border-[var(--border)]",
         ghost:
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
         black:
-          "bg-button-black-default text-white hover:bg-button-black-hovered active:bg-button-black-pressed data-[state=open]:bg-button-black-selected focus-visible:bg-button-black-focused",
+          "bg-[var(--button-button-background-black-default)] text-white hover:bg-[var(--button-button-background-black-hovered)] active:bg-[var(--button-button-background-black-pressed)] data-[state=open]:bg-[var(--button-button-background-black-selected)] focus-visible:bg-[var(--button-button-background-black-focused)]",
         "on-color":
-          "bg-button-oncolor-default text-text-default hover:bg-button-oncolor-hovered active:bg-button-oncolor-pressed data-[state=open]:bg-button-oncolor-selected focus-visible:bg-button-oncolor-focused",
+          "bg-[var(--button-button-background-oncolor-default)] text-[var(--text-text-default)] hover:bg-[var(--button-button-background-oncolor-hovered)] active:bg-[var(--button-button-background-oncolor-pressed)] data-[state=open]:bg-[var(--button-button-background-oncolor-selected)] focus-visible:bg-[var(--button-button-background-oncolor-focused)]",
         transparent:
-          "bg-button-transparent-default hover:bg-button-transparent-hovered active:bg-button-transparent-pressed data-[state=open]:bg-button-transparent-selected focus-visible:bg-button-transparent-focused text-primary",
+          "bg-[var(--button-button-background-transparent-default)] hover:bg-[var(--button-button-background-transparent-hovered)] active:bg-[var(--button-button-background-transparent-pressed)] data-[state=open]:bg-[var(--button-button-background-transparent-selected)] focus-visible:bg-[var(--button-button-background-transparent-focused)] text-primary",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
