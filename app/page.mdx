@@ -1,0 +1,62 @@
+import Link from "next/link"
+import { DocsLayout } from "@/components/docs/docs-layout"
+
+export const metadata = {
+  title: "DGA Registry",
+  description:
+    "A collection of Saudi Data Governance UI components and utilities for Next.js apps.",
+}
+
+export const components = [
+  { label: "Button", href: "/button" },
+  { label: "Card", href: "/card" },
+  { label: "Checkbox", href: "/checkbox" },
+  { label: "Input", href: "/input" },
+  { label: "Navigation Menu", href: "/navigation-menu" },
+  { label: "Radio Group", href: "/radio-group" },
+  { label: "Select", href: "/select" },
+  { label: "Table", href: "/table" },
+  { label: "Tabs", href: "/tabs" },
+]
+
+<DocsLayout>
+
+# DGA Registry
+
+A collection of Saudi Data Governance UI components and utilities for Next.js apps. Built on **shadcn/ui** with DGA design tokens, RTL support, and IBM Plex Sans Arabic typography.
+
+## Installation
+
+Add any component to your project with a single command:
+
+```bash
+pnpm dlx shadcn add https://dga-registry.vercel.app/r/<component>.json
+```
+
+Or with npm:
+
+```bash
+npx shadcn add https://dga-registry.vercel.app/r/<component>.json
+```
+
+## Getting Started
+
+1. Install dependencies for your Next.js project.
+2. Run the install command for any component you need.
+3. Import and use the component in your app.
+
+## Components
+
+<div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+  {components.map((component) => (
+    <Link
+      key={component.href}
+      href={component.href}
+      className="block rounded-lg border border-border bg-background px-4 py-3 text-center text-sm font-medium transition-colors hover:bg-muted"
+    >
+      {component.label}
+    </Link>
+  ))}
+</div>
+
+</DocsLayout>

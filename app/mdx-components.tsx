@@ -1,0 +1,84 @@
+import type { MDXComponents } from "mdx/types"
+
+export function useMDXComponents(components: MDXComponents): MDXComponents {
+  return {
+    h1: ({ children }) => (
+      <h1 className="scroll-m-20 text-3xl font-bold tracking-tight">
+        {children}
+      </h1>
+    ),
+    h2: ({ children }) => (
+      <h2 className="mt-10 scroll-m-20 border-b pb-2 text-2xl font-semibold tracking-tight first:mt-0">
+        {children}
+      </h2>
+    ),
+    h3: ({ children }) => (
+      <h3 className="mt-8 scroll-m-20 text-xl font-semibold tracking-tight">
+        {children}
+      </h3>
+    ),
+    h4: ({ children }) => (
+      <h4 className="mt-6 scroll-m-20 text-lg font-semibold tracking-tight">
+        {children}
+      </h4>
+    ),
+    p: ({ children }) => (
+      <p className="leading-7 text-muted-foreground [&:not(:first-child)]:mt-4">
+        {children}
+      </p>
+    ),
+    ul: ({ children }) => (
+      <ul className="my-4 ml-6 list-disc text-muted-foreground [&>li]:mt-2">
+        {children}
+      </ul>
+    ),
+    ol: ({ children }) => (
+      <ol className="my-4 ml-6 list-decimal text-muted-foreground [&>li]:mt-2">
+        {children}
+      </ol>
+    ),
+    code: ({ children }) => (
+      <code className="relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm bg-black/10">
+        {children}
+      </code>
+    ),
+    pre: ({ children }) => (
+      <pre className="my-4 overflow-x-auto rounded-lg border bg-zinc-950 p-4 text-sm text-zinc-50 dark:bg-zinc-900">
+        {children}
+      </pre>
+    ),
+    hr: () => <hr className="my-8 border-border" />,
+    table: ({ children }) => (
+      <div className="my-6 w-full overflow-y-auto">
+        <table className="w-full text-sm">{children}</table>
+      </div>
+    ),
+    th: ({ children }) => (
+      <th className="border border-border bg-muted/50 px-4 py-2 text-left font-semibold">
+        {children}
+      </th>
+    ),
+    td: ({ children }) => (
+      <td className="border border-border px-4 py-2 text-muted-foreground">
+        {children}
+      </td>
+    ),
+    blockquote: ({ children }) => (
+      <blockquote className="my-4 border-l-4 border-border pl-4 text-muted-foreground italic">
+        {children}
+      </blockquote>
+    ),
+    strong: ({ children }) => (
+      <strong className="font-semibold text-foreground">{children}</strong>
+    ),
+    a: ({ children, href }) => (
+      <a
+        href={href}
+        className="font-medium text-primary underline underline-offset-4"
+      >
+        {children}
+      </a>
+    ),
+    ...components,
+  }
+}

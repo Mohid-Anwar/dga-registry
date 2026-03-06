@@ -1,0 +1,48 @@
+import { DocsLayout } from "@/components/docs/docs-layout"
+import { NavigationMenuDemo } from "./demos"
+
+export const metadata = {
+  title: "Navigation Menu – DGA Registry",
+  description: "A collection of links for navigating websites with full RTL support.",
+}
+
+<DocsLayout>
+
+# Navigation Menu
+
+A collection of links for navigating websites. Supports full RTL layout with Arabic and Hebrew translations.
+
+## Installation
+
+```bash
+pnpm dlx shadcn add https://dga-registry.vercel.app/r/navigation-menu.json
+```
+
+## Demo
+
+Toggle between English and Arabic to see the RTL layout in action.
+
+<NavigationMenuDemo />
+
+## Sub-components
+
+| Component | Description |
+| --- | --- |
+| `NavigationMenu` | Root wrapper with viewport container. |
+| `NavigationMenuList` | Top-level list of menu items. |
+| `NavigationMenuItem` | Individual menu item wrapper. |
+| `NavigationMenuTrigger` | Button that opens a dropdown panel. |
+| `NavigationMenuContent` | Dropdown panel content area. |
+| `NavigationMenuLink` | Styled link element. |
+| `NavigationMenuIndicator` | Active indicator bar. |
+| `NavigationMenuViewport` | Animated viewport for dropdown content. |
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `dir` | `"ltr" \| "rtl"` | — | Text direction for RTL support |
+| `lang` | `string` | — | Language code for translations |
+| `className` | `string` | — | Additional CSS classes |
+
+</DocsLayout>
