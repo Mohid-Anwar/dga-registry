@@ -19,6 +19,14 @@ const MANY_TABS = [
   "Integrations",
   "API Keys",
   "Audit Log",
+  "Account2",
+  "Password2",
+  "Security2",
+  "Notifications2",
+  "Billing2",
+  "Integrations2",
+  "API Keys2",
+  "Audit Log2",
 ]
 
 /* ═══════════════════════════════════════════
