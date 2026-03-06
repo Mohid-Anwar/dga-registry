@@ -5,7 +5,6 @@ import * as React from "react"
 import { useAppDirection } from "@/components/direction-context"
 import { Button } from "@/registry/dga/ui/button"
 
-
 export default function Home() {
   const { direction, setDirection } = useAppDirection()
 
@@ -13,9 +12,9 @@ export default function Home() {
   const buttons = [
     { label: "Button", enabled: true, href: "/button" },
     { label: "Card", enabled: true, href: "/card" },
-    { label: "Button 3", enabled: false },
-    { label: "Button 4", enabled: false },
-    { label: "Button 5", enabled: false },
+    { label: "Table", enabled: true, href: "/table" },
+    { label: "Tabs", enabled: true, href: "/tabs" },
+    { label: "Navigation Menu", enabled: true, href: "/navigation-menu" },
     { label: "Button 6", enabled: false },
     { label: "Button 7", enabled: false },
     { label: "Button 8", enabled: false },
@@ -26,9 +25,7 @@ export default function Home() {
   ]
 
   return (
-    <div
-      className="flex min-h-screen flex-col items-center justify-center"
-    >
+    <div className="flex min-h-screen flex-col items-center justify-center">
       <h1 className="mb-8 text-4xl font-bold">Welcome To DGA Components</h1>
       <div className="flex flex-col gap-6">
         {/* Button grid: 4 per row, 12 total */}
@@ -64,7 +61,6 @@ export default function Home() {
           </Button>
         </div>
         {/* Demo Tabs Section */}
-        
       </div>
     </div>
   )
