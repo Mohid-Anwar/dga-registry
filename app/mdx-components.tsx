@@ -1,6 +1,18 @@
 import type { MDXComponents } from "mdx/types"
+import { Children, type ReactNode } from "react"
+
+// The Rust MDX compiler (mdxRs) inserts whitespace text nodes ("\n") between
+// table elements. These are invalid as direct children of <table>, <thead>,
+// <tbody>, and <tr> in HTML, causing hydration errors. Strip them out.
+function stripWhitespace(children: ReactNode): ReactNode[] {
+  return Children.toArray(children).filter(
+    (child) => !(typeof child === "string" && child.trim() === "")
+  )
+}
+
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
+ 
   return {
     h1: ({ children }) => (
       <h1 className="scroll-m-20 text-3xl font-bold tracking-tight">
@@ -50,8 +62,17 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     hr: () => <hr className="my-8 border-border" />,
     table: ({ children }) => (
       <div className="my-6 w-full overflow-y-auto">
-        <table className="w-full text-sm">{children}</table>
+        <table className="w-full text-sm">{stripWhitespace(children)}</table>
       </div>
+    ),
+    thead: ({ children }) => (
+      <thead>{stripWhitespace(children)}</thead>
+    ),
+    tbody: ({ children }) => (
+      <tbody>{stripWhitespace(children)}</tbody>
+    ),
+    tr: ({ children }) => (
+      <tr>{stripWhitespace(children)}</tr>
     ),
     th: ({ children }) => (
       <th className="border border-border bg-muted/50 px-4 py-2 text-left font-semibold">
