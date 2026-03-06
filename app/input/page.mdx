@@ -1,0 +1,84 @@
+import { DocsLayout } from "@/components/docs/docs-layout"
+import { DirectionToggle } from "@/components/docs/direction-toggle"
+import { InstallCommand } from "@/components/docs/install-command"
+import {
+  InputBasicStates,
+  InputTypes,
+  InputWithIcons,
+  InputForms,
+  InputSizing,
+  InputFileUpload,
+  InputAdvanced,
+} from "./demos"
+
+export const metadata = {
+  title: "Input – DGA Registry",
+  description: "Displays a form input field or a component that looks like an input field.",
+}
+
+<DocsLayout>
+
+# Input
+
+Displays a form input field or a component that looks like an input field.
+
+<DirectionToggle />
+
+## Installation
+
+<InstallCommand componentName="input" />
+
+## Basic States
+
+Default, disabled, invalid, and read-only states.
+
+<InputBasicStates />
+
+## Input Types
+
+Different HTML input types supported.
+
+<InputTypes />
+
+## Input with Icons
+
+Examples of inputs styled with icons using wrapper divs.
+
+<InputWithIcons />
+
+## Form Examples
+
+Real-world form scenarios using the Input component.
+
+<InputForms />
+
+## Input Sizing
+
+Inputs with different width constraints.
+
+<InputSizing />
+
+## File Upload
+
+File input with custom styling.
+
+<InputFileUpload />
+
+## Advanced Patterns
+
+Complex input patterns and combinations.
+
+<InputAdvanced />
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `type` | `string` | `"text"` | HTML input type |
+| `placeholder` | `string` | — | Placeholder text |
+| `disabled` | `boolean` | `false` | Disables the input |
+| `readOnly` | `boolean` | `false` | Makes input read-only |
+| `aria-invalid` | `string` | — | Marks input as invalid |
+| `className` | `string` | — | Additional CSS classes |
+
+</DocsLayout>

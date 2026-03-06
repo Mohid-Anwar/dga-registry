@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { DocsLayout } from "@/components/docs/docs-layout"
+import { InstallCommand } from "@/components/docs/install-command"
 
 export const metadata = {
   title: "DGA Registry",
@@ -29,20 +30,30 @@ A collection of Saudi Data Governance UI components and utilities for Next.js ap
 
 Add any component to your project with a single command:
 
-```bash
-pnpm dlx shadcn add https://dga-registry.vercel.app/r/<component>.json
-```
-
-Or with npm:
-
-```bash
-npx shadcn add https://dga-registry.vercel.app/r/<component>.json
-```
+<InstallCommand componentName="[component]" />
 
 ## Getting Started
 
-1. Install dependencies for your Next.js project.
+1. Install the shadcn CLI if you haven't already:
+   <InstallCommand variant="init" />
+
+1.1 Quick Configuration (Optional **but recommended**)
+
+Add registries to your components.json:
+
+```json
+{
+  "registries": [
+    {
+      "name": "DGA Registry",
+      "url": "https://dga-registry.vercel.app/r"
+    }
+  ]
+}
+```
+   
 2. Run the install command for any component you need.
+
 3. Import and use the component in your app.
 
 ## Components

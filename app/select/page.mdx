@@ -1,0 +1,99 @@
+import { DocsLayout } from "@/components/docs/docs-layout"
+import { DirectionToggle } from "@/components/docs/direction-toggle"
+import { InstallCommand } from "@/components/docs/install-command"
+import {
+  SelectBasic,
+  SelectSizes,
+  SelectGrouped,
+  SelectWithIcons,
+  SelectControlled,
+  SelectForms,
+  SelectWidths,
+} from "./demos"
+
+export const metadata = {
+  title: "Select – DGA Registry",
+  description: "Displays a list of options for the user to pick from — triggered by a button.",
+}
+
+<DocsLayout>
+
+# Select
+
+Displays a list of options for the user to pick from — triggered by a button.
+
+<DirectionToggle />
+
+## Installation
+
+<InstallCommand componentName="select" />
+
+## Basic Select
+
+Simple select examples with different options and disabled state.
+
+<SelectBasic />
+
+## Select Sizes
+
+Different size variants of the select component.
+
+<SelectSizes />
+
+## Grouped Select
+
+Select with grouped options, labels, and separators.
+
+<SelectGrouped />
+
+## Select with Icons
+
+Select items with icon prefixes.
+
+<SelectWithIcons />
+
+## Controlled Select
+
+Select with controlled state and value display.
+
+<SelectControlled />
+
+## Form Examples
+
+Real-world form scenarios using the Select component.
+
+<SelectForms />
+
+## Width Variations
+
+Select with different width configurations.
+
+<SelectWidths />
+
+## Props
+
+### Select
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `defaultValue` | `string` | — | The default selected value |
+| `value` | `string` | — | Controlled selected value |
+| `onValueChange` | `(value: string) => void` | — | Callback when value changes |
+| `disabled` | `boolean` | `false` | Disables the select |
+
+### SelectTrigger
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `size` | `"default" \| "sm"` | `"default"` | Size variant |
+| `className` | `string` | — | Additional CSS classes |
+
+### SelectItem
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `value` | `string` | — | The value of the item |
+| `disabled` | `boolean` | `false` | Disables this item |
+| `children` | `ReactNode` | — | Item content (text, icons) |
+
+</DocsLayout>
