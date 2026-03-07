@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { DocsLayout } from "@/components/docs/docs-layout"
 import { InstallCommand } from "@/components/docs/install-command"
+import { getUIComponents } from "@/lib/get-components"
 
 export const metadata = {
   title: "DGA Registry",
@@ -8,17 +9,7 @@ export const metadata = {
     "A collection of Saudi Data Governance UI components and utilities for Next.js apps.",
 }
 
-export const components = [
-  { label: "Button", href: "/button" },
-  { label: "Card", href: "/card" },
-  { label: "Checkbox", href: "/checkbox" },
-  { label: "Input", href: "/input" },
-  { label: "Navigation Menu", href: "/navigation-menu" },
-  { label: "Radio Group", href: "/radio-group" },
-  { label: "Select", href: "/select" },
-  { label: "Table", href: "/table" },
-  { label: "Tabs", href: "/tabs" },
-]
+export const components = getUIComponents()
 
 <DocsLayout>
 
@@ -61,11 +52,11 @@ Add registries to your components.json:
 <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
   {components.map((component) => (
     <Link
-      key={component.href}
-      href={component.href}
-      className="block rounded-lg border border-border bg-background px-4 py-3 text-center text-sm font-medium transition-colors hover:bg-muted"
+      key={component.slug}
+      href={`/${component.slug}`}
+      className="block rounded-lg border px-4 py-3 text-center text-sm font-medium hover:bg-muted"
     >
-      {component.label}
+      {component.name}
     </Link>
   ))}
 </div>
