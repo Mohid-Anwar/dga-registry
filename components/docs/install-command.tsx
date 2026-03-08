@@ -2,11 +2,9 @@
 
 import { useState } from "react"
 import { Copy, Check } from "lucide-react"
-import { Button } from "@/registry/dga/ui/button"
 
 type PackageManager = "pnpm" | "npm" | "yarn" | "bun"
-
-type Variant = "add" | "init"
+type Variant = "add" | "init" | "init-next" | "init-laravel" | "globals"
 
 type Commands = Partial<Record<PackageManager, string>>
 
@@ -31,23 +29,68 @@ function buildInitCommands(): Commands {
   }
 }
 
+function buildNextInitCommands(rtl = false): Commands {
+  const rtlFlag = rtl ? " --rtl" : ""
+  return {
+    pnpm: `pnpm dlx shadcn@latest init -t next --radix${rtlFlag}`,
+    npm: `npx shadcn@latest init -t next --radix${rtlFlag}`,
+    yarn: `yarn dlx shadcn@latest init -t next --radix${rtlFlag}`,
+    bun: `bunx --bun shadcn@latest init -t next --radix${rtlFlag}`,
+  }
+}
+
+function buildLaravelInitCommands(rtl = false): Commands {
+  const rtlFlag = rtl ? " --rtl" : ""
+  return {
+    pnpm: `pnpm dlx shadcn@latest init -t laravel --radix${rtlFlag}`,
+    npm: `npx shadcn@latest init -t laravel --radix${rtlFlag}`,
+    yarn: `yarn dlx shadcn@latest init -t laravel --radix${rtlFlag}`,
+    bun: `bunx --bun shadcn@latest init -t laravel --radix${rtlFlag}`,
+  }
+}
+
+// Single-command (no tabs), used for the globals.css import note
+const GLOBALS_IMPORT = `@import "../styles/tokens.css";`
 
 export function InstallCommand({
   commands,
-    componentName,
+  componentName,
   variant = "add",
+  rtl = false,
 }: {
   commands?: Commands
-        componentName?: string
+  componentName?: string
   variant?: Variant
+  rtl?: boolean
 }) {
+  // globals variant: just show a plain code block (no PM tabs)
+  if (variant === "globals") {
+    return (
+      <div className="my-4 rounded-xl border bg-zinc-950 text-zinc-100">
+        <div className="flex items-center justify-between border-b border-zinc-800 px-4 py-2">
+          <span className="text-xs font-medium text-zinc-400">
+            app/globals.css
+          </span>
+        </div>
+        <pre className="overflow-x-auto px-4 py-3 text-sm">
+          <code>{GLOBALS_IMPORT}</code>
+        </pre>
+      </div>
+    )
+  }
+
   const resolvedCommands =
-  commands ??
-  (variant === "init"
-    ? buildInitCommands()
-    : componentName
-    ? buildCommands(componentName)
-    : {})
+    commands ??
+    (variant === "init"
+      ? buildInitCommands()
+      : variant === "init-next"
+      ? buildNextInitCommands(rtl)
+      : variant === "init-laravel"
+      ? buildLaravelInitCommands(rtl)
+      : componentName
+      ? buildCommands(componentName)
+      : {})
+
   const managers = Object.keys(resolvedCommands) as PackageManager[]
   const [active, setActive] = useState<PackageManager>(managers[0])
   const [copied, setCopied] = useState(false)
@@ -80,18 +123,16 @@ export function InstallCommand({
           ))}
         </div>
 
-        <Button
-          variant="ghost"
-          size="icon-xs"
+        <button
           onClick={copy}
-          className="text-zinc-400 hover:text-zinc-100 hover:bg-zinc-800"
+          className="flex items-center justify-center rounded-md p-1.5 text-zinc-400 transition-colors hover:bg-zinc-800 hover:text-zinc-100"
         >
           {copied ? <Check className="size-3.5" /> : <Copy className="size-3.5" />}
-        </Button>
+        </button>
       </div>
 
       {/* Code */}
-      <pre className="px-4 py-3 text-sm overflow-x-auto">
+      <pre className="overflow-x-auto px-4 py-3 text-sm">
         <code>{command}</code>
       </pre>
     </div>

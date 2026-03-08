@@ -31,10 +31,10 @@ export function DocsShell({
     <SidebarProvider open={open} onOpenChange={handleOpenChange}>
       <CommandMenu components={components} />
       <AppSidebar components={components} />
-      <SidebarInset>
+      <SidebarInset className="min-w-0 overflow-hidden">
         <AppHeader />
-        <main className="flex-1 overflow-y-auto">
-          <div className="mx-auto px-6 py-10">{children}</div>
+        <main className="flex-1 overflow-y-auto overflow-x-hidden min-w-0">
+          <div className="mx-auto px-6 py-10 max-w-full">{children}</div>
         </main>
       </SidebarInset>
     </SidebarProvider>

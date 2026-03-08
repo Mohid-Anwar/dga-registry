@@ -1,6 +1,8 @@
 import Link from "next/link"
 import { DocsLayout } from "@/components/docs/docs-layout"
 import { InstallCommand } from "@/components/docs/install-command"
+import { RegistryBlock } from "@/components/docs/registry-block"
+import { CodeBlock } from "@/components/docs/code-block"
 import { getUIComponents } from "@/lib/get-components"
 
 export const metadata = {
@@ -17,35 +19,78 @@ export const components = getUIComponents()
 
 A collection of Saudi Data Governance UI components and utilities for Next.js apps. Built on **shadcn/ui** with DGA design tokens, RTL support, and IBM Plex Sans Arabic typography.
 
-## Installation
+---
+
+## New Project Setup
+
+### Next.js
+
+Run the `init` command to create a new Next.js project or set up an existing one.
+The `--radix` flag is required to use DGA Registry components.
+
+<InstallCommand variant="init-next" />
+
+Need RTL (Arabic) support? Add the `--rtl` flag:
+
+<InstallCommand variant="init-next" rtl />
+
+### Laravel
+
+<InstallCommand variant="init-laravel" />
+
+With RTL:
+
+<InstallCommand variant="init-laravel" rtl />
+
+---
+
+## Add the DGA Registry
+
+This will enable short-hand `@dga/` imports in your `components.json`:
+
+<RegistryBlock />
+
+---
+
+## Add the Design Tokens
+
+Once initialized, add this import to the top of your `globals.css`:
+
+<InstallCommand variant="globals" />
+
+This loads all DGA color tokens, spacing, and typography variables.
+
+---
+
+## Installing Components
 
 Add any component to your project with a single command:
 
 <InstallCommand componentName="[component]" />
 
-## Getting Started
+---
 
-1. Install the shadcn CLI if you haven't already:
-   <InstallCommand variant="init" />
+## Example Usage
 
-1.1 Quick Configuration (Optional **but recommended**)
+After installing the `Button` component:
 
-Add registries to your components.json:
+<CodeBlock
+  filename="app/page.tsx"
+  language="tsx"
+  showLineNumbers
+  highlightLines={[1, 6]}
+  code={`import { Button } from "@/components/ui/button"
 
-```json
-{
-  "registries": [
-    {
-      "name": "DGA Registry",
-      "url": "https://dga-registry.vercel.app/r"
-    }
-  ]
-}
-```
-   
-2. Run the install command for any component you need.
+export default function Home() {
+  return (
+    <div>
+      <Button>Click me</Button>
+    </div>
+  )
+}`}
+/>
 
-3. Import and use the component in your app.
+---
 
 ## Components
 
