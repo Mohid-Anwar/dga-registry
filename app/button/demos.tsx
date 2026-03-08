@@ -26,8 +26,8 @@ import { Button } from "@/registry/dga/ui/button"
 export function ButtonVariants() {
   return (
     <div className="rounded-lg border bg-background p-6">
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
-        <Button variant="default">Default</Button>
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-4">
+        <Button  variant="default">Default</Button>
         <Button variant="default" disabled>Default Disabled</Button>
 
         <Button variant="secondary">Secondary</Button>
