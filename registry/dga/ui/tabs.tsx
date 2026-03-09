@@ -26,16 +26,26 @@ function Tabs({
 }
 
 const tabsListVariants = cva(
-  "px-[3px] border-b-2 border-b-[var(--colors-neutral200)] group-data-[orientation=horizontal]/tabs:h-9 data-[variant=line]:rounded-none group/tabs-list text-muted-foreground inline-flex w-full items-center justify-center group-data-[orientation=vertical]/tabs:h-fit group-data-[orientation=vertical]/tabs:flex-col",
+  "px-[3px] border-b-2 border-b-[var(--colors-neutral200)] group-data-[orientation=horizontal]/tabs:h-9 data-[variant=line]:rounded-none group/tabs-list text-muted-foreground inline-flex w-full items-center group-data-[orientation=vertical]/tabs:h-fit group-data-[orientation=vertical]/tabs:flex-col",
   {
     variants: {
       variant: {
-        default: "bg-transparent",
-        line: "gap-1 bg-transparent",
+        default: "bg-transparent justify-center",
+        line: "gap-1 bg-transparent justify-start pb-1",
+      },
+      scrollable: {
+        true: "overflow-x-auto overflow-y-hidden whitespace-nowrap justify-start pb-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden",
+        false: "",
+      },
+      snap: {
+        true: "snap-x snap-mandatory scroll-smooth",
+        false: "",
       },
     },
     defaultVariants: {
       variant: "default",
+      scrollable: false,
+      snap: false,
     },
   }
 )
@@ -43,16 +53,54 @@ const tabsListVariants = cva(
 function TabsList({
   className,
   variant = "default",
+  scrollable,
+  snap,
+  fadeEdges,
   ...props
 }: React.ComponentProps<typeof TabsPrimitive.List> &
-  VariantProps<typeof tabsListVariants>) {
+  VariantProps<typeof tabsListVariants> & {
+    fadeEdges?: boolean
+  }) {
+  const ref = React.useRef<React.ElementRef<typeof TabsPrimitive.List>>(null)
+  const [showLeft, setShowLeft] = React.useState(false)
+  const [showRight, setShowRight] = React.useState(false)
+
+  const updateFade = React.useCallback(() => {
+    const el = ref.current
+    if (!el) return
+    setShowLeft(el.scrollLeft > 0)
+    setShowRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 1)
+  }, [])
+
+  React.useEffect(() => {
+    if (!fadeEdges) return
+    const el = ref.current
+    if (!el) return
+    updateFade()
+    el.addEventListener("scroll", updateFade)
+    window.addEventListener("resize", updateFade)
+    return () => {
+      el.removeEventListener("scroll", updateFade)
+      window.removeEventListener("resize", updateFade)
+    }
+  }, [fadeEdges, updateFade])
+
   return (
-    <TabsPrimitive.List
-      data-slot="tabs-list"
-      data-variant={variant}
-      className={cn(tabsListVariants({ variant }), className)}
-      {...props}
-    />
+    <div className="relative w-full overflow-hidden">
+      {fadeEdges && showLeft && (
+        <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-8 bg-gradient-to-r from-background to-transparent" />
+      )}
+      <TabsPrimitive.List
+        ref={ref}
+        data-slot="tabs-list"
+        data-variant={variant}
+        className={cn(tabsListVariants({ variant, scrollable, snap }), className)}
+        {...props}
+      />
+      {fadeEdges && showRight && (
+        <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-8 bg-gradient-to-l from-background to-transparent" />
+      )}
+    </div>
   )
 }
 
@@ -64,7 +112,7 @@ function TabsTrigger({
     <TabsPrimitive.Trigger
       data-slot="tabs-trigger"
       className={cn(
-        "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring text-foreground/60 hover:text-foreground hover:bg-[color:var(--colors-neutral100)] dark:text-muted-foreground dark:hover:text-foreground relative inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 border-0 px-3 py-1 text-sm font-medium whitespace-nowrap transition-all bg-transparent group-data-[orientation=vertical]/tabs:w-full group-data-[orientation=vertical]/tabs:justify-start focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 group-data-[variant=line]/tabs-list:data-[state=active]:shadow-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring text-foreground/60 hover:text-foreground hover:bg-[color:var(--colors-neutral100)] dark:text-muted-foreground dark:hover:text-foreground relative inline-flex h-[calc(100%-1px)] flex-none snap-start items-center justify-center gap-1.5 border-0 px-3 py-1 text-sm font-medium whitespace-nowrap transition-all bg-transparent group-data-[orientation=vertical]/tabs:w-full group-data-[orientation=vertical]/tabs:justify-start focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 group-data-[variant=line]/tabs-list:data-[state=active]:shadow-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         "group-data-[variant=line]/tabs-list:bg-transparent group-data-[variant=line]/tabs-list:data-[state=active]:bg-transparent dark:group-data-[variant=line]/tabs-list:data-[state=active]:bg-transparent",
         "data-[state=active]:bg-transparent data-[state=active]:text-foreground",
         "after:absolute after:-bottom-1 after:left-3 after:right-3 after:h-[2px] after:bg-[var(--colors-primary-s-a-flag700,#104631)] after:opacity-0 after:transition-opacity data-[state=active]:after:opacity-100",
