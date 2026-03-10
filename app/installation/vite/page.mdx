@@ -1,0 +1,85 @@
+import { DocsLayout } from "@/components/docs/docs-layout"
+import { InstallCommand } from "@/components/docs/install-command"
+import { RegistryBlock } from "@/components/docs/registry-block"
+import { CodeBlock } from "@/components/docs/code-block"
+
+export const metadata = {
+  title: "Vite Installation – DGA Registry",
+  description: "Install and configure DGA Registry components for Vite.",
+}
+
+<DocsLayout>
+
+# Vite
+
+Install and configure DGA Registry components for Vite.
+
+---
+
+### Create Project
+
+Run the `init` command to create a new Vite project or set up an existing one:
+
+<InstallCommand variant="init-vite" />
+
+**For a monorepo project, use the `--monorepo` flag:**
+
+<InstallCommand variant="init-vite-monorepo" />
+
+---
+
+### Add the DGA Registry
+
+Add the DGA registry to your `components.json` to enable `@dga/` imports:
+
+<RegistryBlock />
+
+---
+
+### Add the Design Tokens
+
+Add this import to the **top** of your `src/index.css`:
+
+<InstallCommand variant="globals-vite" />
+
+This loads all DGA color tokens, spacing, and typography variables.
+
+---
+
+### Arabic (RTL) Support
+
+Need RTL support? Re-run init with the `--rtl` flag:
+
+<InstallCommand variant="init-vite" rtl />
+
+---
+
+### Add Components
+
+You can now start adding components to your project:
+
+<InstallCommand componentName="button" />
+
+---
+
+### Example Usage
+
+The command above will add the `Button` component to your project. You can then import it like this:
+
+<CodeBlock
+  filename="src/App.tsx"
+  language="tsx"
+  showLineNumbers
+  highlightLines={[1, 6]}
+  code={`import { Button } from "@/components/ui/button"
+
+export default function Home() {
+  return (
+    <div>
+      <Button>Click me</Button>
+    </div>
+  )
+}`}
+/>
+
+</DocsLayout>

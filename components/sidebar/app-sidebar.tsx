@@ -77,6 +77,29 @@ export function AppSidebar({ components }: { components: Component[] }) {
         </SidebarGroup>
 
         <SidebarGroup>
+          <SidebarGroupLabel className="font-bold text-[var(--text-text-display)]">Installation</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild isActive={pathname === "/installation/nextjs"}>
+                  <Link href="/installation/nextjs">Next.js</Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild isActive={pathname === "/installation/vite"}>
+                  <Link href="/installation/vite">Vite</Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild isActive={pathname === "/installation/laravel"}>
+                  <Link href="/installation/laravel">Laravel</Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
+
+        <SidebarGroup>
           <SidebarGroupLabel className="font-bold text-[var(--text-text-display)]">Components</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>

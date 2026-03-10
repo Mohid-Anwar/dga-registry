@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Copy, Check } from "lucide-react"
 
 type PackageManager = "pnpm" | "npm" | "yarn" | "bun"
-type Variant = "add" | "init" | "init-next" | "init-laravel" | "globals"
+type Variant = "add" | "init" | "init-next" | "init-next-monorepo" | "init-laravel" | "init-vite" | "init-vite-monorepo" | "globals" | "globals-laravel" | "globals-vite" | "css-import" | "laravel-new"
 
 type Commands = Partial<Record<PackageManager, string>>
 
@@ -29,13 +29,14 @@ function buildInitCommands(): Commands {
   }
 }
 
-function buildNextInitCommands(rtl = false): Commands {
+function buildNextInitCommands(rtl = false, monorepo = false): Commands {
   const rtlFlag = rtl ? " --rtl" : ""
+  const monoFlag = monorepo ? " --monorepo" : ""
   return {
-    pnpm: `pnpm dlx shadcn@latest init -t next --radix${rtlFlag}`,
-    npm: `npx shadcn@latest init -t next --radix${rtlFlag}`,
-    yarn: `yarn dlx shadcn@latest init -t next --radix${rtlFlag}`,
-    bun: `bunx --bun shadcn@latest init -t next --radix${rtlFlag}`,
+    pnpm: `pnpm dlx shadcn@latest init -t next --radix${rtlFlag}${monoFlag}`,
+    npm: `npx shadcn@latest init -t next --radix${rtlFlag}${monoFlag}`,
+    yarn: `yarn dlx shadcn@latest init -t next --radix${rtlFlag}${monoFlag}`,
+    bun: `bunx --bun shadcn@latest init -t next --radix${rtlFlag}${monoFlag}`,
   }
 }
 
@@ -49,19 +50,36 @@ function buildLaravelInitCommands(rtl = false): Commands {
   }
 }
 
+function buildViteInitCommands(rtl = false, monorepo = false): Commands {
+  const rtlFlag = rtl ? " --rtl" : ""
+  const monoFlag = monorepo ? " --monorepo" : ""
+  return {
+    pnpm: `pnpm dlx shadcn@latest init -t vite --radix${rtlFlag}${monoFlag}`,
+    npm: `npx shadcn@latest init -t vite --radix${rtlFlag}${monoFlag}`,
+    yarn: `yarn dlx shadcn@latest init -t vite --radix${rtlFlag}${monoFlag}`,
+    bun: `bunx --bun shadcn@latest init -t vite --radix${rtlFlag}${monoFlag}`,
+  }
+}
+
 // Single-command (no tabs), used for the globals.css import note
 const GLOBALS_IMPORT = `@import "../styles/tokens.css";`
+const GLOBALS_LARAVEL_IMPORT = `@import "../../styles/tokens.css";`
+const GLOBALS_VITE_IMPORT = `@import "../styles/tokens.css";`
 
 export function InstallCommand({
   commands,
   componentName,
   variant = "add",
   rtl = false,
+  filename,
+  code,
 }: {
   commands?: Commands
   componentName?: string
   variant?: Variant
   rtl?: boolean
+  filename?: string
+  code?: string
 }) {
   // globals variant: just show a plain code block (no PM tabs)
   if (variant === "globals") {
@@ -79,14 +97,79 @@ export function InstallCommand({
     )
   }
 
+  // globals-laravel variant
+  if (variant === "globals-laravel") {
+    return (
+      <div className="my-4 rounded-xl border bg-zinc-950 text-zinc-100">
+        <div className="flex items-center justify-between border-b border-zinc-800 px-4 py-2">
+          <span className="text-xs font-medium text-zinc-400">
+            resources/css/app.css
+          </span>
+        </div>
+        <pre className="overflow-x-auto px-4 py-3 text-sm">
+          <code>{GLOBALS_LARAVEL_IMPORT}</code>
+        </pre>
+      </div>
+    )
+  }
+
+  // globals-vite variant
+  if (variant === "globals-vite") {
+    return (
+      <div className="my-4 rounded-xl border bg-zinc-950 text-zinc-100">
+        <div className="flex items-center justify-between border-b border-zinc-800 px-4 py-2">
+          <span className="text-xs font-medium text-zinc-400">
+            src/index.css
+          </span>
+        </div>
+        <pre className="overflow-x-auto px-4 py-3 text-sm">
+          <code>{GLOBALS_VITE_IMPORT}</code>
+        </pre>
+      </div>
+    )
+  }
+
+  // css-import variant: show a plain code block with custom filename
+  if (variant === "css-import" && filename && code) {
+    return (
+      <div className="my-4 rounded-xl border bg-zinc-950 text-zinc-100">
+        <div className="flex items-center justify-between border-b border-zinc-800 px-4 py-2">
+          <span className="text-xs font-medium text-zinc-400">
+            {filename}
+          </span>
+        </div>
+        <pre className="overflow-x-auto px-4 py-3 text-sm">
+          <code>{code}</code>
+        </pre>
+      </div>
+    )
+  }
+
+  // laravel-new variant: single non-tabbed command
+  if (variant === "laravel-new") {
+    return (
+      <div className="my-4 rounded-xl border bg-zinc-950 text-zinc-100">
+        <pre className="overflow-x-auto px-4 py-3 text-sm">
+          <code>laravel new my-app --react</code>
+        </pre>
+      </div>
+    )
+  }
+
   const resolvedCommands =
     commands ??
     (variant === "init"
       ? buildInitCommands()
       : variant === "init-next"
       ? buildNextInitCommands(rtl)
+      : variant === "init-next-monorepo"
+      ? buildNextInitCommands(rtl, true)
       : variant === "init-laravel"
       ? buildLaravelInitCommands(rtl)
+      : variant === "init-vite"
+      ? buildViteInitCommands(rtl)
+      : variant === "init-vite-monorepo"
+      ? buildViteInitCommands(rtl, true)
       : componentName
       ? buildCommands(componentName)
       : {})

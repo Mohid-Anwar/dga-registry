@@ -3,6 +3,7 @@ import { DocsLayout } from "@/components/docs/docs-layout"
 import { InstallCommand } from "@/components/docs/install-command"
 import { RegistryBlock } from "@/components/docs/registry-block"
 import { CodeBlock } from "@/components/docs/code-block"
+import { FrameworkCards } from "@/components/docs/framework-cards"
 import { getUIComponents } from "@/lib/get-components"
 
 export const metadata = {
@@ -15,50 +16,47 @@ export const components = getUIComponents()
 
 <DocsLayout>
 
-# DGA Registry
+<div className="space-y-2">
+  <h1 className="scroll-m-20 text-4xl font-bold tracking-tight">DGA Registry</h1>
+  <div className="text-lg text-muted-foreground max-w-2xl">
+    <span>Beautifully designed, accessible UI components built on </span>
+    <a href="https://ui.shadcn.com" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground underline underline-offset-4">
+      shadcn/ui
+    </a>
+    <span> with DGA design tokens, RTL support, and IBM Plex Sans Arabic typography.</span>
+  </div>
+</div>
 
-A collection of Saudi Data Governance UI components and utilities for Next.js apps. Built on **shadcn/ui** with DGA design tokens, RTL support, and IBM Plex Sans Arabic typography.
+<div className="mt-6 flex flex-wrap gap-3">
+  <Link
+    href="/installation/nextjs"
+    className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"
+  >
+    Get Started
+  </Link>
+  <Link
+    href="/button"
+    className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground"
+  >
+    Browse Components
+  </Link>
+</div>
 
 ---
 
-## New Project Setup
+## Installation
 
-### Next.js
+Choose your framework to get started:
 
-Run the `init` command to create a new Next.js project or set up an existing one.
-The `--radix` flag is required to use DGA Registry components.
-
-<InstallCommand variant="init-next" />
-
-Need RTL (Arabic) support? Add the `--rtl` flag:
-
-<InstallCommand variant="init-next" rtl />
-
-### Laravel
-
-<InstallCommand variant="init-laravel" />
-
-With RTL:
-
-<InstallCommand variant="init-laravel" rtl />
+<FrameworkCards />
 
 ---
 
 ## Add the DGA Registry
 
-This will enable short-hand `@dga/` imports in your `components.json`:
+After initialization, add the DGA registry to your `components.json` to enable short-hand `@dga/` imports:
 
 <RegistryBlock />
-
----
-
-## Add the Design Tokens
-
-Once initialized, add this import to the top of your `globals.css`:
-
-<InstallCommand variant="globals" />
-
-This loads all DGA color tokens, spacing, and typography variables.
 
 ---
 
@@ -70,7 +68,7 @@ Add any component to your project with a single command:
 
 ---
 
-## Example Usage
+## Example
 
 After installing the `Button` component:
 
@@ -99,11 +97,23 @@ export default function Home() {
     <Link
       key={component.slug}
       href={`/${component.slug}`}
-      className="block rounded-lg border px-4 py-3 text-center text-sm font-medium hover:bg-muted"
+      className="block rounded-lg border px-4 py-3 text-center text-sm font-medium transition-colors hover:bg-muted"
     >
       {component.name}
     </Link>
   ))}
 </div>
+
+---
+
+<div className="text-center flex mt-0">
+  <span>Built on </span>
+  <a href="https://ui.shadcn.com" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-foreground">
+     <span> {" "} shadcn/ui </span>
+  </a>
+  <span>. DGA design tokens and RTL adaptations by the DGA team.</span>
+</div>
+
+  
 
 </DocsLayout>

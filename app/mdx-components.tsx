@@ -35,17 +35,17 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       </h4>
     ),
     p: ({ children }) => (
-      <p className="leading-7 text-muted-foreground [&:not(:first-child)]:mt-4">
+      <p className="leading-7 [&:not(:first-child)]:mt-4">
         {children}
       </p>
     ),
     ul: ({ children }) => (
-      <ul className="my-4 ml-6 list-disc text-muted-foreground [&>li]:mt-2">
+      <ul className="my-4 ml-6 list-disc [&>li]:mt-2">
         {children}
       </ul>
     ),
     ol: ({ children }) => (
-      <ol className="my-4 ml-6 list-decimal text-muted-foreground [&>li]:mt-2">
+      <ol className="my-4 ml-6 list-decimal [&>li]:mt-2">
         {children}
       </ol>
     ),
@@ -80,12 +80,12 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       </th>
     ),
     td: ({ children }) => (
-      <td className="border border-border px-4 py-2 text-muted-foreground">
+      <td className="border border-border px-4 py-2">
         {children}
       </td>
     ),
     blockquote: ({ children }) => (
-      <blockquote className="my-4 border-l-4 border-border pl-4 text-muted-foreground italic">
+      <blockquote className="my-4 border-l-4 border-border pl-4 italic">
         {children}
       </blockquote>
     ),
