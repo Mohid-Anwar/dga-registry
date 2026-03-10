@@ -1,0 +1,79 @@
+import { DocsLayout } from "@/components/docs/docs-layout"
+import { DirectionToggle } from "@/components/docs/direction-toggle"
+import { InstallCommand } from "@/components/docs/install-command"
+import {
+  TableDataFull,
+  TableRcrcLtr,
+  TableRcrcRtl,
+  TableSimple,
+  TableRtlPreview,
+} from "./demos"
+
+export const metadata = {
+  title: "Table – DGA Registry",
+  description: "A responsive table component with selection, tags, status indicators, and RTL support.",
+}
+
+<DocsLayout>
+
+# Table
+
+A responsive table component with selection, tags, status indicators, links, and action buttons.
+
+<DirectionToggle />
+
+## Installation
+
+<InstallCommand componentName="table" />
+
+## Data Table
+
+Full-featured data table with checkbox selection, badge tags, status indicators, link columns, and row actions.
+
+<TableDataFull />
+
+## RCRC Table — LTR
+
+Full-featured data table matching the RCRC Main Design File component (LTR layout).
+
+<TableRcrcLtr />
+
+## RCRC Table — RTL
+
+Same table with Arabic layout — column order and alignment reverse automatically.
+
+<TableRcrcRtl />
+
+## Simple Table
+
+A minimal table with caption, header, body, and footer sections.
+
+<TableSimple />
+
+## RTL Table Preview
+
+Arabic data table with right-to-left text direction.
+
+<TableRtlPreview />
+
+## Sub-components
+
+| Component | Description |
+| --- | --- |
+| `Table` | Root `<table>` wrapper. |
+| `TableHeader` | `<thead>` element. |
+| `TableBody` | `<tbody>` element. |
+| `TableFooter` | `<tfoot>` element. |
+| `TableHead` | `<th>` header cell. |
+| `TableRow` | `<tr>` row element. Supports `data-state="selected"`. |
+| `TableCell` | `<td>` cell element. |
+| `TableCaption` | `<caption>` element. |
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `className` | `string` | — | Additional CSS classes |
+| `data-state` | `"selected"` | — | Applied to `TableRow` for selected styling |
+
+</DocsLayout>

@@ -1,0 +1,85 @@
+import { DocsLayout } from "@/components/docs/docs-layout"
+import { DirectionToggle } from "@/components/docs/direction-toggle"
+import { InstallCommand } from "@/components/docs/install-command"
+import {
+  CardImage,
+  CardCompact,
+  CardDetail,
+  CardSelectable,
+  CardActions,
+  CardMinimal,
+} from "./demos"
+
+export const metadata = {
+  title: "Card – DGA Registry",
+  description: "Displays a card with header, content, and footer.",
+}
+
+<DocsLayout>
+
+# Card
+
+Displays a card with header, content, and footer sections.
+
+<DirectionToggle />
+
+## Installation
+
+<InstallCommand componentName="card" />
+
+## Image Cards
+
+Cards with hero images, text content, and action buttons.
+
+<CardImage />
+
+## Compact Cards
+
+Compact row-style cards with icon, title, and description.
+
+<CardCompact />
+
+## Detail Cards
+
+Detailed cards with nested sub-cards for data display.
+
+<CardDetail />
+
+## Selectable Cards
+
+Cards with checkbox selection — supports default, selected, and disabled states.
+
+<CardSelectable />
+
+## Cards with Actions
+
+Cards with icon header, content body, and action button footer.
+
+<CardActions />
+
+## Minimal Cards
+
+Simple text-only cards with title and description.
+
+<CardMinimal />
+
+## Sub-components
+
+| Component | Description |
+| --- | --- |
+| `Card` | Root wrapper. Accepts `disabled` prop. |
+| `CardHeader` | Top section for icons or meta. |
+| `CardTitle` | Primary heading text. |
+| `CardDescription` | Supporting description text. |
+| `CardAction` | Slot for interactive elements (checkbox, button). |
+| `CardContent` | Main content area. |
+| `CardFooter` | Bottom section for actions. |
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `disabled` | `boolean` | `false` | Disables interaction and mutes colors |
+| `className` | `string` | — | Additional CSS classes |
+
+</DocsLayout>

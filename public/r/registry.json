@@ -2,7 +2,15 @@
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "dga",
   "homepage": "https://dga-registry.vercel.app",
+  
+  "registries": [
+    {
+      "@dga": "https://dga-registry.vercel.app/r/{name}.json"
+    }
+  ],
+
   "items": [
+    
     {
       "name": "index",
       "type": "registry:style",

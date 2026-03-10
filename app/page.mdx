@@ -1,0 +1,119 @@
+import Link from "next/link"
+import { DocsLayout } from "@/components/docs/docs-layout"
+import { InstallCommand } from "@/components/docs/install-command"
+import { RegistryBlock } from "@/components/docs/registry-block"
+import { CodeBlock } from "@/components/docs/code-block"
+import { FrameworkCards } from "@/components/docs/framework-cards"
+import { getUIComponents } from "@/lib/get-components"
+
+export const metadata = {
+  title: "DGA Registry",
+  description:
+    "A collection of Saudi Data Governance UI components and utilities for Next.js apps.",
+}
+
+export const components = getUIComponents()
+
+<DocsLayout>
+
+<div className="space-y-2">
+  <h1 className="scroll-m-20 text-4xl font-bold tracking-tight">DGA Registry</h1>
+  <div className="text-lg text-muted-foreground max-w-2xl">
+    <span>Beautifully designed, accessible UI components built on </span>
+    <a href="https://ui.shadcn.com" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground underline underline-offset-4">
+      shadcn/ui
+    </a>
+    <span> with DGA design tokens, RTL support, and IBM Plex Sans Arabic typography.</span>
+  </div>
+</div>
+
+<div className="mt-6 flex flex-wrap gap-3">
+  <Link
+    href="/installation/nextjs"
+    className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"
+  >
+    Get Started
+  </Link>
+  <Link
+    href="/button"
+    className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground"
+  >
+    Browse Components
+  </Link>
+</div>
+
+---
+
+## Installation
+
+Choose your framework to get started:
+
+<FrameworkCards />
+
+---
+
+## Add the DGA Registry
+
+After initialization, add the DGA registry to your `components.json` to enable short-hand `@dga/` imports:
+
+<RegistryBlock />
+
+---
+
+## Installing Components
+
+Add any component to your project with a single command:
+
+<InstallCommand componentName="[component]" />
+
+---
+
+## Example
+
+After installing the `Button` component:
+
+<CodeBlock
+  filename="app/page.tsx"
+  language="tsx"
+  showLineNumbers
+  highlightLines={[1, 6]}
+  code={`import { Button } from "@/components/ui/button"
+
+export default function Home() {
+  return (
+    <div>
+      <Button>Click me</Button>
+    </div>
+  )
+}`}
+/>
+
+---
+
+## Components
+
+<div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
+  {components.map((component) => (
+    <Link
+      key={component.slug}
+      href={`/${component.slug}`}
+      className="block rounded-lg border px-4 py-3 text-center text-sm font-medium transition-colors hover:bg-muted"
+    >
+      {component.name}
+    </Link>
+  ))}
+</div>
+
+---
+
+<div className="text-center flex mt-0">
+  <span>Built on </span>
+  <a href="https://ui.shadcn.com" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-foreground">
+     <span> {" "} shadcn/ui </span>
+  </a>
+  <span>. DGA design tokens and RTL adaptations by the DGA team.</span>
+</div>
+
+  
+
+</DocsLayout>

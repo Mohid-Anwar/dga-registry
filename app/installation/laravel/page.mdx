@@ -1,0 +1,93 @@
+import { DocsLayout } from "@/components/docs/docs-layout"
+import { InstallCommand } from "@/components/docs/install-command"
+import { RegistryBlock } from "@/components/docs/registry-block"
+import { CodeBlock } from "@/components/docs/code-block"
+
+export const metadata = {
+  title: "Laravel Installation – DGA Registry",
+  description: "Install and configure DGA Registry components for Laravel.",
+}
+
+<DocsLayout>
+
+# Laravel
+
+Install and configure DGA Registry components for Laravel.
+
+---
+
+### Create Project
+
+Start by creating a new Laravel project with Inertia and React using the Laravel installer:
+
+<InstallCommand variant="laravel-new" />
+
+---
+
+### Run the CLI
+
+Run the `init` command to configure shadcn/ui in your Laravel project:
+
+<InstallCommand variant="init-laravel" />
+
+If prompted to overwrite existing components, answer `y` to continue.
+
+---
+
+### Add the DGA Registry
+
+Add the DGA registry to your `components.json` to enable `@dga/` imports:
+
+<RegistryBlock />
+
+---
+
+### Add the Design Tokens
+
+Add this import to the **top** of your `resources/css/app.css`:
+
+<InstallCommand variant="globals-laravel" />
+
+This loads all DGA color tokens, spacing, and typography variables.
+
+---
+
+### Arabic (RTL) Support
+
+Need RTL support? Re-run init with the `--rtl` flag:
+
+<InstallCommand variant="init-laravel" rtl />
+
+---
+
+### Add Components
+
+You can now start adding components to your project:
+
+<InstallCommand componentName="switch" />
+
+---
+
+### Example Usage
+
+The command above will add the `Switch` component to `resources/js/components/ui/switch.tsx`. You can then import it like this:
+
+<CodeBlock
+  filename="resources/js/pages/index.tsx"
+  language="tsx"
+  showLineNumbers
+  highlightLines={[1, 6]}
+  code={`import { Switch } from "@/components/ui/switch"
+
+const MyPage = () => {
+  return (
+    <div>
+      <Switch />
+    </div>
+  )
+}
+
+export default MyPage`}
+/>
+
+</DocsLayout>
