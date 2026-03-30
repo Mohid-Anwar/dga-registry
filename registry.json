@@ -46,7 +46,9 @@
       "name": "accordion",
       "type": "registry:ui",
       "dependencies": [
-        "@radix-ui/react-accordion"
+        "@radix-ui/react-accordion",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
       ],
       "files": [
         {
@@ -124,7 +126,9 @@
       "name": "breadcrumb",
       "type": "registry:ui",
       "dependencies": [
-        "@radix-ui/react-slot"
+        "@radix-ui/react-slot",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
       ],
       "files": [
         {
@@ -170,7 +174,9 @@
       "type": "registry:ui",
       "dependencies": [
         "react-day-picker@latest",
-        "date-fns"
+        "date-fns",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
       ],
       "registryDependencies": [
         "button"
@@ -201,7 +207,9 @@
       "name": "carousel",
       "type": "registry:ui",
       "dependencies": [
-        "embla-carousel-react"
+        "embla-carousel-react",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
       ],
       "registryDependencies": [
         "button"
@@ -235,7 +243,9 @@
       "name": "checkbox",
       "type": "registry:ui",
       "dependencies": [
-        "@radix-ui/react-checkbox"
+        "@radix-ui/react-checkbox",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
       ],
       "files": [
         {
@@ -261,7 +271,9 @@
       "name": "command",
       "type": "registry:ui",
       "dependencies": [
-        "cmdk"
+        "cmdk",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
       ],
       "registryDependencies": [
         "dialog"
@@ -277,7 +289,9 @@
       "name": "context-menu",
       "type": "registry:ui",
       "dependencies": [
-        "@radix-ui/react-context-menu"
+        "@radix-ui/react-context-menu",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
       ],
       "files": [
         {
@@ -290,7 +304,9 @@
       "name": "dialog",
       "type": "registry:ui",
       "dependencies": [
-        "@radix-ui/react-dialog"
+        "@radix-ui/react-dialog",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
       ],
       "files": [
         {
@@ -317,7 +333,9 @@
       "name": "dropdown-menu",
       "type": "registry:ui",
       "dependencies": [
-        "@radix-ui/react-dropdown-menu"
+        "@radix-ui/react-dropdown-menu",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
       ],
       "files": [
         {
@@ -413,7 +431,9 @@
       "name": "input-otp",
       "type": "registry:ui",
       "dependencies": [
-        "input-otp"
+        "input-otp",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
       ],
       "files": [
         {
@@ -452,7 +472,9 @@
       "name": "menubar",
       "type": "registry:ui",
       "dependencies": [
-        "@radix-ui/react-menubar"
+        "@radix-ui/react-menubar",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
       ],
       "files": [
         {
@@ -465,7 +487,9 @@
       "name": "navigation-menu",
       "type": "registry:ui",
       "dependencies": [
-        "@radix-ui/react-navigation-menu"
+        "@radix-ui/react-navigation-menu",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
       ],
       "files": [
         {
@@ -477,6 +501,10 @@
     {
       "name": "pagination",
       "type": "registry:ui",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
       "registryDependencies": [
         "button"
       ],
@@ -517,7 +545,9 @@
       "name": "radio-group",
       "type": "registry:ui",
       "dependencies": [
-        "@radix-ui/react-radio-group"
+        "@radix-ui/react-radio-group",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
       ],
       "files": [
         {
@@ -530,7 +560,9 @@
       "name": "resizable",
       "type": "registry:ui",
       "dependencies": [
-        "react-resizable-panels"
+        "react-resizable-panels",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
       ],
       "files": [
         {
@@ -556,7 +588,9 @@
       "name": "select",
       "type": "registry:ui",
       "dependencies": [
-        "@radix-ui/react-select"
+        "@radix-ui/react-select",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
       ],
       "files": [
         {
@@ -582,7 +616,9 @@
       "name": "sheet",
       "type": "registry:ui",
       "dependencies": [
-        "@radix-ui/react-dialog"
+        "@radix-ui/react-dialog",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
       ],
       "files": [
         {
@@ -686,7 +722,9 @@
       "type": "registry:ui",
       "dependencies": [
         "sonner",
-        "next-themes"
+        "next-themes",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
       ],
       "files": [
         {
@@ -699,7 +737,9 @@
       "name": "spinner",
       "type": "registry:ui",
       "dependencies": [
-        "class-variance-authority"
+        "class-variance-authority",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
       ],
       "files": [
         {
@@ -814,6 +854,10 @@
     {
       "name": "native-select",
       "type": "registry:ui",
+      "dependencies": [
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
       "files": [
         {
           "path": "registry/dga/ui/native-select.tsx",
