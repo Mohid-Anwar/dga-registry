@@ -1,6 +1,12 @@
 "use client";
 
-import { FrameIcon, MapIcon, PieChartIcon, PlusIcon } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  ArtboardIcon,
+  Compass01Icon,
+  PieChartIcon,
+  PlusSignIcon,
+} from "@hugeicons/core-free-icons"
 import { toast, Toaster } from "sonner";
 
 import {
@@ -33,14 +39,14 @@ export default function AppSidebar() {
               title="Add Project"
               onClick={() => toast("You clicked the group action!")}
             >
-              <PlusIcon /> <span className="sr-only">Add Project</span>
+              <HugeiconsIcon icon={PlusSignIcon}  /> <span className="sr-only">Add Project</span>
             </SidebarGroupAction>
             <SidebarGroupContent>
               <SidebarMenu>
                 <SidebarMenuItem>
                   <SidebarMenuButton asChild>
                     <a href="#">
-                      <FrameIcon />
+                      <HugeiconsIcon icon={ArtboardIcon}  />
                       <span>Design Engineering</span>
                     </a>
                   </SidebarMenuButton>
@@ -48,7 +54,7 @@ export default function AppSidebar() {
                 <SidebarMenuItem>
                   <SidebarMenuButton asChild>
                     <a href="#">
-                      <PieChartIcon />
+                      <HugeiconsIcon icon={PieChartIcon}  />
                       <span>Sales & Marketing</span>
                     </a>
                   </SidebarMenuButton>
@@ -56,7 +62,7 @@ export default function AppSidebar() {
                 <SidebarMenuItem>
                   <SidebarMenuButton asChild>
                     <a href="#">
-                      <MapIcon />
+                      <HugeiconsIcon icon={Compass01Icon}  />
                       <span>Travel</span>
                     </a>
                   </SidebarMenuButton>

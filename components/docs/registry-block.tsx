@@ -1,8 +1,11 @@
 "use client"
 
 import { useState } from "react"
-import { Check, Copy } from "lucide-react"
-
+import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  Tick02Icon,
+  Copy01Icon,
+} from "@hugeicons/core-free-icons"
 const REGISTRY_CONFIG = {
   registries: {
     "@dga": "https://dga-registry.vercel.app/r/{name}.json",
@@ -30,12 +33,12 @@ export function RegistryBlock() {
         >
           {copied ? (
             <>
-              <Check className="size-3.5" />
+              <HugeiconsIcon icon={Tick02Icon} className="size-3.5"  />
               <span>Copied</span>
             </>
           ) : (
             <>
-              <Copy className="size-3.5" />
+              <HugeiconsIcon icon={Copy01Icon} className="size-3.5"  />
               <span>Copy</span>
             </>
           )}

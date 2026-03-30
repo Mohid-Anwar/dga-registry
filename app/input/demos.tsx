@@ -1,7 +1,12 @@
 "use client"
 
-import { Mail, Search, Lock, User } from "lucide-react"
-
+import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  Mail01Icon,
+  Search01Icon,
+  SquareLock02Icon,
+  UserIcon,
+} from "@hugeicons/core-free-icons"
 import { Button } from "@/registry/dga/ui/button"
 import { Input } from "@/registry/dga/ui/input"
 
@@ -99,14 +104,14 @@ export function InputWithIcons() {
         <div className="flex flex-col gap-2">
           <label className="text-sm font-medium">Search with Icon</label>
           <div className="relative">
-            <Search className="text-muted-foreground absolute start-3 top-1/2 size-4 -translate-y-1/2" />
+            <HugeiconsIcon icon={Search01Icon} className="text-muted-foreground absolute start-3 top-1/2 size-4 -translate-y-1/2"  />
             <Input className="ps-9" placeholder="Search..." />
           </div>
         </div>
         <div className="flex flex-col gap-2">
           <label className="text-sm font-medium">Email with Icon</label>
           <div className="relative">
-            <Mail className="text-muted-foreground absolute start-3 top-1/2 size-4 -translate-y-1/2" />
+            <HugeiconsIcon icon={Mail01Icon} className="text-muted-foreground absolute start-3 top-1/2 size-4 -translate-y-1/2"  />
             <Input
               type="email"
               className="ps-9"
@@ -117,7 +122,7 @@ export function InputWithIcons() {
         <div className="flex flex-col gap-2">
           <label className="text-sm font-medium">Password with Icon</label>
           <div className="relative">
-            <Lock className="text-muted-foreground absolute start-3 top-1/2 size-4 -translate-y-1/2" />
+            <HugeiconsIcon icon={SquareLock02Icon} className="text-muted-foreground absolute start-3 top-1/2 size-4 -translate-y-1/2"  />
             <Input
               type="password"
               className="ps-9"
@@ -128,7 +133,7 @@ export function InputWithIcons() {
         <div className="flex flex-col gap-2">
           <label className="text-sm font-medium">Username with Icon</label>
           <div className="relative">
-            <User className="text-muted-foreground absolute start-3 top-1/2 size-4 -translate-y-1/2" />
+            <HugeiconsIcon icon={UserIcon} className="text-muted-foreground absolute start-3 top-1/2 size-4 -translate-y-1/2"  />
             <Input className="ps-9" placeholder="Username" />
           </div>
         </div>
@@ -298,11 +303,11 @@ export function InputAdvanced() {
           </label>
           <div className="flex gap-2">
             <div className="relative flex-1">
-              <Search className="text-muted-foreground absolute start-3 top-1/2 size-4 -translate-y-1/2" />
+              <HugeiconsIcon icon={Search01Icon} className="text-muted-foreground absolute start-3 top-1/2 size-4 -translate-y-1/2"  />
               <Input className="ps-9" placeholder="Search stations..." />
             </div>
             <Button variant="outline">
-              <Search className="size-4" />
+              <HugeiconsIcon icon={Search01Icon} className="size-4"  />
             </Button>
           </div>
         </div>

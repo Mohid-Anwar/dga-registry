@@ -95,7 +95,7 @@ importers:
         version: 1.6.0
       embla-carousel-autoplay:
         specifier: 8.5.2
-        version: 8.5.2(embla-carousel@8.6.0)
+        version: 8.5.2(embla-carousel@8.5.2)
       embla-carousel-react:
         specifier: 8.5.2
         version: 8.5.2(react@19.2.3)
@@ -132,9 +132,6 @@ importers:
       lru-cache:
         specifier: ^11.2.4
         version: 11.2.6
-      lucide-react:
-        specifier: 0.474.0
-        version: 0.474.0(react@19.2.3)
       motion:
         specifier: ^12.12.1
         version: 12.34.0(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -2935,9 +2932,6 @@ packages:
 
   embla-carousel@8.5.2:
     resolution: {integrity: sha512-xQ9oVLrun/eCG/7ru3R+I5bJ7shsD8fFwLEY7yPe27/+fDHCNj0OT5EoG5ZbFyOxOcG6yTwW8oTz/dWyFnyGpg==}
-
-  embla-carousel@8.6.0:
-    resolution: {integrity: sha512-SjWyZBHJPbqxHOzckOfo8lHisEaJWmwd23XppYFYVh10bU66/Pn5tkVkbkCMZVdbUE5eTCI2nD8OyIP4Z+uwkA==}
 
   emoji-regex-xs@1.0.0:
     resolution: {integrity: sha512-LRlerrMYoIDrT6jgpeZ2YYl/L8EulRTt5hQcYjy5AInh7HWXKimpqx68aknBFpGL2+/IcogTcaydJEgaTmOpDg==}
@@ -8159,9 +8153,9 @@ snapshots:
 
   electron-to-chromium@1.5.286: {}
 
-  embla-carousel-autoplay@8.5.2(embla-carousel@8.6.0):
+  embla-carousel-autoplay@8.5.2(embla-carousel@8.5.2):
     dependencies:
-      embla-carousel: 8.6.0
+      embla-carousel: 8.5.2
 
   embla-carousel-react@8.5.2(react@19.2.3):
     dependencies:
@@ -8174,8 +8168,6 @@ snapshots:
       embla-carousel: 8.5.2
 
   embla-carousel@8.5.2: {}
-
-  embla-carousel@8.6.0: {}
 
   emoji-regex-xs@1.0.0: {}
 
@@ -9492,6 +9484,7 @@ snapshots:
   lucide-react@0.474.0(react@19.2.3):
     dependencies:
       react: 19.2.3
+    optional: true
 
   magic-string@0.30.17:
     dependencies:

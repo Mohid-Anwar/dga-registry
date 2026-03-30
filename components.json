@@ -22,5 +22,5 @@
     "hooks": "@/hooks",
     "styles": "@/styles"
   },
-  "iconLibrary": "lucide"
+  "iconLibrary": "hugeicons"
 }

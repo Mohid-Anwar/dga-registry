@@ -1,6 +1,10 @@
 "use client"
 
-import { CheckCircle2, ChevronDown } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  CheckmarkCircle02Icon,
+  ArrowDown01Icon,
+} from "@hugeicons/core-free-icons"
 import { Button } from "@/registry/dga/ui/button"
 import {
   Card,
@@ -84,30 +88,30 @@ export function CardCompact() {
     <div className="rounded-lg border bg-background p-6">
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <Card className="flex-row items-center gap-3">
-          <CheckCircle2 width={24} height={24} className="shrink-0 text-[var(--icon-icon-primary)]" />
+          <HugeiconsIcon icon={CheckmarkCircle02Icon} width={24} height={24} className="shrink-0 text-[var(--icon-icon-primary)]"  />
           <CardContent className="min-w-0 flex-1 gap-0.5">
             <CardTitle className="text-sm leading-5 font-semibold">Card Title</CardTitle>
             <CardDescription className="text-xs leading-4">Card content placeholder text goes here</CardDescription>
           </CardContent>
-          <ChevronDown width={20} height={20} className="shrink-0 text-[var(--icon-icon-default400)]" />
+          <HugeiconsIcon icon={ArrowDown01Icon} width={20} height={20} className="shrink-0 text-[var(--icon-icon-default400)]"  />
         </Card>
 
         <Card className="flex-row items-center gap-3">
-          <CheckCircle2 width={24} height={24} className="shrink-0 text-[var(--icon-icon-primary)]" />
+          <HugeiconsIcon icon={CheckmarkCircle02Icon} width={24} height={24} className="shrink-0 text-[var(--icon-icon-primary)]"  />
           <CardContent className="min-w-0 flex-1 gap-0.5">
             <CardTitle className="text-sm leading-5 font-semibold">Card Title</CardTitle>
             <CardDescription className="text-xs leading-4">Card content placeholder text goes here</CardDescription>
           </CardContent>
-          <ChevronDown width={20} height={20} className="shrink-0 rotate-180 text-[var(--icon-icon-default400)]" />
+          <HugeiconsIcon icon={ArrowDown01Icon} width={20} height={20} className="shrink-0 rotate-180 text-[var(--icon-icon-default400)]"  />
         </Card>
 
         <Card disabled className="flex-row items-center gap-3">
-          <CheckCircle2 width={24} height={24} className="shrink-0" />
+          <HugeiconsIcon icon={CheckmarkCircle02Icon} width={24} height={24} className="shrink-0"  />
           <CardContent className="min-w-0 flex-1 gap-0.5">
             <CardTitle className="text-sm leading-5 font-semibold">Card Title</CardTitle>
             <CardDescription className="text-xs leading-4">Card content placeholder text goes here</CardDescription>
           </CardContent>
-          <ChevronDown width={20} height={20} className="shrink-0" />
+          <HugeiconsIcon icon={ArrowDown01Icon} width={20} height={20} className="shrink-0"  />
         </Card>
       </div>
     </div>
@@ -195,7 +199,7 @@ export function CardSelectable() {
     <div className="rounded-lg border bg-background p-6">
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <Card className="flex-row items-center gap-3">
-          <CheckCircle2 width={24} height={24} className="shrink-0 text-[var(--icon-icon-primary)]" />
+          <HugeiconsIcon icon={CheckmarkCircle02Icon} width={24} height={24} className="shrink-0 text-[var(--icon-icon-primary)]"  />
           <CardContent className="min-w-0 flex-1 gap-0.5">
             <CardTitle className="text-sm leading-5 font-semibold">Card Title</CardTitle>
             <CardDescription className="text-xs leading-4">Card content placeholder text goes here</CardDescription>
@@ -206,7 +210,7 @@ export function CardSelectable() {
         </Card>
 
         <Card className="flex-row items-center gap-3 border-[var(--border-border-primary)]">
-          <CheckCircle2 width={24} height={24} className="shrink-0 text-[var(--icon-icon-primary)]" />
+          <HugeiconsIcon icon={CheckmarkCircle02Icon} width={24} height={24} className="shrink-0 text-[var(--icon-icon-primary)]"  />
           <CardContent className="min-w-0 flex-1 gap-0.5">
             <CardTitle className="text-sm leading-5 font-semibold">Card Title</CardTitle>
             <CardDescription className="text-xs leading-4">Card content placeholder text goes here</CardDescription>
@@ -217,7 +221,7 @@ export function CardSelectable() {
         </Card>
 
         <Card disabled className="flex-row items-center gap-3">
-          <CheckCircle2 width={24} height={24} className="shrink-0" />
+          <HugeiconsIcon icon={CheckmarkCircle02Icon} width={24} height={24} className="shrink-0"  />
           <CardContent className="min-w-0 flex-1 gap-0.5">
             <CardTitle className="text-sm leading-5 font-semibold">Card Title</CardTitle>
             <CardDescription className="text-xs leading-4">Card content placeholder text goes here</CardDescription>
@@ -240,7 +244,7 @@ export function CardActions() {
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         <Card>
           <CardHeader>
-            <CheckCircle2 width={32} height={32} className="text-[var(--icon-icon-primary)]" />
+            <HugeiconsIcon icon={CheckmarkCircle02Icon} width={32} height={32} className="text-[var(--icon-icon-primary)]"  />
           </CardHeader>
           <CardContent>
             <CardTitle>Card Title</CardTitle>
@@ -254,7 +258,7 @@ export function CardActions() {
 
         <Card>
           <CardHeader>
-            <CheckCircle2 width={32} height={32} className="text-[var(--icon-icon-primary)]" />
+            <HugeiconsIcon icon={CheckmarkCircle02Icon} width={32} height={32} className="text-[var(--icon-icon-primary)]"  />
           </CardHeader>
           <CardContent>
             <CardTitle>Card Title</CardTitle>
@@ -268,7 +272,7 @@ export function CardActions() {
 
         <Card disabled>
           <CardHeader>
-            <CheckCircle2 width={32} height={32} />
+            <HugeiconsIcon icon={CheckmarkCircle02Icon} width={32} height={32}  />
           </CardHeader>
           <CardContent>
             <CardTitle>Card Title</CardTitle>

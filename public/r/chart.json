@@ -3,7 +3,8 @@
   "name": "chart",
   "dependencies": [
     "recharts@2.15.4",
-    "lucide-react"
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
   ],
   "registryDependencies": [
     "card"

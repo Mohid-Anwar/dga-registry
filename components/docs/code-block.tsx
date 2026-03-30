@@ -1,8 +1,11 @@
 "use client"
 
 import { useState } from "react"
-import { Check, Copy } from "lucide-react"
-
+import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  Tick02Icon,
+  Copy01Icon,
+} from "@hugeicons/core-free-icons"
 interface CodeBlockProps {
   code: string
   language?: string
@@ -40,12 +43,12 @@ export function CodeBlock({
           >
             {copied ? (
               <>
-                <Check className="size-3.5" />
+                <HugeiconsIcon icon={Tick02Icon} className="size-3.5"  />
                 <span>Copied</span>
               </>
             ) : (
               <>
-                <Copy className="size-3.5" />
+                <HugeiconsIcon icon={Copy01Icon} className="size-3.5"  />
                 <span>Copy</span>
               </>
             )}
@@ -61,9 +64,9 @@ export function CodeBlock({
             className="absolute right-2 top-2 z-10 flex items-center gap-1.5 rounded-md px-2 py-1 text-xs text-zinc-400 transition-colors hover:bg-zinc-800 hover:text-zinc-100"
           >
             {copied ? (
-              <Check className="size-3.5" />
+              <HugeiconsIcon icon={Tick02Icon} className="size-3.5"  />
             ) : (
-              <Copy className="size-3.5" />
+              <HugeiconsIcon icon={Copy01Icon} className="size-3.5"  />
             )}
           </button>
         )}

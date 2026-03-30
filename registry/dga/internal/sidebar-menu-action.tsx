@@ -1,14 +1,14 @@
 "use client";
 
+import { HugeiconsIcon } from "@hugeicons/react"
 import {
-  FrameIcon,
-  LifeBuoyIcon,
-  MapIcon,
+  ArtboardIcon,
+  LifebuoyIcon,
+  Compass01Icon,
   MoreHorizontalIcon,
   PieChartIcon,
-  SendIcon,
-} from "lucide-react";
-
+  SentIcon,
+} from "@hugeicons/core-free-icons"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -32,7 +32,7 @@ const projects = [
   {
     name: "Design Engineering",
     url: "#",
-    icon: FrameIcon,
+    icon: ArtboardIcon,
   },
   {
     name: "Sales & Marketing",
@@ -42,17 +42,17 @@ const projects = [
   {
     name: "Travel",
     url: "#",
-    icon: MapIcon,
+    icon: Compass01Icon,
   },
   {
     name: "Support",
     url: "#",
-    icon: LifeBuoyIcon,
+    icon: LifebuoyIcon,
   },
   {
     name: "Feedback",
     url: "#",
-    icon: SendIcon,
+    icon: SentIcon,
   },
 ];
 
@@ -72,14 +72,14 @@ export default function AppSidebar() {
                       className="group-has-[[data-state=open]]/menu-item:bg-sidebar-accent"
                     >
                       <a href={project.url}>
-                        <project.icon />
+                        <HugeiconsIcon icon={project.icon} />
                         <span>{project.name}</span>
                       </a>
                     </SidebarMenuButton>
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
                         <SidebarMenuAction>
-                          <MoreHorizontalIcon />
+                          <HugeiconsIcon icon={MoreHorizontalIcon}  />
                           <span className="sr-only">More</span>
                         </SidebarMenuAction>
                       </DropdownMenuTrigger>

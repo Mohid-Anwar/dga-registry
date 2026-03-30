@@ -1,7 +1,9 @@
 "use client";
 
-import { ChevronUpIcon } from "lucide-react";
-
+import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  ArrowUp01Icon,
+} from "@hugeicons/core-free-icons"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -34,7 +36,7 @@ export default function AppSidebar() {
                 <DropdownMenuTrigger asChild>
                   <SidebarMenuButton className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground">
                     Username
-                    <ChevronUpIcon className="ml-auto" />
+                    <HugeiconsIcon icon={ArrowUp01Icon} className="ml-auto"  />
                   </SidebarMenuButton>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent

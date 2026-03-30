@@ -3,7 +3,8 @@
   "name": "index",
   "dependencies": [
     "class-variance-authority",
-    "lucide-react"
+    "@hugeicons/react",
+    "@hugeicons/core-free-icons"
   ],
   "devDependencies": [
     "tw-animate-css"

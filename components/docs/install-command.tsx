@@ -1,8 +1,11 @@
 "use client"
 
 import { useState } from "react"
-import { Copy, Check } from "lucide-react"
-
+import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  Copy01Icon,
+  Tick02Icon,
+} from "@hugeicons/core-free-icons"
 type PackageManager = "pnpm" | "npm" | "yarn" | "bun"
 type Variant = "add" | "init" | "init-next" | "init-next-monorepo" | "init-laravel" | "init-vite" | "init-vite-monorepo" | "globals" | "globals-laravel" | "globals-vite" | "css-import" | "laravel-new"
 
@@ -210,7 +213,7 @@ export function InstallCommand({
           onClick={copy}
           className="flex items-center justify-center rounded-md p-1.5 text-zinc-400 transition-colors hover:bg-zinc-800 hover:text-zinc-100"
         >
-          {copied ? <Check className="size-3.5" /> : <Copy className="size-3.5" />}
+          {copied ? <HugeiconsIcon icon={Tick02Icon} className="size-3.5"  /> : <HugeiconsIcon icon={Copy01Icon} className="size-3.5"  />}
         </button>
       </div>
 

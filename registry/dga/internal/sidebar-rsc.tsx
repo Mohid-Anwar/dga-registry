@@ -1,12 +1,12 @@
 import * as React from "react";
+import { HugeiconsIcon } from "@hugeicons/react"
 import {
-  FrameIcon,
-  LifeBuoyIcon,
-  MapIcon,
+  ArtboardIcon,
+  LifebuoyIcon,
+  Compass01Icon,
   PieChartIcon,
-  SendIcon,
-} from "lucide-react";
-
+  SentIcon,
+} from "@hugeicons/core-free-icons"
 import {
   Sidebar,
   SidebarContent,
@@ -24,7 +24,7 @@ const projects = [
   {
     name: "Design Engineering",
     url: "#",
-    icon: FrameIcon,
+    icon: ArtboardIcon,
     badge: "24",
   },
   {
@@ -36,19 +36,19 @@ const projects = [
   {
     name: "Travel",
     url: "#",
-    icon: MapIcon,
+    icon: Compass01Icon,
     badge: "3",
   },
   {
     name: "Support",
     url: "#",
-    icon: LifeBuoyIcon,
+    icon: LifebuoyIcon,
     badge: "21",
   },
   {
     name: "Feedback",
     url: "#",
-    icon: SendIcon,
+    icon: SentIcon,
     badge: "8",
   },
 ];
@@ -99,7 +99,7 @@ async function NavProjects() {
         <SidebarMenuItem key={project.name}>
           <SidebarMenuButton asChild>
             <a href={project.url}>
-              <project.icon />
+              <HugeiconsIcon icon={project.icon} />
               <span>{project.name}</span>
             </a>
           </SidebarMenuButton>

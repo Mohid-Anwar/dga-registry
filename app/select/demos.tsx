@@ -1,8 +1,14 @@
 "use client"
 
 import * as React from "react"
-import { Globe, MapPin, Users, Building2, Activity } from "lucide-react"
-
+import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  GlobeIcon,
+  MapPinIcon,
+  UserMultipleIcon,
+  Building02Icon,
+  ActivityIcon,
+} from "@hugeicons/core-free-icons"
 import { Button } from "@/registry/dga/ui/button"
 import {
   Select,
@@ -197,19 +203,19 @@ export function SelectWithIcons() {
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="background">
-                <MapPin className="size-4" />
+                <HugeiconsIcon icon={MapPinIcon} className="size-4"  />
                 Background
               </SelectItem>
               <SelectItem value="traffic">
-                <Activity className="size-4" />
+                <HugeiconsIcon icon={ActivityIcon} className="size-4"  />
                 Traffic
               </SelectItem>
               <SelectItem value="industrial">
-                <Building2 className="size-4" />
+                <HugeiconsIcon icon={Building02Icon} className="size-4"  />
                 Industrial
               </SelectItem>
               <SelectItem value="suburban">
-                <Users className="size-4" />
+                <HugeiconsIcon icon={UserMultipleIcon} className="size-4"  />
                 Suburban
               </SelectItem>
             </SelectContent>
@@ -224,11 +230,11 @@ export function SelectWithIcons() {
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="en">
-                <Globe className="size-4" />
+                <HugeiconsIcon icon={GlobeIcon} className="size-4"  />
                 English
               </SelectItem>
               <SelectItem value="ar">
-                <Globe className="size-4" />
+                <HugeiconsIcon icon={GlobeIcon} className="size-4"  />
                 العربية (Arabic)
               </SelectItem>
             </SelectContent>

@@ -1,7 +1,9 @@
 "use client";
 
-import { ChevronDownIcon } from "lucide-react";
-
+import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  ArrowDown01Icon,
+} from "@hugeicons/core-free-icons"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -30,7 +32,7 @@ export default function AppSidebar() {
                 <DropdownMenuTrigger asChild>
                   <SidebarMenuButton className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground">
                     Select Workspace
-                    <ChevronDownIcon className="ml-auto" />
+                    <HugeiconsIcon icon={ArrowDown01Icon} className="ml-auto"  />
                   </SidebarMenuButton>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-(--radix-popper-anchor-width)">

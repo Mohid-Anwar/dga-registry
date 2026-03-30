@@ -1,6 +1,10 @@
 "use client";
 
-import { Activity, TrendingUp } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  ActivityIcon,
+  ChartIncreaseIcon,
+} from "@hugeicons/core-free-icons"
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
 
 import {
@@ -33,7 +37,7 @@ const chartConfig = {
   desktop: {
     label: "Desktop",
     color: "var(--chart-1)",
-    icon: Activity,
+    icon: ActivityIcon,
   },
 } satisfies ChartConfig;
 
@@ -82,7 +86,7 @@ export function ChartAreaStep() {
         <div className="flex w-full items-start gap-2 text-sm">
           <div className="grid gap-2">
             <div className="flex items-center gap-2 leading-none font-medium">
-              Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
+              Trending up by 5.2% this month <HugeiconsIcon icon={ChartIncreaseIcon} className="h-4 w-4"  />
             </div>
             <div className="text-muted-foreground flex items-center gap-2 leading-none">
               January - June 2024
