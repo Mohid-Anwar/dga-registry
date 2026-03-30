@@ -1,10 +1,23 @@
 "use client"
 
 import { useState } from "react"
-import { Copy, Check } from "lucide-react"
+import { Copy01Icon, Tick02Icon } from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
 
 type PackageManager = "pnpm" | "npm" | "yarn" | "bun"
-type Variant = "add" | "init" | "init-next" | "init-next-monorepo" | "init-laravel" | "init-vite" | "init-vite-monorepo" | "globals" | "globals-laravel" | "globals-vite" | "css-import" | "laravel-new"
+type Variant =
+  | "add"
+  | "init"
+  | "init-next"
+  | "init-next-monorepo"
+  | "init-laravel"
+  | "init-vite"
+  | "init-vite-monorepo"
+  | "globals"
+  | "globals-laravel"
+  | "globals-vite"
+  | "css-import"
+  | "laravel-new"
 
 type Commands = Partial<Record<PackageManager, string>>
 
@@ -33,20 +46,20 @@ function buildNextInitCommands(rtl = false, monorepo = false): Commands {
   const rtlFlag = rtl ? " --rtl" : ""
   const monoFlag = monorepo ? " --monorepo" : ""
   return {
-    pnpm: `pnpm dlx shadcn@latest init -t next --radix${rtlFlag}${monoFlag}`,
-    npm: `npx shadcn@latest init -t next --radix${rtlFlag}${monoFlag}`,
-    yarn: `yarn dlx shadcn@latest init -t next --radix${rtlFlag}${monoFlag}`,
-    bun: `bunx --bun shadcn@latest init -t next --radix${rtlFlag}${monoFlag}`,
+    pnpm: `pnpm dlx shadcn@latest init --preset b0 --template next${rtlFlag}${monoFlag}`,
+    npm: `npx shadcn@latest init --preset b0 --template next${rtlFlag}${monoFlag}`,
+    yarn: `yarn dlx shadcn@latest init --preset b0 --template next${rtlFlag}${monoFlag}`,
+    bun: `bunx --bun shadcn@latest init --preset b0 --template next${rtlFlag}${monoFlag}`,
   }
 }
 
 function buildLaravelInitCommands(rtl = false): Commands {
   const rtlFlag = rtl ? " --rtl" : ""
   return {
-    pnpm: `pnpm dlx shadcn@latest init -t laravel --radix${rtlFlag}`,
-    npm: `npx shadcn@latest init -t laravel --radix${rtlFlag}`,
-    yarn: `yarn dlx shadcn@latest init -t laravel --radix${rtlFlag}`,
-    bun: `bunx --bun shadcn@latest init -t laravel --radix${rtlFlag}`,
+    pnpm: `pnpm dlx shadcn@latest init --preset b0 --template laravel${rtlFlag}`,
+    npm: `npx shadcn@latest init --preset b0 --template laravel${rtlFlag}`,
+    yarn: `yarn dlx shadcn@latest init --preset b0 --template laravel${rtlFlag}`,
+    bun: `bunx --bun shadcn@latest init --preset b0 --template laravel${rtlFlag}`,
   }
 }
 
@@ -54,10 +67,10 @@ function buildViteInitCommands(rtl = false, monorepo = false): Commands {
   const rtlFlag = rtl ? " --rtl" : ""
   const monoFlag = monorepo ? " --monorepo" : ""
   return {
-    pnpm: `pnpm dlx shadcn@latest init -t vite --radix${rtlFlag}${monoFlag}`,
-    npm: `npx shadcn@latest init -t vite --radix${rtlFlag}${monoFlag}`,
-    yarn: `yarn dlx shadcn@latest init -t vite --radix${rtlFlag}${monoFlag}`,
-    bun: `bunx --bun shadcn@latest init -t vite --radix${rtlFlag}${monoFlag}`,
+    pnpm: `pnpm dlx shadcn@latest init --preset b0 --template vite${rtlFlag}${monoFlag}`,
+    npm: `npx shadcn@latest init --preset b0 --template vite${rtlFlag}${monoFlag}`,
+    yarn: `yarn dlx shadcn@latest init --preset b0 --template vite${rtlFlag}${monoFlag}`,
+    bun: `bunx --bun shadcn@latest init --preset b0 --template vite${rtlFlag}${monoFlag}`,
   }
 }
 
@@ -134,9 +147,7 @@ export function InstallCommand({
     return (
       <div className="my-4 rounded-xl border bg-zinc-950 text-zinc-100">
         <div className="flex items-center justify-between border-b border-zinc-800 px-4 py-2">
-          <span className="text-xs font-medium text-zinc-400">
-            {filename}
-          </span>
+          <span className="text-xs font-medium text-zinc-400">{filename}</span>
         </div>
         <pre className="overflow-x-auto px-4 py-3 text-sm">
           <code>{code}</code>
@@ -161,18 +172,18 @@ export function InstallCommand({
     (variant === "init"
       ? buildInitCommands()
       : variant === "init-next"
-      ? buildNextInitCommands(rtl)
-      : variant === "init-next-monorepo"
-      ? buildNextInitCommands(rtl, true)
-      : variant === "init-laravel"
-      ? buildLaravelInitCommands(rtl)
-      : variant === "init-vite"
-      ? buildViteInitCommands(rtl)
-      : variant === "init-vite-monorepo"
-      ? buildViteInitCommands(rtl, true)
-      : componentName
-      ? buildCommands(componentName)
-      : {})
+        ? buildNextInitCommands(rtl)
+        : variant === "init-next-monorepo"
+          ? buildNextInitCommands(rtl, true)
+          : variant === "init-laravel"
+            ? buildLaravelInitCommands(rtl)
+            : variant === "init-vite"
+              ? buildViteInitCommands(rtl)
+              : variant === "init-vite-monorepo"
+                ? buildViteInitCommands(rtl, true)
+                : componentName
+                  ? buildCommands(componentName)
+                  : {})
 
   const managers = Object.keys(resolvedCommands) as PackageManager[]
   const [active, setActive] = useState<PackageManager>(managers[0])
@@ -210,7 +221,11 @@ export function InstallCommand({
           onClick={copy}
           className="flex items-center justify-center rounded-md p-1.5 text-zinc-400 transition-colors hover:bg-zinc-800 hover:text-zinc-100"
         >
-          {copied ? <Check className="size-3.5" /> : <Copy className="size-3.5" />}
+          {copied ? (
+            <HugeiconsIcon icon={Tick02Icon} className="size-3.5" />
+          ) : (
+            <HugeiconsIcon icon={Copy01Icon} className="size-3.5" />
+          )}
         </button>
       </div>
 

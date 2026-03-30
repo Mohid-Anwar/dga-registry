@@ -1,16 +1,16 @@
 "use client";
 
 import * as React from "react";
+import { HugeiconsIcon } from "@hugeicons/react"
 import {
-  FrameIcon,
-  LifeBuoyIcon,
-  MapIcon,
-  PanelLeftCloseIcon,
-  PanelLeftOpenIcon,
+  ArtboardIcon,
+  LifebuoyIcon,
+  Compass01Icon,
+  SidebarLeft01Icon,
+  SidebarLeftIcon,
   PieChartIcon,
-  SendIcon,
-} from "lucide-react";
-
+  SentIcon,
+} from "@hugeicons/core-free-icons"
 import { Button } from "@/registry/dga/ui/button";
 import {
   Sidebar,
@@ -29,7 +29,7 @@ const projects = [
   {
     name: "Design Engineering",
     url: "#",
-    icon: FrameIcon,
+    icon: ArtboardIcon,
   },
   {
     name: "Sales & Marketing",
@@ -39,17 +39,17 @@ const projects = [
   {
     name: "Travel",
     url: "#",
-    icon: MapIcon,
+    icon: Compass01Icon,
   },
   {
     name: "Support",
     url: "#",
-    icon: LifeBuoyIcon,
+    icon: LifebuoyIcon,
   },
   {
     name: "Feedback",
     url: "#",
-    icon: SendIcon,
+    icon: SentIcon,
   },
 ];
 
@@ -68,7 +68,7 @@ export default function AppSidebar() {
                   <SidebarMenuItem key={project.name}>
                     <SidebarMenuButton asChild>
                       <a href={project.url}>
-                        <project.icon />
+                        <HugeiconsIcon icon={project.icon} />
                         <span>{project.name}</span>
                       </a>
                     </SidebarMenuButton>
@@ -86,7 +86,7 @@ export default function AppSidebar() {
             size="sm"
             variant="ghost"
           >
-            {open ? <PanelLeftCloseIcon /> : <PanelLeftOpenIcon />}
+            {open ? <HugeiconsIcon icon={SidebarLeft01Icon}  /> : <HugeiconsIcon icon={SidebarLeftIcon}  />}
             <span>{open ? "Close" : "Open"} Sidebar</span>
           </Button>
         </header>

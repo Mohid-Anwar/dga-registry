@@ -1,7 +1,9 @@
 "use client";
 
-import { ChevronRightIcon } from "lucide-react";
-
+import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  ArrowRight01Icon,
+} from "@hugeicons/core-free-icons"
 import {
   Collapsible,
   CollapsibleContent,
@@ -167,7 +169,7 @@ export default function AppSidebar() {
                       <CollapsibleTrigger asChild>
                         <SidebarMenuButton>
                           <span>{item.title}</span>
-                          <ChevronRightIcon className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90" />
+                          <HugeiconsIcon icon={ArrowRight01Icon} className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90"  />
                         </SidebarMenuButton>
                       </CollapsibleTrigger>
                       <CollapsibleContent>

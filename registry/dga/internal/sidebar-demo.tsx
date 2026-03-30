@@ -1,13 +1,13 @@
 "use client";
 
+import { HugeiconsIcon } from "@hugeicons/react"
 import {
-  CalendarIcon,
-  HomeIcon,
+  Calendar01Icon,
+  Home01Icon,
   InboxIcon,
-  SearchIcon,
-  SettingsIcon,
-} from "lucide-react";
-
+  Search01Icon,
+  Settings01Icon,
+} from "@hugeicons/core-free-icons"
 import {
   Sidebar,
   SidebarContent,
@@ -27,7 +27,7 @@ const items = [
   {
     title: "Home",
     url: "#",
-    icon: HomeIcon,
+    icon: Home01Icon,
   },
   {
     title: "Inbox",
@@ -37,17 +37,17 @@ const items = [
   {
     title: "Calendar",
     url: "#",
-    icon: CalendarIcon,
+    icon: Calendar01Icon,
   },
   {
     title: "Search",
     url: "#",
-    icon: SearchIcon,
+    icon: Search01Icon,
   },
   {
     title: "Settings",
     url: "#",
-    icon: SettingsIcon,
+    icon: Settings01Icon,
   },
 ];
 
@@ -64,7 +64,7 @@ export default function AppSidebar() {
                   <SidebarMenuItem key={item.title}>
                     <SidebarMenuButton asChild>
                       <a href={item.url}>
-                        <item.icon />
+                        <HugeiconsIcon icon={item.icon} />
                         <span>{item.title}</span>
                       </a>
                     </SidebarMenuButton>

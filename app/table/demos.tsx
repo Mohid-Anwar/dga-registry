@@ -1,8 +1,11 @@
 "use client"
 
 import * as React from "react"
-import { ArrowRight, Filter } from "lucide-react"
-
+import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  ArrowRight02Icon,
+  FilterIcon,
+} from "@hugeicons/core-free-icons"
 import { Badge } from "@/registry/dga/ui/badge"
 import { Checkbox } from "@/registry/dga/ui/checkbox"
 import {
@@ -216,7 +219,7 @@ export function TableDataFull() {
               <TableHead>Header</TableHead>
               <TableHead>Header</TableHead>
               <TableHead className="w-12">
-                <Filter className="text-muted-foreground size-4" />
+                <HugeiconsIcon icon={FilterIcon} className="text-muted-foreground size-4"  />
               </TableHead>
             </TableRow>
           </TableHeader>
@@ -261,7 +264,7 @@ export function TableDataFull() {
                     className="text-muted-foreground hover:text-foreground inline-flex items-center justify-center rounded p-1 transition-colors"
                     aria-label="Go to details"
                   >
-                    <ArrowRight className="size-4" />
+                    <HugeiconsIcon icon={ArrowRight02Icon} className="size-4"  />
                   </button>
                 </TableCell>
               </TableRow>
@@ -298,7 +301,7 @@ export function TableRcrcLtr() {
             <TableHead>Header</TableHead>
             <TableHead>Header</TableHead>
             <TableHead className="w-12">
-              <Filter className="text-muted-foreground size-4" />
+              <HugeiconsIcon icon={FilterIcon} className="text-muted-foreground size-4"  />
             </TableHead>
           </TableRow>
         </TableHeader>
@@ -336,7 +339,7 @@ export function TableRcrcLtr() {
                   className="text-muted-foreground hover:text-foreground inline-flex items-center justify-center rounded p-1 transition-colors"
                   aria-label="Go to details"
                 >
-                  <ArrowRight className="size-4" />
+                  <HugeiconsIcon icon={ArrowRight02Icon} className="size-4"  />
                 </button>
               </TableCell>
             </TableRow>
@@ -357,7 +360,7 @@ export function TableRcrcRtl() {
         <TableHeader>
           <TableRow>
             <TableHead className="w-12">
-              <Filter className="text-muted-foreground size-4" />
+              <HugeiconsIcon icon={FilterIcon} className="text-muted-foreground size-4"  />
             </TableHead>
             <TableHead>عنوان العمود</TableHead>
             <TableHead>عنوان العمود</TableHead>
@@ -379,7 +382,7 @@ export function TableRcrcRtl() {
                   className="text-muted-foreground hover:text-foreground inline-flex items-center justify-center rounded p-1 transition-colors"
                   aria-label="الانتقال للتفاصيل"
                 >
-                  <ArrowRight className="size-4 rotate-180" />
+                  <HugeiconsIcon icon={ArrowRight02Icon} className="size-4 rotate-180"  />
                 </button>
               </TableCell>
               <TableCell>{row.cell4}</TableCell>

@@ -1,6 +1,11 @@
 "use client";
 
-import { ArrowDownFromLine, ArrowUpFromLine, TrendingUp } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  ArrowDown02Icon,
+  ArrowUp02Icon,
+  ChartIncreaseIcon,
+} from "@hugeicons/core-free-icons"
 import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from "recharts";
 
 import {
@@ -31,16 +36,23 @@ const chartData = [
   { month: "June", desktop: 214, mobile: 140 },
 ];
 
+const ArrowDownWrapper = () => (
+  <HugeiconsIcon icon={ArrowDown02Icon} className="h-4 w-4" />
+);
+const ArrowUpWrapper = () => (
+  <HugeiconsIcon icon={ArrowUp02Icon} className="h-4 w-4" />
+);
+
 const chartConfig = {
   desktop: {
     label: "Desktop",
     color: "var(--chart-1)",
-    icon: ArrowDownFromLine,
+    icon: ArrowDownWrapper,
   },
   mobile: {
     label: "Mobile",
     color: "var(--chart-2)",
-    icon: ArrowUpFromLine,
+    icon: ArrowUpWrapper,
   },
 } satisfies ChartConfig;
 
@@ -83,7 +95,7 @@ export function ChartRadarIcons() {
       </CardContent>
       <CardFooter className="flex-col gap-2 pt-4 text-sm">
         <div className="flex items-center gap-2 leading-none font-medium">
-          Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
+          Trending up by 5.2% this month <HugeiconsIcon icon={ChartIncreaseIcon} className="h-4 w-4"  />
         </div>
         <div className="text-muted-foreground flex items-center gap-2 leading-none">
           January - June 2024

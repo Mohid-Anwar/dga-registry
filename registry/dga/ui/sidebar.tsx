@@ -2,7 +2,10 @@
 
 import * as React from "react"
 import { cva, type VariantProps } from "class-variance-authority"
-import { PanelLeftIcon } from "lucide-react"
+import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  SidebarLeftIcon,
+} from "@hugeicons/core-free-icons"
 import { Slot } from "radix-ui"
 
 import { cn } from "@/lib/utils"
@@ -273,7 +276,7 @@ function SidebarTrigger({
       }}
       {...props}
     >
-      <PanelLeftIcon />
+      <HugeiconsIcon icon={SidebarLeftIcon}  />
       <span className="sr-only">Toggle Sidebar</span>
     </Button>
   )

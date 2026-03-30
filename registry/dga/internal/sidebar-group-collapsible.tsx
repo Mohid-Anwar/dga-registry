@@ -1,7 +1,11 @@
 "use client";
 
-import { ChevronDownIcon, LifeBuoyIcon, SendIcon } from "lucide-react";
-
+import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  ArrowDown01Icon,
+  LifebuoyIcon,
+  SentIcon,
+} from "@hugeicons/core-free-icons"
 import {
   Collapsible,
   CollapsibleContent,
@@ -32,7 +36,7 @@ export default function AppSidebar() {
               >
                 <CollapsibleTrigger>
                   Help
-                  <ChevronDownIcon className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
+                  <HugeiconsIcon icon={ArrowDown01Icon} className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180"  />
                 </CollapsibleTrigger>
               </SidebarGroupLabel>
               <CollapsibleContent>
@@ -40,13 +44,13 @@ export default function AppSidebar() {
                   <SidebarMenu>
                     <SidebarMenuItem>
                       <SidebarMenuButton>
-                        <LifeBuoyIcon />
+                        <HugeiconsIcon icon={LifebuoyIcon}  />
                         Support
                       </SidebarMenuButton>
                     </SidebarMenuItem>
                     <SidebarMenuItem>
                       <SidebarMenuButton>
-                        <SendIcon />
+                        <HugeiconsIcon icon={SentIcon}  />
                         Feedback
                       </SidebarMenuButton>
                     </SidebarMenuItem>

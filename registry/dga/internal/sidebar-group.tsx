@@ -1,7 +1,10 @@
 "use client";
 
-import { LifeBuoyIcon, SendIcon } from "lucide-react";
-
+import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  LifebuoyIcon,
+  SentIcon,
+} from "@hugeicons/core-free-icons"
 import {
   Sidebar,
   SidebarContent,
@@ -25,13 +28,13 @@ export default function AppSidebar() {
               <SidebarMenu>
                 <SidebarMenuItem>
                   <SidebarMenuButton>
-                    <LifeBuoyIcon />
+                    <HugeiconsIcon icon={LifebuoyIcon}  />
                     Support
                   </SidebarMenuButton>
                 </SidebarMenuItem>
                 <SidebarMenuItem>
                   <SidebarMenuButton>
-                    <SendIcon />
+                    <HugeiconsIcon icon={SentIcon}  />
                     Feedback
                   </SidebarMenuButton>
                 </SidebarMenuItem>

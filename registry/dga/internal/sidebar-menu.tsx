@@ -1,13 +1,13 @@
 "use client";
 
+import { HugeiconsIcon } from "@hugeicons/react"
 import {
-  FrameIcon,
-  LifeBuoyIcon,
-  MapIcon,
+  ArtboardIcon,
+  LifebuoyIcon,
+  Compass01Icon,
   PieChartIcon,
-  SendIcon,
-} from "lucide-react";
-
+  SentIcon,
+} from "@hugeicons/core-free-icons"
 import {
   Sidebar,
   SidebarContent,
@@ -24,7 +24,7 @@ const projects = [
   {
     name: "Design Engineering",
     url: "#",
-    icon: FrameIcon,
+    icon: ArtboardIcon,
   },
   {
     name: "Sales & Marketing",
@@ -34,17 +34,17 @@ const projects = [
   {
     name: "Travel",
     url: "#",
-    icon: MapIcon,
+    icon: Compass01Icon,
   },
   {
     name: "Support",
     url: "#",
-    icon: LifeBuoyIcon,
+    icon: LifebuoyIcon,
   },
   {
     name: "Feedback",
     url: "#",
-    icon: SendIcon,
+    icon: SentIcon,
   },
 ];
 
@@ -61,7 +61,7 @@ export default function AppSidebar() {
                   <SidebarMenuItem key={project.name}>
                     <SidebarMenuButton asChild>
                       <a href={project.url}>
-                        <project.icon />
+                        <HugeiconsIcon icon={project.icon} />
                         <span>{project.name}</span>
                       </a>
                     </SidebarMenuButton>

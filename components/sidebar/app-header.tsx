@@ -3,8 +3,11 @@
 import { usePathname } from "next/navigation"
 import Link from "next/link"
 import { useCallback, useEffect, useState } from "react"
-import { Moon, Sun } from "lucide-react"
-
+import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  Moon02Icon,
+  Sun03Icon,
+} from "@hugeicons/core-free-icons"
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -105,7 +108,7 @@ export function AppHeader() {
                 aria-label="Toggle theme"
                 className="size-8 p-0"
               >
-                {isDark ? <Moon className="size-4" /> : <Sun className="size-4" />}
+                {isDark ? <HugeiconsIcon icon={Moon02Icon} className="size-4"  /> : <HugeiconsIcon icon={Sun03Icon} className="size-4"  />}
               </Toggle>
             </TooltipTrigger>
             <TooltipContent side="bottom">

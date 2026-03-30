@@ -1,5 +1,7 @@
-import { Search } from "lucide-react"
-
+import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  Search01Icon,
+} from "@hugeicons/core-free-icons"
 import { Label } from "@/registry/dga/ui/label"
 import {
   SidebarGroup,
@@ -20,7 +22,7 @@ export function SearchForm({  onSearch ,...props}: React.ComponentProps<"form"> 
             className="pl-8 rounded-full"
             onChange={(e) => onSearch(e.target.value)}
           />
-          <Search className="pointer-events-none absolute top-1/2 left-2 size-4 -translate-y-1/2 opacity-50 select-none" />
+          <HugeiconsIcon icon={Search01Icon} className="pointer-events-none absolute top-1/2 left-2 size-4 -translate-y-1/2 opacity-50 select-none"  />
         </SidebarGroupContent>
       </SidebarGroup>
     </form>

@@ -14,17 +14,25 @@ export const metadata = {
 
 Install and configure DGA Registry components for Laravel.
 
+The shadcn CLI does not scaffold a new Laravel app. Start by creating a Laravel app with the React starter kit, then configure shadcn/ui.
+
 ---
 
-### Create Project
+## Create Project
 
-Start by creating a new Laravel project with Inertia and React using the Laravel installer:
+Create a new Laravel app using the Laravel installer:
 
 <InstallCommand variant="laravel-new" />
 
+If you already have a Laravel app with React and Inertia configured, skip this step.
+
+Choose the **React** starter kit when prompted. Then move into your project directory:
+
+<InstallCommand variant="css-import" filename="Terminal" code="cd my-app" />
+
 ---
 
-### Run the CLI
+## Run the CLI
 
 Run the `init` command to configure shadcn/ui in your Laravel project:
 
@@ -33,6 +41,8 @@ Run the `init` command to configure shadcn/ui in your Laravel project:
 If prompted to overwrite existing components, answer `y` to continue.
 
 ---
+
+## Configure DGA Registry
 
 ### Add the DGA Registry
 

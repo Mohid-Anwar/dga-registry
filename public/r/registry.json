@@ -2,21 +2,19 @@
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "dga",
   "homepage": "https://dga-registry.vercel.app",
-  
   "registries": [
     {
       "@dga": "https://dga-registry.vercel.app/r/{name}.json"
     }
   ],
-
   "items": [
-    
     {
       "name": "index",
       "type": "registry:style",
       "dependencies": [
         "class-variance-authority",
-        "lucide-react"
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
       ],
       "devDependencies": [
         "tw-animate-css"
@@ -32,7 +30,8 @@
       "type": "registry:style",
       "dependencies": [
         "class-variance-authority",
-        "lucide-react"
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
       ],
       "devDependencies": [
         "tw-animate-css"
@@ -219,7 +218,8 @@
       "type": "registry:ui",
       "dependencies": [
         "recharts@2.15.4",
-        "lucide-react"
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
       ],
       "registryDependencies": [
         "card"
@@ -597,7 +597,8 @@
       "dependencies": [
         "@radix-ui/react-slot",
         "class-variance-authority",
-        "lucide-react"
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
       ],
       "registryDependencies": [
         "button",

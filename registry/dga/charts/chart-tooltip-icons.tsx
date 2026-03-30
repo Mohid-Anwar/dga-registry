@@ -1,6 +1,10 @@
 "use client";
 
-import { Footprints, Waves } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  RunningShoesIcon,
+  WaveIcon,
+} from "@hugeicons/core-free-icons"
 import { Bar, BarChart, XAxis } from "recharts";
 
 import {
@@ -28,16 +32,23 @@ const chartData = [
   { date: "2024-07-20", running: 480, swimming: 400 },
 ];
 
+const RunningShoesWrapper = () => (
+  <HugeiconsIcon icon={RunningShoesIcon} className="h-4 w-4" />
+);
+const WaveWrapper = () => (
+  <HugeiconsIcon icon={WaveIcon} className="h-4 w-4" />
+);
+
 const chartConfig = {
   running: {
     label: "Running",
     color: "var(--chart-1)",
-    icon: Footprints,
+    icon: RunningShoesWrapper,
   },
   swimming: {
     label: "Swimming",
     color: "var(--chart-2)",
-    icon: Waves,
+    icon: WaveWrapper,
   },
 } satisfies ChartConfig;
 

@@ -144,7 +144,11 @@ export const ui: Registry["items"] = [
       },
     ],
     registryDependencies: ["card"],
-    dependencies: ["recharts@2.15.4", "lucide-react"],
+    dependencies: [
+      "recharts@2.15.4",
+      "@hugeicons/react",
+      "@hugeicons/core-free-icons",
+    ],
   },
   {
     name: "checkbox",
@@ -459,7 +463,12 @@ export const ui: Registry["items"] = [
   {
     name: "sidebar",
     type: "registry:ui",
-    dependencies: ["radix-ui", "class-variance-authority", "lucide-react"],
+    dependencies: [
+      "radix-ui",
+      "class-variance-authority",
+      "@hugeicons/react",
+      "@hugeicons/core-free-icons",
+    ],
     registryDependencies: [
       "button",
       "separator",
