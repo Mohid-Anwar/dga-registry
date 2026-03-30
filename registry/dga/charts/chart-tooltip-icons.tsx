@@ -1,11 +1,8 @@
-"use client";
+"use client"
 
+import { RunningShoesIcon, WaveIcon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
-import {
-  RunningShoesIcon,
-  WaveIcon,
-} from "@hugeicons/core-free-icons"
-import { Bar, BarChart, XAxis } from "recharts";
+import { Bar, BarChart, XAxis } from "recharts"
 
 import {
   Card,
@@ -13,15 +10,15 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/registry/dga/ui/card";
+} from "@/registry/dga/ui/card"
 import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
   type ChartConfig,
-} from "@/registry/dga/ui/chart";
+} from "@/registry/dga/ui/chart"
 
-export const description = "A stacked bar chart with a legend";
+export const description = "A stacked bar chart with a legend"
 
 const chartData = [
   { date: "2024-07-15", running: 450, swimming: 300 },
@@ -30,14 +27,12 @@ const chartData = [
   { date: "2024-07-18", running: 140, swimming: 550 },
   { date: "2024-07-19", running: 600, swimming: 350 },
   { date: "2024-07-20", running: 480, swimming: 400 },
-];
+]
 
 const RunningShoesWrapper = () => (
   <HugeiconsIcon icon={RunningShoesIcon} className="h-4 w-4" />
-);
-const WaveWrapper = () => (
-  <HugeiconsIcon icon={WaveIcon} className="h-4 w-4" />
-);
+)
+const WaveWrapper = () => <HugeiconsIcon icon={WaveIcon} className="h-4 w-4" />
 
 const chartConfig = {
   running: {
@@ -50,7 +45,7 @@ const chartConfig = {
     color: "var(--chart-2)",
     icon: WaveWrapper,
   },
-} satisfies ChartConfig;
+} satisfies ChartConfig
 
 export function ChartTooltipIcons() {
   return (
@@ -70,7 +65,7 @@ export function ChartTooltipIcons() {
               tickFormatter={(value) => {
                 return new Date(value).toLocaleDateString("en-US", {
                   weekday: "short",
-                });
+                })
               }}
             />
             <Bar
@@ -94,5 +89,5 @@ export function ChartTooltipIcons() {
         </ChartContainer>
       </CardContent>
     </Card>
-  );
+  )
 }

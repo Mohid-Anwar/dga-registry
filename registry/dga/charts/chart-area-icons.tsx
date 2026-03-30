@@ -1,11 +1,11 @@
-"use client";
+"use client"
 
-import { HugeiconsIcon } from "@hugeicons/react"
 import {
   AnalyticsDownIcon,
   ChartIncreaseIcon,
 } from "@hugeicons/core-free-icons"
-import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
+import { HugeiconsIcon } from "@hugeicons/react"
+import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
 
 import {
   Card,
@@ -14,7 +14,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/registry/dga/ui/card";
+} from "@/registry/dga/ui/card"
 import {
   ChartContainer,
   ChartLegend,
@@ -22,9 +22,9 @@ import {
   ChartTooltip,
   ChartTooltipContent,
   type ChartConfig,
-} from "@/registry/dga/ui/chart";
+} from "@/registry/dga/ui/chart"
 
-export const description = "An area chart with icons";
+export const description = "An area chart with icons"
 
 const chartData = [
   { month: "January", desktop: 186, mobile: 80 },
@@ -33,14 +33,14 @@ const chartData = [
   { month: "April", desktop: 73, mobile: 190 },
   { month: "May", desktop: 209, mobile: 130 },
   { month: "June", desktop: 214, mobile: 140 },
-];
+]
 
 const AnalyticsDownWrapper = () => (
   <HugeiconsIcon icon={AnalyticsDownIcon} className="h-4 w-4" />
-);
+)
 const ChartIncreaseWrapper = () => (
   <HugeiconsIcon icon={ChartIncreaseIcon} className="h-4 w-4" />
-);
+)
 
 const chartConfig = {
   desktop: {
@@ -53,7 +53,7 @@ const chartConfig = {
     color: "var(--chart-2)",
     icon: ChartIncreaseWrapper,
   },
-} satisfies ChartConfig;
+} satisfies ChartConfig
 
 export function ChartAreaIcons() {
   return (
@@ -110,7 +110,8 @@ export function ChartAreaIcons() {
         <div className="flex w-full items-start gap-2 text-sm">
           <div className="grid gap-2">
             <div className="flex items-center gap-2 leading-none font-medium">
-              Trending up by 5.2% this month <HugeiconsIcon icon={ChartIncreaseIcon} className="h-4 w-4"  />
+              Trending up by 5.2% this month{" "}
+              <HugeiconsIcon icon={ChartIncreaseIcon} className="h-4 w-4" />
             </div>
             <div className="text-muted-foreground flex items-center gap-2 leading-none">
               January - June 2024
@@ -119,5 +120,5 @@ export function ChartAreaIcons() {
         </div>
       </CardFooter>
     </Card>
-  );
+  )
 }
