@@ -1,13 +1,23 @@
 "use client"
 
 import { useState } from "react"
+import { Copy01Icon, Tick02Icon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
-import {
-  Copy01Icon,
-  Tick02Icon,
-} from "@hugeicons/core-free-icons"
+
 type PackageManager = "pnpm" | "npm" | "yarn" | "bun"
-type Variant = "add" | "init" | "init-next" | "init-next-monorepo" | "init-laravel" | "init-vite" | "init-vite-monorepo" | "globals" | "globals-laravel" | "globals-vite" | "css-import" | "laravel-new"
+type Variant =
+  | "add"
+  | "init"
+  | "init-next"
+  | "init-next-monorepo"
+  | "init-laravel"
+  | "init-vite"
+  | "init-vite-monorepo"
+  | "globals"
+  | "globals-laravel"
+  | "globals-vite"
+  | "css-import"
+  | "laravel-new"
 
 type Commands = Partial<Record<PackageManager, string>>
 
@@ -137,9 +147,7 @@ export function InstallCommand({
     return (
       <div className="my-4 rounded-xl border bg-zinc-950 text-zinc-100">
         <div className="flex items-center justify-between border-b border-zinc-800 px-4 py-2">
-          <span className="text-xs font-medium text-zinc-400">
-            {filename}
-          </span>
+          <span className="text-xs font-medium text-zinc-400">{filename}</span>
         </div>
         <pre className="overflow-x-auto px-4 py-3 text-sm">
           <code>{code}</code>
@@ -164,18 +172,18 @@ export function InstallCommand({
     (variant === "init"
       ? buildInitCommands()
       : variant === "init-next"
-      ? buildNextInitCommands(rtl)
-      : variant === "init-next-monorepo"
-      ? buildNextInitCommands(rtl, true)
-      : variant === "init-laravel"
-      ? buildLaravelInitCommands(rtl)
-      : variant === "init-vite"
-      ? buildViteInitCommands(rtl)
-      : variant === "init-vite-monorepo"
-      ? buildViteInitCommands(rtl, true)
-      : componentName
-      ? buildCommands(componentName)
-      : {})
+        ? buildNextInitCommands(rtl)
+        : variant === "init-next-monorepo"
+          ? buildNextInitCommands(rtl, true)
+          : variant === "init-laravel"
+            ? buildLaravelInitCommands(rtl)
+            : variant === "init-vite"
+              ? buildViteInitCommands(rtl)
+              : variant === "init-vite-monorepo"
+                ? buildViteInitCommands(rtl, true)
+                : componentName
+                  ? buildCommands(componentName)
+                  : {})
 
   const managers = Object.keys(resolvedCommands) as PackageManager[]
   const [active, setActive] = useState<PackageManager>(managers[0])
@@ -213,7 +221,11 @@ export function InstallCommand({
           onClick={copy}
           className="flex items-center justify-center rounded-md p-1.5 text-zinc-400 transition-colors hover:bg-zinc-800 hover:text-zinc-100"
         >
-          {copied ? <HugeiconsIcon icon={Tick02Icon} className="size-3.5"  /> : <HugeiconsIcon icon={Copy01Icon} className="size-3.5"  />}
+          {copied ? (
+            <HugeiconsIcon icon={Tick02Icon} className="size-3.5" />
+          ) : (
+            <HugeiconsIcon icon={Copy01Icon} className="size-3.5" />
+          )}
         </button>
       </div>
 
