@@ -33,11 +33,15 @@ const chartData = [
   { month: "June", desktop: 214 },
 ];
 
+const ActivityWrapper = () => (
+  <HugeiconsIcon icon={ActivityIcon} className="h-4 w-4" />
+);
+
 const chartConfig = {
   desktop: {
     label: "Desktop",
     color: "var(--chart-1)",
-    icon: ActivityIcon,
+    icon: ActivityWrapper,
   },
 } satisfies ChartConfig;
 

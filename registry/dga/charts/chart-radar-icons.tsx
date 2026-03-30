@@ -36,16 +36,23 @@ const chartData = [
   { month: "June", desktop: 214, mobile: 140 },
 ];
 
+const ArrowDownWrapper = () => (
+  <HugeiconsIcon icon={ArrowDown02Icon} className="h-4 w-4" />
+);
+const ArrowUpWrapper = () => (
+  <HugeiconsIcon icon={ArrowUp02Icon} className="h-4 w-4" />
+);
+
 const chartConfig = {
   desktop: {
     label: "Desktop",
     color: "var(--chart-1)",
-    icon: ArrowDown02Icon,
+    icon: ArrowDownWrapper,
   },
   mobile: {
     label: "Mobile",
     color: "var(--chart-2)",
-    icon: ArrowUp02Icon,
+    icon: ArrowUpWrapper,
   },
 } satisfies ChartConfig;
 

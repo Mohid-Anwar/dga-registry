@@ -35,16 +35,23 @@ const chartData = [
   { month: "June", desktop: 214, mobile: 140 },
 ];
 
+const AnalyticsDownWrapper = () => (
+  <HugeiconsIcon icon={AnalyticsDownIcon} className="h-4 w-4" />
+);
+const ChartIncreaseWrapper = () => (
+  <HugeiconsIcon icon={ChartIncreaseIcon} className="h-4 w-4" />
+);
+
 const chartConfig = {
   desktop: {
     label: "Desktop",
     color: "var(--chart-1)",
-    icon: AnalyticsDownIcon,
+    icon: AnalyticsDownWrapper,
   },
   mobile: {
     label: "Mobile",
     color: "var(--chart-2)",
-    icon: ChartIncreaseIcon,
+    icon: ChartIncreaseWrapper,
   },
 } satisfies ChartConfig;
 
