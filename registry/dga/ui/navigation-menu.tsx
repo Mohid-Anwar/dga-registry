@@ -1,9 +1,7 @@
 import * as React from "react"
-import { cva } from "class-variance-authority"
+import { ArrowDown01Icon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
-import {
-  ArrowDown01Icon,
-} from "@hugeicons/core-free-icons"
+import { cva, type VariantProps } from "class-variance-authority"
 import { NavigationMenu as NavigationMenuPrimitive } from "radix-ui"
 
 import { cn } from "@/lib/utils"
@@ -48,39 +46,71 @@ function NavigationMenuList({
   )
 }
 
+const navigationMenuItemStyle = cva("relative", {
+  variants: {
+    variant: {
+      default: "",
+      hot: "[&>a]:bg-[var(--colors-primary-s-a-flag600-primary)] [&>a]:text-[var(--colors-base-white)] [&>a]:after:opacity-100 [&>a:hover]:bg-[#166A45] [&>button]:bg-[var(--colors-primary-s-a-flag600-primary)] [&>button]:text-[var(--colors-base-white)] [&>button]:after:opacity-100 [&>button:hover]:bg-[#166A45] [&>[data-slot='navigation-menu-trigger']]:bg-[var(--colors-primary-s-a-flag600-primary)] [&>[data-slot='navigation-menu-trigger']]:text-[var(--colors-base-white)] [&>[data-slot='navigation-menu-trigger']]:after:opacity-100 [&>[data-slot='navigation-menu-trigger']:hover]:bg-[#166A45]",
+    },
+  },
+  defaultVariants: {
+    variant: "default",
+  },
+})
+
 function NavigationMenuItem({
   className,
+  variant,
   ...props
-}: React.ComponentProps<typeof NavigationMenuPrimitive.Item>) {
+}: React.ComponentProps<typeof NavigationMenuPrimitive.Item> &
+  VariantProps<typeof navigationMenuItemStyle>) {
   return (
     <NavigationMenuPrimitive.Item
       data-slot="navigation-menu-item"
-      className={cn("relative", className)}
+      className={cn(navigationMenuItemStyle({ variant }), className)}
       {...props}
     />
   )
 }
 
 const navigationMenuTriggerStyle = cva(
-  "group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium hover:bg-[var(--colors-primary-s-a-flag600-primary)] hover:text-[var(--colors-base-white)] focus:bg-accent focus:text-accent-foreground disabled:pointer-events-none disabled:opacity-50 data-[state=open]:hover:bg-[var(--colors-primary-s-a-flag600-primary)] data-[state=open]:text-[var(--colors-base-white)] data-[state=open]:focus:bg-accent data-[state=open]:bg-[var(--colors-primary-s-a-flag600-primary)] focus-visible:ring-ring/50 outline-none transition-[color,box-shadow,background-color] focus-visible:ring-[3px] focus-visible:outline-1 relative after:absolute after:bottom-0 after:left-3 after:right-3 after:h-[4px] after:bg-[var(--colors-primary-s-a-flag400)] after:opacity-0 after:transition-opacity hover:after:opacity-100 active:after:opacity-100 data-[state=open]:after:opacity-100 h-full [&:active:hover]:bg-[var(--colors-primary-s-a-flag600-primary)] [&:active:hover]:text-[var(--colors-base-white)]/80"
+  "group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium hover:bg-[var(--colors-primary-s-a-flag600-primary)] hover:text-[var(--colors-base-white)] focus:bg-accent focus:text-accent-foreground disabled:pointer-events-none disabled:opacity-50 data-[state=open]:hover:bg-[var(--colors-primary-s-a-flag600-primary)] data-[state=open]:text-[var(--colors-base-white)] data-[state=open]:focus:bg-accent data-[state=open]:bg-[var(--colors-primary-s-a-flag600-primary)] focus-visible:ring-ring/50 outline-none transition-[color,box-shadow,background-color] focus-visible:ring-[3px] focus-visible:outline-1 relative after:absolute after:bottom-0 after:left-3 after:right-3 after:h-[4px] after:bg-[var(--colors-primary-s-a-flag400)] after:opacity-0 after:transition-opacity hover:after:opacity-100 active:after:opacity-100 data-[state=open]:after:opacity-100 h-full [&:active:hover]:bg-[var(--colors-primary-s-a-flag600-primary)] [&:active:hover]:text-[var(--colors-base-white)]/80",
+  {
+    variants: {
+      variant: {
+        default: "",
+        hot: "bg-[var(--colors-primary-s-a-flag600-primary)] text-[var(--colors-base-white)] after:opacity-100",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  }
 )
 
 function NavigationMenuTrigger({
   className,
   children,
+  variant,
   ...props
-}: React.ComponentProps<typeof NavigationMenuPrimitive.Trigger>) {
+}: React.ComponentProps<typeof NavigationMenuPrimitive.Trigger> &
+  VariantProps<typeof navigationMenuTriggerStyle>) {
   return (
     <NavigationMenuPrimitive.Trigger
       data-slot="navigation-menu-trigger"
-      className={cn(navigationMenuTriggerStyle(), "group", className)}
+      className={cn(
+        navigationMenuTriggerStyle({ variant }),
+        "group",
+        className
+      )}
       {...props}
     >
       {children}{" "}
-      <HugeiconsIcon icon={ArrowDown01Icon}
+      <HugeiconsIcon
+        icon={ArrowDown01Icon}
         className="relative top-[1px] ms-1 size-3 transition duration-300 group-data-[state=open]:rotate-180"
         aria-hidden="true"
-       />
+      />
     </NavigationMenuPrimitive.Trigger>
   )
 }
@@ -93,7 +123,7 @@ function NavigationMenuContent({
     <NavigationMenuPrimitive.Content
       data-slot="navigation-menu-content"
       className={cn(
-        "data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52 data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52 top-0 start-0 w-full p-2 pe-2.5 md:absolute md:w-auto",
+        "data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52 data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52 start-0 top-0 w-full p-2 pe-2.5 md:absolute md:w-auto",
         "group-data-[viewport=false]/navigation-menu:bg-popover group-data-[viewport=false]/navigation-menu:text-popover-foreground group-data-[viewport=false]/navigation-menu:data-[state=open]:animate-in group-data-[viewport=false]/navigation-menu:data-[state=closed]:animate-out group-data-[viewport=false]/navigation-menu:data-[state=closed]:zoom-out-95 group-data-[viewport=false]/navigation-menu:data-[state=open]:zoom-in-95 group-data-[viewport=false]/navigation-menu:data-[state=open]:fade-in-0 group-data-[viewport=false]/navigation-menu:data-[state=closed]:fade-out-0 group-data-[viewport=false]/navigation-menu:top-full group-data-[viewport=false]/navigation-menu:mt-1.5 group-data-[viewport=false]/navigation-menu:overflow-hidden group-data-[viewport=false]/navigation-menu:rounded-md group-data-[viewport=false]/navigation-menu:border group-data-[viewport=false]/navigation-menu:shadow group-data-[viewport=false]/navigation-menu:duration-200 **:data-[slot=navigation-menu-link]:focus:ring-0 **:data-[slot=navigation-menu-link]:focus:outline-none",
         className
       )}
@@ -109,7 +139,7 @@ function NavigationMenuViewport({
   return (
     <div
       className={cn(
-        "absolute top-full start-0 isolate z-50 flex justify-center"
+        "absolute start-0 top-full isolate z-50 flex justify-center"
       )}
     >
       <NavigationMenuPrimitive.Viewport
