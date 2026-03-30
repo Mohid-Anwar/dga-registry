@@ -36,20 +36,20 @@ function buildNextInitCommands(rtl = false, monorepo = false): Commands {
   const rtlFlag = rtl ? " --rtl" : ""
   const monoFlag = monorepo ? " --monorepo" : ""
   return {
-    pnpm: `pnpm dlx shadcn@latest init -t next --radix${rtlFlag}${monoFlag}`,
-    npm: `npx shadcn@latest init -t next --radix${rtlFlag}${monoFlag}`,
-    yarn: `yarn dlx shadcn@latest init -t next --radix${rtlFlag}${monoFlag}`,
-    bun: `bunx --bun shadcn@latest init -t next --radix${rtlFlag}${monoFlag}`,
+    pnpm: `pnpm dlx shadcn@latest init --preset b0 --template next${rtlFlag}${monoFlag}`,
+    npm: `npx shadcn@latest init --preset b0 --template next${rtlFlag}${monoFlag}`,
+    yarn: `yarn dlx shadcn@latest init --preset b0 --template next${rtlFlag}${monoFlag}`,
+    bun: `bunx --bun shadcn@latest init --preset b0 --template next${rtlFlag}${monoFlag}`,
   }
 }
 
 function buildLaravelInitCommands(rtl = false): Commands {
   const rtlFlag = rtl ? " --rtl" : ""
   return {
-    pnpm: `pnpm dlx shadcn@latest init -t laravel --radix${rtlFlag}`,
-    npm: `npx shadcn@latest init -t laravel --radix${rtlFlag}`,
-    yarn: `yarn dlx shadcn@latest init -t laravel --radix${rtlFlag}`,
-    bun: `bunx --bun shadcn@latest init -t laravel --radix${rtlFlag}`,
+    pnpm: `pnpm dlx shadcn@latest init --preset b0 --template laravel${rtlFlag}`,
+    npm: `npx shadcn@latest init --preset b0 --template laravel${rtlFlag}`,
+    yarn: `yarn dlx shadcn@latest init --preset b0 --template laravel${rtlFlag}`,
+    bun: `bunx --bun shadcn@latest init --preset b0 --template laravel${rtlFlag}`,
   }
 }
 
@@ -57,10 +57,10 @@ function buildViteInitCommands(rtl = false, monorepo = false): Commands {
   const rtlFlag = rtl ? " --rtl" : ""
   const monoFlag = monorepo ? " --monorepo" : ""
   return {
-    pnpm: `pnpm dlx shadcn@latest init -t vite --radix${rtlFlag}${monoFlag}`,
-    npm: `npx shadcn@latest init -t vite --radix${rtlFlag}${monoFlag}`,
-    yarn: `yarn dlx shadcn@latest init -t vite --radix${rtlFlag}${monoFlag}`,
-    bun: `bunx --bun shadcn@latest init -t vite --radix${rtlFlag}${monoFlag}`,
+    pnpm: `pnpm dlx shadcn@latest init --preset b0 --template vite${rtlFlag}${monoFlag}`,
+    npm: `npx shadcn@latest init --preset b0 --template vite${rtlFlag}${monoFlag}`,
+    yarn: `yarn dlx shadcn@latest init --preset b0 --template vite${rtlFlag}${monoFlag}`,
+    bun: `bunx --bun shadcn@latest init --preset b0 --template vite${rtlFlag}${monoFlag}`,
   }
 }
 
