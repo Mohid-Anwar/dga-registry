@@ -20,6 +20,9 @@
 # production
 /build
 
+# generated registry output
+/public/r/
+
 # misc
 .DS_Store
 *.pem
