@@ -119,6 +119,11 @@
         {
           "path": "registry/dga/ui/badge.tsx",
           "type": "registry:ui"
+        },
+        {
+          "path": "styles/tokens.css",
+          "type": "registry:component",
+          "target": "styles/tokens.css"
         }
       ]
     },
