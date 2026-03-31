@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next"
+
 import { getUIComponents } from "@/lib/get-components"
 
 const BASE_URL = "https://dga-registry.vercel.app"
