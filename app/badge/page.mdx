@@ -1,0 +1,87 @@
+import { DocsLayout } from "@/components/docs/docs-layout"
+import { DirectionToggle } from "@/components/docs/direction-toggle"
+import { InstallCommand } from "@/components/docs/install-command"
+import {
+  BadgeVariants,
+  BadgeChips,
+  BadgeSizes,
+  BadgeWithIcons,
+  BadgeAsLink,
+} from "./demos"
+
+export const metadata = {
+  title: "Badge",
+  description: "Displays a badge or a component that looks like a badge.",
+}
+
+<DocsLayout>
+
+# Badge
+
+Displays a badge or a component that looks like a badge.
+
+<DirectionToggle />
+
+## Installation
+
+<InstallCommand componentName="badge" />
+
+## Variants
+
+| Variant | Description |
+| --- | --- |
+| `default` | Primary badge |
+| `secondary` | Secondary style |
+| `destructive` | Dangerous / error state |
+| `outline` | Bordered badge |
+| `ghost` | No background |
+| `link` | Styled as a link |
+
+<BadgeVariants />
+
+## Chip Variants
+
+DGA-specific chip styles for selection and filtering contexts.
+
+| Variant | Description |
+| --- | --- |
+| `chip-primary` | Primary chip |
+| `chip-primary-selected` | Primary chip (selected) |
+| `chip-neutral` | Neutral chip |
+| `chip-neutral-selected` | Neutral chip (selected) |
+
+<BadgeChips />
+
+## Sizes
+
+| Size | Description |
+| --- | --- |
+| `default` | Inline text badge |
+| `sm` | 20px height |
+| `md` | 24px height |
+| `lg` | 32px height |
+
+<BadgeSizes />
+
+## With Icons
+
+Badges with leading or trailing icons.
+
+<BadgeWithIcons />
+
+## As Link
+
+Use `asChild` to render the badge as an anchor or any other element.
+
+<BadgeAsLink />
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `variant` | `string` | `"default"` | Visual style variant |
+| `size` | `string` | `"default"` | Badge size |
+| `asChild` | `boolean` | `false` | Merge props onto child element |
+| `className` | `string` | — | Additional CSS classes |
+
+</DocsLayout>
