@@ -1,0 +1,75 @@
+import { DocsLayout } from "@/components/docs/docs-layout"
+import { DirectionToggle } from "@/components/docs/direction-toggle"
+import { InstallCommand } from "@/components/docs/install-command"
+import {
+  SkeletonBasic,
+  SkeletonCard,
+  SkeletonProfile,
+  SkeletonTable,
+  SkeletonForm,
+} from "./demos"
+
+export const metadata = {
+  title: "Skeleton",
+  description: "A placeholder preview of content before data loads.",
+}
+
+<DocsLayout>
+
+# Skeleton
+
+A placeholder preview of content before data loads. Uses a shimmer animation effect.
+
+<DirectionToggle />
+
+## Installation
+
+<InstallCommand componentName="skeleton" />
+
+## Basic Usage
+
+Simple skeleton lines for text content.
+
+<SkeletonBasic />
+
+## Card Skeleton
+
+Skeleton layout for cards with image and text.
+
+<SkeletonCard />
+
+## Profile Skeleton
+
+Avatar with name and details skeleton.
+
+<SkeletonProfile />
+
+## Table Skeleton
+
+Loading placeholder for tabular data.
+
+<SkeletonTable />
+
+## Form Skeleton
+
+Loading placeholder for form inputs.
+
+<SkeletonForm />
+
+## Props
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `className` | `string` | — | Additional CSS classes for custom sizing/shapes |
+
+## Styling
+
+The skeleton uses a shimmer animation with a gradient background. Customize dimensions using utility classes:
+
+```tsx
+<Skeleton className="h-4 w-[200px]" />        // Line
+<Skeleton className="h-12 w-12 rounded-full" /> // Circle
+<Skeleton className="h-[125px] rounded-xl" />  // Card image
+```
+
+</DocsLayout>

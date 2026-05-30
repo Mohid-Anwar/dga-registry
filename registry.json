@@ -706,6 +706,10 @@
         {
           "path": "registry/dga/ui/skeleton.tsx",
           "type": "registry:ui"
+        },
+        {
+          "path": "registry/dga/ui/skeleton.css",
+          "type": "registry:ui"
         }
       ]
     },

@@ -535,6 +535,10 @@ export const ui: Registry["items"] = [
         path: "ui/skeleton.tsx",
         type: "registry:ui",
       },
+      {
+        path: "ui/skeleton.css",
+        type: "registry:ui",
+      },
     ],
   },
   {
