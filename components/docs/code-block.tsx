@@ -59,6 +59,7 @@ export function CodeBlock({
         {!filename && (
           <button
             onClick={copy}
+            aria-label="Copy code"
             className="absolute top-2 right-2 z-10 flex items-center gap-1.5 rounded-md px-2 py-1 text-xs text-zinc-400 transition-colors hover:bg-zinc-800 hover:text-zinc-100"
           >
             {copied ? (
@@ -81,7 +82,7 @@ export function CodeBlock({
                         : ""
                     }`}
                   >
-                    <span className="mr-4 w-4 shrink-0 text-right text-zinc-600 select-none">
+                    <span className="mr-4 w-4 shrink-0 text-right text-zinc-400 select-none">
                       {i + 1}
                     </span>
                     <span>{line}</span>

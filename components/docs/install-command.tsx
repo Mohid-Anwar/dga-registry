@@ -219,6 +219,7 @@ export function InstallCommand({
 
         <button
           onClick={copy}
+          aria-label="Copy command"
           className="flex items-center justify-center rounded-md p-1.5 text-zinc-400 transition-colors hover:bg-zinc-800 hover:text-zinc-100"
         >
           {copied ? (

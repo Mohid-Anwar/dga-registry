@@ -2,7 +2,8 @@ import { readFile } from "node:fs/promises"
 import { join } from "node:path"
 import { ImageResponse } from "next/og"
 
-export const alt = "DGA Registry – Saudi Data Governance UI Components"
+export const alt =
+  "DGA Components – Digital Government Authority Saudi Arabia UI Library"
 export const size = { width: 1200, height: 630 }
 export const contentType = "image/png"
 
@@ -83,7 +84,7 @@ export default async function Image() {
           D
         </div>
         <span style={{ fontSize: "24px", fontWeight: 700, opacity: 0.9 }}>
-          DGA Registry
+          DGA Components
         </span>
       </div>
 
@@ -98,7 +99,7 @@ export default async function Image() {
           display: "flex",
         }}
       >
-        Saudi Data Governance UI Components
+        Digital Government Authority – Saudi Arabia UI Components
       </div>
 
       {/* Subtitle */}
@@ -112,8 +113,8 @@ export default async function Image() {
           display: "flex",
         }}
       >
-        Built on shadcn/ui with DGA design tokens, RTL support, and IBM Plex
-        Sans Arabic typography.
+        React, Next.js, Laravel, Vite & more. RTL-first with Arabic
+        typography and DGA design tokens.
       </div>
 
       {/* Tags */}
@@ -124,7 +125,7 @@ export default async function Image() {
           marginTop: "40px",
         }}
       >
-        {["React", "Tailwind CSS", "RTL", "Accessible"].map((tag) => (
+        {["React", "Next.js", "Laravel", "RTL", "Arabic"].map((tag) => (
           <div
             key={tag}
             style={{

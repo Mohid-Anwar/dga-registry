@@ -131,12 +131,12 @@ export function FrameworkCards() {
         fw.disabled ? (
           <div
             key={fw.name}
-            className="border-border/50 bg-muted/30 text-muted-foreground/50 relative flex w-full flex-col items-center rounded-xl border border-dashed p-6 sm:p-10"
+            className="border-border/50 bg-muted/30 text-muted-foreground relative flex w-full flex-col items-center rounded-xl border border-dashed p-6 sm:p-10"
           >
-            <span className="bg-muted text-muted-foreground absolute top-3 right-3 rounded-full px-2 py-0.5 text-[10px] font-medium">
+            <span className="bg-muted text-foreground absolute top-3 right-3 rounded-full px-2 py-0.5 text-[10px] font-medium">
               Coming Soon
             </span>
-            <div className="opacity-40">{fw.icon}</div>
+            <div className="opacity-50">{fw.icon}</div>
             <p className="mt-2 font-medium">{fw.name}</p>
           </div>
         ) : (

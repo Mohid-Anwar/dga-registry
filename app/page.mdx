@@ -8,9 +8,13 @@ import { InstallCommand } from "@/components/docs/install-command"
 import { RegistryBlock } from "@/components/docs/registry-block"
 
 export const metadata = {
-  title: "DGA Registry",
+  title:
+    "DGA Components – Saudi Arabia Digital Government Authority UI Library",
   description:
-    "A collection of Saudi Data Governance UI components and utilities for Next.js apps.",
+    "Open-source UI component library based on the Digital Government Authority (DGA) Platforms Code design system. Install production-ready React, Next.js, Laravel, Vite, Astro, and TanStack components with full RTL Arabic support, DGA design tokens, and WCAG accessibility.",
+  alternates: {
+    canonical: "https://dga-registry.vercel.app",
+  },
 }
 
 export const components = getUIComponents()
@@ -19,10 +23,14 @@ export const components = getUIComponents()
 
 <div className="space-y-2">
   <h1 className="scroll-m-20 text-4xl font-bold tracking-tight">
-    DGA Registry
+    DGA Components
   </h1>
   <div className="text-muted-foreground max-w-2xl text-lg">
-    <span>Beautifully designed, accessible UI components built on </span>
+    <span>UI component library based on the </span>
+    <strong>Digital Government Authority (DGA)</strong>
+    <span> Platforms Code design system. Production-ready components for </span>
+    <strong>React, Next.js, Laravel, Vite, Astro, and TanStack</strong>
+    <span> — built on </span>
     <a
       href="https://ui.shadcn.com"
       target="_blank"
@@ -31,10 +39,10 @@ export const components = getUIComponents()
     >
       shadcn/ui
     </a>
-    <span>
-      {" "}
-      with DGA design tokens, RTL support, and IBM Plex Sans Arabic typography.
-    </span>
+    <span> with DGA design tokens, full RTL support, and IBM Plex Sans Arabic typography.</span>
+  </div>
+  <div className="text-muted-foreground max-w-2xl text-sm">
+    هيئة الحكومة الرقمية — مكتبة مكونات واجهة المستخدم
   </div>
 </div>
 
@@ -117,7 +125,29 @@ export default function Home() {
 
 ---
 
-<div className="mt-0 flex text-center">
+## Supported Frameworks
+
+DGA Components work seamlessly with the most popular frameworks in the ecosystem:
+
+- **Next.js** — Full App Router support with server components
+- **React + Vite** — Lightning-fast development with HMR
+- **Laravel** — Inertia.js integration with Blade templates
+- **Astro** — Static-first with island architecture (coming soon)
+- **TanStack Start** — Type-safe full-stack React (coming soon)
+
+---
+
+## Why DGA Components?
+
+- **Based on Platforms Code** — Follows the DGA national design system guidelines
+- **RTL First** — Native right-to-left support for Arabic interfaces
+- **IBM Plex Sans Arabic** — Typography used in government applications
+- **Accessible** — WCAG 2.1 AA compliant components
+- **Open Source** — Free to use in any Saudi government or private sector project
+
+---
+
+<div className="mt-0 text-center">
   <span>Built on </span>
   <a
     href="https://ui.shadcn.com"
@@ -125,9 +155,18 @@ export default function Home() {
     rel="noopener noreferrer"
     className="hover:text-foreground underline underline-offset-4"
   >
-    <span> shadcn/ui </span>
+    shadcn/ui
   </a>
-  <span>. DGA design tokens and RTL adaptations by the DGA team.</span>
+  <span>. DGA design tokens and RTL adaptations based on the </span>
+  <a
+    href="https://www.figma.com/community/file/1392264328585493958"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hover:text-foreground underline underline-offset-4"
+  >
+    Platforms Code
+  </a>
+  <span> design system.</span>
 </div>
 
 </DocsLayout>
