@@ -1,14 +1,15 @@
-import { DocsLayout } from "@/components/docs/docs-layout"
 import { DirectionToggle } from "@/components/docs/direction-toggle"
+import { DocsLayout } from "@/components/docs/docs-layout"
 import { InstallCommand } from "@/components/docs/install-command"
+
 import {
-  ButtonVariants,
-  ButtonSizes,
-  ButtonLeadingIcon,
-  ButtonTrailingIcon,
-  ButtonIconOnly,
-  ButtonLoading,
   ButtonCombo,
+  ButtonIconOnly,
+  ButtonLeadingIcon,
+  ButtonLoading,
+  ButtonSizes,
+  ButtonTrailingIcon,
+  ButtonVariants,
 } from "./demos"
 
 export const metadata = {
@@ -32,18 +33,18 @@ Displays a button or a component that looks like a button.
 
 Each variant shown in its default and disabled state.
 
-| Variant | Description |
-| --- | --- |
-| `default` | Primary action button |
-| `secondary` | Secondary action |
-| `outline` | Bordered button |
-| `destructive` | Dangerous actions |
-| `destructive-secondary` | Secondary danger |
-| `ghost` | No background |
-| `link` | Styled as a link |
-| `black` | Dark button |
-| `on-color` | For colored backgrounds |
-| `transparent` | Fully transparent |
+| Variant                 | Description             |
+| ----------------------- | ----------------------- |
+| `default`               | Primary action button   |
+| `secondary`             | Secondary action        |
+| `outline`               | Bordered button         |
+| `destructive`           | Dangerous actions       |
+| `destructive-secondary` | Secondary danger        |
+| `ghost`                 | No background           |
+| `link`                  | Styled as a link        |
+| `black`                 | Dark button             |
+| `on-color`              | For colored backgrounds |
+| `transparent`           | Fully transparent       |
 
 <ButtonVariants />
 
@@ -51,15 +52,15 @@ Each variant shown in its default and disabled state.
 
 Text buttons in xs, sm, default, and lg sizes.
 
-| Size | Height |
-| --- | --- |
-| `xs` | 24px |
-| `sm` | 32px |
-| `default` | 36px |
-| `lg` | 40px |
+| Size      | Height  |
+| --------- | ------- |
+| `xs`      | 24px    |
+| `sm`      | 32px    |
+| `default` | 36px    |
+| `lg`      | 40px    |
 | `icon-xs` | 24×24px |
 | `icon-sm` | 32×32px |
-| `icon` | 36×36px |
+| `icon`    | 36×36px |
 | `icon-lg` | 40×40px |
 
 <ButtonSizes />
@@ -98,12 +99,12 @@ Both a leading and trailing icon in one button.
 
 ## Props
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `variant` | `string` | `"default"` | Visual style variant |
-| `size` | `string` | `"default"` | Button size |
-| `asChild` | `boolean` | `false` | Merge props onto child element |
-| `disabled` | `boolean` | `false` | Disabled state |
-| `className` | `string` | — | Additional CSS classes |
+| Prop        | Type      | Default     | Description                    |
+| ----------- | --------- | ----------- | ------------------------------ |
+| `variant`   | `string`  | `"default"` | Visual style variant           |
+| `size`      | `string`  | `"default"` | Button size                    |
+| `asChild`   | `boolean` | `false`     | Merge props onto child element |
+| `disabled`  | `boolean` | `false`     | Disabled state                 |
+| `className` | `string`  | —           | Additional CSS classes         |
 
 </DocsLayout>

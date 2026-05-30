@@ -1,17 +1,18 @@
-"use client";
+"use client"
 
-import * as React from "react";
-import { HugeiconsIcon } from "@hugeicons/react"
+import * as React from "react"
 import {
   ArtboardIcon,
-  LifebuoyIcon,
   Compass01Icon,
-  SidebarLeft01Icon,
-  SidebarLeftIcon,
+  LifebuoyIcon,
   PieChartIcon,
   SentIcon,
+  SidebarLeft01Icon,
+  SidebarLeftIcon,
 } from "@hugeicons/core-free-icons"
-import { Button } from "@/registry/dga/ui/button";
+import { HugeiconsIcon } from "@hugeicons/react"
+
+import { Button } from "@/registry/dga/ui/button"
 import {
   Sidebar,
   SidebarContent,
@@ -23,7 +24,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarProvider,
-} from "@/registry/dga/ui/sidebar";
+} from "@/registry/dga/ui/sidebar"
 
 const projects = [
   {
@@ -51,10 +52,10 @@ const projects = [
     url: "#",
     icon: SentIcon,
   },
-];
+]
 
 export default function AppSidebar() {
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(true)
 
   return (
     <SidebarProvider open={open} onOpenChange={setOpen}>
@@ -86,11 +87,15 @@ export default function AppSidebar() {
             size="sm"
             variant="ghost"
           >
-            {open ? <HugeiconsIcon icon={SidebarLeft01Icon}  /> : <HugeiconsIcon icon={SidebarLeftIcon}  />}
+            {open ? (
+              <HugeiconsIcon icon={SidebarLeft01Icon} />
+            ) : (
+              <HugeiconsIcon icon={SidebarLeftIcon} />
+            )}
             <span>{open ? "Close" : "Open"} Sidebar</span>
           </Button>
         </header>
       </SidebarInset>
     </SidebarProvider>
-  );
+  )
 }

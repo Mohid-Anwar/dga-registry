@@ -1,10 +1,8 @@
-"use client";
+"use client"
 
+import { ChartIncreaseIcon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
-import {
-  ChartIncreaseIcon,
-} from "@hugeicons/core-free-icons"
-import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from "recharts";
+import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from "recharts"
 
 import {
   Card,
@@ -13,15 +11,15 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/registry/dga/ui/card";
+} from "@/registry/dga/ui/card"
 import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
   type ChartConfig,
-} from "@/registry/dga/ui/chart";
+} from "@/registry/dga/ui/chart"
 
-export const description = "A radar chart with multiple data";
+export const description = "A radar chart with multiple data"
 
 const chartData = [
   { month: "January", desktop: 186, mobile: 80 },
@@ -30,7 +28,7 @@ const chartData = [
   { month: "April", desktop: 73, mobile: 190 },
   { month: "May", desktop: 209, mobile: 130 },
   { month: "June", desktop: 214, mobile: 140 },
-];
+]
 
 const chartConfig = {
   desktop: {
@@ -41,7 +39,7 @@ const chartConfig = {
     label: "Mobile",
     color: "var(--chart-2)",
   },
-} satisfies ChartConfig;
+} satisfies ChartConfig
 
 export function ChartRadarMultiple() {
   return (
@@ -75,12 +73,13 @@ export function ChartRadarMultiple() {
       </CardContent>
       <CardFooter className="flex-col gap-2 text-sm">
         <div className="flex items-center gap-2 leading-none font-medium">
-          Trending up by 5.2% this month <HugeiconsIcon icon={ChartIncreaseIcon} className="h-4 w-4"  />
+          Trending up by 5.2% this month{" "}
+          <HugeiconsIcon icon={ChartIncreaseIcon} className="h-4 w-4" />
         </div>
         <div className="text-muted-foreground flex items-center gap-2 leading-none">
           January - June 2024
         </div>
       </CardFooter>
     </Card>
-  );
+  )
 }

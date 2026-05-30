@@ -1,14 +1,15 @@
 "use client"
 
 import * as React from "react"
-import { HugeiconsIcon } from "@hugeicons/react"
 import {
+  ActivityIcon,
+  Building02Icon,
   GlobeIcon,
   MapPinIcon,
   UserMultipleIcon,
-  Building02Icon,
-  ActivityIcon,
 } from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+
 import { Button } from "@/registry/dga/ui/button"
 import {
   Select,
@@ -24,7 +25,7 @@ import {
 /* ─── 1. Basic Select ─── */
 export function SelectBasic() {
   return (
-    <div className="rounded-lg border bg-background p-6">
+    <div className="bg-background rounded-lg border p-6">
       <div className="flex flex-col gap-4">
         <div className="flex flex-col gap-2">
           <label className="text-sm font-medium">Select Station Type</label>
@@ -78,7 +79,7 @@ export function SelectBasic() {
 /* ─── 2. Select Sizes ─── */
 export function SelectSizes() {
   return (
-    <div className="rounded-lg border bg-background p-6">
+    <div className="bg-background rounded-lg border p-6">
       <div className="flex flex-col gap-4">
         <div className="flex flex-col gap-2">
           <label className="text-sm font-medium">Default Size</label>
@@ -115,7 +116,7 @@ export function SelectSizes() {
 /* ─── 3. Grouped Select ─── */
 export function SelectGrouped() {
   return (
-    <div className="rounded-lg border bg-background p-6">
+    <div className="bg-background rounded-lg border p-6">
       <div className="flex flex-col gap-4">
         <div className="flex flex-col gap-2">
           <label className="text-sm font-medium">
@@ -179,7 +180,9 @@ export function SelectGrouped() {
               <SelectSeparator />
               <SelectGroup>
                 <SelectLabel>Other</SelectLabel>
-                <SelectItem value="voc">VOC (Volatile Organic Compounds)</SelectItem>
+                <SelectItem value="voc">
+                  VOC (Volatile Organic Compounds)
+                </SelectItem>
                 <SelectItem value="h2s">H₂S (Hydrogen Sulfide)</SelectItem>
               </SelectGroup>
             </SelectContent>
@@ -193,7 +196,7 @@ export function SelectGrouped() {
 /* ─── 4. Select with Icons ─── */
 export function SelectWithIcons() {
   return (
-    <div className="rounded-lg border bg-background p-6">
+    <div className="bg-background rounded-lg border p-6">
       <div className="flex flex-col gap-4">
         <div className="flex flex-col gap-2">
           <label className="text-sm font-medium">Select Station Type</label>
@@ -203,19 +206,19 @@ export function SelectWithIcons() {
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="background">
-                <HugeiconsIcon icon={MapPinIcon} className="size-4"  />
+                <HugeiconsIcon icon={MapPinIcon} className="size-4" />
                 Background
               </SelectItem>
               <SelectItem value="traffic">
-                <HugeiconsIcon icon={ActivityIcon} className="size-4"  />
+                <HugeiconsIcon icon={ActivityIcon} className="size-4" />
                 Traffic
               </SelectItem>
               <SelectItem value="industrial">
-                <HugeiconsIcon icon={Building02Icon} className="size-4"  />
+                <HugeiconsIcon icon={Building02Icon} className="size-4" />
                 Industrial
               </SelectItem>
               <SelectItem value="suburban">
-                <HugeiconsIcon icon={UserMultipleIcon} className="size-4"  />
+                <HugeiconsIcon icon={UserMultipleIcon} className="size-4" />
                 Suburban
               </SelectItem>
             </SelectContent>
@@ -230,11 +233,11 @@ export function SelectWithIcons() {
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="en">
-                <HugeiconsIcon icon={GlobeIcon} className="size-4"  />
+                <HugeiconsIcon icon={GlobeIcon} className="size-4" />
                 English
               </SelectItem>
               <SelectItem value="ar">
-                <HugeiconsIcon icon={GlobeIcon} className="size-4"  />
+                <HugeiconsIcon icon={GlobeIcon} className="size-4" />
                 العربية (Arabic)
               </SelectItem>
             </SelectContent>
@@ -251,7 +254,7 @@ export function SelectControlled() {
   const [selectedPollutant, setSelectedPollutant] = React.useState("")
 
   return (
-    <div className="rounded-lg border bg-background p-6">
+    <div className="bg-background rounded-lg border p-6">
       <div className="flex flex-col gap-4">
         <div className="flex flex-col gap-2">
           <label className="text-sm font-medium">Select Station</label>
@@ -260,16 +263,14 @@ export function SelectControlled() {
               <SelectValue placeholder="Select a station" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="pshc">
-                Prince Sultan Humanity City
-              </SelectItem>
+              <SelectItem value="pshc">Prince Sultan Humanity City</SelectItem>
               <SelectItem value="al-hair">Al Hair</SelectItem>
               <SelectItem value="diplomatic">Diplomatic Quarter</SelectItem>
               <SelectItem value="corniche">Jeddah Corniche</SelectItem>
             </SelectContent>
           </Select>
           {selectedStation && (
-            <p className="text-sm text-muted-foreground">
+            <p className="text-muted-foreground text-sm">
               Selected: <strong>{selectedStation}</strong>
             </p>
           )}
@@ -294,14 +295,14 @@ export function SelectControlled() {
             </SelectContent>
           </Select>
           {selectedPollutant && (
-            <p className="text-sm text-muted-foreground">
+            <p className="text-muted-foreground text-sm">
               Selected: <strong>{selectedPollutant}</strong>
             </p>
           )}
         </div>
 
         {selectedStation && selectedPollutant && (
-          <div className="mt-2 rounded-md border bg-card p-4">
+          <div className="bg-card mt-2 rounded-md border p-4">
             <h3 className="mb-2 text-sm font-semibold">Selection Summary</h3>
             <p className="text-sm">
               Viewing <strong>{selectedPollutant}</strong> data for{" "}
@@ -317,10 +318,10 @@ export function SelectControlled() {
 /* ─── 6. Form Examples ─── */
 export function SelectForms() {
   return (
-    <div className="rounded-lg border bg-background p-6">
+    <div className="bg-background rounded-lg border p-6">
       <div className="space-y-8">
         {/* Station Configuration Form */}
-        <div className="border-border rounded-lg border bg-card p-6">
+        <div className="border-border bg-card rounded-lg border p-6">
           <h3 className="mb-4 text-lg font-semibold">Station Configuration</h3>
           <form className="space-y-4">
             <div className="grid gap-4 sm:grid-cols-2">
@@ -385,7 +386,7 @@ export function SelectForms() {
         </div>
 
         {/* Data Query Form */}
-        <div className="border-border rounded-lg border bg-card p-6">
+        <div className="border-border bg-card rounded-lg border p-6">
           <h3 className="mb-4 text-lg font-semibold">Data Query</h3>
           <form className="space-y-4">
             <div className="flex flex-col gap-2">
@@ -484,7 +485,7 @@ export function SelectForms() {
 /* ─── 7. Width Variations ─── */
 export function SelectWidths() {
   return (
-    <div className="rounded-lg border bg-background p-6">
+    <div className="bg-background rounded-lg border p-6">
       <div className="flex flex-col gap-4">
         <div className="flex flex-col gap-2">
           <label className="text-sm font-medium">Small Width (200px)</label>

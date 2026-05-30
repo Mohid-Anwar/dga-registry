@@ -1,20 +1,21 @@
-"use client";
+"use client"
 
-import { HugeiconsIcon } from "@hugeicons/react"
 import {
   ArtboardIcon,
-  LifebuoyIcon,
   Compass01Icon,
+  LifebuoyIcon,
   MoreHorizontalIcon,
   PieChartIcon,
   SentIcon,
 } from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/registry/dga/ui/dropdown-menu";
+} from "@/registry/dga/ui/dropdown-menu"
 import {
   Sidebar,
   SidebarContent,
@@ -26,7 +27,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarProvider,
-} from "@/registry/dga/ui/sidebar";
+} from "@/registry/dga/ui/sidebar"
 
 const projects = [
   {
@@ -54,7 +55,7 @@ const projects = [
     url: "#",
     icon: SentIcon,
   },
-];
+]
 
 export default function AppSidebar() {
   return (
@@ -79,7 +80,7 @@ export default function AppSidebar() {
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
                         <SidebarMenuAction>
-                          <HugeiconsIcon icon={MoreHorizontalIcon}  />
+                          <HugeiconsIcon icon={MoreHorizontalIcon} />
                           <span className="sr-only">More</span>
                         </SidebarMenuAction>
                       </DropdownMenuTrigger>
@@ -100,5 +101,5 @@ export default function AppSidebar() {
         </SidebarContent>
       </Sidebar>
     </SidebarProvider>
-  );
+  )
 }

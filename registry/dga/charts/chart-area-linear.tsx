@@ -1,10 +1,8 @@
-"use client";
+"use client"
 
+import { ChartIncreaseIcon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
-import {
-  ChartIncreaseIcon,
-} from "@hugeicons/core-free-icons"
-import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
+import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
 
 import {
   Card,
@@ -13,15 +11,15 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/registry/dga/ui/card";
+} from "@/registry/dga/ui/card"
 import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
   type ChartConfig,
-} from "@/registry/dga/ui/chart";
+} from "@/registry/dga/ui/chart"
 
-export const description = "A linear area chart";
+export const description = "A linear area chart"
 
 const chartData = [
   { month: "January", desktop: 186 },
@@ -30,14 +28,14 @@ const chartData = [
   { month: "April", desktop: 73 },
   { month: "May", desktop: 209 },
   { month: "June", desktop: 214 },
-];
+]
 
 const chartConfig = {
   desktop: {
     label: "Desktop",
     color: "var(--chart-1)",
   },
-} satisfies ChartConfig;
+} satisfies ChartConfig
 
 export function ChartAreaLinear() {
   return (
@@ -84,7 +82,8 @@ export function ChartAreaLinear() {
         <div className="flex w-full items-start gap-2 text-sm">
           <div className="grid gap-2">
             <div className="flex items-center gap-2 leading-none font-medium">
-              Trending up by 5.2% this month <HugeiconsIcon icon={ChartIncreaseIcon} className="h-4 w-4"  />
+              Trending up by 5.2% this month{" "}
+              <HugeiconsIcon icon={ChartIncreaseIcon} className="h-4 w-4" />
             </div>
             <div className="text-muted-foreground flex items-center gap-2 leading-none">
               January - June 2024
@@ -93,5 +92,5 @@ export function ChartAreaLinear() {
         </div>
       </CardFooter>
     </Card>
-  );
+  )
 }

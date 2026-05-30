@@ -1,15 +1,14 @@
-"use client";
+"use client"
 
+import { ArrowUp01Icon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
-import {
-  ArrowUp01Icon,
-} from "@hugeicons/core-free-icons"
+
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/registry/dga/ui/dropdown-menu";
+} from "@/registry/dga/ui/dropdown-menu"
 import {
   Sidebar,
   SidebarContent,
@@ -21,7 +20,7 @@ import {
   SidebarMenuItem,
   SidebarProvider,
   SidebarTrigger,
-} from "@/registry/dga/ui/sidebar";
+} from "@/registry/dga/ui/sidebar"
 
 export default function AppSidebar() {
   return (
@@ -36,7 +35,7 @@ export default function AppSidebar() {
                 <DropdownMenuTrigger asChild>
                   <SidebarMenuButton className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground">
                     Username
-                    <HugeiconsIcon icon={ArrowUp01Icon} className="ml-auto"  />
+                    <HugeiconsIcon icon={ArrowUp01Icon} className="ml-auto" />
                   </SidebarMenuButton>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent
@@ -64,5 +63,5 @@ export default function AppSidebar() {
         </header>
       </SidebarInset>
     </SidebarProvider>
-  );
+  )
 }

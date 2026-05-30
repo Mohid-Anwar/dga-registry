@@ -1,11 +1,9 @@
 "use client"
 
 import { useState } from "react"
+import { Copy01Icon, Tick02Icon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
-import {
-  Tick02Icon,
-  Copy01Icon,
-} from "@hugeicons/core-free-icons"
+
 interface CodeBlockProps {
   code: string
   language?: string
@@ -43,12 +41,12 @@ export function CodeBlock({
           >
             {copied ? (
               <>
-                <HugeiconsIcon icon={Tick02Icon} className="size-3.5"  />
+                <HugeiconsIcon icon={Tick02Icon} className="size-3.5" />
                 <span>Copied</span>
               </>
             ) : (
               <>
-                <HugeiconsIcon icon={Copy01Icon} className="size-3.5"  />
+                <HugeiconsIcon icon={Copy01Icon} className="size-3.5" />
                 <span>Copy</span>
               </>
             )}
@@ -61,12 +59,12 @@ export function CodeBlock({
         {!filename && (
           <button
             onClick={copy}
-            className="absolute right-2 top-2 z-10 flex items-center gap-1.5 rounded-md px-2 py-1 text-xs text-zinc-400 transition-colors hover:bg-zinc-800 hover:text-zinc-100"
+            className="absolute top-2 right-2 z-10 flex items-center gap-1.5 rounded-md px-2 py-1 text-xs text-zinc-400 transition-colors hover:bg-zinc-800 hover:text-zinc-100"
           >
             {copied ? (
-              <HugeiconsIcon icon={Tick02Icon} className="size-3.5"  />
+              <HugeiconsIcon icon={Tick02Icon} className="size-3.5" />
             ) : (
-              <HugeiconsIcon icon={Copy01Icon} className="size-3.5"  />
+              <HugeiconsIcon icon={Copy01Icon} className="size-3.5" />
             )}
           </button>
         )}
@@ -79,11 +77,11 @@ export function CodeBlock({
                     key={i}
                     className={`flex ${
                       highlightLines.includes(i + 1)
-                        ? "bg-zinc-800/60 -mx-4 px-4"
+                        ? "-mx-4 bg-zinc-800/60 px-4"
                         : ""
                     }`}
                   >
-                    <span className="mr-4 select-none text-zinc-600 w-4 shrink-0 text-right">
+                    <span className="mr-4 w-4 shrink-0 text-right text-zinc-600 select-none">
                       {i + 1}
                     </span>
                     <span>{line}</span>

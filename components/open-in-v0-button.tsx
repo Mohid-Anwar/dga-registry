@@ -1,5 +1,5 @@
-import { Button } from "@/registry/dga/ui/button";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
+import { Button } from "@/registry/dga/ui/button"
 
 export function OpenInV0Button({
   name,
@@ -10,8 +10,8 @@ export function OpenInV0Button({
       aria-label="Open in v0"
       size="sm"
       className={cn(
-        "shadow-none bg-black text-white hover:bg-black hover:text-white dark:bg-white dark:text-black",
-        className,
+        "bg-black text-white shadow-none hover:bg-black hover:text-white dark:bg-white dark:text-black",
+        className
       )}
       asChild
     >
@@ -38,5 +38,5 @@ export function OpenInV0Button({
         </svg>
       </a>
     </Button>
-  );
+  )
 }

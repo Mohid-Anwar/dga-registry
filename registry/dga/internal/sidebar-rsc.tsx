@@ -1,12 +1,13 @@
-import * as React from "react";
-import { HugeiconsIcon } from "@hugeicons/react"
+import * as React from "react"
 import {
   ArtboardIcon,
-  LifebuoyIcon,
   Compass01Icon,
+  LifebuoyIcon,
   PieChartIcon,
   SentIcon,
 } from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+
 import {
   Sidebar,
   SidebarContent,
@@ -18,7 +19,7 @@ import {
   SidebarMenuItem,
   SidebarMenuSkeleton,
   SidebarProvider,
-} from "@/registry/dga/ui/sidebar";
+} from "@/registry/dga/ui/sidebar"
 
 const projects = [
   {
@@ -51,12 +52,12 @@ const projects = [
     icon: SentIcon,
     badge: "8",
   },
-];
+]
 
 // Dummy fetch function
 async function fetchProjects() {
-  await new Promise((resolve) => setTimeout(resolve, 3000));
-  return projects;
+  await new Promise((resolve) => setTimeout(resolve, 3000))
+  return projects
 }
 
 export default function AppSidebar() {
@@ -75,7 +76,7 @@ export default function AppSidebar() {
         </SidebarContent>
       </Sidebar>
     </SidebarProvider>
-  );
+  )
 }
 
 function NavProjectsSkeleton() {
@@ -87,11 +88,11 @@ function NavProjectsSkeleton() {
         </SidebarMenuItem>
       ))}
     </SidebarMenu>
-  );
+  )
 }
 
 async function NavProjects() {
-  const projects = await fetchProjects();
+  const projects = await fetchProjects()
 
   return (
     <SidebarMenu>
@@ -106,5 +107,5 @@ async function NavProjects() {
         </SidebarMenuItem>
       ))}
     </SidebarMenu>
-  );
+  )
 }

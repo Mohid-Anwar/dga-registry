@@ -1,19 +1,21 @@
-import { DocsLayout } from "@/components/docs/docs-layout"
 import { DirectionToggle } from "@/components/docs/direction-toggle"
+import { DocsLayout } from "@/components/docs/docs-layout"
 import { InstallCommand } from "@/components/docs/install-command"
+
 import {
+  InputAdvanced,
   InputBasicStates,
-  InputTypes,
-  InputWithIcons,
+  InputFileUpload,
   InputForms,
   InputSizing,
-  InputFileUpload,
-  InputAdvanced,
+  InputTypes,
+  InputWithIcons,
 } from "./demos"
 
 export const metadata = {
   title: "Input",
-  description: "Displays a form input field or a component that looks like an input field.",
+  description:
+    "Displays a form input field or a component that looks like an input field.",
 }
 
 <DocsLayout>
@@ -72,13 +74,13 @@ Complex input patterns and combinations.
 
 ## Props
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `type` | `string` | `"text"` | HTML input type |
-| `placeholder` | `string` | — | Placeholder text |
-| `disabled` | `boolean` | `false` | Disables the input |
-| `readOnly` | `boolean` | `false` | Makes input read-only |
-| `aria-invalid` | `string` | — | Marks input as invalid |
-| `className` | `string` | — | Additional CSS classes |
+| Prop           | Type      | Default  | Description            |
+| -------------- | --------- | -------- | ---------------------- |
+| `type`         | `string`  | `"text"` | HTML input type        |
+| `placeholder`  | `string`  | —        | Placeholder text       |
+| `disabled`     | `boolean` | `false`  | Disables the input     |
+| `readOnly`     | `boolean` | `false`  | Makes input read-only  |
+| `aria-invalid` | `string`  | —        | Marks input as invalid |
+| `className`    | `string`  | —        | Additional CSS classes |
 
 </DocsLayout>

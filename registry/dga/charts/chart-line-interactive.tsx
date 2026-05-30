@@ -1,7 +1,7 @@
-"use client";
+"use client"
 
-import * as React from "react";
-import { CartesianGrid, Line, LineChart, XAxis } from "recharts";
+import * as React from "react"
+import { CartesianGrid, Line, LineChart, XAxis } from "recharts"
 
 import {
   Card,
@@ -9,15 +9,15 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/registry/dga/ui/card";
+} from "@/registry/dga/ui/card"
 import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
   type ChartConfig,
-} from "@/registry/dga/ui/chart";
+} from "@/registry/dga/ui/chart"
 
-export const description = "An interactive line chart";
+export const description = "An interactive line chart"
 
 const chartData = [
   { date: "2024-04-01", desktop: 222, mobile: 150 },
@@ -111,7 +111,7 @@ const chartData = [
   { date: "2024-06-28", desktop: 149, mobile: 200 },
   { date: "2024-06-29", desktop: 103, mobile: 160 },
   { date: "2024-06-30", desktop: 446, mobile: 400 },
-];
+]
 
 const chartConfig = {
   views: {
@@ -125,19 +125,19 @@ const chartConfig = {
     label: "Mobile",
     color: "var(--chart-2)",
   },
-} satisfies ChartConfig;
+} satisfies ChartConfig
 
 export function ChartLineInteractive() {
   const [activeChart, setActiveChart] =
-    React.useState<keyof typeof chartConfig>("desktop");
+    React.useState<keyof typeof chartConfig>("desktop")
 
   const total = React.useMemo(
     () => ({
       desktop: chartData.reduce((acc, curr) => acc + curr.desktop, 0),
       mobile: chartData.reduce((acc, curr) => acc + curr.mobile, 0),
     }),
-    [],
-  );
+    []
+  )
 
   return (
     <Card className="py-4 sm:py-0">
@@ -150,7 +150,7 @@ export function ChartLineInteractive() {
         </div>
         <div className="flex">
           {["desktop", "mobile"].map((key) => {
-            const chart = key as keyof typeof chartConfig;
+            const chart = key as keyof typeof chartConfig
             return (
               <button
                 key={chart}
@@ -165,7 +165,7 @@ export function ChartLineInteractive() {
                   {total[key as keyof typeof total].toLocaleString()}
                 </span>
               </button>
-            );
+            )
           })}
         </div>
       </CardHeader>
@@ -190,11 +190,11 @@ export function ChartLineInteractive() {
               tickMargin={8}
               minTickGap={32}
               tickFormatter={(value) => {
-                const date = new Date(value);
+                const date = new Date(value)
                 return date.toLocaleDateString("en-US", {
                   month: "short",
                   day: "numeric",
-                });
+                })
               }}
             />
             <ChartTooltip
@@ -207,7 +207,7 @@ export function ChartLineInteractive() {
                       month: "short",
                       day: "numeric",
                       year: "numeric",
-                    });
+                    })
                   }}
                 />
               }
@@ -223,5 +223,5 @@ export function ChartLineInteractive() {
         </ChartContainer>
       </CardContent>
     </Card>
-  );
+  )
 }

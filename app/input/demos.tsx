@@ -1,12 +1,13 @@
 "use client"
 
-import { HugeiconsIcon } from "@hugeicons/react"
 import {
   Mail01Icon,
   Search01Icon,
   SquareLock02Icon,
   UserIcon,
 } from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+
 import { Button } from "@/registry/dga/ui/button"
 import { Input } from "@/registry/dga/ui/input"
 
@@ -15,7 +16,7 @@ import { Input } from "@/registry/dga/ui/input"
 ═══════════════════════════════════════════ */
 export function InputBasicStates() {
   return (
-    <div className="rounded-lg border bg-background p-6">
+    <div className="bg-background rounded-lg border p-6">
       <div className="flex flex-col gap-4">
         <div className="flex flex-col gap-2">
           <label className="text-sm font-medium">Default</label>
@@ -51,7 +52,7 @@ export function InputBasicStates() {
 ═══════════════════════════════════════════ */
 export function InputTypes() {
   return (
-    <div className="rounded-lg border bg-background p-6">
+    <div className="bg-background rounded-lg border p-6">
       <div className="grid gap-4 sm:grid-cols-2">
         <div className="flex flex-col gap-2">
           <label className="text-sm font-medium">Text</label>
@@ -99,19 +100,25 @@ export function InputTypes() {
 ═══════════════════════════════════════════ */
 export function InputWithIcons() {
   return (
-    <div className="rounded-lg border bg-background p-6">
+    <div className="bg-background rounded-lg border p-6">
       <div className="flex flex-col gap-4">
         <div className="flex flex-col gap-2">
           <label className="text-sm font-medium">Search with Icon</label>
           <div className="relative">
-            <HugeiconsIcon icon={Search01Icon} className="text-muted-foreground absolute start-3 top-1/2 size-4 -translate-y-1/2"  />
+            <HugeiconsIcon
+              icon={Search01Icon}
+              className="text-muted-foreground absolute start-3 top-1/2 size-4 -translate-y-1/2"
+            />
             <Input className="ps-9" placeholder="Search..." />
           </div>
         </div>
         <div className="flex flex-col gap-2">
           <label className="text-sm font-medium">Email with Icon</label>
           <div className="relative">
-            <HugeiconsIcon icon={Mail01Icon} className="text-muted-foreground absolute start-3 top-1/2 size-4 -translate-y-1/2"  />
+            <HugeiconsIcon
+              icon={Mail01Icon}
+              className="text-muted-foreground absolute start-3 top-1/2 size-4 -translate-y-1/2"
+            />
             <Input
               type="email"
               className="ps-9"
@@ -122,7 +129,10 @@ export function InputWithIcons() {
         <div className="flex flex-col gap-2">
           <label className="text-sm font-medium">Password with Icon</label>
           <div className="relative">
-            <HugeiconsIcon icon={SquareLock02Icon} className="text-muted-foreground absolute start-3 top-1/2 size-4 -translate-y-1/2"  />
+            <HugeiconsIcon
+              icon={SquareLock02Icon}
+              className="text-muted-foreground absolute start-3 top-1/2 size-4 -translate-y-1/2"
+            />
             <Input
               type="password"
               className="ps-9"
@@ -133,7 +143,10 @@ export function InputWithIcons() {
         <div className="flex flex-col gap-2">
           <label className="text-sm font-medium">Username with Icon</label>
           <div className="relative">
-            <HugeiconsIcon icon={UserIcon} className="text-muted-foreground absolute start-3 top-1/2 size-4 -translate-y-1/2"  />
+            <HugeiconsIcon
+              icon={UserIcon}
+              className="text-muted-foreground absolute start-3 top-1/2 size-4 -translate-y-1/2"
+            />
             <Input className="ps-9" placeholder="Username" />
           </div>
         </div>
@@ -147,10 +160,10 @@ export function InputWithIcons() {
 ═══════════════════════════════════════════ */
 export function InputForms() {
   return (
-    <div className="rounded-lg border bg-background p-6">
+    <div className="bg-background rounded-lg border p-6">
       <div className="space-y-8">
         {/* Login Form */}
-        <div className="border-border rounded-lg border bg-card p-6">
+        <div className="border-border bg-card rounded-lg border p-6">
           <h3 className="mb-4 text-lg font-semibold">Login Form</h3>
           <form className="space-y-4">
             <div className="flex flex-col gap-2">
@@ -180,7 +193,7 @@ export function InputForms() {
         </div>
 
         {/* Registration Form */}
-        <div className="border-border rounded-lg border bg-card p-6">
+        <div className="border-border bg-card rounded-lg border p-6">
           <h3 className="mb-4 text-lg font-semibold">Registration Form</h3>
           <form className="space-y-4">
             <div className="grid gap-4 sm:grid-cols-2">
@@ -228,7 +241,7 @@ export function InputForms() {
 ═══════════════════════════════════════════ */
 export function InputSizing() {
   return (
-    <div className="rounded-lg border bg-background p-6">
+    <div className="bg-background rounded-lg border p-6">
       <div className="flex flex-col gap-4">
         <div className="flex flex-col gap-2">
           <label className="text-sm font-medium">Full Width (default)</label>
@@ -263,7 +276,7 @@ export function InputSizing() {
 ═══════════════════════════════════════════ */
 export function InputFileUpload() {
   return (
-    <div className="rounded-lg border bg-background p-6">
+    <div className="bg-background rounded-lg border p-6">
       <div className="flex flex-col gap-4">
         <div className="flex flex-col gap-2">
           <label className="text-sm font-medium">Single File</label>
@@ -287,7 +300,7 @@ export function InputFileUpload() {
 ═══════════════════════════════════════════ */
 export function InputAdvanced() {
   return (
-    <div className="rounded-lg border bg-background p-6">
+    <div className="bg-background rounded-lg border p-6">
       <div className="flex flex-col gap-6">
         <div className="flex flex-col gap-2">
           <label className="text-sm font-medium">Input with Button</label>
@@ -303,11 +316,14 @@ export function InputAdvanced() {
           </label>
           <div className="flex gap-2">
             <div className="relative flex-1">
-              <HugeiconsIcon icon={Search01Icon} className="text-muted-foreground absolute start-3 top-1/2 size-4 -translate-y-1/2"  />
+              <HugeiconsIcon
+                icon={Search01Icon}
+                className="text-muted-foreground absolute start-3 top-1/2 size-4 -translate-y-1/2"
+              />
               <Input className="ps-9" placeholder="Search stations..." />
             </div>
             <Button variant="outline">
-              <HugeiconsIcon icon={Search01Icon} className="size-4"  />
+              <HugeiconsIcon icon={Search01Icon} className="size-4" />
             </Button>
           </div>
         </div>
@@ -327,9 +343,7 @@ export function InputAdvanced() {
         </div>
 
         <div className="flex flex-col gap-2">
-          <label className="text-sm font-medium">
-            Input with Suffix Text
-          </label>
+          <label className="text-sm font-medium">Input with Suffix Text</label>
           <div className="flex">
             <Input
               className="rounded-e-none"

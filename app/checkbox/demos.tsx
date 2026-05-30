@@ -10,13 +10,13 @@ import { Checkbox } from "@/registry/dga/ui/checkbox"
 ═══════════════════════════════════════════ */
 export function CheckboxBasicStates() {
   return (
-    <div className="rounded-lg border bg-background p-6">
+    <div className="bg-background rounded-lg border p-6">
       <div className="flex flex-col gap-4">
         <div className="flex items-center gap-2">
           <Checkbox id="unchecked" />
           <label
             htmlFor="unchecked"
-            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            className="text-sm leading-none font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
           >
             Unchecked
           </label>
@@ -26,7 +26,7 @@ export function CheckboxBasicStates() {
           <Checkbox id="checked" defaultChecked />
           <label
             htmlFor="checked"
-            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            className="text-sm leading-none font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
           >
             Checked (default)
           </label>
@@ -36,7 +36,7 @@ export function CheckboxBasicStates() {
           <Checkbox id="disabled" disabled />
           <label
             htmlFor="disabled"
-            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            className="text-sm leading-none font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
           >
             Disabled (unchecked)
           </label>
@@ -46,7 +46,7 @@ export function CheckboxBasicStates() {
           <Checkbox id="disabled-checked" disabled defaultChecked />
           <label
             htmlFor="disabled-checked"
-            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            className="text-sm leading-none font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
           >
             Disabled (checked)
           </label>
@@ -56,7 +56,7 @@ export function CheckboxBasicStates() {
           <Checkbox id="invalid" aria-invalid="true" />
           <label
             htmlFor="invalid"
-            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+            className="text-sm leading-none font-medium peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
           >
             Invalid state
           </label>
@@ -71,7 +71,7 @@ export function CheckboxBasicStates() {
 ═══════════════════════════════════════════ */
 export function CheckboxWithLabels() {
   return (
-    <div className="rounded-lg border bg-background p-6">
+    <div className="bg-background rounded-lg border p-6">
       <div className="flex flex-col gap-4">
         <div className="flex items-start gap-2">
           <Checkbox id="single-line" className="mt-0.5" />
@@ -87,8 +87,8 @@ export function CheckboxWithLabels() {
               Multi-line Label
             </label>
             <p className="text-muted-foreground text-sm">
-              This checkbox has a descriptive text that explains what
-              accepting this option means for the user.
+              This checkbox has a descriptive text that explains what accepting
+              this option means for the user.
             </p>
           </div>
         </div>
@@ -124,21 +124,19 @@ export function CheckboxControlled() {
   const [termsAccepted, setTermsAccepted] = React.useState(false)
 
   return (
-    <div className="rounded-lg border bg-background p-6">
+    <div className="bg-background rounded-lg border p-6">
       <div className="flex flex-col gap-4">
         <div className="flex items-center gap-2">
           <Checkbox
             id="terms"
             checked={termsAccepted}
-            onCheckedChange={(checked) =>
-              setTermsAccepted(checked as boolean)
-            }
+            onCheckedChange={(checked) => setTermsAccepted(checked as boolean)}
           />
           <label htmlFor="terms" className="text-sm">
             I accept the terms and conditions
           </label>
         </div>
-        <div className="rounded-md border bg-card p-4">
+        <div className="bg-card rounded-md border p-4">
           <p className="text-sm">
             Status:{" "}
             <strong>
@@ -169,7 +167,7 @@ export function CheckboxGroups() {
   })
 
   return (
-    <div className="rounded-lg border bg-background p-6">
+    <div className="bg-background rounded-lg border p-6">
       <div className="flex flex-col gap-6">
         {/* Station Types */}
         <div className="space-y-4">
@@ -270,7 +268,7 @@ export function CheckboxGroups() {
               </div>
             </div>
           </div>
-          <div className="mt-4 rounded-md border bg-card p-4">
+          <div className="bg-card mt-4 rounded-md border p-4">
             <p className="text-sm font-medium">Active Notifications:</p>
             <ul className="text-muted-foreground mt-2 text-sm">
               {notifications.email && <li>• Email enabled</li>}
@@ -302,7 +300,7 @@ export function CheckboxPollutants() {
   }
 
   return (
-    <div className="rounded-lg border bg-background p-6">
+    <div className="bg-background rounded-lg border p-6">
       <div className="space-y-4">
         <div className="grid gap-3 sm:grid-cols-2">
           <div className="flex items-center gap-2">
@@ -366,7 +364,7 @@ export function CheckboxPollutants() {
             </label>
           </div>
         </div>
-        <div className="rounded-md border bg-card p-4">
+        <div className="bg-card rounded-md border p-4">
           <p className="text-sm font-medium">
             Selected Pollutants ({pollutants.length}):
           </p>
@@ -395,10 +393,10 @@ export function CheckboxPollutants() {
 ═══════════════════════════════════════════ */
 export function CheckboxForms() {
   return (
-    <div className="rounded-lg border bg-background p-6">
+    <div className="bg-background rounded-lg border p-6">
       <div className="space-y-8">
         {/* User Preferences Form */}
-        <div className="border-border rounded-lg border bg-card p-6">
+        <div className="border-border bg-card rounded-lg border p-6">
           <h3 className="mb-4 text-lg font-semibold">User Preferences</h3>
           <form className="space-y-4">
             <fieldset className="space-y-3">
@@ -457,7 +455,7 @@ export function CheckboxForms() {
         </div>
 
         {/* Station Registration Form */}
-        <div className="border-border rounded-lg border bg-card p-6">
+        <div className="border-border bg-card rounded-lg border p-6">
           <h3 className="mb-4 text-lg font-semibold">Station Registration</h3>
           <form className="space-y-4">
             <fieldset className="space-y-3">
@@ -520,15 +518,12 @@ export function CheckboxForms() {
             <div className="flex items-start gap-2 rounded-md border p-4">
               <Checkbox id="station-terms" className="mt-0.5" />
               <div className="grid gap-1">
-                <label
-                  htmlFor="station-terms"
-                  className="text-sm font-medium"
-                >
+                <label htmlFor="station-terms" className="text-sm font-medium">
                   I certify that all information is accurate
                 </label>
                 <p className="text-muted-foreground text-xs">
-                  By checking this box, you confirm that the station details
-                  and equipment specifications are correct and up to date.
+                  By checking this box, you confirm that the station details and
+                  equipment specifications are correct and up to date.
                 </p>
               </div>
             </div>
@@ -551,7 +546,7 @@ export function CheckboxForms() {
 ═══════════════════════════════════════════ */
 export function CheckboxInLists() {
   return (
-    <div className="rounded-lg border bg-background">
+    <div className="bg-background rounded-lg border">
       <div className="flex items-center gap-3 border-b p-4">
         <Checkbox id="select-all" />
         <label htmlFor="select-all" className="text-sm font-semibold">
@@ -559,7 +554,7 @@ export function CheckboxInLists() {
         </label>
       </div>
       <div className="divide-y">
-        <div className="flex items-center gap-3 p-4 hover:bg-accent/50">
+        <div className="hover:bg-accent/50 flex items-center gap-3 p-4">
           <Checkbox id="station-1" />
           <div className="flex-1">
             <label htmlFor="station-1" className="text-sm font-medium">
@@ -570,7 +565,7 @@ export function CheckboxInLists() {
             </p>
           </div>
         </div>
-        <div className="flex items-center gap-3 p-4 hover:bg-accent/50">
+        <div className="hover:bg-accent/50 flex items-center gap-3 p-4">
           <Checkbox id="station-2" />
           <div className="flex-1">
             <label htmlFor="station-2" className="text-sm font-medium">
@@ -581,7 +576,7 @@ export function CheckboxInLists() {
             </p>
           </div>
         </div>
-        <div className="flex items-center gap-3 p-4 hover:bg-accent/50">
+        <div className="hover:bg-accent/50 flex items-center gap-3 p-4">
           <Checkbox id="station-3" />
           <div className="flex-1">
             <label htmlFor="station-3" className="text-sm font-medium">
@@ -592,7 +587,7 @@ export function CheckboxInLists() {
             </p>
           </div>
         </div>
-        <div className="flex items-center gap-3 p-4 hover:bg-accent/50">
+        <div className="hover:bg-accent/50 flex items-center gap-3 p-4">
           <Checkbox id="station-4" />
           <div className="flex-1">
             <label htmlFor="station-4" className="text-sm font-medium">

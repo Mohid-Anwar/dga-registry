@@ -1,10 +1,8 @@
-"use client";
+"use client"
 
+import { ChartIncreaseIcon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
-import {
-  ChartIncreaseIcon,
-} from "@hugeicons/core-free-icons"
-import { Bar, BarChart, CartesianGrid, Cell, LabelList } from "recharts";
+import { Bar, BarChart, CartesianGrid, Cell, LabelList } from "recharts"
 
 import {
   Card,
@@ -13,15 +11,15 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/registry/dga/ui/card";
+} from "@/registry/dga/ui/card"
 import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
   type ChartConfig,
-} from "@/registry/dga/ui/chart";
+} from "@/registry/dga/ui/chart"
 
-export const description = "A bar chart with negative values";
+export const description = "A bar chart with negative values"
 
 const chartData = [
   { month: "January", visitors: 186 },
@@ -30,13 +28,13 @@ const chartData = [
   { month: "April", visitors: 173 },
   { month: "May", visitors: -209 },
   { month: "June", visitors: 214 },
-];
+]
 
 const chartConfig = {
   visitors: {
     label: "Visitors",
   },
-} satisfies ChartConfig;
+} satisfies ChartConfig
 
 export function ChartBarNegative() {
   return (
@@ -67,12 +65,13 @@ export function ChartBarNegative() {
       </CardContent>
       <CardFooter className="flex-col items-start gap-2 text-sm">
         <div className="flex gap-2 leading-none font-medium">
-          Trending up by 5.2% this month <HugeiconsIcon icon={ChartIncreaseIcon} className="h-4 w-4"  />
+          Trending up by 5.2% this month{" "}
+          <HugeiconsIcon icon={ChartIncreaseIcon} className="h-4 w-4" />
         </div>
         <div className="text-muted-foreground leading-none">
           Showing total visitors for the last 6 months
         </div>
       </CardFooter>
     </Card>
-  );
+  )
 }

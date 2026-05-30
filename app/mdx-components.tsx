@@ -1,5 +1,5 @@
-import type { MDXComponents } from "mdx/types"
 import { Children, type ReactNode } from "react"
+import type { MDXComponents } from "mdx/types"
 
 // The Rust MDX compiler (mdxRs) inserts whitespace text nodes ("\n") between
 // table elements. These are invalid as direct children of <table>, <thead>,
@@ -10,9 +10,7 @@ function stripWhitespace(children: ReactNode): ReactNode[] {
   )
 }
 
-
 export function useMDXComponents(components: MDXComponents): MDXComponents {
- 
   return {
     h1: ({ children }) => (
       <h1 className="scroll-m-20 text-3xl font-bold tracking-tight">
@@ -35,22 +33,16 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
       </h4>
     ),
     p: ({ children }) => (
-      <p className="leading-7 [&:not(:first-child)]:mt-4">
-        {children}
-      </p>
+      <p className="leading-7 [&:not(:first-child)]:mt-4">{children}</p>
     ),
     ul: ({ children }) => (
-      <ul className="my-4 ml-6 list-disc [&>li]:mt-2">
-        {children}
-      </ul>
+      <ul className="my-4 ml-6 list-disc [&>li]:mt-2">{children}</ul>
     ),
     ol: ({ children }) => (
-      <ol className="my-4 ml-6 list-decimal [&>li]:mt-2">
-        {children}
-      </ol>
+      <ol className="my-4 ml-6 list-decimal [&>li]:mt-2">{children}</ol>
     ),
     code: ({ children }) => (
-      <code className="relative rounded px-[0.3rem] py-[0.2rem] font-mono text-sm bg-black/10">
+      <code className="relative rounded bg-black/10 px-[0.3rem] py-[0.2rem] font-mono text-sm">
         {children}
       </code>
     ),
@@ -59,43 +51,35 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
         {children}
       </pre>
     ),
-    hr: () => <hr className="my-8 border-border" />,
+    hr: () => <hr className="border-border my-8" />,
     table: ({ children }) => (
       <div className="my-6 w-full overflow-y-auto">
         <table className="w-full text-sm">{stripWhitespace(children)}</table>
       </div>
     ),
-    thead: ({ children }) => (
-      <thead>{stripWhitespace(children)}</thead>
-    ),
-    tbody: ({ children }) => (
-      <tbody>{stripWhitespace(children)}</tbody>
-    ),
-    tr: ({ children }) => (
-      <tr>{stripWhitespace(children)}</tr>
-    ),
+    thead: ({ children }) => <thead>{stripWhitespace(children)}</thead>,
+    tbody: ({ children }) => <tbody>{stripWhitespace(children)}</tbody>,
+    tr: ({ children }) => <tr>{stripWhitespace(children)}</tr>,
     th: ({ children }) => (
-      <th className="border border-border bg-muted/50 px-4 py-2 text-left font-semibold">
+      <th className="border-border bg-muted/50 border px-4 py-2 text-left font-semibold">
         {children}
       </th>
     ),
     td: ({ children }) => (
-      <td className="border border-border px-4 py-2">
-        {children}
-      </td>
+      <td className="border-border border px-4 py-2">{children}</td>
     ),
     blockquote: ({ children }) => (
-      <blockquote className="my-4 border-l-4 border-border pl-4 italic">
+      <blockquote className="border-border my-4 border-l-4 pl-4 italic">
         {children}
       </blockquote>
     ),
     strong: ({ children }) => (
-      <strong className="font-semibold text-foreground">{children}</strong>
+      <strong className="text-foreground font-semibold">{children}</strong>
     ),
     a: ({ children, href }) => (
       <a
         href={href}
-        className="font-medium text-primary underline underline-offset-4"
+        className="text-primary font-medium underline underline-offset-4"
       >
         {children}
       </a>

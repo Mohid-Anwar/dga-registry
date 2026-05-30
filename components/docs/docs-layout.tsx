@@ -1,4 +1,5 @@
 import { cookies } from "next/headers"
+
 import { getUIComponents } from "@/lib/get-components"
 import { DocsShell } from "@/components/docs/docs-shell"
 

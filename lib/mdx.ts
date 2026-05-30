@@ -1,5 +1,5 @@
-import { compileMDX } from "next-mdx-remote/rsc";
-import remarkGfm from "remark-gfm";
+import { compileMDX } from "next-mdx-remote/rsc"
+import remarkGfm from "remark-gfm"
 
 export async function parseMDX(source: string, components: any) {
   const { content, frontmatter } = await compileMDX({
@@ -11,7 +11,7 @@ export async function parseMDX(source: string, components: any) {
         remarkPlugins: [remarkGfm],
       },
     },
-  });
+  })
 
-  return { content, frontmatter };
+  return { content, frontmatter }
 }

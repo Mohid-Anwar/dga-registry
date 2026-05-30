@@ -1,7 +1,7 @@
+import { CodeBlock } from "@/components/docs/code-block"
 import { DocsLayout } from "@/components/docs/docs-layout"
 import { InstallCommand } from "@/components/docs/install-command"
 import { RegistryBlock } from "@/components/docs/registry-block"
-import { CodeBlock } from "@/components/docs/code-block"
 
 export const metadata = {
   title: "Vite Installation",
@@ -38,17 +38,29 @@ Run the `init` command to scaffold a new Vite project. Follow the prompts to con
 
 If you need a new Vite project, create one first and select the **React + TypeScript** template. Otherwise, skip this step.
 
-<InstallCommand variant="css-import" filename="Terminal" code="npm create vite@latest" />
+<InstallCommand
+  variant="css-import"
+  filename="Terminal"
+  code="npm create vite@latest"
+/>
 
 ### Add Tailwind CSS
 
 If your project already has Tailwind CSS configured, skip this step.
 
-<InstallCommand variant="css-import" filename="Terminal" code="npm install tailwindcss @tailwindcss/vite" />
+<InstallCommand
+  variant="css-import"
+  filename="Terminal"
+  code="npm install tailwindcss @tailwindcss/vite"
+/>
 
 Replace everything in `src/index.css` with the following:
 
-<InstallCommand variant="css-import" filename="src/index.css" code={`@import "tailwindcss";`} />
+<InstallCommand
+  variant="css-import"
+  filename="src/index.css"
+  code={`@import "tailwindcss";`}
+/>
 
 ### Edit tsconfig.json
 
@@ -72,7 +84,11 @@ If your project already has the `@/*` alias configured, skip this step. Add the 
 
 Install `@types/node` and update `vite.config.ts` so Vite can resolve the `@` alias:
 
-<InstallCommand variant="css-import" filename="Terminal" code="npm install -D @types/node" />
+<InstallCommand
+  variant="css-import"
+  filename="Terminal"
+  code="npm install -D @types/node"
+/>
 
 <CodeBlock
   filename="vite.config.ts"
@@ -137,7 +153,11 @@ You can now start adding components to your project:
 
 If you created a monorepo, run the command from `apps/web` or specify the workspace from the repo root:
 
-<InstallCommand variant="css-import" filename="Terminal" code="npx shadcn@latest add button -c apps/web" />
+<InstallCommand
+  variant="css-import"
+  filename="Terminal"
+  code="npx shadcn@latest add button -c apps/web"
+/>
 
 ---
 

@@ -1,6 +1,5 @@
-"use client";
+"use client"
 
-import { HugeiconsIcon } from "@hugeicons/react"
 import {
   Calendar01Icon,
   Home01Icon,
@@ -8,6 +7,8 @@ import {
   Search01Icon,
   Settings01Icon,
 } from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+
 import {
   Sidebar,
   SidebarContent,
@@ -20,7 +21,7 @@ import {
   SidebarMenuItem,
   SidebarProvider,
   SidebarTrigger,
-} from "@/registry/dga/ui/sidebar";
+} from "@/registry/dga/ui/sidebar"
 
 // Menu items.
 const items = [
@@ -49,7 +50,7 @@ const items = [
     url: "#",
     icon: Settings01Icon,
   },
-];
+]
 
 export default function AppSidebar() {
   return (
@@ -81,5 +82,5 @@ export default function AppSidebar() {
         </header>
       </SidebarInset>
     </SidebarProvider>
-  );
+  )
 }

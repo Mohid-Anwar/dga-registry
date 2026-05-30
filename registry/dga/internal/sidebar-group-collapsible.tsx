@@ -1,16 +1,17 @@
-"use client";
+"use client"
 
-import { HugeiconsIcon } from "@hugeicons/react"
 import {
   ArrowDown01Icon,
   LifebuoyIcon,
   SentIcon,
 } from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/registry/dga/ui/collapsible";
+} from "@/registry/dga/ui/collapsible"
 import {
   Sidebar,
   SidebarContent,
@@ -21,7 +22,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarProvider,
-} from "@/registry/dga/ui/sidebar";
+} from "@/registry/dga/ui/sidebar"
 
 export default function AppSidebar() {
   return (
@@ -36,7 +37,10 @@ export default function AppSidebar() {
               >
                 <CollapsibleTrigger>
                   Help
-                  <HugeiconsIcon icon={ArrowDown01Icon} className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180"  />
+                  <HugeiconsIcon
+                    icon={ArrowDown01Icon}
+                    className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180"
+                  />
                 </CollapsibleTrigger>
               </SidebarGroupLabel>
               <CollapsibleContent>
@@ -44,13 +48,13 @@ export default function AppSidebar() {
                   <SidebarMenu>
                     <SidebarMenuItem>
                       <SidebarMenuButton>
-                        <HugeiconsIcon icon={LifebuoyIcon}  />
+                        <HugeiconsIcon icon={LifebuoyIcon} />
                         Support
                       </SidebarMenuButton>
                     </SidebarMenuItem>
                     <SidebarMenuItem>
                       <SidebarMenuButton>
-                        <HugeiconsIcon icon={SentIcon}  />
+                        <HugeiconsIcon icon={SentIcon} />
                         Feedback
                       </SidebarMenuButton>
                     </SidebarMenuItem>
@@ -62,5 +66,5 @@ export default function AppSidebar() {
         </SidebarContent>
       </Sidebar>
     </SidebarProvider>
-  );
+  )
 }

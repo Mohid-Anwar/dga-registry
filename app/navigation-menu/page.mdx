@@ -1,10 +1,12 @@
 import { DocsLayout } from "@/components/docs/docs-layout"
 import { InstallCommand } from "@/components/docs/install-command"
+
 import { NavigationMenuDemo } from "./demos"
 
 export const metadata = {
   title: "Navigation Menu",
-  description: "A collection of links for navigating websites with full RTL support.",
+  description:
+    "A collection of links for navigating websites with full RTL support.",
 }
 
 <DocsLayout>
@@ -25,23 +27,23 @@ Toggle between English and Arabic to see the RTL layout in action.
 
 ## Sub-components
 
-| Component | Description |
-| --- | --- |
-| `NavigationMenu` | Root wrapper with viewport container. |
-| `NavigationMenuList` | Top-level list of menu items. |
-| `NavigationMenuItem` | Individual menu item wrapper. |
-| `NavigationMenuTrigger` | Button that opens a dropdown panel. |
-| `NavigationMenuContent` | Dropdown panel content area. |
-| `NavigationMenuLink` | Styled link element. |
-| `NavigationMenuIndicator` | Active indicator bar. |
-| `NavigationMenuViewport` | Animated viewport for dropdown content. |
+| Component                 | Description                             |
+| ------------------------- | --------------------------------------- |
+| `NavigationMenu`          | Root wrapper with viewport container.   |
+| `NavigationMenuList`      | Top-level list of menu items.           |
+| `NavigationMenuItem`      | Individual menu item wrapper.           |
+| `NavigationMenuTrigger`   | Button that opens a dropdown panel.     |
+| `NavigationMenuContent`   | Dropdown panel content area.            |
+| `NavigationMenuLink`      | Styled link element.                    |
+| `NavigationMenuIndicator` | Active indicator bar.                   |
+| `NavigationMenuViewport`  | Animated viewport for dropdown content. |
 
 ## Props
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `dir` | `"ltr" \| "rtl"` | — | Text direction for RTL support |
-| `lang` | `string` | — | Language code for translations |
-| `className` | `string` | — | Additional CSS classes |
+| Prop        | Type             | Default | Description                    |
+| ----------- | ---------------- | ------- | ------------------------------ |
+| `dir`       | `"ltr" \| "rtl"` | —       | Text direction for RTL support |
+| `lang`      | `string`         | —       | Language code for translations |
+| `className` | `string`         | —       | Additional CSS classes         |
 
 </DocsLayout>

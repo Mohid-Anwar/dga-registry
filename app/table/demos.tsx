@@ -1,11 +1,9 @@
 "use client"
 
 import * as React from "react"
+import { ArrowRight02Icon, FilterIcon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
-import {
-  ArrowRight02Icon,
-  FilterIcon,
-} from "@hugeicons/core-free-icons"
+
 import { Badge } from "@/registry/dga/ui/badge"
 import { Checkbox } from "@/registry/dga/ui/checkbox"
 import {
@@ -199,7 +197,7 @@ export function TableDataFull() {
   }
 
   return (
-    <div className="rounded-lg border bg-background p-6">
+    <div className="bg-background rounded-lg border p-6">
       <div className="overflow-hidden rounded-md">
         <Table>
           <TableHeader className="bg-[var(--colors-primary-s-a-flag200)]">
@@ -219,7 +217,10 @@ export function TableDataFull() {
               <TableHead>Header</TableHead>
               <TableHead>Header</TableHead>
               <TableHead className="w-12">
-                <HugeiconsIcon icon={FilterIcon} className="text-muted-foreground size-4"  />
+                <HugeiconsIcon
+                  icon={FilterIcon}
+                  className="text-muted-foreground size-4"
+                />
               </TableHead>
             </TableRow>
           </TableHeader>
@@ -264,7 +265,7 @@ export function TableDataFull() {
                     className="text-muted-foreground hover:text-foreground inline-flex items-center justify-center rounded p-1 transition-colors"
                     aria-label="Go to details"
                   >
-                    <HugeiconsIcon icon={ArrowRight02Icon} className="size-4"  />
+                    <HugeiconsIcon icon={ArrowRight02Icon} className="size-4" />
                   </button>
                 </TableCell>
               </TableRow>
@@ -286,7 +287,7 @@ export function TableDataFull() {
 ═══════════════════════════════════════════ */
 export function TableRcrcLtr() {
   return (
-    <div className="rounded-lg border bg-background p-6">
+    <div className="bg-background rounded-lg border p-6">
       <Table>
         <TableHeader>
           <TableRow>
@@ -301,7 +302,10 @@ export function TableRcrcLtr() {
             <TableHead>Header</TableHead>
             <TableHead>Header</TableHead>
             <TableHead className="w-12">
-              <HugeiconsIcon icon={FilterIcon} className="text-muted-foreground size-4"  />
+              <HugeiconsIcon
+                icon={FilterIcon}
+                className="text-muted-foreground size-4"
+              />
             </TableHead>
           </TableRow>
         </TableHeader>
@@ -339,7 +343,7 @@ export function TableRcrcLtr() {
                   className="text-muted-foreground hover:text-foreground inline-flex items-center justify-center rounded p-1 transition-colors"
                   aria-label="Go to details"
                 >
-                  <HugeiconsIcon icon={ArrowRight02Icon} className="size-4"  />
+                  <HugeiconsIcon icon={ArrowRight02Icon} className="size-4" />
                 </button>
               </TableCell>
             </TableRow>
@@ -355,12 +359,15 @@ export function TableRcrcLtr() {
 ═══════════════════════════════════════════ */
 export function TableRcrcRtl() {
   return (
-    <div className="rounded-lg border bg-background p-6" dir="rtl">
+    <div className="bg-background rounded-lg border p-6" dir="rtl">
       <Table>
         <TableHeader>
           <TableRow>
             <TableHead className="w-12">
-              <HugeiconsIcon icon={FilterIcon} className="text-muted-foreground size-4"  />
+              <HugeiconsIcon
+                icon={FilterIcon}
+                className="text-muted-foreground size-4"
+              />
             </TableHead>
             <TableHead>عنوان العمود</TableHead>
             <TableHead>عنوان العمود</TableHead>
@@ -382,7 +389,10 @@ export function TableRcrcRtl() {
                   className="text-muted-foreground hover:text-foreground inline-flex items-center justify-center rounded p-1 transition-colors"
                   aria-label="الانتقال للتفاصيل"
                 >
-                  <HugeiconsIcon icon={ArrowRight02Icon} className="size-4 rotate-180"  />
+                  <HugeiconsIcon
+                    icon={ArrowRight02Icon}
+                    className="size-4 rotate-180"
+                  />
                 </button>
               </TableCell>
               <TableCell>{row.cell4}</TableCell>
@@ -424,7 +434,7 @@ export function TableRcrcRtl() {
 ═══════════════════════════════════════════ */
 export function TableSimple() {
   return (
-    <div className="rounded-lg border bg-background p-6">
+    <div className="bg-background rounded-lg border p-6">
       <Table>
         <TableCaption>A list of recent transactions.</TableCaption>
         <TableHeader>
@@ -437,11 +447,36 @@ export function TableSimple() {
         </TableHeader>
         <TableBody>
           {[
-            { invoice: "INV-0001", status: "Paid", method: "Bank Transfer", amount: "12,500.00 SAR" },
-            { invoice: "INV-0002", status: "Pending", method: "Credit Card", amount: "3,200.00 SAR" },
-            { invoice: "INV-0003", status: "Overdue", method: "SADAD", amount: "8,750.00 SAR" },
-            { invoice: "INV-0004", status: "Paid", method: "Bank Transfer", amount: "1,100.00 SAR" },
-            { invoice: "INV-0005", status: "Paid", method: "Credit Card", amount: "22,000.00 SAR" },
+            {
+              invoice: "INV-0001",
+              status: "Paid",
+              method: "Bank Transfer",
+              amount: "12,500.00 SAR",
+            },
+            {
+              invoice: "INV-0002",
+              status: "Pending",
+              method: "Credit Card",
+              amount: "3,200.00 SAR",
+            },
+            {
+              invoice: "INV-0003",
+              status: "Overdue",
+              method: "SADAD",
+              amount: "8,750.00 SAR",
+            },
+            {
+              invoice: "INV-0004",
+              status: "Paid",
+              method: "Bank Transfer",
+              amount: "1,100.00 SAR",
+            },
+            {
+              invoice: "INV-0005",
+              status: "Paid",
+              method: "Credit Card",
+              amount: "22,000.00 SAR",
+            },
           ].map((row) => (
             <TableRow key={row.invoice}>
               <TableCell className="font-medium">{row.invoice}</TableCell>
@@ -467,7 +502,7 @@ export function TableSimple() {
 ═══════════════════════════════════════════ */
 export function TableRtlPreview() {
   return (
-    <div className="rounded-lg border bg-background p-6" dir="rtl">
+    <div className="bg-background rounded-lg border p-6" dir="rtl">
       <Table>
         <TableHeader>
           <TableRow>
@@ -479,10 +514,30 @@ export function TableRtlPreview() {
         </TableHeader>
         <TableBody>
           {[
-            { name: "أحمد الفارسي", dept: "التحول الرقمي", ref: "REF-1001", amount: "١٢,٥٠٠ ر.س" },
-            { name: "سارة الدوسري", dept: "حوكمة البيانات", ref: "REF-1002", amount: "٣,٢٠٠ ر.س" },
-            { name: "محمد القحطاني", dept: "الامتثال", ref: "REF-1003", amount: "٨,٧٥٠ ر.س" },
-            { name: "فاطمة الحربي", dept: "التقنية", ref: "REF-1004", amount: "١,١٠٠ ر.س" },
+            {
+              name: "أحمد الفارسي",
+              dept: "التحول الرقمي",
+              ref: "REF-1001",
+              amount: "١٢,٥٠٠ ر.س",
+            },
+            {
+              name: "سارة الدوسري",
+              dept: "حوكمة البيانات",
+              ref: "REF-1002",
+              amount: "٣,٢٠٠ ر.س",
+            },
+            {
+              name: "محمد القحطاني",
+              dept: "الامتثال",
+              ref: "REF-1003",
+              amount: "٨,٧٥٠ ر.س",
+            },
+            {
+              name: "فاطمة الحربي",
+              dept: "التقنية",
+              ref: "REF-1004",
+              amount: "١,١٠٠ ر.س",
+            },
           ].map((row) => (
             <TableRow key={row.ref}>
               <TableCell className="font-medium">{row.name}</TableCell>

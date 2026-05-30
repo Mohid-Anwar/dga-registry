@@ -2,6 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
+
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -13,12 +14,12 @@ import {
 } from "@/registry/dga/ui/navigation-menu"
 
 interface Translations {
-    [key: string]: {
-        dir: "ltr" | "rtl"
-        values: {
-            [key: string]: string
-        }
+  [key: string]: {
+    dir: "ltr" | "rtl"
+    values: {
+      [key: string]: string
     }
+  }
 }
 
 const translations: Translations = {
@@ -179,10 +180,12 @@ export function NavigationMenuRtl({ dir, lang }: NavigationMenuRtlProps) {
   const { t, language } = useTranslation(translations, lang)
 
   return (
-    <NavigationMenu dir={dir} className="h-full nav">
+    <NavigationMenu dir={dir} className="nav h-full">
       <NavigationMenuList className="h-full">
         <NavigationMenuItem className="h-full">
-          <NavigationMenuTrigger className="h-full">{t.gettingStarted}</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="h-full">
+            {t.gettingStarted}
+          </NavigationMenuTrigger>
           <NavigationMenuContent
             dir={dir}
             data-lang={dir === "rtl" ? language : undefined}
@@ -201,7 +204,9 @@ export function NavigationMenuRtl({ dir, lang }: NavigationMenuRtlProps) {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem className="h-full md:flex">
-          <NavigationMenuTrigger className="h-full">{t.components}</NavigationMenuTrigger>
+          <NavigationMenuTrigger className="h-full">
+            {t.components}
+          </NavigationMenuTrigger>
           <NavigationMenuContent
             dir={dir}
             data-lang={dir === "rtl" ? language : undefined}

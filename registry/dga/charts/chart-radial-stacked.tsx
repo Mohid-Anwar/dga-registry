@@ -1,10 +1,8 @@
-"use client";
+"use client"
 
+import { ChartIncreaseIcon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
-import {
-  ChartIncreaseIcon,
-} from "@hugeicons/core-free-icons"
-import { Label, PolarRadiusAxis, RadialBar, RadialBarChart } from "recharts";
+import { Label, PolarRadiusAxis, RadialBar, RadialBarChart } from "recharts"
 
 import {
   Card,
@@ -13,17 +11,17 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/registry/dga/ui/card";
+} from "@/registry/dga/ui/card"
 import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
   type ChartConfig,
-} from "@/registry/dga/ui/chart";
+} from "@/registry/dga/ui/chart"
 
-export const description = "A radial chart with stacked sections";
+export const description = "A radial chart with stacked sections"
 
-const chartData = [{ month: "january", desktop: 1260, mobile: 570 }];
+const chartData = [{ month: "january", desktop: 1260, mobile: 570 }]
 
 const chartConfig = {
   desktop: {
@@ -34,10 +32,10 @@ const chartConfig = {
     label: "Mobile",
     color: "var(--chart-2)",
   },
-} satisfies ChartConfig;
+} satisfies ChartConfig
 
 export function ChartRadialStacked() {
-  const totalVisitors = chartData[0].desktop + chartData[0].mobile;
+  const totalVisitors = chartData[0].desktop + chartData[0].mobile
 
   return (
     <Card className="flex flex-col">
@@ -81,7 +79,7 @@ export function ChartRadialStacked() {
                           Visitors
                         </tspan>
                       </text>
-                    );
+                    )
                   }
                 }}
               />
@@ -105,12 +103,13 @@ export function ChartRadialStacked() {
       </CardContent>
       <CardFooter className="flex-col gap-2 text-sm">
         <div className="flex items-center gap-2 leading-none font-medium">
-          Trending up by 5.2% this month <HugeiconsIcon icon={ChartIncreaseIcon} className="h-4 w-4"  />
+          Trending up by 5.2% this month{" "}
+          <HugeiconsIcon icon={ChartIncreaseIcon} className="h-4 w-4" />
         </div>
         <div className="text-muted-foreground leading-none">
           Showing total visitors for the last 6 months
         </div>
       </CardFooter>
     </Card>
-  );
+  )
 }

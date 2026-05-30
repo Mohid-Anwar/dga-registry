@@ -1,14 +1,13 @@
-"use client";
+"use client"
 
+import { ArrowRight01Icon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
-import {
-  ArrowRight01Icon,
-} from "@hugeicons/core-free-icons"
+
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/registry/dga/ui/collapsible";
+} from "@/registry/dga/ui/collapsible"
 import {
   Sidebar,
   SidebarContent,
@@ -21,7 +20,7 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
   SidebarProvider,
-} from "@/registry/dga/ui/sidebar";
+} from "@/registry/dga/ui/sidebar"
 
 const items = [
   {
@@ -149,7 +148,7 @@ const items = [
       },
     ],
   },
-];
+]
 
 export default function AppSidebar() {
   return (
@@ -169,7 +168,10 @@ export default function AppSidebar() {
                       <CollapsibleTrigger asChild>
                         <SidebarMenuButton>
                           <span>{item.title}</span>
-                          <HugeiconsIcon icon={ArrowRight01Icon} className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90"  />
+                          <HugeiconsIcon
+                            icon={ArrowRight01Icon}
+                            className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-90"
+                          />
                         </SidebarMenuButton>
                       </CollapsibleTrigger>
                       <CollapsibleContent>
@@ -194,5 +196,5 @@ export default function AppSidebar() {
         </SidebarContent>
       </Sidebar>
     </SidebarProvider>
-  );
+  )
 }

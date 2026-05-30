@@ -5,11 +5,11 @@ import { useRouter } from "next/navigation"
 
 import {
   CommandDialog,
-  CommandInput,
-  CommandList,
   CommandEmpty,
   CommandGroup,
+  CommandInput,
   CommandItem,
+  CommandList,
 } from "@/registry/dga/ui/command"
 
 type Component = {
@@ -53,7 +53,6 @@ export function CommandMenu({ components }: { components: Component[] }) {
             </CommandItem>
           ))}
         </CommandGroup>
-
       </CommandList>
     </CommandDialog>
   )

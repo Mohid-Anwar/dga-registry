@@ -1,12 +1,12 @@
 "use client"
 
 import * as React from "react"
-import { HugeiconsIcon } from "@hugeicons/react"
 import {
-  Tick02Icon,
   ArrowRight01Icon,
   RadioButtonIcon,
+  Tick02Icon,
 } from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
 import { Menubar as MenubarPrimitive } from "radix-ui"
 
 import { cn } from "@/lib/utils"
@@ -126,7 +126,7 @@ function MenubarCheckboxItem({
     <MenubarPrimitive.CheckboxItem
       data-slot="menubar-checkbox-item"
       className={cn(
-        "focus:bg-accent focus:text-accent-foreground relative flex cursor-default items-center gap-2 rounded-xs py-1.5 pe-2 ps-8 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "focus:bg-accent focus:text-accent-foreground relative flex cursor-default items-center gap-2 rounded-xs py-1.5 ps-8 pe-2 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         className
       )}
       checked={checked}
@@ -134,7 +134,7 @@ function MenubarCheckboxItem({
     >
       <span className="pointer-events-none absolute start-2 flex size-3.5 items-center justify-center">
         <MenubarPrimitive.ItemIndicator>
-          <HugeiconsIcon icon={Tick02Icon} className="size-4"  />
+          <HugeiconsIcon icon={Tick02Icon} className="size-4" />
         </MenubarPrimitive.ItemIndicator>
       </span>
       {children}
@@ -151,14 +151,17 @@ function MenubarRadioItem({
     <MenubarPrimitive.RadioItem
       data-slot="menubar-radio-item"
       className={cn(
-        "focus:bg-accent focus:text-accent-foreground relative flex cursor-default items-center gap-2 rounded-xs py-1.5 pe-2 ps-8 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "focus:bg-accent focus:text-accent-foreground relative flex cursor-default items-center gap-2 rounded-xs py-1.5 ps-8 pe-2 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         className
       )}
       {...props}
     >
       <span className="pointer-events-none absolute start-2 flex size-3.5 items-center justify-center">
         <MenubarPrimitive.ItemIndicator>
-          <HugeiconsIcon icon={RadioButtonIcon} className="size-2 fill-current"  />
+          <HugeiconsIcon
+            icon={RadioButtonIcon}
+            className="size-2 fill-current"
+          />
         </MenubarPrimitive.ItemIndicator>
       </span>
       {children}
@@ -240,7 +243,7 @@ function MenubarSubTrigger({
       {...props}
     >
       {children}
-      <HugeiconsIcon icon={ArrowRight01Icon} className="ms-auto h-4 w-4"  />
+      <HugeiconsIcon icon={ArrowRight01Icon} className="ms-auto h-4 w-4" />
     </MenubarPrimitive.SubTrigger>
   )
 }

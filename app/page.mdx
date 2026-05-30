@@ -1,10 +1,11 @@
 import Link from "next/link"
+
+import { getUIComponents } from "@/lib/get-components"
+import { CodeBlock } from "@/components/docs/code-block"
 import { DocsLayout } from "@/components/docs/docs-layout"
+import { FrameworkCards } from "@/components/docs/framework-cards"
 import { InstallCommand } from "@/components/docs/install-command"
 import { RegistryBlock } from "@/components/docs/registry-block"
-import { CodeBlock } from "@/components/docs/code-block"
-import { FrameworkCards } from "@/components/docs/framework-cards"
-import { getUIComponents } from "@/lib/get-components"
 
 export const metadata = {
   title: "DGA Registry",
@@ -17,26 +18,36 @@ export const components = getUIComponents()
 <DocsLayout>
 
 <div className="space-y-2">
-  <h1 className="scroll-m-20 text-4xl font-bold tracking-tight">DGA Registry</h1>
-  <div className="text-lg text-muted-foreground max-w-2xl">
+  <h1 className="scroll-m-20 text-4xl font-bold tracking-tight">
+    DGA Registry
+  </h1>
+  <div className="text-muted-foreground max-w-2xl text-lg">
     <span>Beautifully designed, accessible UI components built on </span>
-    <a href="https://ui.shadcn.com" target="_blank" rel="noopener noreferrer" className="font-medium text-foreground underline underline-offset-4">
+    <a
+      href="https://ui.shadcn.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-foreground font-medium underline underline-offset-4"
+    >
       shadcn/ui
     </a>
-    <span> with DGA design tokens, RTL support, and IBM Plex Sans Arabic typography.</span>
+    <span>
+      {" "}
+      with DGA design tokens, RTL support, and IBM Plex Sans Arabic typography.
+    </span>
   </div>
 </div>
 
 <div className="mt-6 flex flex-wrap gap-3">
   <Link
     href="/installation/nextjs"
-    className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90"
+    className="bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium shadow transition-colors"
   >
     Get Started
   </Link>
   <Link
     href="/button"
-    className="inline-flex items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground"
+    className="border-input bg-background hover:bg-accent hover:text-accent-foreground inline-flex items-center justify-center rounded-md border px-4 py-2 text-sm font-medium shadow-sm transition-colors"
   >
     Browse Components
   </Link>
@@ -97,7 +108,7 @@ export default function Home() {
     <Link
       key={component.slug}
       href={`/${component.slug}`}
-      className="block rounded-lg border px-4 py-3 text-center text-sm font-medium transition-colors hover:bg-muted"
+      className="hover:bg-muted block rounded-lg border px-4 py-3 text-center text-sm font-medium transition-colors"
     >
       {component.name}
     </Link>
@@ -106,14 +117,17 @@ export default function Home() {
 
 ---
 
-<div className="text-center flex mt-0">
+<div className="mt-0 flex text-center">
   <span>Built on </span>
-  <a href="https://ui.shadcn.com" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 hover:text-foreground">
-     <span> {" "} shadcn/ui </span>
+  <a
+    href="https://ui.shadcn.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="hover:text-foreground underline underline-offset-4"
+  >
+    <span> shadcn/ui </span>
   </a>
   <span>. DGA design tokens and RTL adaptations by the DGA team.</span>
 </div>
-
-  
 
 </DocsLayout>

@@ -1,11 +1,9 @@
 "use client"
 
 import { useState } from "react"
+import { Copy01Icon, Tick02Icon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
-import {
-  Tick02Icon,
-  Copy01Icon,
-} from "@hugeicons/core-free-icons"
+
 const REGISTRY_CONFIG = {
   registries: {
     "@dga": "https://dga-registry.vercel.app/r/{name}.json",
@@ -26,19 +24,21 @@ export function RegistryBlock() {
     <div className="my-4 rounded-xl border bg-zinc-950 text-zinc-100">
       {/* Header */}
       <div className="flex items-center justify-between border-b border-zinc-800 px-4 py-2">
-        <span className="text-xs font-medium text-zinc-400">components.json</span>
+        <span className="text-xs font-medium text-zinc-400">
+          components.json
+        </span>
         <button
           onClick={copy}
           className="flex items-center gap-1.5 rounded-md px-2 py-1 text-xs text-zinc-400 transition-colors hover:bg-zinc-800 hover:text-zinc-100"
         >
           {copied ? (
             <>
-              <HugeiconsIcon icon={Tick02Icon} className="size-3.5"  />
+              <HugeiconsIcon icon={Tick02Icon} className="size-3.5" />
               <span>Copied</span>
             </>
           ) : (
             <>
-              <HugeiconsIcon icon={Copy01Icon} className="size-3.5"  />
+              <HugeiconsIcon icon={Copy01Icon} className="size-3.5" />
               <span>Copy</span>
             </>
           )}

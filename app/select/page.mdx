@@ -1,19 +1,21 @@
-import { DocsLayout } from "@/components/docs/docs-layout"
 import { DirectionToggle } from "@/components/docs/direction-toggle"
+import { DocsLayout } from "@/components/docs/docs-layout"
 import { InstallCommand } from "@/components/docs/install-command"
+
 import {
   SelectBasic,
-  SelectSizes,
-  SelectGrouped,
-  SelectWithIcons,
   SelectControlled,
   SelectForms,
+  SelectGrouped,
+  SelectSizes,
   SelectWidths,
+  SelectWithIcons,
 } from "./demos"
 
 export const metadata = {
   title: "Select",
-  description: "Displays a list of options for the user to pick from — triggered by a button.",
+  description:
+    "Displays a list of options for the user to pick from — triggered by a button.",
 }
 
 <DocsLayout>
@@ -74,26 +76,26 @@ Select with different width configurations.
 
 ### Select
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `defaultValue` | `string` | — | The default selected value |
-| `value` | `string` | — | Controlled selected value |
-| `onValueChange` | `(value: string) => void` | — | Callback when value changes |
-| `disabled` | `boolean` | `false` | Disables the select |
+| Prop            | Type                      | Default | Description                 |
+| --------------- | ------------------------- | ------- | --------------------------- |
+| `defaultValue`  | `string`                  | —       | The default selected value  |
+| `value`         | `string`                  | —       | Controlled selected value   |
+| `onValueChange` | `(value: string) => void` | —       | Callback when value changes |
+| `disabled`      | `boolean`                 | `false` | Disables the select         |
 
 ### SelectTrigger
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `size` | `"default" \| "sm"` | `"default"` | Size variant |
-| `className` | `string` | — | Additional CSS classes |
+| Prop        | Type                | Default     | Description            |
+| ----------- | ------------------- | ----------- | ---------------------- |
+| `size`      | `"default" \| "sm"` | `"default"` | Size variant           |
+| `className` | `string`            | —           | Additional CSS classes |
 
 ### SelectItem
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `value` | `string` | — | The value of the item |
-| `disabled` | `boolean` | `false` | Disables this item |
-| `children` | `ReactNode` | — | Item content (text, icons) |
+| Prop       | Type        | Default | Description                |
+| ---------- | ----------- | ------- | -------------------------- |
+| `value`    | `string`    | —       | The value of the item      |
+| `disabled` | `boolean`   | `false` | Disables this item         |
+| `children` | `ReactNode` | —       | Item content (text, icons) |
 
 </DocsLayout>

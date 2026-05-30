@@ -7,6 +7,8 @@
     "build": "pnpm run registry:build && next build",
     "start": "next start",
     "lint": "next lint",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
     "registry:build": "shadcn build"
   },
   "dependencies": {

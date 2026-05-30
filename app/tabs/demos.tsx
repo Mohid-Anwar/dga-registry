@@ -1,11 +1,17 @@
 "use client"
 
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/registry/dga/ui/tabs"
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/registry/dga/ui/tabs"
 
 function DemoContent({ value }: { value: string }) {
   return (
-    <div className="mt-4 rounded-md border border-border bg-muted/30 p-4 text-sm text-muted-foreground">
-      Content for <span className="font-semibold text-foreground">{value}</span> tab.
+    <div className="border-border bg-muted/30 text-muted-foreground mt-4 rounded-md border p-4 text-sm">
+      Content for <span className="text-foreground font-semibold">{value}</span>{" "}
+      tab.
     </div>
   )
 }
@@ -71,7 +77,9 @@ export function TabsDefaultScrollable() {
     <Tabs defaultValue="Account" className="w-full">
       <TabsList scrollable>
         {MANY_TABS.map((t) => (
-          <TabsTrigger key={t} value={t}>{t}</TabsTrigger>
+          <TabsTrigger key={t} value={t}>
+            {t}
+          </TabsTrigger>
         ))}
       </TabsList>
       <DemoContent value="Account" />
@@ -87,7 +95,9 @@ export function TabsLineScrollable() {
     <Tabs defaultValue="Account" className="w-full">
       <TabsList variant="line" scrollable>
         {MANY_TABS.map((t) => (
-          <TabsTrigger key={t} value={t}>{t}</TabsTrigger>
+          <TabsTrigger key={t} value={t}>
+            {t}
+          </TabsTrigger>
         ))}
       </TabsList>
       <DemoContent value="Account" />
@@ -103,7 +113,9 @@ export function TabsDefaultScrollableSnap() {
     <Tabs defaultValue="Account" className="w-full">
       <TabsList scrollable snap>
         {MANY_TABS.map((t) => (
-          <TabsTrigger key={t} value={t}>{t}</TabsTrigger>
+          <TabsTrigger key={t} value={t}>
+            {t}
+          </TabsTrigger>
         ))}
       </TabsList>
       <DemoContent value="Account" />
@@ -119,7 +131,9 @@ export function TabsLineScrollableSnap() {
     <Tabs defaultValue="Account" className="w-full">
       <TabsList variant="line" scrollable snap>
         {MANY_TABS.map((t) => (
-          <TabsTrigger key={t} value={t}>{t}</TabsTrigger>
+          <TabsTrigger key={t} value={t}>
+            {t}
+          </TabsTrigger>
         ))}
       </TabsList>
       <DemoContent value="Account" />
@@ -135,7 +149,9 @@ export function TabsDefaultFadeEdges() {
     <Tabs defaultValue="Account" className="w-full">
       <TabsList scrollable snap fadeEdges>
         {MANY_TABS.map((t) => (
-          <TabsTrigger key={t} value={t}>{t}</TabsTrigger>
+          <TabsTrigger key={t} value={t}>
+            {t}
+          </TabsTrigger>
         ))}
       </TabsList>
       <DemoContent value="Account" />
@@ -151,7 +167,9 @@ export function TabsLineFadeEdges() {
     <Tabs defaultValue="Account" className="w-full">
       <TabsList variant="line" scrollable snap fadeEdges>
         {MANY_TABS.map((t) => (
-          <TabsTrigger key={t} value={t}>{t}</TabsTrigger>
+          <TabsTrigger key={t} value={t}>
+            {t}
+          </TabsTrigger>
         ))}
       </TabsList>
       <DemoContent value="Account" />

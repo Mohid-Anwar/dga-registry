@@ -16,12 +16,8 @@
         "@hugeicons/react",
         "@hugeicons/core-free-icons"
       ],
-      "devDependencies": [
-        "tw-animate-css"
-      ],
-      "registryDependencies": [
-        "utils"
-      ],
+      "devDependencies": ["tw-animate-css"],
+      "registryDependencies": ["utils"],
       "files": [],
       "cssVars": {}
     },
@@ -33,12 +29,8 @@
         "@hugeicons/react",
         "@hugeicons/core-free-icons"
       ],
-      "devDependencies": [
-        "tw-animate-css"
-      ],
-      "registryDependencies": [
-        "utils"
-      ],
+      "devDependencies": ["tw-animate-css"],
+      "registryDependencies": ["utils"],
       "files": [],
       "cssVars": {}
     },
@@ -70,12 +62,8 @@
     {
       "name": "alert-dialog",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-alert-dialog"
-      ],
-      "registryDependencies": [
-        "button"
-      ],
+      "dependencies": ["@radix-ui/react-alert-dialog"],
+      "registryDependencies": ["button"],
       "files": [
         {
           "path": "registry/dga/ui/alert-dialog.tsx",
@@ -86,9 +74,7 @@
     {
       "name": "aspect-ratio",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-aspect-ratio"
-      ],
+      "dependencies": ["@radix-ui/react-aspect-ratio"],
       "files": [
         {
           "path": "registry/dga/ui/aspect-ratio.tsx",
@@ -99,9 +85,7 @@
     {
       "name": "avatar",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-avatar"
-      ],
+      "dependencies": ["@radix-ui/react-avatar"],
       "files": [
         {
           "path": "registry/dga/ui/avatar.tsx",
@@ -112,9 +96,7 @@
     {
       "name": "badge",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-slot"
-      ],
+      "dependencies": ["@radix-ui/react-slot"],
       "files": [
         {
           "path": "registry/dga/ui/badge.tsx",
@@ -145,9 +127,7 @@
     {
       "name": "button",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-slot"
-      ],
+      "dependencies": ["@radix-ui/react-slot"],
       "files": [
         {
           "path": "registry/dga/ui/button.tsx",
@@ -163,10 +143,7 @@
     {
       "name": "button-group",
       "type": "registry:ui",
-      "registryDependencies": [
-        "button",
-        "separator"
-      ],
+      "registryDependencies": ["button", "separator"],
       "files": [
         {
           "path": "registry/dga/ui/button-group.tsx",
@@ -183,9 +160,7 @@
         "@hugeicons/react",
         "@hugeicons/core-free-icons"
       ],
-      "registryDependencies": [
-        "button"
-      ],
+      "registryDependencies": ["button"],
       "files": [
         {
           "path": "registry/dga/ui/calendar.tsx",
@@ -216,9 +191,7 @@
         "@hugeicons/react",
         "@hugeicons/core-free-icons"
       ],
-      "registryDependencies": [
-        "button"
-      ],
+      "registryDependencies": ["button"],
       "files": [
         {
           "path": "registry/dga/ui/carousel.tsx",
@@ -234,9 +207,7 @@
         "@hugeicons/react",
         "@hugeicons/core-free-icons"
       ],
-      "registryDependencies": [
-        "card"
-      ],
+      "registryDependencies": ["card"],
       "files": [
         {
           "path": "registry/dga/ui/chart.tsx",
@@ -262,9 +233,7 @@
     {
       "name": "collapsible",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-collapsible"
-      ],
+      "dependencies": ["@radix-ui/react-collapsible"],
       "files": [
         {
           "path": "registry/dga/ui/collapsible.tsx",
@@ -280,9 +249,7 @@
         "@hugeicons/react",
         "@hugeicons/core-free-icons"
       ],
-      "registryDependencies": [
-        "dialog"
-      ],
+      "registryDependencies": ["dialog"],
       "files": [
         {
           "path": "registry/dga/ui/command.tsx",
@@ -323,10 +290,7 @@
     {
       "name": "drawer",
       "type": "registry:ui",
-      "dependencies": [
-        "vaul",
-        "@radix-ui/react-dialog"
-      ],
+      "dependencies": ["vaul", "@radix-ui/react-dialog"],
       "files": [
         {
           "path": "registry/dga/ui/drawer.tsx",
@@ -362,10 +326,7 @@
     {
       "name": "field",
       "type": "registry:ui",
-      "registryDependencies": [
-        "label",
-        "separator"
-      ],
+      "registryDependencies": ["label", "separator"],
       "files": [
         {
           "path": "registry/dga/ui/field.tsx",
@@ -383,10 +344,7 @@
         "zod",
         "react-hook-form"
       ],
-      "registryDependencies": [
-        "button",
-        "label"
-      ],
+      "registryDependencies": ["button", "label"],
       "files": [
         {
           "path": "registry/dga/ui/form.tsx",
@@ -397,9 +355,7 @@
     {
       "name": "hover-card",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-hover-card"
-      ],
+      "dependencies": ["@radix-ui/react-hover-card"],
       "files": [
         {
           "path": "registry/dga/ui/hover-card.tsx",
@@ -420,11 +376,7 @@
     {
       "name": "input-group",
       "type": "registry:ui",
-      "registryDependencies": [
-        "button",
-        "input",
-        "textarea"
-      ],
+      "registryDependencies": ["button", "input", "textarea"],
       "files": [
         {
           "path": "registry/dga/ui/input-group.tsx",
@@ -450,9 +402,7 @@
     {
       "name": "item",
       "type": "registry:ui",
-      "registryDependencies": [
-        "separator"
-      ],
+      "registryDependencies": ["separator"],
       "files": [
         {
           "path": "registry/dga/ui/item.tsx",
@@ -463,9 +413,7 @@
     {
       "name": "label",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-label"
-      ],
+      "dependencies": ["@radix-ui/react-label"],
       "files": [
         {
           "path": "registry/dga/ui/label.tsx",
@@ -506,13 +454,8 @@
     {
       "name": "pagination",
       "type": "registry:ui",
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
-      "registryDependencies": [
-        "button"
-      ],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
+      "registryDependencies": ["button"],
       "files": [
         {
           "path": "registry/dga/ui/pagination.tsx",
@@ -523,9 +466,7 @@
     {
       "name": "popover",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-popover"
-      ],
+      "dependencies": ["@radix-ui/react-popover"],
       "files": [
         {
           "path": "registry/dga/ui/popover.tsx",
@@ -536,9 +477,7 @@
     {
       "name": "progress",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-progress"
-      ],
+      "dependencies": ["@radix-ui/react-progress"],
       "files": [
         {
           "path": "registry/dga/ui/progress.tsx",
@@ -579,9 +518,7 @@
     {
       "name": "scroll-area",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-scroll-area"
-      ],
+      "dependencies": ["@radix-ui/react-scroll-area"],
       "files": [
         {
           "path": "registry/dga/ui/scroll-area.tsx",
@@ -607,9 +544,7 @@
     {
       "name": "separator",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-separator"
-      ],
+      "dependencies": ["@radix-ui/react-separator"],
       "files": [
         {
           "path": "registry/dga/ui/separator.tsx",
@@ -706,15 +641,17 @@
         {
           "path": "registry/dga/ui/skeleton.tsx",
           "type": "registry:ui"
+        },
+        {
+          "path": "registry/dga/ui/skeleton.css",
+          "type": "registry:ui"
         }
       ]
     },
     {
       "name": "slider",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-slider"
-      ],
+      "dependencies": ["@radix-ui/react-slider"],
       "files": [
         {
           "path": "registry/dga/ui/slider.tsx",
@@ -756,9 +693,7 @@
     {
       "name": "switch",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-switch"
-      ],
+      "dependencies": ["@radix-ui/react-switch"],
       "files": [
         {
           "path": "registry/dga/ui/switch.tsx",
@@ -784,9 +719,7 @@
     {
       "name": "tabs",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-tabs"
-      ],
+      "dependencies": ["@radix-ui/react-tabs"],
       "files": [
         {
           "path": "registry/dga/ui/tabs.tsx",
@@ -807,9 +740,7 @@
     {
       "name": "toggle",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-toggle"
-      ],
+      "dependencies": ["@radix-ui/react-toggle"],
       "files": [
         {
           "path": "registry/dga/ui/toggle.tsx",
@@ -820,12 +751,8 @@
     {
       "name": "toggle-group",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-toggle-group"
-      ],
-      "registryDependencies": [
-        "toggle"
-      ],
+      "dependencies": ["@radix-ui/react-toggle-group"],
+      "registryDependencies": ["toggle"],
       "files": [
         {
           "path": "registry/dga/ui/toggle-group.tsx",
@@ -836,9 +763,7 @@
     {
       "name": "tooltip",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-tooltip"
-      ],
+      "dependencies": ["@radix-ui/react-tooltip"],
       "files": [
         {
           "path": "registry/dga/ui/tooltip.tsx",
@@ -859,10 +784,7 @@
     {
       "name": "native-select",
       "type": "registry:ui",
-      "dependencies": [
-        "@hugeicons/react",
-        "@hugeicons/core-free-icons"
-      ],
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
       "files": [
         {
           "path": "registry/dga/ui/native-select.tsx",
@@ -873,10 +795,7 @@
     {
       "name": "utils",
       "type": "registry:lib",
-      "dependencies": [
-        "clsx",
-        "tailwind-merge"
-      ],
+      "dependencies": ["clsx", "tailwind-merge"],
       "files": [
         {
           "path": "registry/dga/lib/utils.ts",

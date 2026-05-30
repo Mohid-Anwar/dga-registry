@@ -1,19 +1,21 @@
-import { DocsLayout } from "@/components/docs/docs-layout"
 import { DirectionToggle } from "@/components/docs/direction-toggle"
+import { DocsLayout } from "@/components/docs/docs-layout"
 import { InstallCommand } from "@/components/docs/install-command"
+
 import {
   RadioGroupBasic,
-  RadioGroupDescriptions,
-  RadioGroupControlled,
-  RadioGroupHorizontal,
   RadioGroupCards,
+  RadioGroupControlled,
+  RadioGroupDescriptions,
   RadioGroupForms,
   RadioGroupGrid,
+  RadioGroupHorizontal,
 } from "./demos"
 
 export const metadata = {
   title: "Radio Group",
-  description: "A set of checkable buttons where only one can be checked at a time.",
+  description:
+    "A set of checkable buttons where only one can be checked at a time.",
 }
 
 <DocsLayout>
@@ -74,21 +76,21 @@ Radio groups displayed in a grid for better space utilization.
 
 ### RadioGroup
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `defaultValue` | `string` | — | The default selected value |
-| `value` | `string` | — | Controlled selected value |
-| `onValueChange` | `(value: string) => void` | — | Callback when value changes |
-| `disabled` | `boolean` | `false` | Disables the entire group |
-| `className` | `string` | — | Additional CSS classes |
+| Prop            | Type                      | Default | Description                 |
+| --------------- | ------------------------- | ------- | --------------------------- |
+| `defaultValue`  | `string`                  | —       | The default selected value  |
+| `value`         | `string`                  | —       | Controlled selected value   |
+| `onValueChange` | `(value: string) => void` | —       | Callback when value changes |
+| `disabled`      | `boolean`                 | `false` | Disables the entire group   |
+| `className`     | `string`                  | —       | Additional CSS classes      |
 
 ### RadioGroupItem
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `value` | `string` | — | The value of the radio item |
-| `disabled` | `boolean` | `false` | Disables this specific item |
-| `id` | `string` | — | HTML id for label association |
-| `className` | `string` | — | Additional CSS classes |
+| Prop        | Type      | Default | Description                   |
+| ----------- | --------- | ------- | ----------------------------- |
+| `value`     | `string`  | —       | The value of the radio item   |
+| `disabled`  | `boolean` | `false` | Disables this specific item   |
+| `id`        | `string`  | —       | HTML id for label association |
+| `className` | `string`  | —       | Additional CSS classes        |
 
 </DocsLayout>
