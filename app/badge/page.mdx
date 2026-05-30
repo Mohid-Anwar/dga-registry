@@ -1,12 +1,13 @@
-import { DocsLayout } from "@/components/docs/docs-layout"
 import { DirectionToggle } from "@/components/docs/direction-toggle"
+import { DocsLayout } from "@/components/docs/docs-layout"
 import { InstallCommand } from "@/components/docs/install-command"
+
 import {
-  BadgeVariants,
+  BadgeAsLink,
   BadgeChips,
   BadgeSizes,
+  BadgeVariants,
   BadgeWithIcons,
-  BadgeAsLink,
 } from "./demos"
 
 export const metadata = {
@@ -28,14 +29,14 @@ Displays a badge or a component that looks like a badge.
 
 ## Variants
 
-| Variant | Description |
-| --- | --- |
-| `default` | Primary badge |
-| `secondary` | Secondary style |
+| Variant       | Description             |
+| ------------- | ----------------------- |
+| `default`     | Primary badge           |
+| `secondary`   | Secondary style         |
 | `destructive` | Dangerous / error state |
-| `outline` | Bordered badge |
-| `ghost` | No background |
-| `link` | Styled as a link |
+| `outline`     | Bordered badge          |
+| `ghost`       | No background           |
+| `link`        | Styled as a link        |
 
 <BadgeVariants />
 
@@ -43,23 +44,23 @@ Displays a badge or a component that looks like a badge.
 
 DGA-specific chip styles for selection and filtering contexts.
 
-| Variant | Description |
-| --- | --- |
-| `chip-primary` | Primary chip |
+| Variant                 | Description             |
+| ----------------------- | ----------------------- |
+| `chip-primary`          | Primary chip            |
 | `chip-primary-selected` | Primary chip (selected) |
-| `chip-neutral` | Neutral chip |
+| `chip-neutral`          | Neutral chip            |
 | `chip-neutral-selected` | Neutral chip (selected) |
 
 <BadgeChips />
 
 ## Sizes
 
-| Size | Description |
-| --- | --- |
+| Size      | Description       |
+| --------- | ----------------- |
 | `default` | Inline text badge |
-| `sm` | 20px height |
-| `md` | 24px height |
-| `lg` | 32px height |
+| `sm`      | 20px height       |
+| `md`      | 24px height       |
+| `lg`      | 32px height       |
 
 <BadgeSizes />
 
@@ -77,11 +78,11 @@ Use `asChild` to render the badge as an anchor or any other element.
 
 ## Props
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `variant` | `string` | `"default"` | Visual style variant |
-| `size` | `string` | `"default"` | Badge size |
-| `asChild` | `boolean` | `false` | Merge props onto child element |
-| `className` | `string` | — | Additional CSS classes |
+| Prop        | Type      | Default     | Description                    |
+| ----------- | --------- | ----------- | ------------------------------ |
+| `variant`   | `string`  | `"default"` | Visual style variant           |
+| `size`      | `string`  | `"default"` | Badge size                     |
+| `asChild`   | `boolean` | `false`     | Merge props onto child element |
+| `className` | `string`  | —           | Additional CSS classes         |
 
 </DocsLayout>

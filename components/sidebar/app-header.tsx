@@ -1,24 +1,22 @@
 "use client"
 
-import { usePathname } from "next/navigation"
-import Link from "next/link"
 import { useCallback, useEffect, useState } from "react"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
+import { Moon02Icon, Sun03Icon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
-import {
-  Moon02Icon,
-  Sun03Icon,
-} from "@hugeicons/core-free-icons"
+
 import {
   Breadcrumb,
-  BreadcrumbList,
   BreadcrumbItem,
-  BreadcrumbPage,
   BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/registry/dga/ui/breadcrumb"
+import { Kbd } from "@/registry/dga/ui/kbd"
 import { Separator } from "@/registry/dga/ui/separator"
 import { SidebarTrigger } from "@/registry/dga/ui/sidebar"
-import { Kbd } from "@/registry/dga/ui/kbd"
 import { Toggle } from "@/registry/dga/ui/toggle"
 import {
   Tooltip,
@@ -93,8 +91,9 @@ export function AppHeader() {
         {/* Right side */}
         <div className="ml-auto flex items-center gap-2">
           {/* Search hint */}
-          <span className="hidden items-center gap-1 text-sm text-muted-foreground md:flex">
-            Press <Kbd>⌘</Kbd><Kbd>K</Kbd> to search
+          <span className="text-muted-foreground hidden items-center gap-1 text-sm md:flex">
+            Press <Kbd>⌘</Kbd>
+            <Kbd>K</Kbd> to search
           </span>
 
           <Separator orientation="vertical" className="hidden h-4 md:block" />
@@ -108,7 +107,11 @@ export function AppHeader() {
                 aria-label="Toggle theme"
                 className="size-8 p-0"
               >
-                {isDark ? <HugeiconsIcon icon={Moon02Icon} className="size-4"  /> : <HugeiconsIcon icon={Sun03Icon} className="size-4"  />}
+                {isDark ? (
+                  <HugeiconsIcon icon={Moon02Icon} className="size-4" />
+                ) : (
+                  <HugeiconsIcon icon={Sun03Icon} className="size-4" />
+                )}
               </Toggle>
             </TooltipTrigger>
             <TooltipContent side="bottom">

@@ -88,17 +88,20 @@ function TabsList({
   return (
     <div className="relative w-full overflow-hidden">
       {fadeEdges && showLeft && (
-        <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-8 bg-gradient-to-r from-background to-transparent" />
+        <div className="from-background pointer-events-none absolute top-0 left-0 z-10 h-full w-8 bg-gradient-to-r to-transparent" />
       )}
       <TabsPrimitive.List
         ref={ref}
         data-slot="tabs-list"
         data-variant={variant}
-        className={cn(tabsListVariants({ variant, scrollable, snap }), className)}
+        className={cn(
+          tabsListVariants({ variant, scrollable, snap }),
+          className
+        )}
         {...props}
       />
       {fadeEdges && showRight && (
-        <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-8 bg-gradient-to-l from-background to-transparent" />
+        <div className="from-background pointer-events-none absolute top-0 right-0 z-10 h-full w-8 bg-gradient-to-l to-transparent" />
       )}
     </div>
   )
@@ -112,10 +115,10 @@ function TabsTrigger({
     <TabsPrimitive.Trigger
       data-slot="tabs-trigger"
       className={cn(
-        "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring text-foreground/60 hover:text-foreground hover:bg-[color:var(--colors-neutral100)] dark:text-muted-foreground dark:hover:text-foreground relative inline-flex h-[calc(100%-1px)] flex-none snap-start items-center justify-center gap-1.5 border-0 px-3 py-1 text-sm font-medium whitespace-nowrap transition-all bg-transparent group-data-[orientation=vertical]/tabs:w-full group-data-[orientation=vertical]/tabs:justify-start focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 group-data-[variant=line]/tabs-list:data-[state=active]:shadow-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring text-foreground/60 hover:text-foreground dark:text-muted-foreground dark:hover:text-foreground relative inline-flex h-[calc(100%-1px)] flex-none snap-start items-center justify-center gap-1.5 border-0 bg-transparent px-3 py-1 text-sm font-medium whitespace-nowrap transition-all group-data-[orientation=vertical]/tabs:w-full group-data-[orientation=vertical]/tabs:justify-start hover:bg-[color:var(--colors-neutral100)] focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 group-data-[variant=line]/tabs-list:data-[state=active]:shadow-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         "group-data-[variant=line]/tabs-list:bg-transparent group-data-[variant=line]/tabs-list:data-[state=active]:bg-transparent dark:group-data-[variant=line]/tabs-list:data-[state=active]:bg-transparent",
-        "data-[state=active]:bg-transparent data-[state=active]:text-foreground",
-        "after:absolute after:-bottom-1 after:left-3 after:right-3 after:h-[2px] after:bg-[var(--colors-primary-s-a-flag700,#104631)] after:opacity-0 after:transition-opacity data-[state=active]:after:opacity-100",
+        "data-[state=active]:text-foreground data-[state=active]:bg-transparent",
+        "after:absolute after:right-3 after:-bottom-1 after:left-3 after:h-[2px] after:bg-[var(--colors-primary-s-a-flag700,#104631)] after:opacity-0 after:transition-opacity data-[state=active]:after:opacity-100",
         className
       )}
       {...props}

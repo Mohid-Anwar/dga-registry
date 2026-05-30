@@ -1,19 +1,21 @@
-import { DocsLayout } from "@/components/docs/docs-layout"
 import { DirectionToggle } from "@/components/docs/direction-toggle"
+import { DocsLayout } from "@/components/docs/docs-layout"
 import { InstallCommand } from "@/components/docs/install-command"
+
 import {
   CheckboxBasicStates,
-  CheckboxWithLabels,
   CheckboxControlled,
-  CheckboxGroups,
-  CheckboxPollutants,
   CheckboxForms,
+  CheckboxGroups,
   CheckboxInLists,
+  CheckboxPollutants,
+  CheckboxWithLabels,
 } from "./demos"
 
 export const metadata = {
   title: "Checkbox",
-  description: "A control that allows the user to toggle between checked and not checked.",
+  description:
+    "A control that allows the user to toggle between checked and not checked.",
 }
 
 <DocsLayout>
@@ -72,13 +74,13 @@ Checkboxes used for item selection in lists.
 
 ## Props
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `checked` | `boolean` | — | Controlled checked state |
-| `defaultChecked` | `boolean` | `false` | Default checked state |
-| `onCheckedChange` | `(checked: boolean) => void` | — | Called when checked state changes |
-| `disabled` | `boolean` | `false` | Disables the checkbox |
-| `aria-invalid` | `string` | — | Marks checkbox as invalid |
-| `className` | `string` | — | Additional CSS classes |
+| Prop              | Type                         | Default | Description                       |
+| ----------------- | ---------------------------- | ------- | --------------------------------- |
+| `checked`         | `boolean`                    | —       | Controlled checked state          |
+| `defaultChecked`  | `boolean`                    | `false` | Default checked state             |
+| `onCheckedChange` | `(checked: boolean) => void` | —       | Called when checked state changes |
+| `disabled`        | `boolean`                    | `false` | Disables the checkbox             |
+| `aria-invalid`    | `string`                     | —       | Marks checkbox as invalid         |
+| `className`       | `string`                     | —       | Additional CSS classes            |
 
 </DocsLayout>

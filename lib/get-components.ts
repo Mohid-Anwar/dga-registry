@@ -5,13 +5,7 @@ export function getUIComponents() {
   const uiDir = path.join(process.cwd(), "registry/dga/ui")
   const appDir = path.join(process.cwd(), "app")
 
-  const ignored = [
-    "_registry",
-    "sidebar",
-    "sheet",
-    "direction",
-    "utils"
-  ]
+  const ignored = ["_registry", "sidebar", "sheet", "direction", "utils"]
 
   const files = fs.readdirSync(uiDir)
 

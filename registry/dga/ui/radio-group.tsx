@@ -1,10 +1,8 @@
 "use client"
 
 import * as React from "react"
+import { RadioButtonIcon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
-import {
-  RadioButtonIcon,
-} from "@hugeicons/core-free-icons"
 import { RadioGroup as RadioGroupPrimitive } from "radix-ui"
 
 import { cn } from "@/lib/utils"
@@ -39,7 +37,10 @@ function RadioGroupItem({
         data-slot="radio-group-indicator"
         className="relative flex items-center justify-center"
       >
-        <HugeiconsIcon icon={RadioButtonIcon} className="fill-primary absolute top-1/2 start-1/2 size-3 -translate-x-1/2 rtl:translate-x-1/2 -translate-y-1/2"  />
+        <HugeiconsIcon
+          icon={RadioButtonIcon}
+          className="fill-primary absolute start-1/2 top-1/2 size-3 -translate-x-1/2 -translate-y-1/2 rtl:translate-x-1/2"
+        />
       </RadioGroupPrimitive.Indicator>
     </RadioGroupPrimitive.Item>
   )

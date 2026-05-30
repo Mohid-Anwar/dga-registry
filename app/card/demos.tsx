@@ -1,10 +1,11 @@
 "use client"
 
-import { HugeiconsIcon } from "@hugeicons/react"
 import {
-  CheckmarkCircle02Icon,
   ArrowDown01Icon,
+  CheckmarkCircle02Icon,
 } from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+
 import { Button } from "@/registry/dga/ui/button"
 import {
   Card,
@@ -30,50 +31,82 @@ const IMG_MOBILE =
 ═══════════════════════════════════════════ */
 export function CardImage() {
   return (
-    <div className="rounded-lg border bg-background p-6">
+    <div className="bg-background rounded-lg border p-6">
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <Card className="border-amber-400">
-          <img src={IMG_BG} alt="Background station" className="aspect-video w-full rounded-xl object-cover" />
+          <img
+            src={IMG_BG}
+            alt="Background station"
+            className="aspect-video w-full rounded-xl object-cover"
+          />
           <CardContent>
             <CardTitle>Background</CardTitle>
             <CardDescription>
-              Background stations are not influenced significantly by single sources but by an integrated contribution of all sources. (Colored Border)
+              Background stations are not influenced significantly by single
+              sources but by an integrated contribution of all sources. (Colored
+              Border)
             </CardDescription>
           </CardContent>
-          <CardFooter><Button size="sm">View More</Button></CardFooter>
+          <CardFooter>
+            <Button size="sm">View More</Button>
+          </CardFooter>
         </Card>
 
         <Card>
-          <img src={IMG_SUBURBAN} alt="Suburban station" className="aspect-video w-full rounded-xl object-cover" />
+          <img
+            src={IMG_SUBURBAN}
+            alt="Suburban station"
+            className="aspect-video w-full rounded-xl object-cover"
+          />
           <CardContent>
             <CardTitle>Suburban</CardTitle>
             <CardDescription>
-              Suburban station has been identified as located such that its pollution level is determined predominantly by emissions from nearby residential areas.
+              Suburban station has been identified as located such that its
+              pollution level is determined predominantly by emissions from
+              nearby residential areas.
             </CardDescription>
           </CardContent>
-          <CardFooter><Button size="sm">View More</Button></CardFooter>
+          <CardFooter>
+            <Button size="sm">View More</Button>
+          </CardFooter>
         </Card>
 
         <Card>
-          <img src={IMG_TRAFFIC} alt="Traffic station" className="aspect-video w-full rounded-xl object-cover" />
+          <img
+            src={IMG_TRAFFIC}
+            alt="Traffic station"
+            className="aspect-video w-full rounded-xl object-cover"
+          />
           <CardContent>
             <CardTitle>Traffic</CardTitle>
             <CardDescription>
-              Traffic stations have been identified as located such that its pollution level is determined predominantly by road traffic emissions.
+              Traffic stations have been identified as located such that its
+              pollution level is determined predominantly by road traffic
+              emissions.
             </CardDescription>
           </CardContent>
-          <CardFooter><Button size="sm">View More</Button></CardFooter>
+          <CardFooter>
+            <Button size="sm">View More</Button>
+          </CardFooter>
         </Card>
 
         <Card>
-          <img src={IMG_MOBILE} alt="Mobile station" className="aspect-video w-full rounded-xl object-cover" />
+          <img
+            src={IMG_MOBILE}
+            alt="Mobile station"
+            className="aspect-video w-full rounded-xl object-cover"
+          />
           <CardContent>
             <CardTitle>Mobile</CardTitle>
             <CardDescription>
-              Industrial stations have been identified as located such that its pollution level is influenced predominantly by nearby industrial sources.
+              Industrial stations have been identified as located such that its
+              pollution level is influenced predominantly by nearby industrial
+              sources.
             </CardDescription>
           </CardContent>
-          <CardFooter><Button size="sm">View More</Button></CardFooter>
+          <CardFooter>
+            <Button size="sm">View More</Button>
+          </CardFooter>
         </Card>
       </div>
     </div>
@@ -85,33 +118,75 @@ export function CardImage() {
 ═══════════════════════════════════════════ */
 export function CardCompact() {
   return (
-    <div className="rounded-lg border bg-background p-6">
+    <div className="bg-background rounded-lg border p-6">
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <Card className="flex-row items-center gap-3">
-          <HugeiconsIcon icon={CheckmarkCircle02Icon} width={24} height={24} className="shrink-0 text-[var(--icon-icon-primary)]"  />
+          <HugeiconsIcon
+            icon={CheckmarkCircle02Icon}
+            width={24}
+            height={24}
+            className="shrink-0 text-[var(--icon-icon-primary)]"
+          />
           <CardContent className="min-w-0 flex-1 gap-0.5">
-            <CardTitle className="text-sm leading-5 font-semibold">Card Title</CardTitle>
-            <CardDescription className="text-xs leading-4">Card content placeholder text goes here</CardDescription>
+            <CardTitle className="text-sm leading-5 font-semibold">
+              Card Title
+            </CardTitle>
+            <CardDescription className="text-xs leading-4">
+              Card content placeholder text goes here
+            </CardDescription>
           </CardContent>
-          <HugeiconsIcon icon={ArrowDown01Icon} width={20} height={20} className="shrink-0 text-[var(--icon-icon-default400)]"  />
+          <HugeiconsIcon
+            icon={ArrowDown01Icon}
+            width={20}
+            height={20}
+            className="shrink-0 text-[var(--icon-icon-default400)]"
+          />
         </Card>
 
         <Card className="flex-row items-center gap-3">
-          <HugeiconsIcon icon={CheckmarkCircle02Icon} width={24} height={24} className="shrink-0 text-[var(--icon-icon-primary)]"  />
+          <HugeiconsIcon
+            icon={CheckmarkCircle02Icon}
+            width={24}
+            height={24}
+            className="shrink-0 text-[var(--icon-icon-primary)]"
+          />
           <CardContent className="min-w-0 flex-1 gap-0.5">
-            <CardTitle className="text-sm leading-5 font-semibold">Card Title</CardTitle>
-            <CardDescription className="text-xs leading-4">Card content placeholder text goes here</CardDescription>
+            <CardTitle className="text-sm leading-5 font-semibold">
+              Card Title
+            </CardTitle>
+            <CardDescription className="text-xs leading-4">
+              Card content placeholder text goes here
+            </CardDescription>
           </CardContent>
-          <HugeiconsIcon icon={ArrowDown01Icon} width={20} height={20} className="shrink-0 rotate-180 text-[var(--icon-icon-default400)]"  />
+          <HugeiconsIcon
+            icon={ArrowDown01Icon}
+            width={20}
+            height={20}
+            className="shrink-0 rotate-180 text-[var(--icon-icon-default400)]"
+          />
         </Card>
 
         <Card disabled className="flex-row items-center gap-3">
-          <HugeiconsIcon icon={CheckmarkCircle02Icon} width={24} height={24} className="shrink-0"  />
+          <HugeiconsIcon
+            icon={CheckmarkCircle02Icon}
+            width={24}
+            height={24}
+            className="shrink-0"
+          />
           <CardContent className="min-w-0 flex-1 gap-0.5">
-            <CardTitle className="text-sm leading-5 font-semibold">Card Title</CardTitle>
-            <CardDescription className="text-xs leading-4">Card content placeholder text goes here</CardDescription>
+            <CardTitle className="text-sm leading-5 font-semibold">
+              Card Title
+            </CardTitle>
+            <CardDescription className="text-xs leading-4">
+              Card content placeholder text goes here
+            </CardDescription>
           </CardContent>
-          <HugeiconsIcon icon={ArrowDown01Icon} width={20} height={20} className="shrink-0"  />
+          <HugeiconsIcon
+            icon={ArrowDown01Icon}
+            width={20}
+            height={20}
+            className="shrink-0"
+          />
         </Card>
       </div>
     </div>
@@ -123,22 +198,35 @@ export function CardCompact() {
 ═══════════════════════════════════════════ */
 export function CardDetail() {
   return (
-    <div className="rounded-lg border bg-background p-6">
+    <div className="bg-background rounded-lg border p-6">
       <div className="grid gap-6 lg:grid-cols-2">
         <Card>
-          <img src={IMG_BG} alt="Station image" className="aspect-video w-full rounded-xl object-cover" />
+          <img
+            src={IMG_BG}
+            alt="Station image"
+            className="aspect-video w-full rounded-xl object-cover"
+          />
           <CardContent className="gap-4">
-            <h2 className="text-2xl font-semibold text-[var(--text-text-display)]">Prince Sultan Humanity City</h2>
+            <h2 className="text-2xl font-semibold text-[var(--text-text-display)]">
+              Prince Sultan Humanity City
+            </h2>
             <div className="flex flex-col gap-2">
               <CardTitle>Description</CardTitle>
-              <CardDescription>Located In A Medical Compound Approximately 40km North From The Centre Of Riyadh</CardDescription>
+              <CardDescription>
+                Located In A Medical Compound Approximately 40km North From The
+                Centre Of Riyadh
+              </CardDescription>
             </div>
           </CardContent>
           <div className="flex flex-col gap-3">
             <Card className="gap-2 border shadow-none">
               <CardContent className="gap-1">
-                <CardTitle className="text-sm font-bold">Coordinates (Latitude/Longitude)</CardTitle>
-                <CardDescription className="text-sm">24.751314 , 46.868278</CardDescription>
+                <CardTitle className="text-sm font-bold">
+                  Coordinates (Latitude/Longitude)
+                </CardTitle>
+                <CardDescription className="text-sm">
+                  24.751314 , 46.868278
+                </CardDescription>
               </CardContent>
             </Card>
             <Card className="gap-2 border shadow-none">
@@ -149,7 +237,9 @@ export function CardDetail() {
             </Card>
             <Card className="gap-2 border shadow-none">
               <CardContent className="gap-1">
-                <CardTitle className="text-sm font-bold">Kerb Distance</CardTitle>
+                <CardTitle className="text-sm font-bold">
+                  Kerb Distance
+                </CardTitle>
                 <CardDescription className="text-sm">--</CardDescription>
               </CardContent>
             </Card>
@@ -157,19 +247,33 @@ export function CardDetail() {
         </Card>
 
         <Card>
-          <img src={IMG_SUBURBAN} alt="Station image" className="aspect-video w-full rounded-xl object-cover" />
+          <img
+            src={IMG_SUBURBAN}
+            alt="Station image"
+            className="aspect-video w-full rounded-xl object-cover"
+          />
           <CardContent className="gap-4">
-            <h2 className="text-2xl font-semibold text-[var(--text-text-display)]">Al Hair</h2>
+            <h2 className="text-2xl font-semibold text-[var(--text-text-display)]">
+              Al Hair
+            </h2>
             <div className="flex flex-col gap-2">
               <CardTitle>Description</CardTitle>
-              <CardDescription>The Monitoring Station Is Situated Within A Purpose Built Self-Contained Air Conditioned Enclosure Located In The Arriyadh Development Authority Recreational Area</CardDescription>
+              <CardDescription>
+                The Monitoring Station Is Situated Within A Purpose Built
+                Self-Contained Air Conditioned Enclosure Located In The Arriyadh
+                Development Authority Recreational Area
+              </CardDescription>
             </div>
           </CardContent>
           <div className="flex flex-col gap-3">
             <Card className="gap-2 border shadow-none">
               <CardContent className="gap-1">
-                <CardTitle className="text-sm font-bold">Coordinates (Latitude/Longitude)</CardTitle>
-                <CardDescription className="text-sm">24.383322 , 46.897128</CardDescription>
+                <CardTitle className="text-sm font-bold">
+                  Coordinates (Latitude/Longitude)
+                </CardTitle>
+                <CardDescription className="text-sm">
+                  24.383322 , 46.897128
+                </CardDescription>
               </CardContent>
             </Card>
             <Card className="gap-2 border shadow-none">
@@ -180,7 +284,9 @@ export function CardDetail() {
             </Card>
             <Card className="gap-2 border shadow-none">
               <CardContent className="gap-1">
-                <CardTitle className="text-sm font-bold">Kerb Distance</CardTitle>
+                <CardTitle className="text-sm font-bold">
+                  Kerb Distance
+                </CardTitle>
                 <CardDescription className="text-sm">--</CardDescription>
               </CardContent>
             </Card>
@@ -196,35 +302,69 @@ export function CardDetail() {
 ═══════════════════════════════════════════ */
 export function CardSelectable() {
   return (
-    <div className="rounded-lg border bg-background p-6">
+    <div className="bg-background rounded-lg border p-6">
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <Card className="flex-row items-center gap-3">
-          <HugeiconsIcon icon={CheckmarkCircle02Icon} width={24} height={24} className="shrink-0 text-[var(--icon-icon-primary)]"  />
+          <HugeiconsIcon
+            icon={CheckmarkCircle02Icon}
+            width={24}
+            height={24}
+            className="shrink-0 text-[var(--icon-icon-primary)]"
+          />
           <CardContent className="min-w-0 flex-1 gap-0.5">
-            <CardTitle className="text-sm leading-5 font-semibold">Card Title</CardTitle>
-            <CardDescription className="text-xs leading-4">Card content placeholder text goes here</CardDescription>
+            <CardTitle className="text-sm leading-5 font-semibold">
+              Card Title
+            </CardTitle>
+            <CardDescription className="text-xs leading-4">
+              Card content placeholder text goes here
+            </CardDescription>
           </CardContent>
           <CardAction>
-            <input type="checkbox" className="size-4 rounded accent-[var(--controls-control-primary-checked)]" />
+            <input
+              type="checkbox"
+              className="size-4 rounded accent-[var(--controls-control-primary-checked)]"
+            />
           </CardAction>
         </Card>
 
         <Card className="flex-row items-center gap-3 border-[var(--border-border-primary)]">
-          <HugeiconsIcon icon={CheckmarkCircle02Icon} width={24} height={24} className="shrink-0 text-[var(--icon-icon-primary)]"  />
+          <HugeiconsIcon
+            icon={CheckmarkCircle02Icon}
+            width={24}
+            height={24}
+            className="shrink-0 text-[var(--icon-icon-primary)]"
+          />
           <CardContent className="min-w-0 flex-1 gap-0.5">
-            <CardTitle className="text-sm leading-5 font-semibold">Card Title</CardTitle>
-            <CardDescription className="text-xs leading-4">Card content placeholder text goes here</CardDescription>
+            <CardTitle className="text-sm leading-5 font-semibold">
+              Card Title
+            </CardTitle>
+            <CardDescription className="text-xs leading-4">
+              Card content placeholder text goes here
+            </CardDescription>
           </CardContent>
           <CardAction>
-            <input type="checkbox" defaultChecked className="size-4 rounded accent-[var(--controls-control-primary-checked)]" />
+            <input
+              type="checkbox"
+              defaultChecked
+              className="size-4 rounded accent-[var(--controls-control-primary-checked)]"
+            />
           </CardAction>
         </Card>
 
         <Card disabled className="flex-row items-center gap-3">
-          <HugeiconsIcon icon={CheckmarkCircle02Icon} width={24} height={24} className="shrink-0"  />
+          <HugeiconsIcon
+            icon={CheckmarkCircle02Icon}
+            width={24}
+            height={24}
+            className="shrink-0"
+          />
           <CardContent className="min-w-0 flex-1 gap-0.5">
-            <CardTitle className="text-sm leading-5 font-semibold">Card Title</CardTitle>
-            <CardDescription className="text-xs leading-4">Card content placeholder text goes here</CardDescription>
+            <CardTitle className="text-sm leading-5 font-semibold">
+              Card Title
+            </CardTitle>
+            <CardDescription className="text-xs leading-4">
+              Card content placeholder text goes here
+            </CardDescription>
           </CardContent>
           <CardAction>
             <input type="checkbox" disabled className="size-4 rounded" />
@@ -240,47 +380,75 @@ export function CardSelectable() {
 ═══════════════════════════════════════════ */
 export function CardActions() {
   return (
-    <div className="rounded-lg border bg-background p-6">
+    <div className="bg-background rounded-lg border p-6">
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         <Card>
           <CardHeader>
-            <HugeiconsIcon icon={CheckmarkCircle02Icon} width={32} height={32} className="text-[var(--icon-icon-primary)]"  />
+            <HugeiconsIcon
+              icon={CheckmarkCircle02Icon}
+              width={32}
+              height={32}
+              className="text-[var(--icon-icon-primary)]"
+            />
           </CardHeader>
           <CardContent>
             <CardTitle>Card Title</CardTitle>
-            <CardDescription>Card content placeholder text goes here</CardDescription>
+            <CardDescription>
+              Card content placeholder text goes here
+            </CardDescription>
           </CardContent>
           <CardFooter>
-            <Button variant="outline" size="sm">Action</Button>
+            <Button variant="outline" size="sm">
+              Action
+            </Button>
             <Button size="sm">Action</Button>
           </CardFooter>
         </Card>
 
         <Card>
           <CardHeader>
-            <HugeiconsIcon icon={CheckmarkCircle02Icon} width={32} height={32} className="text-[var(--icon-icon-primary)]"  />
+            <HugeiconsIcon
+              icon={CheckmarkCircle02Icon}
+              width={32}
+              height={32}
+              className="text-[var(--icon-icon-primary)]"
+            />
           </CardHeader>
           <CardContent>
             <CardTitle>Card Title</CardTitle>
-            <CardDescription>Card content placeholder text goes here</CardDescription>
+            <CardDescription>
+              Card content placeholder text goes here
+            </CardDescription>
           </CardContent>
           <CardFooter>
-            <Button variant="outline" size="sm">Action</Button>
+            <Button variant="outline" size="sm">
+              Action
+            </Button>
             <Button size="sm">Action</Button>
           </CardFooter>
         </Card>
 
         <Card disabled>
           <CardHeader>
-            <HugeiconsIcon icon={CheckmarkCircle02Icon} width={32} height={32}  />
+            <HugeiconsIcon
+              icon={CheckmarkCircle02Icon}
+              width={32}
+              height={32}
+            />
           </CardHeader>
           <CardContent>
             <CardTitle>Card Title</CardTitle>
-            <CardDescription>Card content placeholder text goes here</CardDescription>
+            <CardDescription>
+              Card content placeholder text goes here
+            </CardDescription>
           </CardContent>
           <CardFooter>
-            <Button variant="outline" size="sm" disabled>Action</Button>
-            <Button size="sm" disabled>Action</Button>
+            <Button variant="outline" size="sm" disabled>
+              Action
+            </Button>
+            <Button size="sm" disabled>
+              Action
+            </Button>
           </CardFooter>
         </Card>
       </div>
@@ -293,7 +461,7 @@ export function CardActions() {
 ═══════════════════════════════════════════ */
 export function CardMinimal() {
   return (
-    <div className="rounded-lg border bg-background p-6">
+    <div className="bg-background rounded-lg border p-6">
       <div className="grid gap-6 sm:grid-cols-3">
         <Card>
           <CardContent>

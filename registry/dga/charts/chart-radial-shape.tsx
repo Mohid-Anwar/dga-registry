@@ -1,16 +1,14 @@
-"use client";
+"use client"
 
+import { ChartIncreaseIcon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
-import {
-  ChartIncreaseIcon,
-} from "@hugeicons/core-free-icons"
 import {
   Label,
   PolarGrid,
   PolarRadiusAxis,
   RadialBar,
   RadialBarChart,
-} from "recharts";
+} from "recharts"
 
 import {
   Card,
@@ -19,14 +17,14 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/registry/dga/ui/card";
-import { ChartContainer, type ChartConfig } from "@/registry/dga/ui/chart";
+} from "@/registry/dga/ui/card"
+import { ChartContainer, type ChartConfig } from "@/registry/dga/ui/chart"
 
-export const description = "A radial chart with a custom shape";
+export const description = "A radial chart with a custom shape"
 
 const chartData = [
   { browser: "safari", visitors: 1260, fill: "var(--color-safari)" },
-];
+]
 
 const chartConfig = {
   visitors: {
@@ -36,7 +34,7 @@ const chartConfig = {
     label: "Safari",
     color: "var(--chart-2)",
   },
-} satisfies ChartConfig;
+} satisfies ChartConfig
 
 export function ChartRadialShape() {
   return (
@@ -90,7 +88,7 @@ export function ChartRadialShape() {
                           Visitors
                         </tspan>
                       </text>
-                    );
+                    )
                   }
                 }}
               />
@@ -100,12 +98,13 @@ export function ChartRadialShape() {
       </CardContent>
       <CardFooter className="flex-col gap-2 text-sm">
         <div className="flex items-center gap-2 leading-none font-medium">
-          Trending up by 5.2% this month <HugeiconsIcon icon={ChartIncreaseIcon} className="h-4 w-4"  />
+          Trending up by 5.2% this month{" "}
+          <HugeiconsIcon icon={ChartIncreaseIcon} className="h-4 w-4" />
         </div>
         <div className="text-muted-foreground leading-none">
           Showing total visitors for the last 6 months
         </div>
       </CardFooter>
     </Card>
-  );
+  )
 }

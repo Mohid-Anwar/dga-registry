@@ -1,13 +1,14 @@
-import { DocsLayout } from "@/components/docs/docs-layout"
 import { DirectionToggle } from "@/components/docs/direction-toggle"
+import { DocsLayout } from "@/components/docs/docs-layout"
 import { InstallCommand } from "@/components/docs/install-command"
+
 import {
-  CardImage,
+  CardActions,
   CardCompact,
   CardDetail,
-  CardSelectable,
-  CardActions,
+  CardImage,
   CardMinimal,
+  CardSelectable,
 } from "./demos"
 
 export const metadata = {
@@ -65,21 +66,21 @@ Simple text-only cards with title and description.
 
 ## Sub-components
 
-| Component | Description |
-| --- | --- |
-| `Card` | Root wrapper. Accepts `disabled` prop. |
-| `CardHeader` | Top section for icons or meta. |
-| `CardTitle` | Primary heading text. |
-| `CardDescription` | Supporting description text. |
-| `CardAction` | Slot for interactive elements (checkbox, button). |
-| `CardContent` | Main content area. |
-| `CardFooter` | Bottom section for actions. |
+| Component         | Description                                       |
+| ----------------- | ------------------------------------------------- |
+| `Card`            | Root wrapper. Accepts `disabled` prop.            |
+| `CardHeader`      | Top section for icons or meta.                    |
+| `CardTitle`       | Primary heading text.                             |
+| `CardDescription` | Supporting description text.                      |
+| `CardAction`      | Slot for interactive elements (checkbox, button). |
+| `CardContent`     | Main content area.                                |
+| `CardFooter`      | Bottom section for actions.                       |
 
 ## Props
 
-| Prop | Type | Default | Description |
-| --- | --- | --- | --- |
-| `disabled` | `boolean` | `false` | Disables interaction and mutes colors |
-| `className` | `string` | — | Additional CSS classes |
+| Prop        | Type      | Default | Description                           |
+| ----------- | --------- | ------- | ------------------------------------- |
+| `disabled`  | `boolean` | `false` | Disables interaction and mutes colors |
+| `className` | `string`  | —       | Additional CSS classes                |
 
 </DocsLayout>

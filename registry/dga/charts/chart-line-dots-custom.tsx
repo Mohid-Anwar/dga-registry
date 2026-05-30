@@ -1,11 +1,8 @@
-"use client";
+"use client"
 
+import { ChartIncreaseIcon, GitCommitIcon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
-import {
-  GitCommitIcon,
-  ChartIncreaseIcon,
-} from "@hugeicons/core-free-icons"
-import { CartesianGrid, Line, LineChart, XAxis } from "recharts";
+import { CartesianGrid, Line, LineChart, XAxis } from "recharts"
 
 import {
   Card,
@@ -14,15 +11,15 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/registry/dga/ui/card";
+} from "@/registry/dga/ui/card"
 import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
   type ChartConfig,
-} from "@/registry/dga/ui/chart";
+} from "@/registry/dga/ui/chart"
 
-export const description = "A line chart with custom dots";
+export const description = "A line chart with custom dots"
 
 const chartData = [
   { month: "January", desktop: 186, mobile: 80 },
@@ -31,7 +28,7 @@ const chartData = [
   { month: "April", desktop: 73, mobile: 190 },
   { month: "May", desktop: 209, mobile: 130 },
   { month: "June", desktop: 214, mobile: 140 },
-];
+]
 
 const chartConfig = {
   desktop: {
@@ -42,7 +39,7 @@ const chartConfig = {
     label: "Mobile",
     color: "var(--chart-2)",
   },
-} satisfies ChartConfig;
+} satisfies ChartConfig
 
 export function ChartLineDotsCustom() {
   return (
@@ -79,9 +76,10 @@ export function ChartLineDotsCustom() {
               stroke="var(--color-desktop)"
               strokeWidth={2}
               dot={({ cx, cy, payload }) => {
-                const r = 24;
+                const r = 24
                 return (
-                  <HugeiconsIcon icon={GitCommitIcon}
+                  <HugeiconsIcon
+                    icon={GitCommitIcon}
                     key={payload.month}
                     x={cx - r / 2}
                     y={cy - r / 2}
@@ -89,8 +87,8 @@ export function ChartLineDotsCustom() {
                     height={r}
                     fill="hsl(var(--background))"
                     stroke="var(--color-desktop)"
-                   />
-                );
+                  />
+                )
               }}
             />
           </LineChart>
@@ -98,12 +96,13 @@ export function ChartLineDotsCustom() {
       </CardContent>
       <CardFooter className="flex-col items-start gap-2 text-sm">
         <div className="flex gap-2 leading-none font-medium">
-          Trending up by 5.2% this month <HugeiconsIcon icon={ChartIncreaseIcon} className="h-4 w-4"  />
+          Trending up by 5.2% this month{" "}
+          <HugeiconsIcon icon={ChartIncreaseIcon} className="h-4 w-4" />
         </div>
         <div className="text-muted-foreground leading-none">
           Showing total visitors for the last 6 months
         </div>
       </CardFooter>
     </Card>
-  );
+  )
 }

@@ -1,13 +1,14 @@
-"use client";
+"use client"
 
-import { HugeiconsIcon } from "@hugeicons/react"
 import {
   ArtboardIcon,
-  LifebuoyIcon,
   Compass01Icon,
+  LifebuoyIcon,
   PieChartIcon,
   SentIcon,
 } from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+
 import {
   Sidebar,
   SidebarContent,
@@ -19,7 +20,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarProvider,
-} from "@/registry/dga/ui/sidebar";
+} from "@/registry/dga/ui/sidebar"
 
 const projects = [
   {
@@ -52,7 +53,7 @@ const projects = [
     icon: SentIcon,
     badge: "8",
   },
-];
+]
 
 export default function AppSidebar() {
   return (
@@ -83,5 +84,5 @@ export default function AppSidebar() {
         </SidebarContent>
       </Sidebar>
     </SidebarProvider>
-  );
+  )
 }

@@ -179,10 +179,10 @@ Typeface: **IBM Plex Sans**
 
 Weights:
 
-* Regular
-* Medium
-* Semibold
-* Bold
+- Regular
+- Medium
+- Semibold
+- Bold
 
 ### Display scale
 
@@ -238,21 +238,21 @@ Weights:
 
 Grid:
 
-* 12-column desktop grid
-* 2-4 columns mobile/tablet
+- 12-column desktop grid
+- 2-4 columns mobile/tablet
 
 Containers:
 
-* Mobile padding: 16px
-* Desktop padding: 32px
-* Max width desktop: 1280px
+- Mobile padding: 16px
+- Desktop padding: 32px
+- Max width desktop: 1280px
 
 Breakpoints:
 
-* Mobile: 0–599
-* Tablet: 600–959
-* Desktop: 960–1279
-* Large: 1280+
+- Mobile: 0–599
+- Tablet: 600–959
+- Desktop: 960–1279
+- Large: 1280+
 
 ---
 
@@ -262,17 +262,17 @@ Icon system: **Hugeicons**
 
 Sizes:
 
-* XS: 10, 14, 16
-* Small: 18, 20
-* Medium: 24
-* Large: 28, 32
+- XS: 10, 14, 16
+- Small: 18, 20
+- Medium: 24
+- Large: 28, 32
 
 Touch target: **44×44 px**
 
 Accessibility:
 
-* aria-label required for functional icons
-* aria-hidden for decorative icons
+- aria-label required for functional icons
+- aria-hidden for decorative icons
 
 ---
 
@@ -280,16 +280,16 @@ Accessibility:
 
 Contrast:
 
-* Small text ≥ 4.5:1
-* Large text ≥ 3:1
-* UI components ≥ 3:1
+- Small text ≥ 4.5:1
+- Large text ≥ 3:1
+- UI components ≥ 3:1
 
 Layout:
 
-* Maintain logical reading order
-* Minimum touch size: 44px
-* Line height ≥ 1.5
-* Use spacing to group content
+- Maintain logical reading order
+- Minimum touch size: 44px
+- Line height ≥ 1.5
+- Use spacing to group content
 
 ---
 
@@ -297,11 +297,11 @@ Layout:
 
 Applications must:
 
-* use official tokens
-* avoid arbitrary colors
-* follow spacing scale
-* follow typography scale
-* meet WCAG 2.1 AA
+- use official tokens
+- avoid arbitrary colors
+- follow spacing scale
+- follow typography scale
+- meet WCAG 2.1 AA
 
 Below is the **final Elevation & Shadow section** to append to your Foundations documentation.
 (Production-ready Markdown / Markdoc format.)
@@ -402,24 +402,24 @@ All shadows use base color:
 
 Use elevation to:
 
-* establish hierarchy between surfaces
-* highlight modals, menus, popovers
-* show interactive state changes
-* indicate hover or focus elevation transitions
+- establish hierarchy between surfaces
+- highlight modals, menus, popovers
+- show interactive state changes
+- indicate hover or focus elevation transitions
 
 Avoid:
 
-* stacking multiple high-elevation layers
-* using elevation as the only state indicator
-* excessive blur causing visual fatigue
+- stacking multiple high-elevation layers
+- using elevation as the only state indicator
+- excessive blur causing visual fatigue
 
 ---
 
 ## 8.4 Accessibility
 
-* Maintain text contrast ≥ 4.5:1 against backgrounds
-* Provide borders where depth perception is limited
-* Interactive states must also change **color or outline**, not only elevation
+- Maintain text contrast ≥ 4.5:1 against backgrounds
+- Provide borders where depth perception is limited
+- Interactive states must also change **color or outline**, not only elevation
 
 ---
 
@@ -427,13 +427,17 @@ Avoid:
 
 ```css
 :root {
-  --shadow-xs: 0 1px 2px rgba(16,24,40,0.05);
-  --shadow-sm: 0 1px 3px rgba(16,24,40,0.10), 0 1px 2px rgba(16,24,40,0.06);
-  --shadow-md: 0 4px 8px rgba(16,24,40,0.10), 0 2px 4px rgba(16,24,40,0.06);
-  --shadow-lg: 0 12px 16px rgba(16,24,40,0.08), 0 4px 6px rgba(16,24,40,0.03);
-  --shadow-xl: 0 20px 24px rgba(16,24,40,0.08), 0 8px 8px rgba(16,24,40,0.03);
-  --shadow-2xl: 0 24px 48px rgba(16,24,40,0.18);
-  --shadow-3xl: 0 32px 64px rgba(16,24,40,0.14);
+  --shadow-xs: 0 1px 2px rgba(16, 24, 40, 0.05);
+  --shadow-sm:
+    0 1px 3px rgba(16, 24, 40, 0.1), 0 1px 2px rgba(16, 24, 40, 0.06);
+  --shadow-md:
+    0 4px 8px rgba(16, 24, 40, 0.1), 0 2px 4px rgba(16, 24, 40, 0.06);
+  --shadow-lg:
+    0 12px 16px rgba(16, 24, 40, 0.08), 0 4px 6px rgba(16, 24, 40, 0.03);
+  --shadow-xl:
+    0 20px 24px rgba(16, 24, 40, 0.08), 0 8px 8px rgba(16, 24, 40, 0.03);
+  --shadow-2xl: 0 24px 48px rgba(16, 24, 40, 0.18);
+  --shadow-3xl: 0 32px 64px rgba(16, 24, 40, 0.14);
 }
 ```
 

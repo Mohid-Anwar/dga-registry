@@ -8,7 +8,7 @@ import { RadioGroup, RadioGroupItem } from "@/registry/dga/ui/radio-group"
 /* ─── 1. Basic Radio Group ─── */
 export function RadioGroupBasic() {
   return (
-    <div className="rounded-lg border bg-background p-6">
+    <div className="bg-background rounded-lg border p-6">
       <div className="flex flex-col gap-6">
         <div className="flex flex-col gap-3">
           <label className="text-sm font-medium">Select Station Type</label>
@@ -104,7 +104,7 @@ export function RadioGroupBasic() {
 /* ─── 2. Radio Group with Descriptions ─── */
 export function RadioGroupDescriptions() {
   return (
-    <div className="rounded-lg border bg-background p-6">
+    <div className="bg-background rounded-lg border p-6">
       <div className="flex flex-col gap-3">
         <label className="text-sm font-medium">
           Select Data Aggregation Method
@@ -122,11 +122,7 @@ export function RadioGroupDescriptions() {
             </div>
           </div>
           <div className="flex items-start gap-2">
-            <RadioGroupItem
-              value="hourly"
-              id="agg-hourly"
-              className="mt-0.5"
-            />
+            <RadioGroupItem value="hourly" id="agg-hourly" className="mt-0.5" />
             <div className="grid gap-1">
               <label htmlFor="agg-hourly" className="text-sm font-medium">
                 Hourly Average
@@ -148,11 +144,7 @@ export function RadioGroupDescriptions() {
             </div>
           </div>
           <div className="flex items-start gap-2">
-            <RadioGroupItem
-              value="weekly"
-              id="agg-weekly"
-              className="mt-0.5"
-            />
+            <RadioGroupItem value="weekly" id="agg-weekly" className="mt-0.5" />
             <div className="grid gap-1">
               <label htmlFor="agg-weekly" className="text-sm font-medium">
                 Weekly Average
@@ -174,7 +166,7 @@ export function RadioGroupControlled() {
   const [pollutant, setPollutant] = React.useState("")
 
   return (
-    <div className="rounded-lg border bg-background p-6">
+    <div className="bg-background rounded-lg border p-6">
       <div className="flex flex-col gap-6">
         <div className="flex flex-col gap-3">
           <label className="text-sm font-medium">Select Station Type</label>
@@ -205,7 +197,7 @@ export function RadioGroupControlled() {
             </div>
           </RadioGroup>
           {stationType && (
-            <div className="rounded-md border bg-card p-4">
+            <div className="bg-card rounded-md border p-4">
               <p className="text-sm">
                 Selected Type: <strong>{stationType}</strong>
               </p>
@@ -254,7 +246,7 @@ export function RadioGroupControlled() {
             </div>
           </RadioGroup>
           {pollutant && (
-            <div className="rounded-md border bg-card p-4">
+            <div className="bg-card rounded-md border p-4">
               <p className="text-sm">
                 Selected Pollutant: <strong>{pollutant.toUpperCase()}</strong>
               </p>
@@ -263,7 +255,7 @@ export function RadioGroupControlled() {
         </div>
 
         {stationType && pollutant && (
-          <div className="rounded-md border bg-card p-4">
+          <div className="bg-card rounded-md border p-4">
             <h3 className="mb-2 text-sm font-semibold">Query Summary</h3>
             <p className="text-sm">
               Showing <strong>{pollutant.toUpperCase()}</strong> data for{" "}
@@ -282,7 +274,7 @@ export function RadioGroupControlled() {
 /* ─── 4. Horizontal Layout ─── */
 export function RadioGroupHorizontal() {
   return (
-    <div className="rounded-lg border bg-background p-6">
+    <div className="bg-background rounded-lg border p-6">
       <div className="flex flex-col gap-6">
         <div className="flex flex-col gap-3">
           <label className="text-sm font-medium">Select Time Range</label>
@@ -348,13 +340,13 @@ export function RadioGroupHorizontal() {
 /* ─── 5. Card Style Radio Group ─── */
 export function RadioGroupCards() {
   return (
-    <div className="rounded-lg border bg-background p-6">
+    <div className="bg-background rounded-lg border p-6">
       <div className="flex flex-col gap-3">
         <label className="text-sm font-medium">Select Data Export Format</label>
         <RadioGroup defaultValue="csv">
           <label
             htmlFor="format-csv"
-            className="flex cursor-pointer items-start gap-3 rounded-md border p-4 hover:bg-accent/50 has-[:checked]:border-primary has-[:checked]:bg-accent"
+            className="hover:bg-accent/50 has-[:checked]:border-primary has-[:checked]:bg-accent flex cursor-pointer items-start gap-3 rounded-md border p-4"
           >
             <RadioGroupItem value="csv" id="format-csv" className="mt-0.5" />
             <div className="flex-1">
@@ -367,13 +359,9 @@ export function RadioGroupCards() {
           </label>
           <label
             htmlFor="format-json"
-            className="flex cursor-pointer items-start gap-3 rounded-md border p-4 hover:bg-accent/50 has-[:checked]:border-primary has-[:checked]:bg-accent"
+            className="hover:bg-accent/50 has-[:checked]:border-primary has-[:checked]:bg-accent flex cursor-pointer items-start gap-3 rounded-md border p-4"
           >
-            <RadioGroupItem
-              value="json"
-              id="format-json"
-              className="mt-0.5"
-            />
+            <RadioGroupItem value="json" id="format-json" className="mt-0.5" />
             <div className="flex-1">
               <div className="text-sm font-medium">JSON</div>
               <p className="text-muted-foreground text-xs">
@@ -383,7 +371,7 @@ export function RadioGroupCards() {
           </label>
           <label
             htmlFor="format-xml"
-            className="flex cursor-pointer items-start gap-3 rounded-md border p-4 hover:bg-accent/50 has-[:checked]:border-primary has-[:checked]:bg-accent"
+            className="hover:bg-accent/50 has-[:checked]:border-primary has-[:checked]:bg-accent flex cursor-pointer items-start gap-3 rounded-md border p-4"
           >
             <RadioGroupItem value="xml" id="format-xml" className="mt-0.5" />
             <div className="flex-1">
@@ -405,10 +393,10 @@ export function RadioGroupForms() {
   const [timeRange, setTimeRange] = React.useState("24h")
 
   return (
-    <div className="rounded-lg border bg-background p-6">
+    <div className="bg-background rounded-lg border p-6">
       <div className="space-y-8">
         {/* Data Query Form */}
-        <div className="border-border rounded-lg border bg-card p-6">
+        <div className="border-border bg-card rounded-lg border p-6">
           <h3 className="mb-4 text-lg font-semibold">Data Query Form</h3>
           <form className="space-y-6">
             <div className="flex flex-col gap-3">
@@ -527,7 +515,7 @@ export function RadioGroupForms() {
         </div>
 
         {/* Settings Form */}
-        <div className="border-border rounded-lg border bg-card p-6">
+        <div className="border-border bg-card rounded-lg border p-6">
           <h3 className="mb-4 text-lg font-semibold">Alert Settings</h3>
           <form className="space-y-6">
             <div className="flex flex-col gap-3">
@@ -627,7 +615,7 @@ export function RadioGroupForms() {
 /* ─── 7. Grid Layout ─── */
 export function RadioGroupGrid() {
   return (
-    <div className="rounded-lg border bg-background p-6">
+    <div className="bg-background rounded-lg border p-6">
       <div className="flex flex-col gap-3">
         <label className="text-sm font-medium">Select Station</label>
         <RadioGroup

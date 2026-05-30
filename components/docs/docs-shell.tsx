@@ -1,10 +1,11 @@
 "use client"
 
 import { useState } from "react"
-import { SidebarProvider, SidebarInset } from "@/registry/dga/ui/sidebar"
-import { AppSidebar } from "@/components/sidebar/app-sidebar"
+
 import { AppHeader } from "@/components/sidebar/app-header"
+import { AppSidebar } from "@/components/sidebar/app-sidebar"
 import { CommandMenu } from "@/components/sidebar/command-menu"
+import { SidebarInset, SidebarProvider } from "@/registry/dga/ui/sidebar"
 
 type Component = {
   name: string
@@ -33,8 +34,8 @@ export function DocsShell({
       <AppSidebar components={components} />
       <SidebarInset className="min-w-0 overflow-hidden">
         <AppHeader />
-        <main className="flex-1 overflow-y-auto overflow-x-hidden min-w-0">
-          <div className="mx-auto px-6 py-10 max-w-full">{children}</div>
+        <main className="min-w-0 flex-1 overflow-x-hidden overflow-y-auto">
+          <div className="mx-auto max-w-full px-6 py-10">{children}</div>
         </main>
       </SidebarInset>
     </SidebarProvider>
