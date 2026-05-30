@@ -1,0 +1,72 @@
+import { DirectionToggle } from "@/components/docs/direction-toggle"
+import { DocsLayout } from "@/components/docs/docs-layout"
+import { InstallCommand } from "@/components/docs/install-command"
+
+import {
+  BreadcrumbAsChild,
+  BreadcrumbCollapsed,
+  BreadcrumbCustomSeparator,
+  BreadcrumbDefault,
+  BreadcrumbLongLabels,
+} from "./demos"
+
+export const metadata = {
+  title: "Breadcrumb",
+  description: "Displays the current page location within a navigational hierarchy.",
+}
+
+<DocsLayout>
+
+# Breadcrumb
+
+Displays the current page location within a navigational hierarchy.
+
+<DirectionToggle />
+
+## Installation
+
+<InstallCommand componentName="breadcrumb" />
+
+## Default
+
+Standard breadcrumb with link items and a current page item.
+
+<BreadcrumbDefault />
+
+## Custom Separator
+
+Use a custom separator character instead of the default icon.
+
+<BreadcrumbCustomSeparator />
+
+## Collapsed Path
+
+Display long hierarchies using `BreadcrumbEllipsis`.
+
+<BreadcrumbCollapsed />
+
+## Multi-Line Labels
+
+Breadcrumb labels support wrapping for long text values.
+
+<BreadcrumbLongLabels />
+
+## AsChild Link
+
+Use `asChild` to render breadcrumb links with custom elements.
+
+<BreadcrumbAsChild />
+
+## Props
+
+| Component | Prop | Type | Default | Description |
+| --- | --- | --- | --- | --- |
+| `Breadcrumb` | `...props` | `React.ComponentProps<"nav">` | — | Root nav wrapper (`aria-label="breadcrumb"`) |
+| `BreadcrumbList` | `className` | `string` | — | Styles the ordered list layout |
+| `BreadcrumbItem` | `className` | `string` | — | Styles each list item |
+| `BreadcrumbLink` | `asChild` | `boolean` | `false` | Renders link as child element |
+| `BreadcrumbPage` | `className` | `string` | — | Current page label |
+| `BreadcrumbSeparator` | `children` | `ReactNode` | arrow icon | Custom separator content |
+| `BreadcrumbEllipsis` | `className` | `string` | — | Collapsed indicator for long paths |
+
+</DocsLayout>

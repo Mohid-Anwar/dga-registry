@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { ArrowLeft02Icon, ArrowRight02Icon } from "@hugeicons/core-free-icons"
+import { ArrowLeft01Icon, ArrowRight01Icon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
@@ -96,11 +96,20 @@ function Carousel({
 
   React.useEffect(() => {
     if (!api) return
-    onSelect(api)
+    let isActive = true
+
+    queueMicrotask(() => {
+      if (isActive) {
+        onSelect(api)
+      }
+    })
+
     api.on("reInit", onSelect)
     api.on("select", onSelect)
 
     return () => {
+      isActive = false
+      api?.off("reInit", onSelect)
       api?.off("select", onSelect)
     }
   }, [api, onSelect])
@@ -176,8 +185,9 @@ function CarouselPrevious({
   className,
   variant = "outline",
   size = "icon",
+  icon = ArrowLeft01Icon,
   ...props
-}: React.ComponentProps<typeof Button>) {
+}: React.ComponentProps<typeof Button> & { icon?: typeof ArrowLeft01Icon }) {
   const { orientation, scrollPrev, canScrollPrev } = useCarousel()
 
   return (
@@ -196,7 +206,7 @@ function CarouselPrevious({
       onClick={scrollPrev}
       {...props}
     >
-      <HugeiconsIcon icon={ArrowLeft02Icon} />
+      <HugeiconsIcon icon={icon} />
       <span className="sr-only">Previous slide</span>
     </Button>
   )
@@ -206,8 +216,9 @@ function CarouselNext({
   className,
   variant = "outline",
   size = "icon",
+  icon = ArrowRight01Icon,
   ...props
-}: React.ComponentProps<typeof Button>) {
+}: React.ComponentProps<typeof Button> & { icon?: typeof ArrowRight01Icon }) {
   const { orientation, scrollNext, canScrollNext } = useCarousel()
 
   return (
@@ -226,7 +237,7 @@ function CarouselNext({
       onClick={scrollNext}
       {...props}
     >
-      <HugeiconsIcon icon={ArrowRight02Icon} />
+      <HugeiconsIcon icon={icon} />
       <span className="sr-only">Next slide</span>
     </Button>
   )
