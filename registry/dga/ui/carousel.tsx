@@ -185,8 +185,9 @@ function CarouselPrevious({
   className,
   variant = "outline",
   size = "icon",
+  icon = ArrowLeft01Icon,
   ...props
-}: React.ComponentProps<typeof Button>) {
+}: React.ComponentProps<typeof Button> & { icon?: typeof ArrowLeft01Icon }) {
   const { orientation, scrollPrev, canScrollPrev } = useCarousel()
 
   return (
@@ -197,15 +198,15 @@ function CarouselPrevious({
       className={cn(
         "absolute size-8 rounded-full",
         orientation === "horizontal"
-          ? "-inset-s-12 top-1/2 -translate-y-1/2"
-          : "inset-s-1/2 -top-12 -translate-x-1/2 rotate-90 rtl:translate-x-1/2",
+          ? "-start-12 top-1/2 -translate-y-1/2"
+          : "start-1/2 -top-12 -translate-x-1/2 rotate-90 rtl:translate-x-1/2",
         className
       )}
       disabled={!canScrollPrev}
       onClick={scrollPrev}
       {...props}
     >
-      <HugeiconsIcon icon={ArrowLeft01Icon} />
+      <HugeiconsIcon icon={icon} />
       <span className="sr-only">Previous slide</span>
     </Button>
   )
@@ -215,8 +216,9 @@ function CarouselNext({
   className,
   variant = "outline",
   size = "icon",
+  icon = ArrowRight01Icon,
   ...props
-}: React.ComponentProps<typeof Button>) {
+}: React.ComponentProps<typeof Button> & { icon?: typeof ArrowRight01Icon }) {
   const { orientation, scrollNext, canScrollNext } = useCarousel()
 
   return (
@@ -227,15 +229,15 @@ function CarouselNext({
       className={cn(
         "absolute size-8 rounded-full",
         orientation === "horizontal"
-          ? "-inset-e-12 top-1/2 -translate-y-1/2"
-          : "inset-s-1/2 -bottom-12 -translate-x-1/2 rotate-90 rtl:translate-x-1/2",
+          ? "-end-12 top-1/2 -translate-y-1/2"
+          : "start-1/2 -bottom-12 -translate-x-1/2 rotate-90 rtl:translate-x-1/2",
         className
       )}
       disabled={!canScrollNext}
       onClick={scrollNext}
       {...props}
     >
-      <HugeiconsIcon icon={ArrowRight01Icon} />
+      <HugeiconsIcon icon={icon} />
       <span className="sr-only">Next slide</span>
     </Button>
   )
