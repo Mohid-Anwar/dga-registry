@@ -1,10 +1,7 @@
 "use client"
 
 import * as React from "react"
-import {
-  ArrowLeft02Icon,
-  ArrowRight02Icon,
-} from "@hugeicons/core-free-icons"
+import { ArrowLeft02Icon, ArrowRight02Icon } from "@hugeicons/core-free-icons"
 import Autoplay from "embla-carousel-autoplay"
 
 import { useAppDirection } from "@/components/direction-context"
@@ -78,7 +75,12 @@ export function CarouselVertical() {
   const { direction } = useAppDirection()
 
   return (
-    <Carousel opts={{ align: "start", direction }} orientation="vertical" className="w-full max-w-xs" dir={direction}>
+    <Carousel
+      opts={{ align: "start", direction }}
+      orientation="vertical"
+      className="w-full max-w-xs"
+      dir={direction}
+    >
       <CarouselContent className="-mt-1 h-[200px]">
         {Array.from({ length: 5 }).map((_, index) => (
           <CarouselItem key={index} className="pt-1 md:basis-1/2">
@@ -158,7 +160,12 @@ export function CarouselWithApi() {
 
   return (
     <div>
-      <Carousel setApi={setApi} className="w-full max-w-xs" dir={direction} opts={{ direction }}>
+      <Carousel
+        setApi={setApi}
+        className="w-full max-w-xs"
+        dir={direction}
+        opts={{ direction }}
+      >
         <CarouselContent>
           {Array.from({ length: 5 }).map((_, index) => (
             <CarouselItem key={index}>

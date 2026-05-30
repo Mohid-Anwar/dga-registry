@@ -1,7 +1,7 @@
+import { CarouselPreview } from "@/components/docs/carousel-preview"
 import { DirectionToggle } from "@/components/docs/direction-toggle"
 import { DocsLayout } from "@/components/docs/docs-layout"
 import { InstallCommand } from "@/components/docs/install-command"
-import { CarouselPreview } from "@/components/docs/carousel-preview"
 
 import {
   CarouselAutoplay,
@@ -34,52 +34,64 @@ A carousel with motion and swipe built using Embla.
 
 Basic carousel with navigation arrows.
 
-<CarouselPreview><CarouselDefault /></CarouselPreview>
+<CarouselPreview>
+  <CarouselDefault />
+</CarouselPreview>
 
 ## Multiple Items
 
 Show multiple slides at once using basis classes.
 
-<CarouselPreview><CarouselMultiple /></CarouselPreview>
+<CarouselPreview>
+  <CarouselMultiple />
+</CarouselPreview>
 
 ## Vertical Orientation
 
 Carousel with vertical scrolling.
 
-<CarouselPreview><CarouselVertical /></CarouselPreview>
+<CarouselPreview>
+  <CarouselVertical />
+</CarouselPreview>
 
 ## Autoplay
 
 Carousel with automatic slide advancement. Pauses on hover.
 
-<CarouselPreview><CarouselAutoplay /></CarouselPreview>
+<CarouselPreview>
+  <CarouselAutoplay />
+</CarouselPreview>
 
 ## With API
 
 Access the carousel API to display current slide state.
 
-<CarouselPreview><CarouselWithApi /></CarouselPreview>
+<CarouselPreview>
+  <CarouselWithApi />
+</CarouselPreview>
 
 ## Custom Icons
 
 Use different icons for the navigation buttons.
 
-<CarouselPreview><CarouselCustomIcons /></CarouselPreview>
+<CarouselPreview>
+  <CarouselCustomIcons />
+</CarouselPreview>
 
 ## Props
 
-| Component | Prop | Type | Default | Description |
-| --- | --- | --- | --- | --- |
-| `Carousel` | `opts` | `EmblaOptionsType` | — | Embla carousel options |
-| `Carousel` | `plugins` | `EmblaPluginType[]` | — | Embla plugins (e.g., Autoplay) |
-| `Carousel` | `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Scroll direction |
-| `Carousel` | `setApi` | `(api) => void` | — | Callback to access carousel API |
-| `Carousel` | `dir` | `"ltr" \| "rtl"` | — | Text direction for the carousel |
-| `CarouselItem` | `className` | `string` | — | Basis classes for sizing |
-| `CarouselPrevious` | `variant` | `string` | `"outline"` | Button variant |
-| `CarouselPrevious` | `icon` | `HugeIcon` | `ArrowLeft01Icon` | Custom icon |
-| `CarouselNext` | `variant` | `string` | `"outline"` | Button variant |
-| `CarouselNext` | `icon` | `HugeIcon` | `ArrowRight01Icon` | Custom icon |
+| Component          | Prop          | Type                         | Default            | Description                     |
+| ------------------ | ------------- | ---------------------------- | ------------------ | ------------------------------- |
+| `Carousel`         | `opts`        | `EmblaOptionsType`           | —                  | Embla carousel options          |
+| `Carousel`         | `plugins`     | `EmblaPluginType[]`          | —                  | Embla plugins (e.g., Autoplay)  |
+| `Carousel`         | `orientation` | `"horizontal" \| "vertical"` | `"horizontal"`     | Scroll direction                |
+| `Carousel`         | `setApi`      | `(api) => void`              | —                  | Callback to access carousel API |
+| `Carousel`         | `dir`         | `"ltr" \| "rtl"`             | —                  | Text direction for the carousel |
+| `CarouselItem`     | `className`   | `string`                     | —                  | Basis classes for sizing        |
+| `CarouselPrevious` | `variant`     | `string`                     | `"outline"`        | Button variant                  |
+| `CarouselPrevious` | `icon`        | `HugeIcon`                   | `ArrowLeft01Icon`  | Custom icon                     |
+| `CarouselNext`     | `variant`     | `string`                     | `"outline"`        | Button variant                  |
+| `CarouselNext`     | `icon`        | `HugeIcon`                   | `ArrowRight01Icon` | Custom icon                     |
 
 ## RTL Support
 

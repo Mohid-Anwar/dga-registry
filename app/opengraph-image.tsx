@@ -113,8 +113,8 @@ export default async function Image() {
           display: "flex",
         }}
       >
-        React, Next.js, Laravel, Vite & more. RTL-first with Arabic
-        typography and DGA design tokens.
+        React, Next.js, Laravel, Vite & more. RTL-first with Arabic typography
+        and DGA design tokens.
       </div>
 
       {/* Tags */}
