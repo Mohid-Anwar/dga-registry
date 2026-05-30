@@ -132,7 +132,7 @@ export const ui: Registry["items"] = [
       },
     ],
     registryDependencies: ["button"],
-    dependencies: ["embla-carousel-react"],
+    dependencies: ["embla-carousel-react", "embla-carousel-autoplay"],
   },
   {
     name: "chart",

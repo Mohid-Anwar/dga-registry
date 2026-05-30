@@ -1,0 +1,72 @@
+import { DirectionToggle } from "@/components/docs/direction-toggle"
+import { DocsLayout } from "@/components/docs/docs-layout"
+import { InstallCommand } from "@/components/docs/install-command"
+
+import {
+  CarouselAutoplay,
+  CarouselDefault,
+  CarouselMultiple,
+  CarouselVertical,
+  CarouselWithApi,
+} from "./demos"
+
+export const metadata = {
+  title: "Carousel",
+  description: "A carousel with motion and swipe built using Embla.",
+}
+
+<DocsLayout>
+
+# Carousel
+
+A carousel with motion and swipe built using Embla.
+
+<DirectionToggle />
+
+## Installation
+
+<InstallCommand componentName="carousel" />
+
+## Default
+
+Basic carousel with navigation arrows.
+
+<CarouselDefault />
+
+## Multiple Items
+
+Show multiple slides at once using basis classes.
+
+<CarouselMultiple />
+
+## Vertical Orientation
+
+Carousel with vertical scrolling.
+
+<CarouselVertical />
+
+## Autoplay
+
+Carousel with automatic slide advancement. Pauses on hover.
+
+<CarouselAutoplay />
+
+## With API
+
+Access the carousel API to display current slide state.
+
+<CarouselWithApi />
+
+## Props
+
+| Component | Prop | Type | Default | Description |
+| --- | --- | --- | --- | --- |
+| `Carousel` | `opts` | `EmblaOptionsType` | — | Embla carousel options |
+| `Carousel` | `plugins` | `EmblaPluginType[]` | — | Embla plugins (e.g., Autoplay) |
+| `Carousel` | `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` | Scroll direction |
+| `Carousel` | `setApi` | `(api) => void` | — | Callback to access carousel API |
+| `CarouselItem` | `className` | `string` | — | Basis classes for sizing |
+| `CarouselPrevious` | `variant` | `string` | `"outline"` | Button variant |
+| `CarouselNext` | `variant` | `string` | `"outline"` | Button variant |
+
+</DocsLayout>

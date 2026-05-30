@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { ArrowLeft02Icon, ArrowRight02Icon } from "@hugeicons/core-free-icons"
+import { ArrowLeft01Icon, ArrowRight01Icon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
 import useEmblaCarousel, {
   type UseEmblaCarouselType,
@@ -96,11 +96,20 @@ function Carousel({
 
   React.useEffect(() => {
     if (!api) return
-    onSelect(api)
+    let isActive = true
+
+    queueMicrotask(() => {
+      if (isActive) {
+        onSelect(api)
+      }
+    })
+
     api.on("reInit", onSelect)
     api.on("select", onSelect)
 
     return () => {
+      isActive = false
+      api?.off("reInit", onSelect)
       api?.off("select", onSelect)
     }
   }, [api, onSelect])
@@ -188,15 +197,15 @@ function CarouselPrevious({
       className={cn(
         "absolute size-8 rounded-full",
         orientation === "horizontal"
-          ? "-start-12 top-1/2 -translate-y-1/2"
-          : "start-1/2 -top-12 -translate-x-1/2 rotate-90 rtl:translate-x-1/2",
+          ? "-inset-s-12 top-1/2 -translate-y-1/2"
+          : "inset-s-1/2 -top-12 -translate-x-1/2 rotate-90 rtl:translate-x-1/2",
         className
       )}
       disabled={!canScrollPrev}
       onClick={scrollPrev}
       {...props}
     >
-      <HugeiconsIcon icon={ArrowLeft02Icon} />
+      <HugeiconsIcon icon={ArrowLeft01Icon} />
       <span className="sr-only">Previous slide</span>
     </Button>
   )
@@ -218,15 +227,15 @@ function CarouselNext({
       className={cn(
         "absolute size-8 rounded-full",
         orientation === "horizontal"
-          ? "-end-12 top-1/2 -translate-y-1/2"
-          : "start-1/2 -bottom-12 -translate-x-1/2 rotate-90 rtl:translate-x-1/2",
+          ? "-inset-e-12 top-1/2 -translate-y-1/2"
+          : "inset-s-1/2 -bottom-12 -translate-x-1/2 rotate-90 rtl:translate-x-1/2",
         className
       )}
       disabled={!canScrollNext}
       onClick={scrollNext}
       {...props}
     >
-      <HugeiconsIcon icon={ArrowRight02Icon} />
+      <HugeiconsIcon icon={ArrowRight01Icon} />
       <span className="sr-only">Next slide</span>
     </Button>
   )
