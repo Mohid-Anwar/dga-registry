@@ -1,7 +1,6 @@
 "use client"
 
 import { useState } from "react"
-import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
@@ -35,27 +34,52 @@ export function AppSidebar({ components }: { components: Component[] }) {
   return (
     <Sidebar>
       <SidebarHeader>
-        <SidebarMenuItem>
-          <SidebarMenuButton size="lg" asChild>
-            <Link href="/">
-              <div className="text-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
-                <Image
-                  src="/images/App Icon.png"
-                  alt="DGA UI"
-                  width={32}
-                  height={32}
-                  className="rounded-lg"
-                />
-              </div>
-              <div className="flex flex-col gap-0.5 leading-none">
-                <span className="font-semibold">DGA UI</span>
-                <span className="text-muted-foreground text-xs">
-                  Documentation
-                </span>
-              </div>
-            </Link>
-          </SidebarMenuButton>
-        </SidebarMenuItem>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton size="lg" asChild>
+              <Link href="/">
+                <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-gradient-to-br from-[#006838] to-[#004d2a]">
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M12 2L21 7V17L12 22L3 17V7L12 2Z"
+                      stroke="rgba(255,255,255,0.3)"
+                      strokeWidth="1.5"
+                      fill="none"
+                    />
+                    <path
+                      d="M10 8L6 12L10 16"
+                      stroke="white"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      fill="none"
+                    />
+                    <path
+                      d="M14 8L18 12L14 16"
+                      stroke="white"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      fill="none"
+                    />
+                  </svg>
+                </div>
+                <div className="flex flex-col gap-0.5 leading-none">
+                  <span className="font-semibold">DGA Components</span>
+                  <span className="text-muted-foreground text-xs">
+                    Documentation
+                  </span>
+                </div>
+              </Link>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
         <SearchForm onSearch={setQuery} />
       </SidebarHeader>
 
@@ -76,6 +100,11 @@ export function AppSidebar({ components }: { components: Component[] }) {
               <SidebarMenuItem>
                 <SidebarMenuButton asChild isActive={pathname === "/"}>
                   <Link href="/">Introduction</Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild isActive={pathname === "/changelog"}>
+                  <Link href="/changelog">Changelog</Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>

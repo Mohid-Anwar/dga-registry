@@ -12,7 +12,8 @@ import {
 
 export const metadata = {
   title: "Breadcrumb",
-  description: "Displays the current page location within a navigational hierarchy.",
+  description:
+    "DGA Breadcrumb component for React & Next.js. Accessible navigation hierarchy with RTL support. Digital Government Authority Saudi Arabia design system.",
 }
 
 <DocsLayout>
@@ -59,14 +60,14 @@ Use `asChild` to render breadcrumb links with custom elements.
 
 ## Props
 
-| Component | Prop | Type | Default | Description |
-| --- | --- | --- | --- | --- |
-| `Breadcrumb` | `...props` | `React.ComponentProps<"nav">` | — | Root nav wrapper (`aria-label="breadcrumb"`) |
-| `BreadcrumbList` | `className` | `string` | — | Styles the ordered list layout |
-| `BreadcrumbItem` | `className` | `string` | — | Styles each list item |
-| `BreadcrumbLink` | `asChild` | `boolean` | `false` | Renders link as child element |
-| `BreadcrumbPage` | `className` | `string` | — | Current page label |
-| `BreadcrumbSeparator` | `children` | `ReactNode` | arrow icon | Custom separator content |
-| `BreadcrumbEllipsis` | `className` | `string` | — | Collapsed indicator for long paths |
+| Component             | Prop        | Type                          | Default    | Description                                  |
+| --------------------- | ----------- | ----------------------------- | ---------- | -------------------------------------------- |
+| `Breadcrumb`          | `...props`  | `React.ComponentProps<"nav">` | —          | Root nav wrapper (`aria-label="breadcrumb"`) |
+| `BreadcrumbList`      | `className` | `string`                      | —          | Styles the ordered list layout               |
+| `BreadcrumbItem`      | `className` | `string`                      | —          | Styles each list item                        |
+| `BreadcrumbLink`      | `asChild`   | `boolean`                     | `false`    | Renders link as child element                |
+| `BreadcrumbPage`      | `className` | `string`                      | —          | Current page label                           |
+| `BreadcrumbSeparator` | `children`  | `ReactNode`                   | arrow icon | Custom separator content                     |
+| `BreadcrumbEllipsis`  | `className` | `string`                      | —          | Collapsed indicator for long paths           |
 
 </DocsLayout>
