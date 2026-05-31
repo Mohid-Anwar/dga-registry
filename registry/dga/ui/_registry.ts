@@ -555,7 +555,13 @@ export const ui: Registry["items"] = [
   {
     name: "sonner",
     type: "registry:ui",
-    dependencies: ["sonner", "next-themes"],
+    dependencies: [
+      "sonner",
+      "next-themes",
+      "@hugeicons/react",
+      "@hugeicons/core-free-icons",
+    ],
+    registryDependencies: ["direction"],
     files: [
       {
         path: "ui/sonner.tsx",
