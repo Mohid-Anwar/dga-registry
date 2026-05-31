@@ -1,6 +1,6 @@
 "use client"
 
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Moon02Icon, Sun03Icon } from "@hugeicons/core-free-icons"
@@ -17,6 +17,7 @@ import {
 import { Kbd } from "@/registry/dga/ui/kbd"
 import { Separator } from "@/registry/dga/ui/separator"
 import { SidebarTrigger } from "@/registry/dga/ui/sidebar"
+import { useToasterOffset } from "@/registry/dga/ui/sonner"
 import { Toggle } from "@/registry/dga/ui/toggle"
 import {
   Tooltip,
@@ -28,6 +29,8 @@ import {
 export function AppHeader() {
   const pathname = usePathname()
   const [isDark, setIsDark] = useState(false)
+  const headerRef = useRef<HTMLElement>(null)
+  const { setOffset } = useToasterOffset()
 
   const segments = pathname.split("/").filter(Boolean)
 
@@ -62,9 +65,27 @@ export function AppHeader() {
     return () => window.removeEventListener("keydown", handler)
   }, [toggleTheme])
 
+  // Measure header height and set toaster offset
+  useEffect(() => {
+    const el = headerRef.current
+    if (!el) return
+    const observer = new ResizeObserver(([entry]) => {
+      setOffset(Math.round(entry.contentRect.height))
+    })
+    setOffset(el.offsetHeight)
+    observer.observe(el)
+    return () => {
+      observer.disconnect()
+      setOffset(0)
+    }
+  }, [setOffset])
+
   return (
     <TooltipProvider>
-      <header className="flex h-16 shrink-0 items-center gap-2 border-b px-4">
+      <header
+        ref={headerRef}
+        className="flex h-16 shrink-0 items-center gap-2 border-b px-4"
+      >
         <SidebarTrigger className="-ml-1" />
 
         <Separator orientation="vertical" className="h-4" />

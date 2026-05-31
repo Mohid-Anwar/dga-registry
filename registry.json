@@ -684,10 +684,16 @@
         "@hugeicons/react",
         "@hugeicons/core-free-icons"
       ],
+      "registryDependencies": ["direction"],
       "files": [
         {
           "path": "registry/dga/ui/sonner.tsx",
           "type": "registry:ui"
+        },
+        {
+          "path": "styles/tokens.css",
+          "type": "registry:component",
+          "target": "styles/tokens.css"
         }
       ]
     },
@@ -804,6 +810,17 @@
       "files": [
         {
           "path": "registry/dga/ui/native-select.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "direction",
+      "type": "registry:ui",
+      "dependencies": ["radix-ui"],
+      "files": [
+        {
+          "path": "registry/dga/ui/direction.tsx",
           "type": "registry:ui"
         }
       ]

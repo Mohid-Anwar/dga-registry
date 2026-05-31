@@ -1,0 +1,225 @@
+import { DirectionToggle } from "@/components/docs/direction-toggle"
+import { DocsLayout } from "@/components/docs/docs-layout"
+import { InstallCommand } from "@/components/docs/install-command"
+
+import {
+  SonnerCustomIcon,
+  SonnerPositions,
+  SonnerShowToast,
+  SonnerVariants,
+  SonnerWithoutTitle,
+} from "./demos"
+
+export const metadata = {
+  title: "Sonner",
+  description:
+    "DGA Toast / Sonner component for React & Next.js. Notification banners with 5 variants, RTL auto-flip, customizable icons, and mobile-responsive positioning. Digital Government Authority Saudi Arabia design system.",
+}
+
+<DocsLayout>
+
+# Sonner
+
+Toast notification banners with five semantic variants, automatic RTL positioning, customizable icons, and mobile-responsive layout.
+
+<DirectionToggle />
+
+## Installation
+
+<InstallCommand componentName="sonner" />
+
+## Usage
+
+Add the `<Toaster />` component to your root layout, then call the toast helpers anywhere in your app.
+
+```tsx
+// app/layout.tsx
+import { Toaster } from "@/components/ui/sonner"
+
+export default function RootLayout({ children }) {
+  return (
+    <html>
+      <body>
+        {children}
+        <Toaster />
+      </body>
+    </html>
+  )
+}
+```
+
+```tsx
+// Trigger a toast from any component
+import { toastSuccess } from "@/components/ui/sonner"
+
+toastSuccess("Changes saved successfully.", "Success")
+```
+
+## Variants
+
+Five semantic variants styled from DGA Figma design tokens.
+
+| Variant   | Background | Text Color | Use Case                 |
+| --------- | ---------- | ---------- | ------------------------ |
+| `error`   | `#fef3f2`  | `#b42318`  | Errors & failures        |
+| `warning` | `#fffaeb`  | `#b54708`  | Warnings & caution       |
+| `success` | `#ecfdf3`  | `#067647`  | Success confirmations    |
+| `info`    | `#eff8ff`  | `#175cd3`  | Informational notices    |
+| `neutral` | `#f9fafb`  | `#384250`  | General-purpose messages |
+
+<SonnerVariants />
+
+## Without Title
+
+Toasts can be shown with just a message — the title is optional.
+
+<SonnerWithoutTitle />
+
+## showToast Shorthand
+
+Use the `showToast` object for a convenient API:
+
+```tsx
+import { showToast } from "@/components/ui/sonner"
+
+showToast.error("Something went wrong.")
+showToast.warning("Check your input.", "Warning")
+showToast.success("Saved!", "Done")
+showToast.info("Update available.")
+showToast.neutral("3 pending items.")
+```
+
+<SonnerShowToast />
+
+## Custom Icons
+
+Override the default icon for any variant by passing an `options` object:
+
+```tsx
+import { StarIcon } from "@hugeicons/core-free-icons"
+
+import { toastInfo } from "@/components/ui/sonner"
+
+toastInfo("You earned a gold star!", "Achievement", {
+  icon: StarIcon,
+  iconType: "solid",
+})
+```
+
+<SonnerCustomIcon />
+
+## Positioning
+
+Control where toasts appear with the `position` prop on `<Toaster />`. Click a position to preview it live.
+
+| Position        | Description                |
+| --------------- | -------------------------- |
+| `top-left`      | Top-left corner            |
+| `top-center`    | Top-center                 |
+| `top-right`     | Top-right corner (default) |
+| `bottom-left`   | Bottom-left corner         |
+| `bottom-center` | Bottom-center              |
+| `bottom-right`  | Bottom-right corner        |
+
+```tsx
+<Toaster position="bottom-right" />
+```
+
+<SonnerPositions />
+
+## RTL Support
+
+The `<Toaster />` automatically flips `left`↔`right` positions when inside an RTL `<DirectionProvider />`. On mobile, toasts always appear at `bottom-center`.
+
+## Toaster Offset
+
+Use `<ToasterOffsetProvider>` and `<SetToasterOffset>` to dynamically push toasts below a fixed header:
+
+```tsx
+import {
+  SetToasterOffset,
+  Toaster,
+  ToasterOffsetProvider,
+} from "@/components/ui/sonner"
+
+function Layout({ children }) {
+  return (
+    <ToasterOffsetProvider>
+      <SetToasterOffset value={64} />
+      {children}
+      <Toaster />
+    </ToasterOffsetProvider>
+  )
+}
+```
+
+Or use the `useToasterOffset` hook to measure dynamically (e.g. from a header component):
+
+```tsx
+import { useEffect, useRef } from "react"
+
+import { useToasterOffset } from "@/components/ui/sonner"
+
+function AppHeader() {
+  const headerRef = useRef<HTMLElement>(null)
+  const { setOffset } = useToasterOffset()
+
+  useEffect(() => {
+    const el = headerRef.current
+    if (!el) return
+    const observer = new ResizeObserver(([entry]) => {
+      setOffset(Math.round(entry.contentRect.height))
+    })
+    setOffset(el.offsetHeight)
+    observer.observe(el)
+    return () => {
+      observer.disconnect()
+      setOffset(0)
+    }
+  }, [setOffset])
+
+  return <header ref={headerRef}>...</header>
+}
+```
+
+## Toaster Props
+
+| Prop       | Type       | Default       | Description                                                     |
+| ---------- | ---------- | ------------- | --------------------------------------------------------------- |
+| `position` | `Position` | `"top-right"` | Toast position (auto-flipped in RTL, `bottom-center` on mobile) |
+
+## Toast Helper Functions
+
+| Function       | Parameters                    | Description        |
+| -------------- | ----------------------------- | ------------------ |
+| `toastError`   | `(message, title?, options?)` | Show error toast   |
+| `toastWarning` | `(message, title?, options?)` | Show warning toast |
+| `toastSuccess` | `(message, title?, options?)` | Show success toast |
+| `toastInfo`    | `(message, title?, options?)` | Show info toast    |
+| `toastNeutral` | `(message, title?, options?)` | Show neutral toast |
+
+### Toast Options
+
+| Option        | Type                  | Default         | Description               |
+| ------------- | --------------------- | --------------- | ------------------------- |
+| `icon`        | `IconDefinition`      | Variant default | Override the variant icon |
+| `iconType`    | `"solid" \| "stroke"` | Variant default | Icon style                |
+| `dismissIcon` | `IconDefinition`      | `Cancel01Icon`  | Override the dismiss icon |
+
+## Exports
+
+| Export                  | Type      | Description                         |
+| ----------------------- | --------- | ----------------------------------- |
+| `Toaster`               | Component | Place in root layout                |
+| `ToasterOffsetProvider` | Component | Wrap around Toaster for offset      |
+| `SetToasterOffset`      | Component | Set dynamic offset value            |
+| `useToasterOffset`      | Hook      | Access offset context directly      |
+| `toastError`            | Function  | Show error toast                    |
+| `toastWarning`          | Function  | Show warning toast                  |
+| `toastSuccess`          | Function  | Show success toast                  |
+| `toastInfo`             | Function  | Show info toast                     |
+| `toastNeutral`          | Function  | Show neutral toast                  |
+| `showToast`             | Object    | Shorthand `{ error, warning, ... }` |
+| `Position`              | Type      | `"top-left" \| "top-center" \| ...` |
+
+</DocsLayout>

@@ -2,6 +2,8 @@
 
 import * as React from "react"
 
+import { Button } from "@/registry/dga/ui/button"
+
 import { NavigationMenuRtl } from "./component"
 
 export function NavigationMenuDemo() {
@@ -18,13 +20,9 @@ export function NavigationMenuDemo() {
         <p className="text-muted-foreground text-sm">
           {lang === "ar" ? "عرض باللغة العربية" : "Displaying in English"}
         </p>
-        <button
-          type="button"
-          onClick={toggleLanguage}
-          className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-md px-4 py-2 text-sm transition-colors"
-        >
+        <Button size="sm" onClick={toggleLanguage}>
           {lang === "ar" ? "English" : "العربية"}
-        </button>
+        </Button>
       </div>
       <div className="border-border h-16 rounded-md border">
         <NavigationMenuRtl dir={dir} lang={lang} />
