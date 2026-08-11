@@ -161,6 +161,6 @@ export function DocsShell({
 }
 
 function PositionedToaster() {
-  const { position } = useToasterPosition()
-  return <Toaster position={position} />
+  const { position, mobilePosition } = useToasterPosition()
+  return <Toaster position={position} mobilePosition={mobilePosition} />
 }

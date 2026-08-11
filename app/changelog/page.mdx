@@ -14,6 +14,20 @@ Track updates to DGA Components — new components, improvements, and fixes.
 
 ---
 
+## August 2026
+
+### Improvements
+
+- **Sonner (Toast)** — Added `mobilePosition` prop to control toast placement below the mobile breakpoint independently from desktop `position`
+
+### Fixes
+
+- **Sonner (Toast)** — `mobilePosition` now only accepts `"top"` / `"bottom"`, matching Sonner's own mobile behavior where toasts render full-width and left/center/right positions collapse to the same look
+- **Skeleton** — Fixed registry entry for `skeleton.css` so it installs to `styles/skeleton.css` in consumer projects instead of `ui/skeleton.css`
+- Fixed a hardcoded `ml-auto` in the docs header that broke RTL layouts; now uses the direction-aware `ms-auto`
+
+---
+
 ## May 2026
 
 ### New Components

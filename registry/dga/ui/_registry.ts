@@ -537,7 +537,8 @@ export const ui: Registry["items"] = [
       },
       {
         path: "ui/skeleton.css",
-        type: "registry:ui",
+        type: "registry:component",
+        target: "styles/skeleton.css",
       },
     ],
   },
