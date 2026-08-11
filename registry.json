@@ -826,6 +826,21 @@
       ]
     },
     {
+      "name": "recaptcha",
+      "type": "registry:ui",
+      "dependencies": [
+        "react-google-recaptcha",
+        "@types/react-google-recaptcha"
+      ],
+      "registryDependencies": ["use-media"],
+      "files": [
+        {
+          "path": "registry/dga/ui/recaptcha.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "utils",
       "type": "registry:lib",
       "dependencies": ["clsx", "tailwind-merge"],
@@ -842,6 +857,16 @@
       "files": [
         {
           "path": "registry/dga/hooks/use-mobile.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-media",
+      "type": "registry:hook",
+      "files": [
+        {
+          "path": "registry/dga/hooks/use-media.ts",
           "type": "registry:hook"
         }
       ]

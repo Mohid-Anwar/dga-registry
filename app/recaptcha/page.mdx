@@ -1,0 +1,64 @@
+import { DirectionToggle } from "@/components/docs/direction-toggle"
+import { DocsLayout } from "@/components/docs/docs-layout"
+import { InstallCommand } from "@/components/docs/install-command"
+
+import { RecaptchaArabic, RecaptchaBasic } from "./demos"
+
+export const metadata = {
+  title: "Recaptcha",
+  description:
+    "DGA Recaptcha component for React & Next.js. Google reCAPTCHA v2 widget with locale and responsive sizing support. Digital Government Authority Saudi Arabia design system.",
+}
+
+<DocsLayout>
+
+# Recaptcha
+
+Wraps Google's reCAPTCHA v2 checkbox widget, switching to a compact size on narrow
+viewports and forwarding the current locale.
+
+<DirectionToggle />
+
+## Installation
+
+<InstallCommand componentName="recaptcha" />
+
+## Setup
+
+Get a site key and secret key from the
+[reCAPTCHA admin console](https://www.google.com/recaptcha/admin), then expose the
+site key to the browser:
+
+```bash
+NEXT_PUBLIC_RECAPTCHA_SITE_KEY=your-site-key
+```
+
+The secret key is only used server-side, when you verify the token against Google's
+`siteverify` endpoint — never expose it to the client.
+
+## Basic Usage
+
+The demo below uses Google's public **test** site key, which always validates and
+renders a "for testing purposes only" watermark. It's meant for local development —
+swap in your own key pair before shipping.
+
+<RecaptchaBasic />
+
+## Localized
+
+Pass a `lang` to match the widget's locale to the current page.
+
+<RecaptchaArabic />
+
+## Props
+
+| Prop        | Type                              | Default                                  | Description                                 |
+| ----------- | --------------------------------- | ---------------------------------------- | ------------------------------------------- |
+| `lang`      | `string`                          | —                                        | reCAPTCHA locale code (e.g. `"en"`, `"ar"`) |
+| `sitekey`   | `string`                          | `NEXT_PUBLIC_RECAPTCHA_SITE_KEY` env var | Overrides the site key for this instance    |
+| `onChange`  | `(token: string \| null) => void` | —                                        | Called with the verification token          |
+| `onExpired` | `() => void`                      | —                                        | Called when the token expires               |
+| `onErrored` | `() => void`                      | —                                        | Called when the widget fails to load        |
+| `ref`       | `React.Ref<ReCAPTCHA>`            | —                                        | Access the underlying widget instance       |
+
+</DocsLayout>

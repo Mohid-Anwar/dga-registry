@@ -706,4 +706,16 @@ export const ui: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "recaptcha",
+    type: "registry:ui",
+    dependencies: ["react-google-recaptcha", "@types/react-google-recaptcha"],
+    registryDependencies: ["use-media"],
+    files: [
+      {
+        path: "ui/recaptcha.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
 ]

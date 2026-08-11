@@ -11,13 +11,15 @@ A custom [shadcn](https://ui.shadcn.com/docs/registry) component registry ("dga"
 ```bash
 pnpm dev              # Next.js dev server (Turbopack)
 pnpm build            # runs registry:build, then next build
-pnpm registry:build   # shadcn build — regenerates registry.json and public/r/*.json from registry/dga/registry.ts
+pnpm registry:build   # shadcn build — regenerates public/r/*.json from the committed registry.json
 pnpm lint             # next lint
 pnpm format           # prettier --write .
 pnpm format:check     # prettier --check .
 ```
 
-There is no test suite. `public/r/` is gitignored (rebuilt output); `registry.json` at the repo root IS committed and must be regenerated with `pnpm registry:build` whenever a `_registry.ts` file changes.
+There is no test suite. `public/r/` is gitignored (rebuilt output); `registry.json` at the repo root IS committed.
+
+**`shadcn build` reads `registry.json` as its input — it never reads `registry/dga/registry.ts`.** Despite `components.json` having `"style": "dga"`, there is no automatic TS→JSON step in this shadcn version (3.8.4): `shadcn build` errors immediately if `registry.json` is missing rather than falling back to the `.ts` source. In practice this means **every time you add/change an entry in a `_registry.ts` file, you must also hand-add the equivalent entry to `registry.json`** (same fields, but file `path`s get the `registry/dga/` prefix, e.g. `ui/badge.tsx` → `registry/dga/ui/badge.tsx`) — then run `pnpm registry:build` to regenerate `public/r/*.json` from that updated `registry.json`. Skipping the manual `registry.json` edit means the component silently never gets built into `public/r/`, even though it's listed correctly in `_registry.ts`.
 
 ## Architecture
 
@@ -30,17 +32,18 @@ There is no test suite. `public/r/` is gitignored (rebuilt output); `registry.js
 
 - `registry/dga/ui/_registry.ts`, `registry/dga/hooks/_registry.ts`, `registry/dga/internal/_registry.ts`, `registry/dga/lib/_registry.ts` each export an array of `Registry["items"]` (from `shadcn/schema`) describing one category of files, their `dependencies`, and `registryDependencies` (other registry items they need).
 - `registry/dga/registry.ts` imports and merges all four arrays (plus the `index`/`style` base entries) into one `registry` object, validated against `registryItemSchema`, and filters out `DEPRECATED_ITEMS`.
-- `components.json` has `"style": "dga"`, which is how `shadcn build` (aliased as `pnpm registry:build`) discovers `registry/dga/registry.ts` as the build source. That command resolves dependencies (e.g. expands the `"radix-ui"` meta-package into the specific `@radix-ui/react-*` packages actually used) and writes the consolidated `registry.json` at the repo root plus one JSON file per item under `public/r/`.
-- **When adding, renaming, or removing a registry file, you must add/update its entry in the corresponding `_registry.ts` file** — files not listed there are invisible to the build and won't be installable.
+- `registry/dga/registry.ts` imports and merges all four `_registry.ts` arrays (plus the `index`/`style` base entries) into one `registry` object, validated against `registryItemSchema`. This is a type-checked reference for what _should_ be in `registry.json` — see the `shadcn build` caveat above for why it isn't the literal build input.
+- **When adding, renaming, or removing a registry file, you must add/update its entry in the corresponding `_registry.ts` file, AND mirror that entry into the committed `registry.json`** — an item missing from either one won't make it into `public/r/` and won't be installable.
 
 ### Wiring up a new UI component end-to-end
 
 Adding a new component to both the registry and the docs site requires all of:
 
 1. `registry/dga/ui/<name>.tsx` — the component source (must be self-contained; only import from other files inside `registry/dga/`).
-2. An entry for it in `registry/dga/ui/_registry.ts` (name, `type: "registry:ui"`, `dependencies`, `registryDependencies`, `files`).
+2. An entry for it in `registry/dga/ui/_registry.ts` (name, `type: "registry:ui"`, `dependencies`, `registryDependencies`, `files`) — **and the matching entry hand-added to `registry.json`** (see the `shadcn build` caveat above).
 3. `app/<name>/page.mdx` and `app/<name>/demos.tsx` — docs page and live demo components, following the pattern in `app/badge/`.
-4. Run `pnpm registry:build` to regenerate `registry.json` and `public/r/<name>.json`.
+4. Run `pnpm registry:build` to regenerate `public/r/<name>.json`.
+5. If the component imports a hook or lib helper via its alias path (e.g. `@/hooks/use-mobile`, `@/lib/utils`) rather than `@/registry/dga/...`, make sure a matching file exists at the root `hooks/`/`lib/` folder too — see "Root `hooks/`/`lib/` mirrors" below.
 
 The sidebar auto-discovers docs entries: `lib/get-components.ts` lists every `.tsx` file in `registry/dga/ui/` that (a) isn't in its `ignored` list (currently `_registry`, `sidebar`, `sheet`, `direction`, `utils`) and (b) has a matching `app/<name>/page.mdx` route. A component with no doc route simply won't appear in the sidebar, even if it's a valid registry item.
 
@@ -56,7 +59,13 @@ The sidebar auto-discovers docs entries: `lib/get-components.ts` lists every `.t
 
 ### Path aliases (`components.json` / `tsconfig.json`)
 
-`@/*` maps to the repo root. Registry-facing aliases: `@/components/ui` → `@/registry/dga/ui` is *not* an actual redirect — inside `registry/dga/`, components import each other via relative/`@/registry/dga/...` paths so the code is portable when copied into a consumer app that uses the standard shadcn `@/components/ui` layout instead.
+`@/*` maps to the repo root. Registry-facing aliases: `@/components/ui` → `@/registry/dga/ui` is _not_ an actual redirect — inside `registry/dga/`, components import each other via relative/`@/registry/dga/...` paths so the code is portable when copied into a consumer app that uses the standard shadcn `@/components/ui` layout instead.
+
+### Root `hooks/`/`lib/` mirrors
+
+`registry/dga/hooks/use-mobile.ts` and `registry/dga/lib/utils.ts` deliberately import as if they'd already been installed into a consumer project (`@/hooks/use-mobile`, `@/lib/utils` — not `@/registry/dga/...`), matching what `shadcn add` actually rewrites those imports to for a real consumer. That means for _this_ repo's own docs/demo site to resolve those same imports (since `@/*` → repo root here), a byte-identical copy must exist at the root `hooks/`/`lib/` folders — e.g. `hooks/use-mobile.ts` mirrors `registry/dga/hooks/use-mobile.ts`. There's no sync script; **keep both copies in sync by hand** whenever one changes.
+
+Registry `ui/` files don't need this treatment — they import each other via `@/registry/dga/ui/...` directly (see above), and docs demos do the same, so there's no root `components/ui/` mirror.
 
 ### Import order
 

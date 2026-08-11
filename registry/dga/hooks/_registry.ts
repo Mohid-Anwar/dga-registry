@@ -11,4 +11,14 @@ export const hooks: Registry["items"] = [
       },
     ],
   },
+  {
+    name: "use-media",
+    type: "registry:hook",
+    files: [
+      {
+        path: "hooks/use-media.ts",
+        type: "registry:hook",
+      },
+    ],
+  },
 ]
