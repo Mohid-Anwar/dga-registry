@@ -33,6 +33,9 @@ export type Position =
   | "bottom-center"
   | "bottom-right"
 
+/** Sonner collapses x-position to full-width on mobile, so only top/bottom differ visually. */
+export type MobilePosition = "top" | "bottom"
+
 type ToastVariant = "error" | "warning" | "success" | "info" | "neutral"
 
 // ─── Icon type ───────────────────────────────────────────────────────────────
@@ -395,19 +398,29 @@ function useIsMobile() {
 interface ToasterProps extends Omit<SonnerToasterProps, "position" | "dir"> {
   /**
    * Toast position (LTR). Left↔right auto-flipped in RTL.
-   * On mobile this is overridden to "bottom-center".
    * @default "top-right"
    */
   position?: Position
+  /**
+   * Toast position on mobile. Sonner renders toasts full-width below the
+   * mobile breakpoint, so only the top/bottom edge is configurable.
+   * @default "top"
+   */
+  mobilePosition?: MobilePosition
 }
 
-const Toaster = ({ position = "top-right", ...props }: ToasterProps) => {
+const Toaster = ({
+  position = "top-right",
+  mobilePosition = "top",
+  ...props
+}: ToasterProps) => {
   const dir = useDirection()
   const { offset } = useContext(ToasterOffsetContext)
   const isMobile = useIsMobile()
 
-  // Mobile → bottom-center, no offset
-  const basePosition: Position = isMobile ? "bottom-center" : position
+  const basePosition: Position = isMobile
+    ? `${mobilePosition}-center`
+    : position
   const resolvedPosition = flipPosition(basePosition, dir)
 
   const resolvedOffset: SonnerToasterProps["offset"] | undefined = isMobile
