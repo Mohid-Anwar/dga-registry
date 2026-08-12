@@ -28,6 +28,17 @@ There is no test suite. `public/r/` is gitignored (rebuilt output); `registry.js
 1. **Documentation/demo site** (`app/`, `components/`) — a normal Next.js App Router site. Every documented component gets a route folder under `app/<slug>/` containing `page.mdx` (docs prose) and `demos.tsx` (live preview components used inside the MDX).
 2. **The registry itself** (`registry/dga/`) — the actual distributable source code. This is what gets published and what consumers `shadcn add`. Nothing in here should import from `app/` or `components/`; it must stand alone since it's copied verbatim into consumer projects.
 
+### Framework-agnostic check for `registry/dga/`
+
+"Stand-alone" means **portable across React frameworks** (Next.js, Vite, CRA, RSC-less setups), not literally framework-free — depending on React itself, or on `"use client"` as an RSC boundary marker, is fine. Before adding or editing a file in `registry/dga/`, check it against these:
+
+- **No Next-specific runtime APIs or globals.** `process.env.NEXT_PUBLIC_*`, `next/navigation`, `next/image`, etc. don't exist (or don't behave the same way) in a Vite/CRA consumer. Runtime config (site keys, feature flags, base URLs) belongs in a required prop the consumer supplies — never a hardcoded env-var lookup with a silent fallback like `?? ""`, since that fails at runtime instead of at compile time in a non-Next app.
+- **No imports from `app/` or `components/`** (already covered above) — those are this repo's Next docs site, not registry code.
+- **Browser-only workarounds shouldn't assume a specific host/library shape.** If a component papers over a third-party quirk (a CSS selector targeting another library's DOM structure, a specific CDN domain, etc.), prefer the least specific match that still works — e.g. match on a stable path fragment rather than a single hardcoded domain, since the same resource can legitimately be served from more than one host.
+- **SSR-safety for anything reading `window`/`document`.** Guard direct access (e.g. in a `useState` initializer) with `typeof window !== "undefined"`, even inside a `"use client"` file — the component may still be imported by a framework that server-renders on first pass.
+
+None of this requires avoiding React itself or hooks — see `registry/dga/hooks/use-media.ts` for the intended shape of a portable client hook (SSR-guarded, no framework-specific API).
+
 ### The registry build pipeline
 
 - `registry/dga/ui/_registry.ts`, `registry/dga/hooks/_registry.ts`, `registry/dga/internal/_registry.ts`, `registry/dga/lib/_registry.ts` each export an array of `Registry["items"]` (from `shadcn/schema`) describing one category of files, their `dependencies`, and `registryDependencies` (other registry items they need).

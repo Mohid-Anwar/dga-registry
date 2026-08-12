@@ -26,12 +26,9 @@ viewports and forwarding the current locale.
 ## Setup
 
 Get a site key and secret key from the
-[reCAPTCHA admin console](https://www.google.com/recaptcha/admin), then expose the
-site key to the browser:
-
-```bash
-NEXT_PUBLIC_RECAPTCHA_SITE_KEY=your-site-key
-```
+[reCAPTCHA admin console](https://www.google.com/recaptcha/admin), then pass the site
+key in as the `sitekey` prop — how you get it to the client is up to your app (a
+`NEXT_PUBLIC_...` env var in Next.js, `import.meta.env.VITE_...` in Vite, etc.).
 
 The secret key is only used server-side, when you verify the token against Google's
 `siteverify` endpoint — never expose it to the client.
@@ -50,12 +47,30 @@ Pass a `lang` to match the widget's locale to the current page.
 
 <RecaptchaArabic />
 
+## Inside a modal
+
+The widget auto-injects a small global style fix for
+[radix-ui/primitives#1385](https://github.com/radix-ui/primitives/issues/1385) — Radix
+Dialogs set `pointer-events: none` on `body` siblings, which makes the reCAPTCHA
+challenge iframe (appended to `document.body`, outside the dialog) unclickable. No
+setup is required.
+
+If your app enforces a `style-src` CSP without `'unsafe-inline'`, the fix only applies
+when the page already has a nonce on another `<style>`/`<script>` tag (it reuses that
+nonce). Under a stricter policy, add this rule to your own global stylesheet instead:
+
+```css
+body > div:has(iframe[src*="recaptcha/api2/bframe"]) {
+  pointer-events: auto !important;
+}
+```
+
 ## Props
 
 | Prop        | Type                              | Default                                  | Description                                 |
 | ----------- | --------------------------------- | ---------------------------------------- | ------------------------------------------- |
 | `lang`      | `string`                          | —                                        | reCAPTCHA locale code (e.g. `"en"`, `"ar"`) |
-| `sitekey`   | `string`                          | `NEXT_PUBLIC_RECAPTCHA_SITE_KEY` env var | Overrides the site key for this instance    |
+| `sitekey`   | `string`                          | —                                        | Site key from the reCAPTCHA admin console   |
 | `onChange`  | `(token: string \| null) => void` | —                                        | Called with the verification token          |
 | `onExpired` | `() => void`                      | —                                        | Called when the token expires               |
 | `onErrored` | `() => void`                      | —                                        | Called when the widget fails to load        |
