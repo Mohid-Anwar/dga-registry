@@ -17,25 +17,42 @@ const badgeVariants = cva(
         outline:
           "border-border text-foreground [a&]:hover:bg-accent [a&]:hover:text-accent-foreground",
         ghost: "[a&]:hover:bg-accent [a&]:hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 [a&]:hover:underline" /* ── DGA Chip variants ── */,
+        link: "text-primary underline-offset-4 [a&]:hover:underline",
+        /* ── DGA Chip variants ── */
         "chip-primary":
-          "bg-[var(--colors-primary-s-a-flag50)] text-[var(--colors-primary-s-a-flag800)]",
+          "bg-(--background-background-primary50) text-(--text-text-primary-sa-flag) hover:bg-(--background-background-primary200) cursor-pointer",
+        "chip-primary-active":
+          "bg-(--background-background-primary50) border-(--background-background-nav-header) text-(--text-text-primary-sa-flag) cursor-pointer",
         "chip-primary-selected":
-          "bg-[var(--colors-primary-s-a-flag600-primary)] text-white",
+          "bg-(--background-background-primary) text-(--text-text-oncolor-primary) cursor-pointer",
+        "chip-primary-pressed":
+          "bg-(--background-background-primary400) text-(--button-button-background-primary-pressed) cursor-pointer",
         "chip-neutral":
-          "bg-[var(--colors-neutral100)] text-[var(--colors-base-black)]",
-        "chip-neutral-selected": "bg-[var(--colors-neutral700)] text-white",
+          "bg-(--chip-chip-background-neutral-default) text-(--text-text-default) hover:bg-(--chip-chip-background-neutral-hovered) cursor-pointer",
+        "chip-neutral-selected":
+          "bg-(--chip-chip-background-neutral-selected) text-(--text-text-oncolor-primary) cursor-pointer",
+        "chip-on-color":
+          "bg-(--chip-chip-background-on-color-default) text-(--text-text-default) hover:bg-(--chip-chip-background-on-color-hovered) cursor-pointer",
+        "chip-on-color-selected":
+          "bg-(--chip-chip-background-on-color-selected) text-(--text-text-default) cursor-pointer",
+        "chip-disabled":
+          "bg-(--global-background-disabled) text-(--global-text-default-disabled) cursor-not-allowed",
       },
       size: {
         default: "px-2 py-0.5 text-xs gap-1",
         sm: "h-5 px-2.5 py-0 text-xs gap-1",
         md: "h-6 px-3 py-0 text-xs gap-1",
-        lg: "h-8 px-4 py-0 text-sm gap-1",
+        lg: "h-8 px-3 py-0 text-base gap-1",
+      },
+      rounded: {
+        full: "rounded-full",
+        sm: "rounded-(--radius-radius4)",
       },
     },
     defaultVariants: {
       variant: "default",
       size: "default",
+      rounded: "full",
     },
   }
 )
@@ -44,6 +61,7 @@ function Badge({
   className,
   variant = "default",
   size,
+  rounded,
   asChild = false,
   ...props
 }: React.ComponentProps<"span"> &
@@ -54,7 +72,7 @@ function Badge({
     <Comp
       data-slot="badge"
       data-variant={variant}
-      className={cn(badgeVariants({ variant, size }), className)}
+      className={cn(badgeVariants({ variant, size, rounded }), className)}
       {...props}
     />
   )

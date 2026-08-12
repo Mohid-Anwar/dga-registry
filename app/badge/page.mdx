@@ -5,6 +5,7 @@ import { InstallCommand } from "@/components/docs/install-command"
 import {
   BadgeAsLink,
   BadgeChips,
+  BadgeRounded,
   BadgeSizes,
   BadgeVariants,
   BadgeWithIcons,
@@ -45,14 +46,28 @@ Displays a badge or a component that looks like a badge.
 
 DGA-specific chip styles for selection and filtering contexts.
 
-| Variant                 | Description             |
-| ----------------------- | ----------------------- |
-| `chip-primary`          | Primary chip            |
-| `chip-primary-selected` | Primary chip (selected) |
-| `chip-neutral`          | Neutral chip            |
-| `chip-neutral-selected` | Neutral chip (selected) |
+| Variant                  | Description                |
+| ------------------------ | -------------------------- |
+| `chip-primary`           | Primary chip               |
+| `chip-primary-active`    | Primary chip (active)      |
+| `chip-primary-selected`  | Primary chip (selected)    |
+| `chip-primary-pressed`   | Primary chip (pressed)     |
+| `chip-neutral`           | Neutral chip               |
+| `chip-neutral-selected`  | Neutral chip (selected)    |
+| `chip-on-color`          | Chip on colored background |
+| `chip-on-color-selected` | On-color chip (selected)   |
+| `chip-disabled`          | Disabled chip              |
 
 <BadgeChips />
+
+## Rounded
+
+| Rounded | Description                     |
+| ------- | ------------------------------- |
+| `full`  | Fully rounded corners (default) |
+| `sm`    | Slightly rounded corners        |
+
+<BadgeRounded />
 
 ## Sizes
 
@@ -83,6 +98,7 @@ Use `asChild` to render the badge as an anchor or any other element.
 | ----------- | --------- | ----------- | ------------------------------ |
 | `variant`   | `string`  | `"default"` | Visual style variant           |
 | `size`      | `string`  | `"default"` | Badge size                     |
+| `rounded`   | `string`  | `"full"`    | Corner radius                  |
 | `asChild`   | `boolean` | `false`     | Merge props onto child element |
 | `className` | `string`  | —           | Additional CSS classes         |
 
