@@ -22,7 +22,7 @@ export function SearchForm({
           <SidebarInput
             id="search"
             placeholder="Search components..."
-            className="rounded-full pl-8"
+            className="bg-background rounded-md ps-8"
             onChange={(e) => onSearch(e.target.value)}
           />
           <HugeiconsIcon

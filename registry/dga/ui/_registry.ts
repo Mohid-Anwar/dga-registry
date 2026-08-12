@@ -350,6 +350,26 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "lightbox",
+    type: "registry:ui",
+    dependencies: [
+      "yet-another-react-lightbox",
+      "@hugeicons/react",
+      "@hugeicons/core-free-icons",
+    ],
+    files: [
+      {
+        path: "ui/lightbox.tsx",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/lightbox.css",
+        type: "registry:component",
+        target: "styles/lightbox.css",
+      },
+    ],
+  },
+  {
     name: "menubar",
     type: "registry:ui",
     dependencies: ["radix-ui"],
@@ -620,6 +640,22 @@ export const ui: Registry["items"] = [
       {
         path: "ui/tabs.tsx",
         type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "tag",
+    type: "registry:ui",
+    dependencies: ["class-variance-authority"],
+    files: [
+      {
+        path: "ui/tag.tsx",
+        type: "registry:ui",
+      },
+      {
+        path: "styles/tokens.css",
+        type: "registry:component",
+        target: "styles/tokens.css",
       },
     ],
   },

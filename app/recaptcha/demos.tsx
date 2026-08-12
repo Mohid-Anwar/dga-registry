@@ -7,7 +7,9 @@ import { RecaptchaWidget } from "@/registry/dga/ui/recaptcha"
 /* Google's public test key pair — always validates, and renders a
    "for testing purposes only" watermark on the widget. Never use in
    production; get a real key pair at google.com/recaptcha/admin. */
-const TEST_SITE_KEY = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+const TEST_SITE_KEY =
+  process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY ??
+  "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
 
 /* ═══════════════════════════════════════════
    1 — Basic

@@ -443,6 +443,26 @@
       ]
     },
     {
+      "name": "lightbox",
+      "type": "registry:ui",
+      "dependencies": [
+        "yet-another-react-lightbox",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/lightbox.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/dga/ui/lightbox.css",
+          "type": "registry:component",
+          "target": "styles/lightbox.css"
+        }
+      ]
+    },
+    {
       "name": "menubar",
       "type": "registry:ui",
       "dependencies": [
@@ -756,6 +776,22 @@
         {
           "path": "registry/dga/ui/tabs.tsx",
           "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tag",
+      "type": "registry:ui",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "registry/dga/ui/tag.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/tokens.css",
+          "type": "registry:component",
+          "target": "styles/tokens.css"
         }
       ]
     },

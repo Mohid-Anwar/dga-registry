@@ -1,0 +1,56 @@
+import { DirectionToggle } from "@/components/docs/direction-toggle"
+import { DocsLayout } from "@/components/docs/docs-layout"
+import { InstallCommand } from "@/components/docs/install-command"
+
+import { LightboxBasic, LightboxSingleImage } from "./demos"
+
+export const metadata = {
+  title: "Lightbox",
+  description:
+    "DGA Lightbox component for React & Next.js. An image gallery viewer with zoom, slideshow, and thumbnail navigation built on yet-another-react-lightbox. Digital Government Authority Saudi Arabia design system.",
+}
+
+<DocsLayout>
+
+# Lightbox
+
+Displays an image in a fullscreen overlay with zoom, slideshow, and thumbnail navigation.
+
+<DirectionToggle />
+
+## Installation
+
+<InstallCommand componentName="lightbox" />
+
+## Usage
+
+Control the lightbox with `open`, `index`, and `onClose`. Pass the full list of
+images and the index of the one that should be shown first.
+
+<LightboxBasic />
+
+## Single Image
+
+With a single image, navigation and slideshow controls are hidden — only zoom
+and close remain.
+
+<LightboxSingleImage />
+
+## Props
+
+| Prop      | Type              | Default | Description                        |
+| --------- | ----------------- | ------- | ---------------------------------- |
+| `images`  | `LightboxImage[]` | —       | Images to display                  |
+| `open`    | `boolean`         | —       | Whether the lightbox is open       |
+| `index`   | `number`          | —       | Index of the image to show first   |
+| `onClose` | `() => void`      | —       | Called when the lightbox is closed |
+
+### `LightboxImage`
+
+| Prop        | Type     | Default | Description                            |
+| ----------- | -------- | ------- | -------------------------------------- |
+| `src`       | `string` | —       | Full-resolution image URL              |
+| `thumbnail` | `string` | —       | Thumbnail URL used in the sidebar grid |
+| `alt`       | `string` | —       | Accessible alt text                    |
+
+</DocsLayout>
