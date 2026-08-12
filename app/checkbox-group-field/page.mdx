@@ -1,0 +1,53 @@
+import { DirectionToggle } from "@/components/docs/direction-toggle"
+import { DocsLayout } from "@/components/docs/docs-layout"
+import { InstallCommand } from "@/components/docs/install-command"
+
+import {
+  CheckboxGroupFieldBasic,
+  CheckboxGroupFieldError,
+  CheckboxGroupFieldForm,
+} from "./demos"
+
+export const metadata = {
+  title: "Checkbox Group Field",
+  description:
+    "DGA Checkbox Group Field component for React & Next.js. Multi-select checkbox group with a shared label and error message. Digital Government Authority Saudi Arabia design system.",
+}
+
+<DocsLayout>
+
+# Checkbox Group Field
+
+A multi-select control that renders a grid of checkboxes under a shared label, serializes the selected values into `FormData` via hidden inputs, and shows a single error message for the whole group. Composes [`FormField`](/form-field) for its label/error layout.
+
+<DirectionToggle />
+
+## Installation
+
+<InstallCommand componentName="checkbox-group-field" />
+
+## Basic Usage
+
+<CheckboxGroupFieldBasic />
+
+## Required with Error State
+
+<CheckboxGroupFieldError />
+
+## Form Example
+
+<CheckboxGroupFieldForm />
+
+## Props
+
+| Prop        | Type                                       | Default | Description                              |
+| ----------- | ------------------------------------------- | ------- | ----------------------------------------- |
+| `label`     | `string`                                    | —       | Group label text                          |
+| `name`      | `string`                                    | —       | Name used for the serialized hidden inputs |
+| `required`  | `boolean`                                   | `false` | Shows a red asterisk before the label     |
+| `error`     | `string`                                    | —       | Error message shown below the group       |
+| `options`   | `{ value: string; label: string }[]`        | —       | Checkbox options to render                |
+| `selected`  | `string[]`                                  | —       | Currently selected values                 |
+| `onChange`  | `React.Dispatch<React.SetStateAction<string[]>>` | —  | Called with the updated selection          |
+
+</DocsLayout>

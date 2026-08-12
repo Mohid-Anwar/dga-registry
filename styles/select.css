@@ -1,0 +1,31 @@
+/*
+ * Fix: Radix Select scroll-lock causes page scrollbar to disappear + layout shift
+ * ────────────────────────────────────────────────────────────────────────────────
+ * Root cause: `react-remove-scroll` (a transitive Radix dependency) adds
+ * `data-scroll-locked` to <body> which sets `overflow: hidden` and
+ * `margin-right` to compensate for the removed scrollbar width. This causes:
+ *   1. Page content shifts horizontally when the select opens/closes
+ *   2. Scrollbar disappears momentarily
+ *
+ * Solution: Override the scroll-lock styles to keep overflow visible.
+ * Combined with `scrollbar-gutter: stable` on <html>, this prevents any
+ * layout shift.
+ *
+ * Specificity: `html body[...]` beats the inline `body[data-scroll-locked]`
+ * selector injected by react-remove-scroll.
+ *
+ * Affects: All Radix primitives using portals (Select, Dialog, DropdownMenu,
+ * Popover, Combobox, ...) — this fix is shipped with Select since it's the
+ * most common trigger, but applies globally once loaded.
+ *
+ * Ref: https://github.com/shadcn-ui/ui/issues/4227
+ */
+html {
+  scrollbar-gutter: stable;
+}
+
+html body[data-scroll-locked] {
+  overflow: visible !important;
+  margin-right: 0 !important;
+  --removed-body-scroll-bar-size: 0 !important;
+}

@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import { StarIcon } from "@hugeicons/core-free-icons"
 import { toast } from "sonner"
 
@@ -13,6 +12,7 @@ import {
   toastNeutral,
   toastSuccess,
   toastWarning,
+  type MobilePosition,
   type Position,
 } from "@/registry/dga/ui/sonner"
 
@@ -135,40 +135,76 @@ const POSITIONS: Position[] = [
   "bottom-right",
 ]
 
+const MOBILE_POSITIONS: MobilePosition[] = ["top", "bottom"]
+
 export function SonnerPositions() {
-  const { position, setPosition } = useToasterPosition()
+  const { position, setPosition, mobilePosition, setMobilePosition } =
+    useToasterPosition()
 
   return (
     <div className="bg-background space-y-4 rounded-lg border p-6">
-      <div className="grid grid-cols-3 gap-2">
-        {POSITIONS.map((pos) => (
-          <Button
-            key={pos}
-            size="sm"
-            variant={position === pos ? "default" : "outline"}
-            onClick={() => {
-              if (pos !== position) {
-                toast.dismiss()
-                setPosition(pos)
-                setTimeout(
-                  () => toastInfo(`Position: ${pos}`, "Positioning"),
-                  150
-                )
-              } else {
-                toastInfo(`Position: ${pos}`, "Positioning")
-              }
-            }}
-          >
-            {pos}
-          </Button>
-        ))}
+      <div className="space-y-2">
+        <p className="text-muted-foreground text-xs font-medium">
+          Desktop position
+        </p>
+        <div className="grid grid-cols-3 gap-2">
+          {POSITIONS.map((pos) => (
+            <Button
+              key={pos}
+              size="sm"
+              variant={position === pos ? "default" : "outline"}
+              onClick={() => {
+                if (pos !== position) {
+                  toast.dismiss()
+                  setPosition(pos)
+                  setTimeout(
+                    () => toastInfo(`Position: ${pos}`, "Positioning"),
+                    150
+                  )
+                } else {
+                  toastInfo(`Position: ${pos}`, "Positioning")
+                }
+              }}
+            >
+              {pos}
+            </Button>
+          ))}
+        </div>
+      </div>
+      <div className="space-y-2">
+        <p className="text-muted-foreground text-xs font-medium">
+          Mobile position
+        </p>
+        <div className="grid grid-cols-2 gap-2">
+          {MOBILE_POSITIONS.map((pos) => (
+            <Button
+              key={pos}
+              size="sm"
+              variant={mobilePosition === pos ? "default" : "outline"}
+              onClick={() => {
+                if (pos !== mobilePosition) {
+                  toast.dismiss()
+                  setMobilePosition(pos)
+                  setTimeout(
+                    () => toastInfo(`Mobile position: ${pos}`, "Positioning"),
+                    150
+                  )
+                } else {
+                  toastInfo(`Mobile position: ${pos}`, "Positioning")
+                }
+              }}
+            >
+              {pos}
+            </Button>
+          ))}
+        </div>
       </div>
       <div className="bg-muted rounded-md p-3">
-        <code className="text-sm">{`<Toaster position="${position}" />`}</code>
+        <code className="text-sm">{`<Toaster position="${position}" mobilePosition="${mobilePosition}" />`}</code>
       </div>
       <p className="text-muted-foreground text-xs">
-        In RTL mode, left↔right positions are auto-flipped. On mobile, position
-        is always <code className="font-mono">bottom-center</code>.
+        In RTL mode, left↔right positions are auto-flipped. Resize below the
+        mobile breakpoint (768px) to preview the mobile position.
       </p>
     </div>
   )

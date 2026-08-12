@@ -47,3 +47,6 @@ next-env.d.ts
 
 # desktop files
 desktop.ini
+
+# playwright
+.playwright-mcp

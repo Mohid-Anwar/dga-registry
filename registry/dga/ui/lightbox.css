@@ -1,0 +1,394 @@
+/* ════════════════════════════════════════════════════════════════════════════
+   lightbox.css
+   ────────────────────────────────────────────────────────────────────────────
+   Self-contained styles for the Lightbox component.
+   Imported by lightbox.tsx via `import '@/styles/lightbox.css'`.
+
+   Tailwind v4 note: this file is imported from a client component, so its
+   contents land OUTSIDE Tailwind's @layer system. Every override below uses
+   !important to make sure it wins regardless of cascade order with the YARL
+   stylesheet, Tailwind utilities, and any global resets.
+   ════════════════════════════════════════════════════════════════════════════ */
+
+@import "yet-another-react-lightbox/styles.css";
+
+/* ── Sidebar dimensions (single source of truth) ─────────────────────────── */
+.dga-lightbox,
+.dga-lightbox-sidebar {
+  --dga-lightbox-sidebar-w: 268px;
+  --dga-lightbox-thumb-h: 103px;
+  --dga-lightbox-z-sidebar: 10000;
+}
+
+@media (max-width: 768px) {
+  .dga-lightbox,
+  .dga-lightbox-sidebar {
+    --dga-lightbox-sidebar-w: 147px;
+    --dga-lightbox-thumb-h: 90px;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   YARL theme overrides
+   ════════════════════════════════════════════════════════════════════════════ */
+
+.dga-lightbox {
+  --yarl__color_backdrop: rgba(0, 0, 0, 0.95) !important;
+  --yarl__color_button: #fff !important;
+  --yarl__color_button_active: rgba(255, 255, 255, 0.8) !important;
+  --yarl__carousel_padding_px: 24 !important;
+}
+
+@media (min-width: 1024px) {
+  .dga-lightbox {
+    --yarl__carousel_padding_px: 128 !important;
+  }
+}
+
+/* Belt-and-braces: force the backdrop directly on the container in case the
+   CSS variable isn't picked up due to layer ordering. */
+.dga-lightbox .yarl__container {
+  background-color: rgba(0, 0, 0, 0.95) !important;
+}
+
+/* ── Carousel constraint when sidebar is open ────────────────────────────── */
+.dga-lightbox--sidebar .yarl__container {
+  right: var(--dga-lightbox-sidebar-w) !important;
+}
+
+/* ── Hide entire main toolbar when sidebar is open ───────────────────────── */
+.dga-lightbox--sidebar .yarl__toolbar {
+  display: none !important;
+}
+
+/* ── Toolbar (sidebar closed) ────────────────────────────────────────────── */
+.dga-lightbox .yarl__toolbar {
+  gap: 0 !important;
+  padding: 0 !important;
+}
+
+.dga-lightbox .yarl__button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  padding: 12px !important;
+  border-radius: 0 !important;
+  color: #fff !important;
+  filter: none !important;
+}
+
+.dga-lightbox .yarl__button:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* ── Navigation arrows: ALWAYS active, never grey ────────────────────────── */
+/* YARL applies a disabled state in some carousel-end conditions even with
+   finite: false; the override below keeps them visually active. */
+.dga-lightbox .yarl__navigation_prev,
+.dga-lightbox .yarl__navigation_next,
+.dga-lightbox .yarl__navigation_prev:disabled,
+.dga-lightbox .yarl__navigation_next:disabled,
+.dga-lightbox .yarl__navigation_prev[aria-disabled="true"],
+.dga-lightbox .yarl__navigation_next[aria-disabled="true"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 999px !important;
+  background: var(
+    --button-button-background-primary-default,
+    #1b8354
+  ) !important;
+  color: #fff !important;
+  padding: 0 !important;
+  filter: none !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
+.dga-lightbox .yarl__navigation_prev:hover,
+.dga-lightbox .yarl__navigation_next:hover {
+  background: #166a45 !important;
+}
+
+.dga-lightbox .yarl__icon {
+  display: block !important;
+  margin: 0 !important;
+}
+
+/* Desktop: position nav buttons in the 128px gutter */
+@media (min-width: 769px) {
+  .dga-lightbox .yarl__navigation_prev {
+    left: 40px !important;
+  }
+
+  .dga-lightbox .yarl__navigation_next {
+    right: 40px !important;
+  }
+
+  /* Sidebar open: 24px gap between button and image */
+  .dga-lightbox--sidebar .yarl__navigation_prev {
+    left: 24px !important;
+  }
+
+  .dga-lightbox--sidebar .yarl__navigation_next {
+    right: 24px !important;
+  }
+
+  .dga-lightbox--sidebar .yarl__slide_wrapper {
+    padding: 0 96px !important;
+  }
+}
+
+/* Mobile: reposition YARL nav above image, side-by-side, left-aligned */
+@media (max-width: 768px) {
+  .dga-lightbox .yarl__navigation_prev,
+  .dga-lightbox .yarl__navigation_next {
+    width: 40px !important;
+    height: 40px !important;
+    position: absolute !important;
+    top: calc(50% - 142px - 24px - 40px) !important;
+    bottom: unset !important;
+    transform: none !important;
+    right: auto !important;
+  }
+
+  .dga-lightbox .yarl__navigation_prev {
+    left: calc(50% - 172px) !important; /* aligned with image left edge */
+  }
+
+  .dga-lightbox .yarl__navigation_next {
+    left: calc(50% - 172px + 48px) !important; /* 40px button + 8px gap */
+  }
+}
+
+/* ── Slide / image ───────────────────────────────────────────────────────── */
+.dga-lightbox .yarl__slide {
+  padding: 0 !important;
+}
+
+.dga-lightbox .yarl__slide_image {
+  border-radius: 16px !important;
+  max-height: calc(100vh - 128px) !important;
+  object-fit: contain !important;
+}
+
+@media (max-width: 768px) {
+  .dga-lightbox .yarl__slide_image {
+    max-height: calc(100vh - 200px) !important;
+    border-radius: 8px !important;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   Custom sidebar (replaces YARL Thumbnails plugin)
+   ════════════════════════════════════════════════════════════════════════════ */
+
+.dga-lightbox-sidebar {
+  position: fixed !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: var(--dga-lightbox-sidebar-w) !important;
+  background: #fff !important;
+  display: flex !important;
+  flex-direction: column !important;
+  z-index: var(--dga-lightbox-z-sidebar) !important;
+  /* Radix Dialog sets body { pointer-events: none } for modal dialogs.
+     Portalled elements outside the dialog content inherit that, making them
+     unclickable. Mirror what YARL's own .yarl__portal does: re-enable here. */
+  pointer-events: auto !important;
+  touch-action: auto !important;
+  overflow: hidden !important;
+}
+
+.dga-lightbox-sidebar__header {
+  display: flex !important;
+  flex-shrink: 0 !important;
+  justify-content: flex-end !important;
+}
+
+.dga-lightbox-sidebar__btn {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 12px !important;
+  background: var(--background-background-primary-50, #f3fcf6) !important;
+  color: var(--icon-icon-primary, #14573a) !important;
+  cursor: pointer !important;
+  border: none !important;
+  border-radius: 0 !important;
+  line-height: 0 !important;
+  transition: background-color 0.15s ease !important;
+}
+
+.dga-lightbox-sidebar__btn:hover {
+  background: var(--background-background-primary-100, #e6f7ec) !important;
+}
+
+.dga-lightbox-sidebar__grid {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  overflow-y: auto !important;
+  -webkit-overflow-scrolling: touch !important;
+  touch-action: pan-y !important;
+  overscroll-behavior: contain !important;
+  padding: 16px 8px 64px !important;
+  display: grid !important;
+  grid-template-columns: repeat(2, 1fr) !important;
+  gap: 8px !important;
+  align-content: start !important;
+}
+
+@media (max-width: 768px) {
+  .dga-lightbox-sidebar__grid {
+    grid-template-columns: 1fr !important;
+    padding: 16px 8px 80px !important;
+  }
+}
+
+/* Thumbnail: explicit height (aspect-ratio inside CSS Grid was unreliable —
+   columns were collapsing and intrinsic image dimensions were overflowing). */
+.dga-lightbox-sidebar__thumb {
+  position: relative !important;
+  display: block !important;
+  width: 100% !important;
+  height: var(--dga-lightbox-thumb-h) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: transparent !important;
+  opacity: 0.7 !important;
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease !important;
+}
+
+.dga-lightbox-sidebar__thumb:hover {
+  opacity: 1 !important;
+}
+
+.dga-lightbox-sidebar__thumb--active {
+  opacity: 1 !important;
+  transform: scale(1.02) !important;
+}
+
+.dga-lightbox-sidebar__thumb img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
+  border-radius: 8px !important;
+}
+
+@media (max-width: 768px) {
+  .dga-lightbox-sidebar__thumb,
+  .dga-lightbox-sidebar__thumb img {
+    border-radius: 16px !important;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   Slide wrapper padding
+   ════════════════════════════════════════════════════════════════════════════ */
+
+.dga-lightbox .yarl__slide_wrapper {
+  padding: 0 128px !important;
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   Mobile overrides (≤ 768px)
+   ════════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  /* Remove sidebar constraint on container */
+  .dga-lightbox--sidebar .yarl__container {
+    right: 0 !important;
+  }
+
+  /* Fixed image dimensions */
+  .dga-lightbox .yarl__slide_image {
+    width: 345px !important;
+    height: 284px !important;
+    max-width: 345px !important;
+    max-height: 284px !important;
+  }
+
+  /* Slide wrapper horizontal padding */
+  .dga-lightbox .yarl__slide_wrapper {
+    padding: 0 24px !important;
+  }
+}
+
+/* ════════════════════════════════════════════════════════════════════════════
+   RTL overrides
+   ════════════════════════════════════════════════════════════════════════════ */
+
+/* ── Sidebar: flip to left edge in RTL ───────────────────────────────────── */
+[dir="rtl"] .dga-lightbox-sidebar {
+  right: auto !important;
+  left: 0 !important;
+}
+
+/* ── Container constraint: reserve space on the left for sidebar in RTL ──── */
+[dir="rtl"] .dga-lightbox--sidebar .yarl__container {
+  right: auto !important;
+  left: var(--dga-lightbox-sidebar-w) !important;
+}
+
+/* ── Navigation arrow icons: flip direction in RTL (mobile only) ──────────── */
+@media (max-width: 768px) {
+  [dir="rtl"] .dga-lightbox .yarl__navigation_prev,
+  [dir="rtl"] .dga-lightbox .yarl__navigation_next {
+    transform: rotate(180deg) !important;
+  }
+}
+
+/* ── Navigation arrows: swap sides in RTL ────────────────────────────────── */
+@media (min-width: 769px) {
+  [dir="rtl"] .dga-lightbox .yarl__navigation_prev {
+    left: auto !important;
+    right: 40px !important;
+  }
+
+  [dir="rtl"] .dga-lightbox .yarl__navigation_next {
+    right: auto !important;
+    left: 40px !important;
+  }
+
+  /* Sidebar open */
+  [dir="rtl"] .dga-lightbox--sidebar .yarl__navigation_prev {
+    left: auto !important;
+    right: 24px !important;
+  }
+
+  [dir="rtl"] .dga-lightbox--sidebar .yarl__navigation_next {
+    right: auto !important;
+    left: 24px !important;
+  }
+}
+
+/* ── Mobile RTL: flip nav arrow positions ────────────────────────────────── */
+@media (max-width: 768px) {
+  [dir="rtl"] .dga-lightbox .yarl__navigation_prev {
+    left: auto !important;
+    right: calc(50% - 172px) !important;
+  }
+
+  [dir="rtl"] .dga-lightbox .yarl__navigation_next {
+    left: auto !important;
+    right: calc(50% - 172px + 48px) !important;
+  }
+
+  /* Remove sidebar constraint in RTL mobile too */
+  [dir="rtl"] .dga-lightbox--sidebar .yarl__container {
+    left: 0 !important;
+    right: 0 !important;
+  }
+}

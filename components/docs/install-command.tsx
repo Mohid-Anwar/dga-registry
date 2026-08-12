@@ -4,6 +4,8 @@ import { useState } from "react"
 import { Copy01Icon, Tick02Icon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
 
+import { CodeBlock, CodeLines, useHighlightedLines } from "./code-block"
+
 type PackageManager = "pnpm" | "npm" | "yarn" | "bun"
 type Variant =
   | "add"
@@ -97,74 +99,40 @@ export function InstallCommand({
   // globals variant: just show a plain code block (no PM tabs)
   if (variant === "globals") {
     return (
-      <div className="my-4 rounded-xl border bg-zinc-950 text-zinc-100">
-        <div className="flex items-center justify-between border-b border-zinc-800 px-4 py-2">
-          <span className="text-xs font-medium text-zinc-400">
-            app/globals.css
-          </span>
-        </div>
-        <pre className="overflow-x-auto px-4 py-3 text-sm">
-          <code>{GLOBALS_IMPORT}</code>
-        </pre>
-      </div>
+      <CodeBlock code={GLOBALS_IMPORT} language="css" filename="app/globals.css" />
     )
   }
 
   // globals-laravel variant
   if (variant === "globals-laravel") {
     return (
-      <div className="my-4 rounded-xl border bg-zinc-950 text-zinc-100">
-        <div className="flex items-center justify-between border-b border-zinc-800 px-4 py-2">
-          <span className="text-xs font-medium text-zinc-400">
-            resources/css/app.css
-          </span>
-        </div>
-        <pre className="overflow-x-auto px-4 py-3 text-sm">
-          <code>{GLOBALS_LARAVEL_IMPORT}</code>
-        </pre>
-      </div>
+      <CodeBlock
+        code={GLOBALS_LARAVEL_IMPORT}
+        language="css"
+        filename="resources/css/app.css"
+      />
     )
   }
 
   // globals-vite variant
   if (variant === "globals-vite") {
     return (
-      <div className="my-4 rounded-xl border bg-zinc-950 text-zinc-100">
-        <div className="flex items-center justify-between border-b border-zinc-800 px-4 py-2">
-          <span className="text-xs font-medium text-zinc-400">
-            src/index.css
-          </span>
-        </div>
-        <pre className="overflow-x-auto px-4 py-3 text-sm">
-          <code>{GLOBALS_VITE_IMPORT}</code>
-        </pre>
-      </div>
+      <CodeBlock
+        code={GLOBALS_VITE_IMPORT}
+        language="css"
+        filename="src/index.css"
+      />
     )
   }
 
   // css-import variant: show a plain code block with custom filename
   if (variant === "css-import" && filename && code) {
-    return (
-      <div className="my-4 rounded-xl border bg-zinc-950 text-zinc-100">
-        <div className="flex items-center justify-between border-b border-zinc-800 px-4 py-2">
-          <span className="text-xs font-medium text-zinc-400">{filename}</span>
-        </div>
-        <pre className="overflow-x-auto px-4 py-3 text-sm">
-          <code>{code}</code>
-        </pre>
-      </div>
-    )
+    return <CodeBlock code={code} language="bash" filename={filename} />
   }
 
   // laravel-new variant: single non-tabbed command
   if (variant === "laravel-new") {
-    return (
-      <div className="my-4 rounded-xl border bg-zinc-950 text-zinc-100">
-        <pre className="overflow-x-auto px-4 py-3 text-sm">
-          <code>laravel new my-app --react</code>
-        </pre>
-      </div>
-    )
+    return <CodeBlock code="laravel new my-app --react" language="bash" />
   }
 
   const resolvedCommands =
@@ -190,6 +158,7 @@ export function InstallCommand({
   const [copied, setCopied] = useState(false)
 
   const command = resolvedCommands[active] ?? ""
+  const lines = useHighlightedLines(command, "bash")
 
   const copy = async () => {
     await navigator.clipboard.writeText(command)
@@ -232,7 +201,9 @@ export function InstallCommand({
 
       {/* Code */}
       <pre className="overflow-x-auto px-4 py-3 text-sm">
-        <code>{command}</code>
+        <code>
+          <CodeLines lines={lines} />
+        </code>
       </pre>
     </div>
   )

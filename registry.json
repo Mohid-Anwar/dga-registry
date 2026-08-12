@@ -242,6 +242,17 @@
       ]
     },
     {
+      "name": "checkbox-group-field",
+      "type": "registry:ui",
+      "registryDependencies": ["checkbox", "form-field"],
+      "files": [
+        {
+          "path": "registry/dga/ui/checkbox-group-field.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "collapsible",
       "type": "registry:ui",
       "dependencies": ["@radix-ui/react-collapsible"],
@@ -249,6 +260,11 @@
         {
           "path": "registry/dga/ui/collapsible.tsx",
           "type": "registry:ui"
+        },
+        {
+          "path": "registry/dga/ui/collapsible.css",
+          "type": "registry:component",
+          "target": "styles/collapsible.css"
         }
       ]
     },
@@ -346,6 +362,18 @@
       ]
     },
     {
+      "name": "file-upload-field",
+      "type": "registry:ui",
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "registry/dga/ui/file-upload-field.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "form",
       "type": "registry:ui",
       "dependencies": [
@@ -364,12 +392,33 @@
       ]
     },
     {
+      "name": "form-field",
+      "type": "registry:ui",
+      "dependencies": ["@hugeicons/react", "@hugeicons/core-free-icons"],
+      "files": [
+        {
+          "path": "registry/dga/ui/form-field.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "hover-card",
       "type": "registry:ui",
       "dependencies": ["@radix-ui/react-hover-card"],
       "files": [
         {
           "path": "registry/dga/ui/hover-card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "infinite-logo-scroll",
+      "type": "registry:ui",
+      "files": [
+        {
+          "path": "registry/dga/ui/infinite-logo-scroll.tsx",
           "type": "registry:ui"
         }
       ]
@@ -429,6 +478,26 @@
         {
           "path": "registry/dga/ui/label.tsx",
           "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "lightbox",
+      "type": "registry:ui",
+      "dependencies": [
+        "yet-another-react-lightbox",
+        "@hugeicons/react",
+        "@hugeicons/core-free-icons"
+      ],
+      "files": [
+        {
+          "path": "registry/dga/ui/lightbox.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "registry/dga/ui/lightbox.css",
+          "type": "registry:component",
+          "target": "styles/lightbox.css"
         }
       ]
     },
@@ -549,6 +618,11 @@
         {
           "path": "registry/dga/ui/select.tsx",
           "type": "registry:ui"
+        },
+        {
+          "path": "registry/dga/ui/select.css",
+          "type": "registry:component",
+          "target": "styles/select.css"
         }
       ]
     },
@@ -750,6 +824,22 @@
       ]
     },
     {
+      "name": "tag",
+      "type": "registry:ui",
+      "dependencies": ["class-variance-authority"],
+      "files": [
+        {
+          "path": "registry/dga/ui/tag.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "styles/tokens.css",
+          "type": "registry:component",
+          "target": "styles/tokens.css"
+        }
+      ]
+    },
+    {
       "name": "textarea",
       "type": "registry:ui",
       "files": [
@@ -790,6 +880,11 @@
         {
           "path": "registry/dga/ui/tooltip.tsx",
           "type": "registry:ui"
+        },
+        {
+          "path": "styles/tokens.css",
+          "type": "registry:component",
+          "target": "styles/tokens.css"
         }
       ]
     },
@@ -826,6 +921,21 @@
       ]
     },
     {
+      "name": "recaptcha",
+      "type": "registry:ui",
+      "dependencies": [
+        "react-google-recaptcha",
+        "@types/react-google-recaptcha"
+      ],
+      "registryDependencies": ["use-media"],
+      "files": [
+        {
+          "path": "registry/dga/ui/recaptcha.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "utils",
       "type": "registry:lib",
       "dependencies": ["clsx", "tailwind-merge"],
@@ -842,6 +952,16 @@
       "files": [
         {
           "path": "registry/dga/hooks/use-mobile.ts",
+          "type": "registry:hook"
+        }
+      ]
+    },
+    {
+      "name": "use-media",
+      "type": "registry:hook",
+      "files": [
+        {
+          "path": "registry/dga/hooks/use-media.ts",
           "type": "registry:hook"
         }
       ]

@@ -1,0 +1,103 @@
+import { CodeBlock } from "@/components/docs/code-block"
+import { DirectionToggle } from "@/components/docs/direction-toggle"
+import { DocsLayout } from "@/components/docs/docs-layout"
+import { InstallCommand } from "@/components/docs/install-command"
+
+import {
+  InfiniteLogoScrollDefault,
+  InfiniteLogoScrollDirection,
+  InfiniteLogoScrollHover,
+  InfiniteLogoScrollRenderImage,
+  InfiniteLogoScrollSpeed,
+} from "./demos"
+
+export const metadata = {
+  title: "Infinite Logo Scroll",
+  description:
+    "DGA Infinite Logo Scroll component for React & Next.js. Auto-scrolling, hover-slowing logo marquee for partner/client walls. Digital Government Authority Saudi Arabia design system.",
+}
+
+<DocsLayout>
+
+# Infinite Logo Scroll
+
+An auto-scrolling marquee of logos, with edge fades, a configurable direction and speed, and a slowdown on hover.
+
+<DirectionToggle />
+
+## Installation
+
+<InstallCommand componentName="infinite-logo-scroll" />
+
+## Default
+
+<InfiniteLogoScrollDefault />
+
+## Direction
+
+Scroll `left` (default) or `right`.
+
+<InfiniteLogoScrollDirection />
+
+## Speed
+
+`speedPxPerSec` controls how fast the track scrolls, in pixels per second.
+
+<InfiniteLogoScrollSpeed />
+
+## Hover Behavior
+
+`hoverRate` controls the playback rate applied while hovering, as a fraction of the normal speed — `0` pauses on hover, `1` leaves speed unchanged.
+
+<InfiniteLogoScrollHover />
+
+## Custom Image Rendering
+
+This component renders a plain `<img>` by default to stay framework-agnostic — it never imports `next/image` or any other framework's image component. Pass `renderImage` to render logos however your framework prefers, e.g. with `next/image` for automatic optimization:
+
+<InfiniteLogoScrollRenderImage />
+
+<CodeBlock
+  language="tsx"
+  filename="next.js"
+  code={`import Image from "next/image"
+
+import { InfiniteLogoScroll } from "@/registry/dga/ui/infinite-logo-scroll"
+
+<InfiniteLogoScroll
+  items={logos}
+  renderImage={(item) => (
+    <Image
+      src={item.image}
+      alt={item.alt ?? ""}
+      width={item.width ?? 240}
+      height={item.height ?? 65}
+      className="h-full w-auto max-w-40 min-w-10 object-contain md:max-w-60 md:min-w-15"
+    />
+  )}
+/>`}
+/>
+
+## Props
+
+| Prop            | Type                             | Default    | Description                                             |
+| --------------- | -------------------------------- | ---------- | -------------------------------------------------------- |
+| `items`         | `LogoItem[]`                     | —          | Logos to render (see below)                             |
+| `direction`     | `"left" \| "right"`              | `"left"`   | Scroll direction                                         |
+| `speedPxPerSec` | `number`                         | `50`       | Scroll speed in pixels per second                        |
+| `hoverRate`     | `number`                         | `0.15`     | Playback rate applied on hover                           |
+| `renderImage`   | `(item: LogoItem) => ReactNode`  | plain img  | Custom renderer for each logo image                      |
+| `className`     | `string`                         | —          | Additional CSS classes                                   |
+
+### `LogoItem`
+
+| Field    | Type     | Description                                  |
+| -------- | -------- | --------------------------------------------- |
+| `id`     | `number` | Unique key                                    |
+| `image`  | `string` | Logo image URL                                |
+| `href`   | `string` | Link target when the logo is clicked          |
+| `alt`    | `string` | Alt text                                      |
+| `width`  | `number` | Intrinsic width, for layout-shift reservation  |
+| `height` | `number` | Intrinsic height, for layout-shift reservation |
+
+</DocsLayout>

@@ -248,7 +248,47 @@ export function SelectWithIcons() {
   )
 }
 
-/* ─── 5. Controlled Select ─── */
+/* ─── 5. Validation States ─── */
+export function SelectValidation() {
+  const [value, setValue] = React.useState("")
+  const error = value === "" ? "Please select a station type" : undefined
+
+  return (
+    <div className="bg-background rounded-lg border p-6">
+      <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-2">
+          <label className="text-sm font-medium">Station Type (required)</label>
+          <Select value={value} onValueChange={setValue}>
+            <SelectTrigger className="w-[280px]" aria-invalid={!!error}>
+              <SelectValue placeholder="Select a station type" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="background">Background</SelectItem>
+              <SelectItem value="suburban">Suburban</SelectItem>
+              <SelectItem value="traffic">Traffic</SelectItem>
+            </SelectContent>
+          </Select>
+          {error && <p className="text-error text-sm">{error}</p>}
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <label className="text-sm font-medium">Always Invalid</label>
+          <Select>
+            <SelectTrigger className="w-[280px]" aria-invalid>
+              <SelectValue placeholder="This trigger is always invalid" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="option1">Option 1</SelectItem>
+              <SelectItem value="option2">Option 2</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+/* ─── 6. Controlled Select ─── */
 export function SelectControlled() {
   const [selectedStation, setSelectedStation] = React.useState("")
   const [selectedPollutant, setSelectedPollutant] = React.useState("")
@@ -315,7 +355,7 @@ export function SelectControlled() {
   )
 }
 
-/* ─── 6. Form Examples ─── */
+/* ─── 7. Form Examples ─── */
 export function SelectForms() {
   return (
     <div className="bg-background rounded-lg border p-6">
@@ -482,7 +522,7 @@ export function SelectForms() {
   )
 }
 
-/* ─── 7. Width Variations ─── */
+/* ─── 8. Width Variations ─── */
 export function SelectWidths() {
   return (
     <div className="bg-background rounded-lg border p-6">

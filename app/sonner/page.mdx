@@ -121,15 +121,17 @@ Control where toasts appear with the `position` prop on `<Toaster />`. Click a p
 | `bottom-center` | Bottom-center              |
 | `bottom-right`  | Bottom-right corner        |
 
+Sonner renders toasts full-width below the mobile breakpoint (768px), so `left`/`center`/`right` collapse to the same look there — only the edge matters. Use `mobilePosition` to pick `"top"` or `"bottom"` for that case:
+
 ```tsx
-<Toaster position="bottom-right" />
+<Toaster position="bottom-right" mobilePosition="top" />
 ```
 
 <SonnerPositions />
 
 ## RTL Support
 
-The `<Toaster />` automatically flips `left`↔`right` positions when inside an RTL `<DirectionProvider />`. On mobile, toasts always appear at `bottom-center`.
+The `<Toaster />` automatically flips `left`↔`right` positions when inside an RTL `<DirectionProvider />`. `mobilePosition` is unaffected since it only controls the top/bottom edge.
 
 ## Toaster Offset
 
@@ -184,9 +186,10 @@ function AppHeader() {
 
 ## Toaster Props
 
-| Prop       | Type       | Default       | Description                                                     |
-| ---------- | ---------- | ------------- | --------------------------------------------------------------- |
-| `position` | `Position` | `"top-right"` | Toast position (auto-flipped in RTL, `bottom-center` on mobile) |
+| Prop             | Type             | Default       | Description                                                    |
+| ---------------- | ---------------- | ------------- | -------------------------------------------------------------- |
+| `position`       | `Position`       | `"top-right"` | Toast position on desktop (auto-flipped in RTL)                |
+| `mobilePosition` | `MobilePosition` | `"top"`       | Toast edge below the mobile breakpoint (`"top"` \| `"bottom"`) |
 
 ## Toast Helper Functions
 
@@ -221,5 +224,6 @@ function AppHeader() {
 | `toastNeutral`          | Function  | Show neutral toast                  |
 | `showToast`             | Object    | Shorthand `{ error, warning, ... }` |
 | `Position`              | Type      | `"top-left" \| "top-center" \| ...` |
+| `MobilePosition`        | Type      | `"top" \| "bottom"`                 |
 
 </DocsLayout>

@@ -162,6 +162,17 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "checkbox-group-field",
+    type: "registry:ui",
+    registryDependencies: ["checkbox", "form-field"],
+    files: [
+      {
+        path: "ui/checkbox-group-field.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "collapsible",
     type: "registry:ui",
     dependencies: ["radix-ui"],
@@ -169,6 +180,11 @@ export const ui: Registry["items"] = [
       {
         path: "ui/collapsible.tsx",
         type: "registry:ui",
+      },
+      {
+        path: "ui/collapsible.css",
+        type: "registry:component",
+        target: "styles/collapsible.css",
       },
     ],
   },
@@ -262,6 +278,18 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "file-upload-field",
+    type: "registry:ui",
+    dependencies: ["@hugeicons/react", "@hugeicons/core-free-icons"],
+    registryDependencies: ["button"],
+    files: [
+      {
+        path: "ui/file-upload-field.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "form",
     type: "registry:ui",
     dependencies: ["radix-ui", "@hookform/resolvers", "zod", "react-hook-form"],
@@ -274,12 +302,33 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "form-field",
+    type: "registry:ui",
+    dependencies: ["@hugeicons/react", "@hugeicons/core-free-icons"],
+    files: [
+      {
+        path: "ui/form-field.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "hover-card",
     type: "registry:ui",
     dependencies: ["radix-ui"],
     files: [
       {
         path: "ui/hover-card.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "infinite-logo-scroll",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/infinite-logo-scroll.tsx",
         type: "registry:ui",
       },
     ],
@@ -336,6 +385,26 @@ export const ui: Registry["items"] = [
       {
         path: "ui/label.tsx",
         type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "lightbox",
+    type: "registry:ui",
+    dependencies: [
+      "yet-another-react-lightbox",
+      "@hugeicons/react",
+      "@hugeicons/core-free-icons",
+    ],
+    files: [
+      {
+        path: "ui/lightbox.tsx",
+        type: "registry:ui",
+      },
+      {
+        path: "ui/lightbox.css",
+        type: "registry:component",
+        target: "styles/lightbox.css",
       },
     ],
   },
@@ -435,6 +504,11 @@ export const ui: Registry["items"] = [
       {
         path: "ui/select.tsx",
         type: "registry:ui",
+      },
+      {
+        path: "ui/select.css",
+        type: "registry:component",
+        target: "styles/select.css",
       },
     ],
   },
@@ -537,7 +611,8 @@ export const ui: Registry["items"] = [
       },
       {
         path: "ui/skeleton.css",
-        type: "registry:ui",
+        type: "registry:component",
+        target: "styles/skeleton.css",
       },
     ],
   },
@@ -613,6 +688,22 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "tag",
+    type: "registry:ui",
+    dependencies: ["class-variance-authority"],
+    files: [
+      {
+        path: "ui/tag.tsx",
+        type: "registry:ui",
+      },
+      {
+        path: "styles/tokens.css",
+        type: "registry:component",
+        target: "styles/tokens.css",
+      },
+    ],
+  },
+  {
     name: "textarea",
     type: "registry:ui",
     files: [
@@ -673,6 +764,11 @@ export const ui: Registry["items"] = [
         path: "ui/tooltip.tsx",
         type: "registry:ui",
       },
+      {
+        path: "styles/tokens.css",
+        type: "registry:component",
+        target: "styles/tokens.css",
+      },
     ],
   },
   {
@@ -701,6 +797,18 @@ export const ui: Registry["items"] = [
     files: [
       {
         path: "ui/direction.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "recaptcha",
+    type: "registry:ui",
+    dependencies: ["react-google-recaptcha", "@types/react-google-recaptcha"],
+    registryDependencies: ["use-media"],
+    files: [
+      {
+        path: "ui/recaptcha.tsx",
         type: "registry:ui",
       },
     ],

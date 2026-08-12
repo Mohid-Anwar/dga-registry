@@ -917,9 +917,9 @@
   --background-surface-oncolor: #ffffff;
   --tooltip-tooltip-background-light: #1f2a37;
   --tooltip-tooltip-background-dark: #ffffff;
-  --tooltip-tooltip-text-heading-light: #1f2a37;
+  --tooltip-tooltip-text-heading-light: #f9fafb;
   --tooltip-tooltip-text-heading-dark: #1f2a37;
-  --tooltip-tooltip-text-paragraph-light: #384250;
+  --tooltip-tooltip-text-paragraph-light: #f3f4f6;
   --tooltip-tooltip-text-paragraph-dark: #384250;
   --background-background-primary400: #54c08a;
   --icon-icon-primary400: #b8eacb;

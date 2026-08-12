@@ -1,0 +1,60 @@
+import { DirectionToggle } from "@/components/docs/direction-toggle"
+import { DocsLayout } from "@/components/docs/docs-layout"
+import { InstallCommand } from "@/components/docs/install-command"
+
+import { FormFieldBasic, FormFieldError, FormFieldForm, FormFieldSelect } from "./demos"
+
+export const metadata = {
+  title: "Form Field",
+  description:
+    "DGA Form Field component for React & Next.js. Generic label, required indicator, and error message wrapper for any form control. Digital Government Authority Saudi Arabia design system.",
+}
+
+<DocsLayout>
+
+# Form Field
+
+A generic layout wrapper that pairs a label, an optional required indicator, and an error message with any single form control passed as `children`.
+
+<DirectionToggle />
+
+## Installation
+
+<InstallCommand componentName="form-field" />
+
+## Basic Usage
+
+Wraps a single input with a label and optional required indicator.
+
+<FormFieldBasic />
+
+## Error State
+
+Pass an `error` string to show a validation message with an alert icon below the field.
+
+<FormFieldError />
+
+## Wrapping Non-Input Controls
+
+`FormField` only cares about `children` — it works with `Select`, `Textarea`, or any custom control.
+
+<FormFieldSelect />
+
+## Form Example
+
+A real-world form composing multiple `FormField`s with client-side validation.
+
+<FormFieldForm />
+
+## Props
+
+| Prop        | Type        | Default | Description                                    |
+| ----------- | ----------- | ------- | ---------------------------------------------- |
+| `label`     | `string`    | —       | Field label text                                |
+| `name`      | `string`    | —       | Used for the label's `htmlFor` and error `id`   |
+| `required`  | `boolean`   | `false` | Shows a red asterisk before the label           |
+| `error`     | `string`    | —       | Error message shown below the field, with icon  |
+| `className` | `string`    | —       | Additional CSS classes on the wrapper           |
+| `children`  | `ReactNode` | —       | The form control(s) rendered between label/error |
+
+</DocsLayout>

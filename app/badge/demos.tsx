@@ -38,18 +38,45 @@ export function BadgeChips() {
     <div className="bg-background space-y-4 rounded-lg border p-6">
       <div className="flex flex-wrap items-center gap-3">
         <Badge variant="chip-primary">Primary Chip</Badge>
+        <Badge variant="chip-primary-active">Primary Active</Badge>
         <Badge variant="chip-primary-selected">Primary Selected</Badge>
+        <Badge variant="chip-primary-pressed">Primary Pressed</Badge>
       </div>
       <div className="flex flex-wrap items-center gap-3">
         <Badge variant="chip-neutral">Neutral Chip</Badge>
         <Badge variant="chip-neutral-selected">Neutral Selected</Badge>
+      </div>
+      <div className="flex flex-wrap items-center gap-3 rounded-lg bg-neutral-800 p-4">
+        <Badge variant="chip-on-color">On Color</Badge>
+        <Badge variant="chip-on-color-selected">On Color Selected</Badge>
+      </div>
+      <div className="flex flex-wrap items-center gap-3">
+        <Badge variant="chip-disabled">Disabled Chip</Badge>
       </div>
     </div>
   )
 }
 
 /* ═══════════════════════════════════════════
-   3 — Sizes
+   3 — Rounded
+═══════════════════════════════════════════ */
+export function BadgeRounded() {
+  return (
+    <div className="bg-background rounded-lg border p-6">
+      <div className="flex flex-wrap items-center gap-3">
+        <Badge variant="secondary" rounded="full">
+          Rounded Full
+        </Badge>
+        <Badge variant="secondary" rounded="sm">
+          Rounded Small
+        </Badge>
+      </div>
+    </div>
+  )
+}
+
+/* ═══════════════════════════════════════════
+   4 — Sizes
 ═══════════════════════════════════════════ */
 export function BadgeSizes() {
   return (
@@ -65,7 +92,7 @@ export function BadgeSizes() {
 }
 
 /* ═══════════════════════════════════════════
-   4 — With Icons
+   5 — With Icons
 ═══════════════════════════════════════════ */
 export function BadgeWithIcons() {
   return (
@@ -98,7 +125,7 @@ export function BadgeWithIcons() {
 }
 
 /* ═══════════════════════════════════════════
-   5 — As Link
+   6 — As Link
 ═══════════════════════════════════════════ */
 export function BadgeAsLink() {
   return (

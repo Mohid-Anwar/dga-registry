@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useLayoutEffect, useRef, useState } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 
@@ -23,13 +23,41 @@ type Component = {
   slug: string
 }
 
+const navLabelClass =
+  "text-muted-foreground/90 text-[11px] font-semibold tracking-wide uppercase"
+
+const navLinkClass =
+  "text-foreground/70 border-s-2 border-transparent hover:bg-muted/70 hover:text-foreground data-[active=true]:border-primary data-[active=true]:bg-primary/10 data-[active=true]:font-semibold data-[active=true]:text-accent-foreground"
+
+const SIDEBAR_SCROLL_KEY = "sidebar:scroll"
+
 export function AppSidebar({ components }: { components: Component[] }) {
   const pathname = usePathname()
   const [query, setQuery] = useState("")
+  const scrollWrapperRef = useRef<HTMLDivElement>(null)
 
   const filtered = components.filter((c) =>
     c.name.toLowerCase().includes(query.toLowerCase())
   )
+
+  // AppSidebar remounts on every route change (each page.mdx wraps itself in
+  // <DocsLayout> rather than using a persistent Next.js layout), so the
+  // scroll position has to be restored manually instead of surviving for free.
+  useLayoutEffect(() => {
+    const content = scrollWrapperRef.current?.querySelector<HTMLDivElement>(
+      '[data-sidebar="content"]'
+    )
+    if (!content) return
+
+    const saved = sessionStorage.getItem(SIDEBAR_SCROLL_KEY)
+    if (saved) content.scrollTop = Number(saved)
+
+    const handleScroll = () =>
+      sessionStorage.setItem(SIDEBAR_SCROLL_KEY, String(content.scrollTop))
+
+    content.addEventListener("scroll", handleScroll)
+    return () => content.removeEventListener("scroll", handleScroll)
+  }, [])
 
   return (
     <Sidebar>
@@ -83,88 +111,101 @@ export function AppSidebar({ components }: { components: Component[] }) {
         <SearchForm onSearch={setQuery} />
       </SidebarHeader>
 
-      <SidebarContent
-        style={{
-          maskImage:
-            "linear-gradient(to bottom, transparent 0%, black 30px, black calc(100% - 60px), transparent 100%)",
-          WebkitMaskImage:
-            "linear-gradient(to bottom, transparent 0%, black 60px, black calc(100% - 60px), transparent 100%)",
-        }}
+      <div
+        ref={scrollWrapperRef}
+        className="relative flex min-h-0 flex-1 flex-col"
       >
-        <SidebarGroup className="mt-5">
-          <SidebarGroupLabel className="text-color-[var(--text-text-display)] font-bold">
-            Getting Started
-          </SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname === "/"}>
-                  <Link href="/">Introduction</Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton asChild isActive={pathname === "/changelog"}>
-                  <Link href="/changelog">Changelog</Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
-
-        <SidebarGroup>
-          <SidebarGroupLabel className="font-bold text-[var(--text-text-display)]">
-            Installation
-          </SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              <SidebarMenuItem>
-                <SidebarMenuButton
-                  asChild
-                  isActive={pathname === "/installation/nextjs"}
-                >
-                  <Link href="/installation/nextjs">Next.js</Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton
-                  asChild
-                  isActive={pathname === "/installation/vite"}
-                >
-                  <Link href="/installation/vite">Vite</Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <SidebarMenuButton
-                  asChild
-                  isActive={pathname === "/installation/laravel"}
-                >
-                  <Link href="/installation/laravel">Laravel</Link>
-                </SidebarMenuButton>
-              </SidebarMenuItem>
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
-
-        <SidebarGroup>
-          <SidebarGroupLabel className="font-bold text-[var(--text-text-display)]">
-            Components
-          </SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              {filtered.map((component) => (
-                <SidebarMenuItem key={component.slug}>
+        <SidebarContent className="pb-10">
+          <SidebarGroup className="mt-5">
+            <SidebarGroupLabel className={navLabelClass}>
+              Getting Started
+            </SidebarGroupLabel>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                <SidebarMenuItem>
                   <SidebarMenuButton
                     asChild
-                    isActive={pathname === `/${component.slug}`}
+                    isActive={pathname === "/"}
+                    className={navLinkClass}
                   >
-                    <Link href={`/${component.slug}`}>{component.name}</Link>
+                    <Link href="/">Introduction</Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
-      </SidebarContent>
+                <SidebarMenuItem>
+                  <SidebarMenuButton
+                    asChild
+                    isActive={pathname === "/changelog"}
+                    className={navLinkClass}
+                  >
+                    <Link href="/changelog">Changelog</Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+
+          <SidebarGroup>
+            <SidebarGroupLabel className={navLabelClass}>
+              Installation
+            </SidebarGroupLabel>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                <SidebarMenuItem>
+                  <SidebarMenuButton
+                    asChild
+                    isActive={pathname === "/installation/nextjs"}
+                    className={navLinkClass}
+                  >
+                    <Link href="/installation/nextjs">Next.js</Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                  <SidebarMenuButton
+                    asChild
+                    isActive={pathname === "/installation/vite"}
+                    className={navLinkClass}
+                  >
+                    <Link href="/installation/vite">Vite</Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                  <SidebarMenuButton
+                    asChild
+                    isActive={pathname === "/installation/laravel"}
+                    className={navLinkClass}
+                  >
+                    <Link href="/installation/laravel">Laravel</Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+
+          <SidebarGroup>
+            <SidebarGroupLabel className={navLabelClass}>
+              Components
+            </SidebarGroupLabel>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                {filtered.map((component) => (
+                  <SidebarMenuItem key={component.slug}>
+                    <SidebarMenuButton
+                      asChild
+                      isActive={pathname === `/${component.slug}`}
+                      className={navLinkClass}
+                    >
+                      <Link href={`/${component.slug}`}>{component.name}</Link>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                ))}
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+        </SidebarContent>
+
+        <div className="from-sidebar pointer-events-none absolute inset-x-0 top-0 h-8 bg-gradient-to-b to-transparent" />
+        <div className="from-sidebar pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t to-transparent" />
+      </div>
 
       <SidebarRail />
     </Sidebar>

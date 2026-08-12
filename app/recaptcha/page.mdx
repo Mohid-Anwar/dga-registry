@@ -1,0 +1,95 @@
+import { InformationCircleIcon } from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+
+import { CodeBlock } from "@/components/docs/code-block"
+import { DirectionToggle } from "@/components/docs/direction-toggle"
+import { DocsLayout } from "@/components/docs/docs-layout"
+import { InstallCommand } from "@/components/docs/install-command"
+import { Alert, AlertDescription, AlertTitle } from "@/registry/dga/ui/alert"
+
+import { RecaptchaArabic, RecaptchaBasic } from "./demos"
+
+export const metadata = {
+  title: "Recaptcha",
+  description:
+    "DGA Recaptcha component for React & Next.js. Google reCAPTCHA v2 widget with locale and responsive sizing support. Digital Government Authority Saudi Arabia design system.",
+}
+
+<DocsLayout>
+
+# Recaptcha
+
+Wraps Google's reCAPTCHA v2 checkbox widget, switching to a compact size on narrow
+viewports and forwarding the current locale.
+
+<DirectionToggle />
+
+## Installation
+
+<InstallCommand componentName="recaptcha" />
+
+## Setup
+
+Get a site key and secret key from the
+[reCAPTCHA admin console](https://www.google.com/recaptcha/admin), then pass the site
+key in as the `sitekey` prop — how you get it to the client is up to your app (a
+`NEXT_PUBLIC_...` env var in Next.js, `import.meta.env.VITE_...` in Vite, etc.).
+
+The secret key is only used server-side, when you verify the token against Google's
+`siteverify` endpoint — never expose it to the client.
+
+## Basic Usage
+
+The demo below uses Google's public **test** site key, which always validates and
+renders a "for testing purposes only" watermark. It's meant for local development —
+swap in your own key pair before shipping.
+
+<RecaptchaBasic />
+
+## Localized
+
+Pass a `lang` to match the widget's locale to the current page.
+
+<RecaptchaArabic />
+
+## Inside a modal
+
+<Alert className="mt-4">
+  <HugeiconsIcon icon={InformationCircleIcon} />
+  <AlertTitle>No setup required</AlertTitle>
+  <AlertDescription>
+    The widget auto-injects a small global style fix for{" "}
+    [radix-ui/primitives#1385](https://github.com/radix-ui/primitives/issues/1385) —
+    Radix Dialogs set `pointer-events: none` on `body` siblings, which makes the
+    reCAPTCHA challenge iframe (appended to `document.body`, outside the dialog)
+    unclickable.
+  </AlertDescription>
+</Alert>
+
+If your app enforces a `style-src` CSP without `'unsafe-inline'`, the fix only applies
+when the page already has a nonce on another `<style>`/`<script>` tag (it reuses that
+nonce). Under a stricter policy, add this rule to your own global stylesheet instead —
+`app/globals.css` in Next.js, `src/index.css` in Vite, `resources/css/app.css` in
+Laravel, `src/styles/global.css` in Astro, `src/styles/app.css` in TanStack Start, or
+the equivalent entry stylesheet in any other setup:
+
+<CodeBlock
+  language="css"
+  filename="globals.css"
+  code={`body > div:has(iframe[src*="recaptcha/api2/bframe"]) {
+  pointer-events: auto !important;
+}`}
+/>
+
+## Props
+
+| Prop        | Type                              | Default                                  | Description                                 |
+| ----------- | --------------------------------- | ---------------------------------------- | ------------------------------------------- |
+| `lang`      | `string`                          | —                                        | reCAPTCHA locale code (e.g. `"en"`, `"ar"`) |
+| `sitekey`   | `string`                          | —                                        | Site key from the reCAPTCHA admin console   |
+| `onChange`  | `(token: string \| null) => void` | —                                        | Called with the verification token          |
+| `onExpired` | `() => void`                      | —                                        | Called when the token expires               |
+| `onErrored` | `() => void`                      | —                                        | Called when the widget fails to load        |
+| `ref`       | `React.Ref<ReCAPTCHA>`            | —                                        | Access the underlying widget instance       |
+
+</DocsLayout>

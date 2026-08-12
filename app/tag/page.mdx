@@ -1,0 +1,88 @@
+import { DirectionToggle } from "@/components/docs/direction-toggle"
+import { DocsLayout } from "@/components/docs/docs-layout"
+import { InstallCommand } from "@/components/docs/install-command"
+
+import {
+  TagOnColor,
+  TagOutlineVariants,
+  TagRounded,
+  TagSizes,
+  TagVariants,
+  TagWithIcons,
+} from "./demos"
+
+export const metadata = {
+  title: "Tag",
+  description:
+    "DGA Tag component for React & Next.js. Accessible status and category labels with success, info, warning, error, neutral, and on-color variants. Digital Government Authority Saudi Arabia design system.",
+}
+
+<DocsLayout>
+
+# Tag
+
+Displays a tag used to label, categorize, or organize content using status colors.
+
+<DirectionToggle />
+
+## Installation
+
+<InstallCommand componentName="tag" />
+
+## Variants
+
+| Variant   | Description        |
+| --------- | ------------------- |
+| `success` | Positive / completed state |
+| `info`    | Informational state |
+| `warning` | Cautionary state     |
+| `error`   | Negative / failed state |
+| `neutral` | Default, uncategorized state |
+
+<TagVariants />
+
+## Outline Variants
+
+Each variant also has an outline style with a transparent background.
+
+<TagOutlineVariants />
+
+## On Color
+
+Use `on-color` variants when the tag sits on top of a colored or dark background.
+
+<TagOnColor />
+
+## Rounded
+
+| Rounded | Description               |
+| ------- | -------------------------- |
+| `false` | Standard corner radius (default) |
+| `true`  | Fully rounded (pill) corners |
+
+<TagRounded />
+
+## Sizes
+
+| Size | Description |
+| ---- | ----------- |
+| `sm` | 20px height |
+| `md` | 24px height (default) |
+| `lg` | 32px height |
+
+<TagSizes />
+
+## With Icons
+
+<TagWithIcons />
+
+## Props
+
+| Prop        | Type      | Default     | Description             |
+| ----------- | --------- | ----------- | ------------------------ |
+| `variant`   | `string`  | `"success"` | Visual style variant     |
+| `size`      | `string`  | `"md"`      | Tag size                 |
+| `rounded`   | `boolean` | `false`     | Corner radius            |
+| `className` | `string`  | —           | Additional CSS classes   |
+
+</DocsLayout>
