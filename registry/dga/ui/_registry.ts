@@ -285,6 +285,16 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "infinite-logo-scroll",
+    type: "registry:ui",
+    files: [
+      {
+        path: "ui/infinite-logo-scroll.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "input",
     type: "registry:ui",
     files: [

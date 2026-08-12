@@ -1,8 +1,13 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Copy01Icon, Tick02Icon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
+import {
+  createHighlighter,
+  type BundledLanguage,
+  type Highlighter,
+} from "shiki"
 
 interface CodeBlockProps {
   code: string
@@ -10,6 +15,93 @@ interface CodeBlockProps {
   filename?: string
   showLineNumbers?: boolean
   highlightLines?: number[]
+}
+
+export interface Token {
+  content: string
+  color?: string
+}
+
+const THEME = "github-dark-default"
+
+let highlighterPromise: Promise<Highlighter> | null = null
+function getHighlighter() {
+  if (!highlighterPromise) {
+    highlighterPromise = createHighlighter({
+      themes: [THEME],
+      langs: ["tsx", "typescript", "json", "bash", "css"],
+    })
+  }
+  return highlighterPromise
+}
+
+/** Tokenizes `code` for syntax-highlighted rendering; returns un-colored lines until the highlighter loads. */
+export function useHighlightedLines(
+  code: string,
+  language: string
+): Token[][] {
+  const [tokenLines, setTokenLines] = useState<Token[][] | null>(null)
+
+  useEffect(() => {
+    let cancelled = false
+    getHighlighter().then((highlighter) => {
+      if (cancelled) return
+      const { tokens } = highlighter.codeToTokens(code, {
+        lang: language as BundledLanguage,
+        theme: THEME,
+      })
+      setTokenLines(
+        tokens.map((line) =>
+          line.map((token) => ({ content: token.content, color: token.color }))
+        )
+      )
+    })
+    return () => {
+      cancelled = true
+    }
+  }, [code, language])
+
+  return tokenLines ?? code.split("\n").map((line) => [{ content: line }])
+}
+
+export function CodeLines({
+  lines,
+  showLineNumbers = false,
+  highlightLines = [],
+}: {
+  lines: Token[][]
+  showLineNumbers?: boolean
+  highlightLines?: number[]
+}) {
+  return (
+    <>
+      {lines.map((lineTokens, i) => (
+        <span
+          key={i}
+          className={`flex ${
+            highlightLines.includes(i + 1) ? "-mx-4 bg-zinc-800/60 px-4" : ""
+          }`}
+        >
+          {showLineNumbers && (
+            <span className="mr-4 w-4 shrink-0 text-right text-zinc-500 select-none">
+              {i + 1}
+            </span>
+          )}
+          <span>
+            {lineTokens.map((token, j) => (
+              <span
+                key={j}
+                style={token.color ? { color: token.color } : undefined}
+              >
+                {token.content}
+              </span>
+            ))}
+          </span>
+          {i < lines.length - 1 && "\n"}
+        </span>
+      ))}
+    </>
+  )
 }
 
 export function CodeBlock({
@@ -20,14 +112,13 @@ export function CodeBlock({
   highlightLines = [],
 }: CodeBlockProps) {
   const [copied, setCopied] = useState(false)
+  const lines = useHighlightedLines(code, language)
 
   const copy = async () => {
     await navigator.clipboard.writeText(code)
     setCopied(true)
     setTimeout(() => setCopied(false), 1500)
   }
-
-  const lines = code.split("\n")
 
   return (
     <div className="my-4 rounded-xl border bg-zinc-950 text-zinc-100">
@@ -72,24 +163,11 @@ export function CodeBlock({
 
         <pre className="overflow-x-auto px-4 py-3 text-sm">
           <code>
-            {showLineNumbers
-              ? lines.map((line, i) => (
-                  <span
-                    key={i}
-                    className={`flex ${
-                      highlightLines.includes(i + 1)
-                        ? "-mx-4 bg-zinc-800/60 px-4"
-                        : ""
-                    }`}
-                  >
-                    <span className="mr-4 w-4 shrink-0 text-right text-zinc-400 select-none">
-                      {i + 1}
-                    </span>
-                    <span>{line}</span>
-                    {i < lines.length - 1 && "\n"}
-                  </span>
-                ))
-              : code}
+            <CodeLines
+              lines={lines}
+              showLineNumbers={showLineNumbers}
+              highlightLines={highlightLines}
+            />
           </code>
         </pre>
       </div>
