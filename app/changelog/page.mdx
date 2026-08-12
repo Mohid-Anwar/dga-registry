@@ -1,3 +1,4 @@
+import { ChangelogEntry, ChangelogSection } from "@/components/docs/changelog"
 import { DocsLayout } from "@/components/docs/docs-layout"
 
 export const metadata = {
@@ -16,63 +17,152 @@ Track updates to DGA Components — new components, improvements, and fixes.
 
 ## August 2026
 
-### New Components
-
-- **Tag** — Status and category labels with success, info, warning, error, neutral, and on-color variants, each with an outline style, plus `sm`/`md`/`lg` sizes and rounded/pill corners
-- **Lightbox** — Fullscreen image viewer built on `yet-another-react-lightbox` with zoom, slideshow, thumbnail sidebar navigation, and RTL support
-- **Recaptcha** — Google reCAPTCHA v2 checkbox widget with locale support and a compact size on narrow viewports
-- **Infinite Logo Scroll** — Auto-scrolling logo/partner marquee with configurable direction, speed, and hover slowdown; renders framework-agnostic `<img>` by default with a `renderImage` slot for `next/image` or other optimized image components
-
-### Improvements
-
-- **Badge** — Added `chip-primary-active`, `chip-primary-pressed`, `chip-on-color`, `chip-on-color-selected`, and `chip-disabled` chip variants, and documented them alongside the existing chip variants
-- **Sonner (Toast)** — Added `mobilePosition` prop to control toast placement below the mobile breakpoint independently from desktop `position`
-
-### Fixes
-
-- **Sonner (Toast)** — `mobilePosition` now only accepts `"top"` / `"bottom"`, matching Sonner's own mobile behavior where toasts render full-width and left/center/right positions collapse to the same look
-- **Skeleton** — Fixed registry entry for `skeleton.css` so it installs to `styles/skeleton.css` in consumer projects instead of `ui/skeleton.css`
-- Fixed a hardcoded `ml-auto` in the docs header that broke RTL layouts; now uses the direction-aware `ms-auto`
+<ChangelogSection>
+  <ChangelogEntry type="added" name="Tag">
+    Status and category labels with multiple semantic variants, outline
+    styles, sizes, and corner options.
+  </ChangelogEntry>
+  <ChangelogEntry type="added" name="Lightbox">
+    A fullscreen image viewer with zoom, slideshow, thumbnails, and RTL
+    support.
+  </ChangelogEntry>
+  <ChangelogEntry type="added" name="Recaptcha">
+    Google reCAPTCHA v2 with locale support and responsive sizing.
+  </ChangelogEntry>
+  <ChangelogEntry type="added" name="Infinite Logo Scroll">
+    An auto-scrolling logo marquee with configurable direction, speed, hover
+    behavior, and custom image rendering.
+  </ChangelogEntry>
+  <ChangelogEntry type="added" name="Form Field">
+    A reusable form-control wrapper with labels, required states, and
+    validation messages.
+  </ChangelogEntry>
+  <ChangelogEntry type="added" name="Checkbox Group Field">
+    Grouped checkbox fields with a shared label and validation message.
+  </ChangelogEntry>
+  <ChangelogEntry type="added" name="File Upload Field">
+    Single-file uploads with client-side type, extension, and size
+    validation.
+  </ChangelogEntry>
+  <ChangelogEntry type="added" name="Collapsible">
+    Collapsible content with controlled and default-open states.
+  </ChangelogEntry>
+  <ChangelogEntry type="added" name="Tooltip">
+    Tooltips with wrapped content, DGA design tokens, and an optional title.
+  </ChangelogEntry>
+  <ChangelogEntry type="changed" name="Badge">
+    Added chip variants for active, pressed, selected, on-color, and disabled
+    states.
+  </ChangelogEntry>
+  <ChangelogEntry type="changed" name="Sonner (Toast)">
+    Added independent mobile toast positioning.
+  </ChangelogEntry>
+  <ChangelogEntry type="changed" name="Select">
+    Improved scroll-lock behavior for installed registry consumers.
+  </ChangelogEntry>
+  <ChangelogEntry type="changed" name="Collapsible">
+    Made open/close animations self-contained for registry consumers.
+  </ChangelogEntry>
+  <ChangelogEntry type="changed" name="Documentation">
+    Changes in Sidebar & general improvements made including codeblocks
+  </ChangelogEntry>
+  <ChangelogEntry type="fixed" name="Sonner (Toast)">
+    Restricted mobile positioning to the positions Sonner actually supports
+    on narrow viewports.
+  </ChangelogEntry>
+  <ChangelogEntry type="fixed" name="Skeleton">
+    Fixed the registry install path for its stylesheet.
+  </ChangelogEntry>
+  <ChangelogEntry type="fixed" name="Select">
+    Fixed design-token references affecting the trigger's border, background,
+    and open/error states.
+  </ChangelogEntry>
+  <ChangelogEntry type="fixed" name="Input">
+    Fixed design-token references affecting border, background, and radius
+    styling.
+  </ChangelogEntry>
+  <ChangelogEntry type="fixed" name="Tooltip">
+    Fixed dark-mode text contrast on the default tooltip style.
+  </ChangelogEntry>
+  <ChangelogEntry type="fixed" name="Docs Header">
+    Fixed RTL alignment in the documentation header.
+  </ChangelogEntry>
+</ChangelogSection>
 
 ---
 
 ## May 2026
 
-### New Components
-
-- **Navigation Menu** — Full RTL support with keyboard navigation
-- **Carousel** — Embla-based with swipe and RTL direction
-- **Skeleton** — Loading placeholders with RTL-aware animations
-- **Sonner (Toast)** — Notification banners with 5 variants (error, warning, success, info, neutral), RTL auto-flip, customizable icons, and mobile-responsive positioning
-
-### Improvements
-
-- Updated all components to match latest Platforms Code design tokens
-- Added IBM Plex Sans Arabic as default font
-- Full RTL support across all existing components
-
-### Infrastructure
-
-- Added shadcn registry support (`@dga/` prefix)
-- Multi-framework installation: Next.js, Vite, Laravel
-- SEO optimization with structured data
+<ChangelogSection>
+  <ChangelogEntry type="added" name="Navigation Menu">
+    Full RTL support with keyboard navigation.
+  </ChangelogEntry>
+  <ChangelogEntry type="added" name="Carousel">
+    Embla-based with swipe and RTL direction.
+  </ChangelogEntry>
+  <ChangelogEntry type="added" name="Skeleton">
+    Loading placeholders with RTL-aware animations.
+  </ChangelogEntry>
+  <ChangelogEntry type="added" name="Sonner (Toast)">
+    Notification banners with 5 variants, RTL auto-flip, customizable icons,
+    and mobile-responsive positioning.
+  </ChangelogEntry>
+  <ChangelogEntry type="changed" name="Design Tokens">
+    Updated all components to match the latest Platforms Code design tokens.
+  </ChangelogEntry>
+  <ChangelogEntry type="changed" name="Typography">
+    Added IBM Plex Sans Arabic as the default font.
+  </ChangelogEntry>
+  <ChangelogEntry type="changed" name="RTL">
+    Full right-to-left support across all existing components.
+  </ChangelogEntry>
+  <ChangelogEntry type="changed" name="Registry">
+    Added shadcn registry support with the `@dga/` prefix.
+  </ChangelogEntry>
+  <ChangelogEntry type="changed" name="Frameworks">
+    Multi-framework installation for Next.js, Vite, and Laravel.
+  </ChangelogEntry>
+  <ChangelogEntry type="changed" name="SEO">
+    Structured data added across the documentation site.
+  </ChangelogEntry>
+</ChangelogSection>
 
 ---
 
 ## April 2026
 
-### Initial Release
-
-- **Badge** — Status indicators with multiple variants
-- **Breadcrumb** — Navigation hierarchy
-- **Button** — Multiple variants, sizes, loading states
-- **Card** — Flexible container component
-- **Checkbox** — Toggle control with RTL support
-- **Input** — Form input with Arabic placeholder support
-- **Radio Group** — Single-select radio buttons
-- **Select** — Dropdown with RTL positioning
-- **Table** — Responsive data table with selection
-- **Tabs** — Tabbed content panels
+<ChangelogSection>
+  <ChangelogEntry type="added" name="Badge">
+    Status indicators with multiple variants.
+  </ChangelogEntry>
+  <ChangelogEntry type="added" name="Breadcrumb">
+    Navigation hierarchy.
+  </ChangelogEntry>
+  <ChangelogEntry type="added" name="Button">
+    Multiple variants, sizes, and loading states.
+  </ChangelogEntry>
+  <ChangelogEntry type="added" name="Card">
+    A flexible container component.
+  </ChangelogEntry>
+  <ChangelogEntry type="added" name="Checkbox">
+    A toggle control with RTL support.
+  </ChangelogEntry>
+  <ChangelogEntry type="added" name="Input">
+    A form input with Arabic placeholder support.
+  </ChangelogEntry>
+  <ChangelogEntry type="added" name="Radio Group">
+    Single-select radio buttons.
+  </ChangelogEntry>
+  <ChangelogEntry type="added" name="Select">
+    A dropdown with RTL positioning.
+  </ChangelogEntry>
+  <ChangelogEntry type="added" name="Table">
+    A responsive data table with selection.
+  </ChangelogEntry>
+  <ChangelogEntry type="added" name="Tabs">
+    Tabbed content panels.
+  </ChangelogEntry>
+</ChangelogSection>
 
 ---
 
@@ -90,10 +180,8 @@ Components planned based on the [Platforms Code](https://www.figma.com/community
 - Divider
 - Drawer / Slide-out Menu
 - Dropdown Menu
-- File Uploader
 - Floating Button
 - Footer
-- Form / Field validation
 - Hover Card
 - Metric
 - Nav Header
@@ -108,6 +196,5 @@ Components planned based on the [Platforms Code](https://www.figma.com/community
 - Stepper (Radial)
 - Structured List
 - Toast / Notifications
-- Tooltip
 
 </DocsLayout>

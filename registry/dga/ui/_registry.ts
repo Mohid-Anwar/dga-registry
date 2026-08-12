@@ -162,6 +162,17 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "checkbox-group-field",
+    type: "registry:ui",
+    registryDependencies: ["checkbox", "form-field"],
+    files: [
+      {
+        path: "ui/checkbox-group-field.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "collapsible",
     type: "registry:ui",
     dependencies: ["radix-ui"],
@@ -169,6 +180,11 @@ export const ui: Registry["items"] = [
       {
         path: "ui/collapsible.tsx",
         type: "registry:ui",
+      },
+      {
+        path: "ui/collapsible.css",
+        type: "registry:component",
+        target: "styles/collapsible.css",
       },
     ],
   },
@@ -262,6 +278,18 @@ export const ui: Registry["items"] = [
     ],
   },
   {
+    name: "file-upload-field",
+    type: "registry:ui",
+    dependencies: ["@hugeicons/react", "@hugeicons/core-free-icons"],
+    registryDependencies: ["button"],
+    files: [
+      {
+        path: "ui/file-upload-field.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
     name: "form",
     type: "registry:ui",
     dependencies: ["radix-ui", "@hookform/resolvers", "zod", "react-hook-form"],
@@ -269,6 +297,17 @@ export const ui: Registry["items"] = [
     files: [
       {
         path: "ui/form.tsx",
+        type: "registry:ui",
+      },
+    ],
+  },
+  {
+    name: "form-field",
+    type: "registry:ui",
+    dependencies: ["@hugeicons/react", "@hugeicons/core-free-icons"],
+    files: [
+      {
+        path: "ui/form-field.tsx",
         type: "registry:ui",
       },
     ],
@@ -465,6 +504,11 @@ export const ui: Registry["items"] = [
       {
         path: "ui/select.tsx",
         type: "registry:ui",
+      },
+      {
+        path: "ui/select.css",
+        type: "registry:component",
+        target: "styles/select.css",
       },
     ],
   },
@@ -719,6 +763,11 @@ export const ui: Registry["items"] = [
       {
         path: "ui/tooltip.tsx",
         type: "registry:ui",
+      },
+      {
+        path: "styles/tokens.css",
+        type: "registry:component",
+        target: "styles/tokens.css",
       },
     ],
   },

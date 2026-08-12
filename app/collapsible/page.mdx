@@ -1,0 +1,78 @@
+import { DirectionToggle } from "@/components/docs/direction-toggle"
+import { DocsLayout } from "@/components/docs/docs-layout"
+import { InstallCommand } from "@/components/docs/install-command"
+
+import {
+  CollapsibleBasic,
+  CollapsibleControlled,
+  CollapsibleDefaultOpen,
+  CollapsibleFAQ,
+} from "./demos"
+
+export const metadata = {
+  title: "Collapsible",
+  description:
+    "DGA Collapsible component for React & Next.js. An animated expand/collapse panel built on Radix Collapsible. Digital Government Authority Saudi Arabia design system.",
+}
+
+<DocsLayout>
+
+# Collapsible
+
+An interactive panel that expands and collapses its content, built on Radix `Collapsible`.
+
+<DirectionToggle />
+
+## Installation
+
+<InstallCommand componentName="collapsible" />
+
+## Basic Usage
+
+<CollapsibleBasic />
+
+## FAQ List
+
+Multiple independent collapsibles, each toggled on its own.
+
+<CollapsibleFAQ />
+
+## Controlled
+
+Drive `open` state externally instead of letting the trigger manage it.
+
+<CollapsibleControlled />
+
+## Default Open
+
+<CollapsibleDefaultOpen />
+
+## Props
+
+### Collapsible
+
+| Prop            | Type                      | Default | Description                    |
+| --------------- | ------------------------- | ------- | ------------------------------- |
+| `open`          | `boolean`                  | —       | Controlled open state           |
+| `defaultOpen`   | `boolean`                  | `false` | Initial open state (uncontrolled) |
+| `onOpenChange`  | `(open: boolean) => void`  | —       | Called when open state changes  |
+| `disabled`      | `boolean`                  | `false` | Disables the trigger             |
+
+### CollapsibleTrigger
+
+| Prop      | Type        | Default | Description                                        |
+| --------- | ----------- | ------- | ---------------------------------------------------- |
+| `asChild` | `boolean`   | `false` | Renders as the child element instead of a `<button>` |
+
+### CollapsibleContent
+
+| Prop        | Type        | Default | Description                                                 |
+| ----------- | ----------- | ------- | ------------------------------------------------------------- |
+| `className` | `string`    | —       | Additional CSS classes                                        |
+| `children`  | `ReactNode` | —       | Content revealed on open, animated via `collapsible.css`       |
+
+## Notes
+
+Ships a companion `collapsible.css` (installed to `styles/collapsible.css`) defining the `collapsible-down`/`collapsible-up` keyframes the open/close animation uses. It's imported automatically by `collapsible.tsx` — no extra setup needed, and it doesn't depend on a consumer's Tailwind config defining `--animate-*` theme tokens.
+
+</DocsLayout>

@@ -1,6 +1,11 @@
+import { InformationCircleIcon } from "@hugeicons/core-free-icons"
+import { HugeiconsIcon } from "@hugeicons/react"
+
+import { CodeBlock } from "@/components/docs/code-block"
 import { DirectionToggle } from "@/components/docs/direction-toggle"
 import { DocsLayout } from "@/components/docs/docs-layout"
 import { InstallCommand } from "@/components/docs/install-command"
+import { Alert, AlertDescription, AlertTitle } from "@/registry/dga/ui/alert"
 
 import { RecaptchaArabic, RecaptchaBasic } from "./demos"
 
@@ -49,21 +54,32 @@ Pass a `lang` to match the widget's locale to the current page.
 
 ## Inside a modal
 
-The widget auto-injects a small global style fix for
-[radix-ui/primitives#1385](https://github.com/radix-ui/primitives/issues/1385) — Radix
-Dialogs set `pointer-events: none` on `body` siblings, which makes the reCAPTCHA
-challenge iframe (appended to `document.body`, outside the dialog) unclickable. No
-setup is required.
+<Alert className="mt-4">
+  <HugeiconsIcon icon={InformationCircleIcon} />
+  <AlertTitle>No setup required</AlertTitle>
+  <AlertDescription>
+    The widget auto-injects a small global style fix for{" "}
+    [radix-ui/primitives#1385](https://github.com/radix-ui/primitives/issues/1385) —
+    Radix Dialogs set `pointer-events: none` on `body` siblings, which makes the
+    reCAPTCHA challenge iframe (appended to `document.body`, outside the dialog)
+    unclickable.
+  </AlertDescription>
+</Alert>
 
 If your app enforces a `style-src` CSP without `'unsafe-inline'`, the fix only applies
 when the page already has a nonce on another `<style>`/`<script>` tag (it reuses that
-nonce). Under a stricter policy, add this rule to your own global stylesheet instead:
+nonce). Under a stricter policy, add this rule to your own global stylesheet instead —
+`app/globals.css` in Next.js, `src/index.css` in Vite, `resources/css/app.css` in
+Laravel, `src/styles/global.css` in Astro, `src/styles/app.css` in TanStack Start, or
+the equivalent entry stylesheet in any other setup:
 
-```css
-body > div:has(iframe[src*="recaptcha/api2/bframe"]) {
+<CodeBlock
+  language="css"
+  filename="globals.css"
+  code={`body > div:has(iframe[src*="recaptcha/api2/bframe"]) {
   pointer-events: auto !important;
-}
-```
+}`}
+/>
 
 ## Props
 

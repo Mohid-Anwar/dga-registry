@@ -1,0 +1,81 @@
+import { DirectionToggle } from "@/components/docs/direction-toggle"
+import { DocsLayout } from "@/components/docs/docs-layout"
+import { InstallCommand } from "@/components/docs/install-command"
+
+import {
+  TooltipBasic,
+  TooltipLongText,
+  TooltipOnIcons,
+  TooltipPositions,
+  TooltipWithTitle,
+} from "./demos"
+
+export const metadata = {
+  title: "Tooltip",
+  description:
+    "DGA Tooltip component for React & Next.js. An accessible popup built on Radix Tooltip, with a 240px max width and automatic text wrapping. Digital Government Authority Saudi Arabia design system.",
+}
+
+<DocsLayout>
+
+# Tooltip
+
+A popup that shows information related to an element when it receives keyboard focus or the mouse hovers over it, built on Radix `Tooltip`.
+
+<DirectionToggle />
+
+## Installation
+
+<InstallCommand componentName="tooltip" />
+
+## Basic Usage
+
+Wrap your app (or the relevant section) in a single `TooltipProvider`.
+
+<TooltipBasic />
+
+## Positions
+
+<TooltipPositions />
+
+## Long Text
+
+`TooltipContent` caps at a `240px` max width — longer text wraps automatically instead of stretching the tooltip across the screen.
+
+<TooltipLongText />
+
+## With a Title
+
+Compose `TooltipTitle` above the description text for a two-part tooltip — the title uses the heading text color, the description uses the paragraph text color.
+
+<TooltipWithTitle />
+
+## On Icon Buttons
+
+<TooltipOnIcons />
+
+## Props
+
+### Tooltip / TooltipProvider
+
+| Prop            | Type                      | Default | Description                              |
+| --------------- | ------------------------- | ------- | ------------------------------------------ |
+| `delayDuration` | `number`                  | `0` (Provider) | Milliseconds before the tooltip opens on hover |
+| `open`          | `boolean`                 | —       | Controlled open state                       |
+| `onOpenChange`  | `(open: boolean) => void` | —       | Called when open state changes              |
+
+### TooltipContent
+
+| Prop         | Type                                    | Default | Description                          |
+| ------------ | ---------------------------------------- | ------- | -------------------------------------- |
+| `side`       | `"top" \| "right" \| "bottom" \| "left"` | `"top"` | Preferred side relative to the trigger |
+| `sideOffset` | `number`                                 | `0`     | Distance in pixels from the trigger    |
+| `className`  | `string`                                 | —       | Additional CSS classes                 |
+
+### TooltipTitle
+
+| Prop        | Type     | Default | Description                                 |
+| ----------- | -------- | ------- | --------------------------------------------- |
+| `className` | `string` | —       | Additional CSS classes for the title text     |
+
+</DocsLayout>

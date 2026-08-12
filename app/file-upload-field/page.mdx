@@ -1,0 +1,63 @@
+import { DirectionToggle } from "@/components/docs/direction-toggle"
+import { DocsLayout } from "@/components/docs/docs-layout"
+import { InstallCommand } from "@/components/docs/install-command"
+
+import {
+  FileUploadFieldBasic,
+  FileUploadFieldCustomRules,
+  FileUploadFieldError,
+  FileUploadFieldForm,
+} from "./demos"
+
+export const metadata = {
+  title: "File Upload Field",
+  description:
+    "DGA File Upload Field component for React & Next.js. Single-file upload with client-side MIME type, extension, and size validation. Digital Government Authority Saudi Arabia design system.",
+}
+
+<DocsLayout>
+
+# File Upload Field
+
+A single-file upload control with a browse button, client-side MIME type/extension/size validation, and a remove-and-replace flow. Validation defaults to JPEG/PNG/PDF up to 2 MB, all overridable via props.
+
+<DirectionToggle />
+
+## Installation
+
+<InstallCommand componentName="file-upload-field" />
+
+## Basic Usage
+
+<FileUploadFieldBasic />
+
+## Error State
+
+Pass an `error` string to show a message below the field — client-side validation errors take precedence when both are present.
+
+<FileUploadFieldError />
+
+## Custom Validation Rules
+
+Override `maxSize`, `acceptedMimeTypes`, and `acceptedExtensions` to fit the upload.
+
+<FileUploadFieldCustomRules />
+
+## Form Example
+
+<FileUploadFieldForm />
+
+## Props
+
+| Prop                 | Type                          | Default                              | Description                                  |
+| -------------------- | ----------------------------- | ------------------------------------- | --------------------------------------------- |
+| `name`               | `string`                       | —                                     | Name of the underlying file input             |
+| `labels`             | `FileUploadLabels`             | —                                     | All user-facing strings (title, errors, etc.) |
+| `error`              | `string`                       | —                                     | External error, shown when no client error    |
+| `className`          | `string`                       | —                                     | Additional CSS classes on the wrapper         |
+| `maxSize`            | `number`                       | `2 * 1024 * 1024` (2 MB)              | Maximum accepted file size in bytes           |
+| `acceptedMimeTypes`  | `string[]`                     | `["image/jpeg", "image/png", "application/pdf"]` | Allowed MIME types                |
+| `acceptedExtensions` | `string[]`                     | `[".jpg", ".jpeg", ".png", ".pdf"]`  | Allowed file extensions                       |
+| `onFileChange`       | `(file: File \| null) => void` | —                                     | Called when a valid file is selected or removed |
+
+</DocsLayout>

@@ -8,6 +8,7 @@ import {
   SelectForms,
   SelectGrouped,
   SelectSizes,
+  SelectValidation,
   SelectWidths,
   SelectWithIcons,
 } from "./demos"
@@ -54,6 +55,12 @@ Select items with icon prefixes.
 
 <SelectWithIcons />
 
+## Validation States
+
+Pass `aria-invalid` on `SelectTrigger` to switch the bottom underline to the error color — the same underline that shows a solid line while open.
+
+<SelectValidation />
+
 ## Controlled Select
 
 Select with controlled state and value display.
@@ -85,10 +92,15 @@ Select with different width configurations.
 
 ### SelectTrigger
 
-| Prop        | Type                | Default     | Description            |
-| ----------- | ------------------- | ----------- | ---------------------- |
-| `size`      | `"default" \| "sm"` | `"default"` | Size variant           |
-| `className` | `string`            | —           | Additional CSS classes |
+| Prop           | Type                | Default     | Description                                              |
+| -------------- | ------------------- | ----------- | ---------------------------------------------------------- |
+| `size`         | `"default" \| "sm"` | `"default"` | Size variant                                                |
+| `aria-invalid` | `boolean`           | —           | Shows the bottom underline in the error color permanently |
+| `className`    | `string`            | —           | Additional CSS classes                                     |
+
+## Notes
+
+`select.tsx` ships a companion `select.css` (installed to `styles/select.css`) that fixes a Radix scroll-lock issue — `react-remove-scroll` adds `data-scroll-locked` to `<body>` while the dropdown is open, which otherwise causes a horizontal layout shift. This is imported automatically; no extra setup needed.
 
 ### SelectItem
 
