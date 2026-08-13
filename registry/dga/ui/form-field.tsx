@@ -47,9 +47,9 @@ export function FormField({
         >
           <HugeiconsIcon
             icon={HelpCircleIcon}
-            className="text-[var(--text-text-error,#B42318)] size-4"
+            className="size-4 text-[var(--text-text-error,#B42318)]"
           />
-          <p className="text-[var(--text-text-error,#B42318)] text-sm leading-5">
+          <p className="text-sm leading-5 text-[var(--text-text-error,#B42318)]">
             {error}
           </p>
         </div>

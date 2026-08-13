@@ -45,7 +45,8 @@ export function CheckboxGroupFieldBasic() {
 ═══════════════════════════════════════════ */
 export function CheckboxGroupFieldError() {
   const [selected, setSelected] = React.useState<string[]>([])
-  const error = selected.length === 0 ? "Select at least one pollutant" : undefined
+  const error =
+    selected.length === 0 ? "Select at least one pollutant" : undefined
 
   return (
     <div className="bg-background rounded-lg border p-6">
@@ -72,7 +73,9 @@ export function CheckboxGroupFieldForm() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setError(pollutants.length === 0 ? "Select at least one pollutant" : undefined)
+    setError(
+      pollutants.length === 0 ? "Select at least one pollutant" : undefined
+    )
   }
 
   return (

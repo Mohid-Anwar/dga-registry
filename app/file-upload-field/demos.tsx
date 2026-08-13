@@ -24,7 +24,11 @@ export function FileUploadFieldBasic() {
   return (
     <div className="bg-background rounded-lg border p-6">
       <div className="flex flex-col gap-4">
-        <FileUploadField name="certificate" labels={LABELS} onFileChange={setFile} />
+        <FileUploadField
+          name="certificate"
+          labels={LABELS}
+          onFileChange={setFile}
+        />
         {file && (
           <p className="text-muted-foreground text-sm">
             Selected: <strong>{file.name}</strong>

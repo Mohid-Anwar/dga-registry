@@ -2,7 +2,12 @@ import { DirectionToggle } from "@/components/docs/direction-toggle"
 import { DocsLayout } from "@/components/docs/docs-layout"
 import { InstallCommand } from "@/components/docs/install-command"
 
-import { FormFieldBasic, FormFieldError, FormFieldForm, FormFieldSelect } from "./demos"
+import {
+  FormFieldBasic,
+  FormFieldError,
+  FormFieldForm,
+  FormFieldSelect,
+} from "./demos"
 
 export const metadata = {
   title: "Form Field",
@@ -48,13 +53,13 @@ A real-world form composing multiple `FormField`s with client-side validation.
 
 ## Props
 
-| Prop        | Type        | Default | Description                                    |
-| ----------- | ----------- | ------- | ---------------------------------------------- |
-| `label`     | `string`    | —       | Field label text                                |
-| `name`      | `string`    | —       | Used for the label's `htmlFor` and error `id`   |
-| `required`  | `boolean`   | `false` | Shows a red asterisk before the label           |
-| `error`     | `string`    | —       | Error message shown below the field, with icon  |
-| `className` | `string`    | —       | Additional CSS classes on the wrapper           |
+| Prop        | Type        | Default | Description                                      |
+| ----------- | ----------- | ------- | ------------------------------------------------ |
+| `label`     | `string`    | —       | Field label text                                 |
+| `name`      | `string`    | —       | Used for the label's `htmlFor` and error `id`    |
+| `required`  | `boolean`   | `false` | Shows a red asterisk before the label            |
+| `error`     | `string`    | —       | Error message shown below the field, with icon   |
+| `className` | `string`    | —       | Additional CSS classes on the wrapper            |
 | `children`  | `ReactNode` | —       | The form control(s) rendered between label/error |
 
 </DocsLayout>
