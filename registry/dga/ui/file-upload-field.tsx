@@ -123,7 +123,7 @@ export function FileUploadField({
           <button
             type="button"
             onClick={handleRemove}
-            className="text-error ms-auto flex shrink-0 cursor-pointer items-center gap-1 text-sm transition-opacity hover:opacity-70"
+            className="ms-auto flex shrink-0 cursor-pointer items-center gap-1 text-sm text-[var(--text-text-error,#B42318)] transition-opacity hover:opacity-70"
           >
             <HugeiconsIcon icon={Cancel01Icon} className="size-4" />
             {labels.remove}
@@ -155,7 +155,7 @@ export function FileUploadField({
           id={`${name}-error`}
           role="alert"
           aria-live="polite"
-          className="text-error text-sm"
+          className="text-sm text-[var(--text-text-error,#B42318)]"
         >
           {displayError}
         </p>

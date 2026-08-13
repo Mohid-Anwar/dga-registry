@@ -49,15 +49,15 @@ Override `maxSize`, `acceptedMimeTypes`, and `acceptedExtensions` to fit the upl
 
 ## Props
 
-| Prop                 | Type                          | Default                              | Description                                  |
-| -------------------- | ----------------------------- | ------------------------------------- | --------------------------------------------- |
-| `name`               | `string`                       | —                                     | Name of the underlying file input             |
-| `labels`             | `FileUploadLabels`             | —                                     | All user-facing strings (title, errors, etc.) |
-| `error`              | `string`                       | —                                     | External error, shown when no client error    |
-| `className`          | `string`                       | —                                     | Additional CSS classes on the wrapper         |
-| `maxSize`            | `number`                       | `2 * 1024 * 1024` (2 MB)              | Maximum accepted file size in bytes           |
-| `acceptedMimeTypes`  | `string[]`                     | `["image/jpeg", "image/png", "application/pdf"]` | Allowed MIME types                |
-| `acceptedExtensions` | `string[]`                     | `[".jpg", ".jpeg", ".png", ".pdf"]`  | Allowed file extensions                       |
-| `onFileChange`       | `(file: File \| null) => void` | —                                     | Called when a valid file is selected or removed |
+| Prop                 | Type                           | Default                                          | Description                                     |
+| -------------------- | ------------------------------ | ------------------------------------------------ | ----------------------------------------------- |
+| `name`               | `string`                       | —                                                | Name of the underlying file input               |
+| `labels`             | `FileUploadLabels`             | —                                                | All user-facing strings (title, errors, etc.)   |
+| `error`              | `string`                       | —                                                | External error, shown when no client error      |
+| `className`          | `string`                       | —                                                | Additional CSS classes on the wrapper           |
+| `maxSize`            | `number`                       | `2 * 1024 * 1024` (2 MB)                         | Maximum accepted file size in bytes             |
+| `acceptedMimeTypes`  | `string[]`                     | `["image/jpeg", "image/png", "application/pdf"]` | Allowed MIME types                              |
+| `acceptedExtensions` | `string[]`                     | `[".jpg", ".jpeg", ".png", ".pdf"]`              | Allowed file extensions                         |
+| `onFileChange`       | `(file: File \| null) => void` | —                                                | Called when a valid file is selected or removed |
 
 </DocsLayout>

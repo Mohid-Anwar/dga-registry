@@ -80,23 +80,23 @@ import { InfiniteLogoScroll } from "@/registry/dga/ui/infinite-logo-scroll"
 
 ## Props
 
-| Prop            | Type                             | Default    | Description                                             |
-| --------------- | -------------------------------- | ---------- | -------------------------------------------------------- |
-| `items`         | `LogoItem[]`                     | —          | Logos to render (see below)                             |
-| `direction`     | `"left" \| "right"`              | `"left"`   | Scroll direction                                         |
-| `speedPxPerSec` | `number`                         | `50`       | Scroll speed in pixels per second                        |
-| `hoverRate`     | `number`                         | `0.15`     | Playback rate applied on hover                           |
-| `renderImage`   | `(item: LogoItem) => ReactNode`  | plain img  | Custom renderer for each logo image                      |
-| `className`     | `string`                         | —          | Additional CSS classes                                   |
+| Prop            | Type                            | Default   | Description                         |
+| --------------- | ------------------------------- | --------- | ----------------------------------- |
+| `items`         | `LogoItem[]`                    | —         | Logos to render (see below)         |
+| `direction`     | `"left" \| "right"`             | `"left"`  | Scroll direction                    |
+| `speedPxPerSec` | `number`                        | `50`      | Scroll speed in pixels per second   |
+| `hoverRate`     | `number`                        | `0.15`    | Playback rate applied on hover      |
+| `renderImage`   | `(item: LogoItem) => ReactNode` | plain img | Custom renderer for each logo image |
+| `className`     | `string`                        | —         | Additional CSS classes              |
 
 ### `LogoItem`
 
-| Field    | Type     | Description                                  |
-| -------- | -------- | --------------------------------------------- |
-| `id`     | `number` | Unique key                                    |
-| `image`  | `string` | Logo image URL                                |
-| `href`   | `string` | Link target when the logo is clicked          |
-| `alt`    | `string` | Alt text                                      |
+| Field    | Type     | Description                                    |
+| -------- | -------- | ---------------------------------------------- |
+| `id`     | `number` | Unique key                                     |
+| `image`  | `string` | Logo image URL                                 |
+| `href`   | `string` | Link target when the logo is clicked           |
+| `alt`    | `string` | Alt text                                       |
 | `width`  | `number` | Intrinsic width, for layout-shift reservation  |
 | `height` | `number` | Intrinsic height, for layout-shift reservation |
 

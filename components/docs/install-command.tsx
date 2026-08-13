@@ -99,7 +99,11 @@ export function InstallCommand({
   // globals variant: just show a plain code block (no PM tabs)
   if (variant === "globals") {
     return (
-      <CodeBlock code={GLOBALS_IMPORT} language="css" filename="app/globals.css" />
+      <CodeBlock
+        code={GLOBALS_IMPORT}
+        language="css"
+        filename="app/globals.css"
+      />
     )
   }
 

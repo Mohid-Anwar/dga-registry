@@ -21,7 +21,11 @@ export function FormFieldBasic() {
     <div className="bg-background rounded-lg border p-6">
       <div className="flex flex-col gap-4">
         <FormField label="Station Name" name="station-name">
-          <Input id="station-name" name="station-name" placeholder="e.g. Al Hair" />
+          <Input
+            id="station-name"
+            name="station-name"
+            placeholder="e.g. Al Hair"
+          />
         </FormField>
 
         <FormField label="Contact Email" name="contact-email" required>
@@ -42,12 +46,20 @@ export function FormFieldBasic() {
 ═══════════════════════════════════════════ */
 export function FormFieldError() {
   const [value, setValue] = React.useState("")
-  const error = value.length > 0 && value.length < 3 ? "Must be at least 3 characters" : undefined
+  const error =
+    value.length > 0 && value.length < 3
+      ? "Must be at least 3 characters"
+      : undefined
 
   return (
     <div className="bg-background rounded-lg border p-6">
       <div className="flex flex-col gap-4">
-        <FormField label="Station Code" name="station-code" required error={error}>
+        <FormField
+          label="Station Code"
+          name="station-code"
+          required
+          error={error}
+        >
           <Input
             id="station-code"
             name="station-code"
@@ -58,12 +70,13 @@ export function FormFieldError() {
           />
         </FormField>
 
-        <FormField
-          label="Notes"
-          name="notes"
-          error="This field is required"
-        >
-          <Input id="notes" name="notes" aria-invalid placeholder="Optional notes" />
+        <FormField label="Notes" name="notes" error="This field is required">
+          <Input
+            id="notes"
+            name="notes"
+            aria-invalid
+            placeholder="Optional notes"
+          />
         </FormField>
       </div>
     </div>
@@ -104,8 +117,10 @@ export function FormFieldForm() {
     e.preventDefault()
     const data = new FormData(e.currentTarget)
     const nextErrors: Record<string, string> = {}
-    if (!data.get("station-name")) nextErrors["station-name"] = "Station name is required"
-    if (!data.get("contact-email")) nextErrors["contact-email"] = "Contact email is required"
+    if (!data.get("station-name"))
+      nextErrors["station-name"] = "Station name is required"
+    if (!data.get("contact-email"))
+      nextErrors["contact-email"] = "Contact email is required"
     setErrors(nextErrors)
   }
 

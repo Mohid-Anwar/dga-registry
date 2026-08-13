@@ -59,10 +59,10 @@ Pass a `lang` to match the widget's locale to the current page.
   <AlertTitle>No setup required</AlertTitle>
   <AlertDescription>
     The widget auto-injects a small global style fix for{" "}
-    [radix-ui/primitives#1385](https://github.com/radix-ui/primitives/issues/1385) —
-    Radix Dialogs set `pointer-events: none` on `body` siblings, which makes the
-    reCAPTCHA challenge iframe (appended to `document.body`, outside the dialog)
-    unclickable.
+    [radix-ui/primitives#1385](https://github.com/radix-ui/primitives/issues/1385)
+    — Radix Dialogs set `pointer-events: none` on `body` siblings, which makes
+    the reCAPTCHA challenge iframe (appended to `document.body`, outside the
+    dialog) unclickable.
   </AlertDescription>
 </Alert>
 
@@ -83,13 +83,13 @@ the equivalent entry stylesheet in any other setup:
 
 ## Props
 
-| Prop        | Type                              | Default                                  | Description                                 |
-| ----------- | --------------------------------- | ---------------------------------------- | ------------------------------------------- |
-| `lang`      | `string`                          | —                                        | reCAPTCHA locale code (e.g. `"en"`, `"ar"`) |
-| `sitekey`   | `string`                          | —                                        | Site key from the reCAPTCHA admin console   |
-| `onChange`  | `(token: string \| null) => void` | —                                        | Called with the verification token          |
-| `onExpired` | `() => void`                      | —                                        | Called when the token expires               |
-| `onErrored` | `() => void`                      | —                                        | Called when the widget fails to load        |
-| `ref`       | `React.Ref<ReCAPTCHA>`            | —                                        | Access the underlying widget instance       |
+| Prop        | Type                              | Default | Description                                 |
+| ----------- | --------------------------------- | ------- | ------------------------------------------- |
+| `lang`      | `string`                          | —       | reCAPTCHA locale code (e.g. `"en"`, `"ar"`) |
+| `sitekey`   | `string`                          | —       | Site key from the reCAPTCHA admin console   |
+| `onChange`  | `(token: string \| null) => void` | —       | Called with the verification token          |
+| `onExpired` | `() => void`                      | —       | Called when the token expires               |
+| `onErrored` | `() => void`                      | —       | Called when the widget fails to load        |
+| `ref`       | `React.Ref<ReCAPTCHA>`            | —       | Access the underlying widget instance       |
 
 </DocsLayout>

@@ -28,8 +28,8 @@ export function CollapsibleBasic() {
           </Button>
         </CollapsibleTrigger>
         <CollapsibleContent className="mt-2 rounded-md border p-4 text-sm">
-          Prince Sultan Humanity City station monitors PM2.5, PM10, NO₂, and
-          O₃ levels across the Riyadh region, reporting hourly averages to the
+          Prince Sultan Humanity City station monitors PM2.5, PM10, NO₂, and O₃
+          levels across the Riyadh region, reporting hourly averages to the
           central network.
         </CollapsibleContent>
       </Collapsible>
@@ -43,15 +43,18 @@ export function CollapsibleBasic() {
 const FAQS = [
   {
     question: "How often is air quality data updated?",
-    answer: "Station readings are refreshed every 15 minutes and hourly averages are published on the hour.",
+    answer:
+      "Station readings are refreshed every 15 minutes and hourly averages are published on the hour.",
   },
   {
     question: "What pollutants are monitored?",
-    answer: "PM2.5, PM10, NO₂, SO₂, O₃, and CO are tracked across all background and traffic stations.",
+    answer:
+      "PM2.5, PM10, NO₂, SO₂, O₃, and CO are tracked across all background and traffic stations.",
   },
   {
     question: "Can I export historical data?",
-    answer: "Yes — use the Data Query form to select a station, time range, and pollutant, then export as CSV.",
+    answer:
+      "Yes — use the Data Query form to select a station, time range, and pollutant, then export as CSV.",
   },
 ]
 
@@ -98,7 +101,11 @@ export function CollapsibleControlled() {
       >
         <div className="flex items-center justify-between">
           <span className="text-sm font-medium">Advanced Filters</span>
-          <Button variant="outline" size="sm" onClick={() => setOpen((v) => !v)}>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => setOpen((v) => !v)}
+          >
             {open ? "Hide" : "Show"}
           </Button>
         </div>

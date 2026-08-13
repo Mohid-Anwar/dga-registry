@@ -36,10 +36,7 @@ function getHighlighter() {
 }
 
 /** Tokenizes `code` for syntax-highlighted rendering; returns un-colored lines until the highlighter loads. */
-export function useHighlightedLines(
-  code: string,
-  language: string
-): Token[][] {
+export function useHighlightedLines(code: string, language: string): Token[][] {
   const [tokenLines, setTokenLines] = useState<Token[][] | null>(null)
 
   useEffect(() => {

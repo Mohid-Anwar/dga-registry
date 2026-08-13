@@ -1,8 +1,8 @@
 "use client"
 
+import Image from "next/image"
 import { InformationCircleIcon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
-import Image from "next/image"
 
 import {
   InfiniteLogoScroll,
@@ -70,8 +70,8 @@ export function InfiniteLogoScrollDefault() {
           <PopoverContent className="w-72 text-sm">
             This component renders a plain <code>&lt;img&gt;</code> by default
             to stay framework-agnostic. Pass <code>renderImage</code> to use{" "}
-            <code>next/image</code> or another framework&apos;s optimized
-            image component.
+            <code>next/image</code> or another framework&apos;s optimized image
+            component.
           </PopoverContent>
         </Popover>
       </div>
