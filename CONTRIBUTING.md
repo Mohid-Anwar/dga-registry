@@ -57,7 +57,7 @@ There is no automated test suite — verify UI changes manually in the dev serve
 ## Pull requests
 
 - Keep PRs focused on a single component or fix where possible.
-- Describe *why* the change is needed, not just what changed.
+- Describe _why_ the change is needed, not just what changed.
 - Link any related issue.
 - Make sure `registry.json` and `public/r/*.json` are consistent with the `_registry.ts` files you touched — a mismatch means the component silently won't build.
 

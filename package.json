@@ -9,7 +9,8 @@
     "lint": "next lint",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "registry:build": "shadcn build"
+    "registry:build": "shadcn build",
+    "prepare": "husky"
   },
   "dependencies": {
     "@base-ui/react": "1.1.0",
@@ -93,6 +94,8 @@
     "@typescript-eslint/parser": "^8.31.0",
     "eslint": "^9",
     "eslint-config-next": "16.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.3.0",
     "prettier": "^3.4.2",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "tailwindcss": "^4",
@@ -143,5 +146,8 @@
       "@ianvs/prettier-plugin-sort-imports",
       "prettier-plugin-tailwindcss"
     ]
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,mjs,json,css,yaml,yml}": "prettier --write"
   }
 }
