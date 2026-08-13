@@ -11,6 +11,7 @@ import {
 import { HugeiconsIcon } from "@hugeicons/react"
 
 import { Button } from "@/registry/dga/ui/button"
+import { FormField } from "@/registry/dga/ui/form-field"
 import {
   Select,
   SelectContent,
@@ -256,10 +257,18 @@ export function SelectValidation() {
   return (
     <div className="bg-background rounded-lg border p-6">
       <div className="flex flex-col gap-4">
-        <div className="flex flex-col gap-2">
-          <label className="text-sm font-medium">Station Type (required)</label>
-          <Select value={value} onValueChange={setValue}>
-            <SelectTrigger className="w-[280px]" aria-invalid={!!error}>
+        <FormField
+          label="Station Type"
+          name="station-type"
+          required
+          error={error}
+        >
+          <Select name="station-type" value={value} onValueChange={setValue}>
+            <SelectTrigger
+              id="station-type"
+              className="w-[280px]"
+              aria-invalid={!!error}
+            >
               <SelectValue placeholder="Select a station type" />
             </SelectTrigger>
             <SelectContent>
@@ -268,8 +277,7 @@ export function SelectValidation() {
               <SelectItem value="traffic">Traffic</SelectItem>
             </SelectContent>
           </Select>
-          {error && <p className="text-error text-sm">{error}</p>}
-        </div>
+        </FormField>
 
         <div className="flex flex-col gap-2">
           <label className="text-sm font-medium">Always Invalid</label>
