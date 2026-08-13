@@ -4,6 +4,8 @@ import { useState } from "react"
 import { Copy01Icon, Tick02Icon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
 
+import { REGISTRY_BASE } from "@/lib/registry-config"
+
 import { CodeBlock, CodeLines, useHighlightedLines } from "./code-block"
 
 type PackageManager = "pnpm" | "npm" | "yarn" | "bun"
@@ -22,8 +24,6 @@ type Variant =
   | "laravel-new"
 
 type Commands = Partial<Record<PackageManager, string>>
-
-const REGISTRY_BASE = "https://dga-registry.vercel.app/r"
 
 function buildCommands(componentName: string): Commands {
   const url = `${REGISTRY_BASE}/${componentName}.json`

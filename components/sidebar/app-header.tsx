@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation"
 import { Moon02Icon, Sun03Icon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
 
+import { CopyPageMenu } from "@/components/docs/copy-page-menu"
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -33,6 +34,7 @@ export function AppHeader() {
   const { setOffset } = useToasterOffset()
 
   const segments = pathname.split("/").filter(Boolean)
+  const slug = segments.join("/")
 
   const format = (segment: string) =>
     segment
@@ -111,6 +113,16 @@ export function AppHeader() {
 
         {/* Right side */}
         <div className="ms-auto flex items-center gap-2">
+          {segments.length > 0 && (
+            <>
+              <CopyPageMenu slug={slug} />
+              <Separator
+                orientation="vertical"
+                className="hidden h-4 md:block"
+              />
+            </>
+          )}
+
           {/* Search hint */}
           <span className="text-muted-foreground hidden items-center gap-1 text-sm md:flex">
             Press <Kbd>⌘</Kbd>
