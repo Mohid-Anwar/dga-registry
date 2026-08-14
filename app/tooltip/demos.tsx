@@ -8,6 +8,7 @@ import {
 import { HugeiconsIcon } from "@hugeicons/react"
 
 import { Button } from "@/registry/dga/ui/button"
+import { DirectionProvider } from "@/registry/dga/ui/direction"
 import {
   Tooltip,
   TooltipContent,
@@ -156,5 +157,38 @@ export function TooltipOnIcons() {
         </div>
       </TooltipProvider>
     </div>
+  )
+}
+
+/* ═══════════════════════════════════════════
+   6 — RTL Support
+═══════════════════════════════════════════ */
+export function TooltipRtl() {
+  return (
+    <DirectionProvider dir="rtl">
+      <div className="bg-background rounded-lg border p-6" dir="rtl">
+        <TooltipProvider>
+          <div className="flex items-center gap-3">
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button variant="outline">مرّر للعرض</Button>
+              </TooltipTrigger>
+              <TooltipContent>آخر تحديث قبل دقيقتين</TooltipContent>
+            </Tooltip>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <Button variant="outline" size="icon" aria-label="معلومات">
+                  <HugeiconsIcon
+                    icon={InformationCircleIcon}
+                    className="size-4"
+                  />
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent>عرض معلومات المحطة</TooltipContent>
+            </Tooltip>
+          </div>
+        </TooltipProvider>
+      </div>
+    </DirectionProvider>
   )
 }

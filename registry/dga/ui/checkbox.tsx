@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { Tick02Icon } from "@hugeicons/core-free-icons"
+import { MinusSignIcon, Tick02Icon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
 import { Checkbox as CheckboxPrimitive } from "radix-ui"
 
@@ -15,7 +15,7 @@ function Checkbox({
     <CheckboxPrimitive.Root
       data-slot="checkbox"
       className={cn(
-        "peer data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 flex size-6 shrink-0 items-center justify-center rounded-[var(--radius-xs,2px)] border border-[var(--Controls-control-border,#6C737F)] shadow-xs transition-shadow outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50",
+        "peer data-[state=checked]:border-primary data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground data-[state=indeterminate]:border-primary data-[state=indeterminate]:bg-primary data-[state=indeterminate]:text-primary-foreground focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 flex size-6 shrink-0 cursor-pointer items-center justify-center rounded-[var(--radius-xs,2px)] border border-[var(--Controls-control-border,#6C737F)] shadow-xs transition-shadow outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50",
         className
       )}
       {...props}
@@ -24,7 +24,16 @@ function Checkbox({
         data-slot="checkbox-indicator"
         className="flex items-center justify-center text-current transition-none"
       >
-        <HugeiconsIcon icon={Tick02Icon} className="size-4" />
+        {/* Radix sets data-state on the indicator, so the tick and the
+            indeterminate dash swap purely in CSS. */}
+        <HugeiconsIcon
+          icon={Tick02Icon}
+          className="size-4 [[data-state=indeterminate]_&]:hidden"
+        />
+        <HugeiconsIcon
+          icon={MinusSignIcon}
+          className="size-4 [[data-state=checked]_&]:hidden"
+        />
       </CheckboxPrimitive.Indicator>
     </CheckboxPrimitive.Root>
   )

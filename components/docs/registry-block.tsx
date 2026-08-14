@@ -51,14 +51,14 @@ export function RegistryBlock() {
           <span className="text-zinc-400">{"{}"[0]}</span>
           {"\n"}
           <span className="text-zinc-400">{"  "}</span>
-          <span className="text-blue-400">"registries"</span>
+          <span className="text-blue-400">{'"registries"'}</span>
           <span className="text-zinc-400">{": {"}</span>
           {"\n"}
           <span className="text-zinc-400">{"    "}</span>
-          <span className="text-green-400">"@dga"</span>
+          <span className="text-green-400">{'"@dga"'}</span>
           <span className="text-zinc-400">{": "}</span>
           <span className="text-amber-300">
-            "https://dga-registry.vercel.app/r/{"{name}"}.json"
+            {'"https://dga-registry.vercel.app/r/{name}.json"'}
           </span>
           {"\n"}
           <span className="text-zinc-400">{"  }"}</span>

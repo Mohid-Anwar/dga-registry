@@ -142,3 +142,28 @@ export function CollapsibleDefaultOpen() {
     </div>
   )
 }
+
+/* ═══════════════════════════════════════════
+   5 — RTL Support
+═══════════════════════════════════════════ */
+export function CollapsibleRtl() {
+  return (
+    <div className="bg-background rounded-lg border p-6" dir="rtl">
+      <Collapsible defaultOpen className="w-full max-w-md">
+        <CollapsibleTrigger asChild>
+          <Button variant="outline" className="w-full justify-between">
+            تفاصيل المحطة
+            <HugeiconsIcon
+              icon={ArrowDown01Icon}
+              className="size-4 transition-transform duration-200 [[data-state=open]_&]:rotate-180"
+            />
+          </Button>
+        </CollapsibleTrigger>
+        <CollapsibleContent className="mt-2 rounded-md border p-4 text-sm">
+          ترصد محطة مدينة الأمير سلطان الإنسانية مستويات الجسيمات الدقيقة وثاني
+          أكسيد النيتروجين والأوزون في منطقة الرياض، وتُبلّغ بالمعدلات كل ساعة.
+        </CollapsibleContent>
+      </Collapsible>
+    </div>
+  )
+}

@@ -1,4 +1,3 @@
-import { DirectionToggle } from "@/components/docs/direction-toggle"
 import { DocsLayout } from "@/components/docs/docs-layout"
 import { InstallCommand } from "@/components/docs/install-command"
 
@@ -6,6 +5,7 @@ import {
   FormFieldBasic,
   FormFieldError,
   FormFieldForm,
+  FormFieldRtl,
   FormFieldSelect,
 } from "./demos"
 
@@ -20,8 +20,6 @@ export const metadata = {
 # Form Field
 
 A generic layout wrapper that pairs a label, an optional required indicator, and an error message with any single form control passed as `children`.
-
-<DirectionToggle />
 
 ## Installation
 
@@ -50,6 +48,12 @@ Pass an `error` string to show a validation message with an alert icon below the
 A real-world form composing multiple `FormField`s with client-side validation.
 
 <FormFieldForm />
+
+## RTL Support
+
+Labels, required markers, and error messages align to the ambient text direction.
+
+<FormFieldRtl />
 
 ## Props
 

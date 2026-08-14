@@ -90,7 +90,12 @@ export function Lightbox({
     const delta = jumpTarget - currentIndex
     if (delta > 0) ctrl.next({ count: delta })
     else if (delta < 0) ctrl.prev({ count: Math.abs(delta) })
-    setJumpTarget(null)
+
+    // Restore the animation on the next frame rather than inline: a synchronous
+    // setState here cascades an extra render, and the jump above is only
+    // instantaneous because the committed render still has `animation: 0`.
+    const frame = requestAnimationFrame(() => setJumpTarget(null))
+    return () => cancelAnimationFrame(frame)
   }, [jumpTarget]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const slides = useMemo(

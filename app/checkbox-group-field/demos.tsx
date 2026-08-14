@@ -28,7 +28,7 @@ export function CheckboxGroupFieldBasic() {
   const [selected, setSelected] = React.useState<string[]>([])
 
   return (
-    <div className="bg-background rounded-lg border p-6">
+    <div className="bg-background mt-4 rounded-lg border p-6">
       <CheckboxGroupField
         label="Station Types"
         name="station-types"
@@ -49,7 +49,7 @@ export function CheckboxGroupFieldError() {
     selected.length === 0 ? "Select at least one pollutant" : undefined
 
   return (
-    <div className="bg-background rounded-lg border p-6">
+    <div className="bg-background mt-4 rounded-lg border p-6">
       <CheckboxGroupField
         label="Pollutants to Monitor"
         name="pollutants"
@@ -79,7 +79,7 @@ export function CheckboxGroupFieldForm() {
   }
 
   return (
-    <div className="bg-background rounded-lg border p-6">
+    <div className="bg-background mt-4 rounded-lg border p-6">
       <div className="border-border bg-card rounded-lg border p-6">
         <h3 className="mb-4 text-lg font-semibold">Monitoring Configuration</h3>
         <form className="space-y-6" onSubmit={handleSubmit}>
@@ -109,6 +109,33 @@ export function CheckboxGroupFieldForm() {
           </div>
         </form>
       </div>
+    </div>
+  )
+}
+
+/* ═══════════════════════════════════════════
+   4 — RTL Support
+═══════════════════════════════════════════ */
+const STATION_TYPES_AR = [
+  { value: "background", label: "محطة خلفية" },
+  { value: "suburban", label: "محطة ضاحية" },
+  { value: "traffic", label: "محطة مرورية" },
+  { value: "industrial", label: "محطة صناعية" },
+]
+
+export function CheckboxGroupFieldRtl() {
+  const [selected, setSelected] = React.useState<string[]>(["background"])
+
+  return (
+    <div className="bg-background mt-4 rounded-lg border p-6" dir="rtl">
+      <CheckboxGroupField
+        label="أنواع المحطات"
+        name="station-types-rtl"
+        required
+        options={STATION_TYPES_AR}
+        selected={selected}
+        onChange={setSelected}
+      />
     </div>
   )
 }

@@ -3,7 +3,7 @@
 import * as React from "react"
 import { ChartIncreaseIcon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
-import { Label, Pie, PieChart } from "recharts"
+import { Pie, PieChart } from "recharts"
 
 import {
   Card,

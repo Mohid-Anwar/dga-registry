@@ -61,8 +61,23 @@ Track updates to DGA Components — new components, improvements, and fixes.
   <ChangelogEntry type="changed" name="Collapsible">
     Made open/close animations self-contained for registry consumers.
   </ChangelogEntry>
+  <ChangelogEntry type="added" name="AI & LLM Support">
+    Every docs page can now be handed to an assistant directly — copy it as
+    markdown, view the markdown source, or open it in Claude, ChatGPT, or v0
+    from the header menu.
+  </ChangelogEntry>
+  <ChangelogEntry type="added" name="Markdown Export">
+    Each page is also served as plain markdown at `/api/docs/<slug>`, with live
+    demos and code samples inlined as fenced code blocks.
+  </ChangelogEntry>
   <ChangelogEntry type="changed" name="Documentation">
     Changes in Sidebar & general improvements made including codeblocks
+  </ChangelogEntry>
+  <ChangelogEntry type="changed" name="Website">
+    The header now stays pinned while the page scrolls and carries arrows for
+    stepping to the previous or next component. Component pages gained a
+    dedicated RTL Support section with Arabic sample content, replacing the
+    site-wide direction toggle.
   </ChangelogEntry>
   <ChangelogEntry type="fixed" name="Sonner (Toast)">
     Restricted mobile positioning to the positions Sonner actually supports on

@@ -144,3 +144,32 @@ export function BadgeAsLink() {
     </div>
   )
 }
+
+/* ═══════════════════════════════════════════
+   7 — RTL Support
+═══════════════════════════════════════════ */
+export function BadgeRtl() {
+  return (
+    <div className="bg-background space-y-4 rounded-lg border p-6" dir="rtl">
+      <div className="flex flex-wrap items-center gap-3">
+        <Badge variant="default">افتراضي</Badge>
+        <Badge variant="secondary">ثانوي</Badge>
+        <Badge variant="destructive">خطأ</Badge>
+        <Badge variant="outline">محدّد</Badge>
+        <Badge variant="ghost">شفاف</Badge>
+      </div>
+      <div className="flex flex-wrap items-center gap-3">
+        <Badge variant="default">
+          <HugeiconsIcon icon={Tick02Icon} width={12} height={12} /> معتمد
+        </Badge>
+        <Badge variant="secondary">
+          <HugeiconsIcon icon={InformationCircleIcon} width={12} height={12} />{" "}
+          معلومات
+        </Badge>
+        <Badge variant="destructive">
+          <HugeiconsIcon icon={Alert02Icon} width={12} height={12} /> تنبيه
+        </Badge>
+      </div>
+    </div>
+  )
+}

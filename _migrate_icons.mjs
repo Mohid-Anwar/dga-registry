@@ -246,7 +246,6 @@ function processFile(filePath) {
 
   // Build new import statements
   const hugeiconsReactImport = `import { HugeiconsIcon } from "@hugeicons/react"`
-  const coreImport = `import { ${hugeIconNames.join(", ")} } from "@hugeicons/core-free-icons"`
   const newImports = `${hugeiconsReactImport}\nimport {\n  ${hugeIconNames.join(",\n  ")},\n} from "@hugeicons/core-free-icons"`
 
   // Replace the lucide import

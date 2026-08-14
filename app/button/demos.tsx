@@ -2,6 +2,7 @@
 
 import {
   ArrowDown01Icon,
+  ArrowLeft02Icon,
   ArrowRight02Icon,
   Cancel01Icon,
   Delete02Icon,
@@ -27,7 +28,7 @@ import { Button } from "@/registry/dga/ui/button"
 export function ButtonVariants() {
   return (
     <div className="bg-background rounded-lg border p-6">
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-4">
+      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
         <Button variant="default">Default</Button>
         <Button variant="default" disabled>
           Default Disabled
@@ -325,6 +326,34 @@ export function ButtonCombo() {
         <Button variant="outline">
           <HugeiconsIcon icon={Download04Icon} width={16} height={16} /> Export{" "}
           <HugeiconsIcon icon={ArrowDown01Icon} width={16} height={16} />
+        </Button>
+      </div>
+    </div>
+  )
+}
+
+/* ═══════════════════════════════════════════
+   8 — RTL Support
+═══════════════════════════════════════════ */
+export function ButtonRtl() {
+  return (
+    <div className="bg-background space-y-4 rounded-lg border p-6" dir="rtl">
+      <div className="flex flex-wrap items-center gap-3">
+        <Button variant="default">حفظ</Button>
+        <Button variant="secondary">تعديل</Button>
+        <Button variant="outline">إلغاء</Button>
+        <Button variant="destructive">حذف</Button>
+        <Button variant="ghost">رجوع</Button>
+      </div>
+      <div className="flex flex-wrap items-center gap-3">
+        <Button variant="default">
+          <HugeiconsIcon icon={Tick02Icon} width={16} height={16} /> تأكيد
+        </Button>
+        <Button variant="secondary">
+          <HugeiconsIcon icon={Mail01Icon} width={16} height={16} /> إرسال
+        </Button>
+        <Button variant="outline">
+          التالي <HugeiconsIcon icon={ArrowLeft02Icon} width={16} height={16} />
         </Button>
       </div>
     </div>

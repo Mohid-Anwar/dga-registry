@@ -56,7 +56,17 @@ Adding a new component to both the registry and the docs site requires all of:
 4. Run `pnpm registry:build` to regenerate `public/r/<name>.json`.
 5. If the component imports a hook or lib helper via its alias path (e.g. `@/hooks/use-mobile`, `@/lib/utils`) rather than `@/registry/dga/...`, make sure a matching file exists at the root `hooks/`/`lib/` folder too — see "Root `hooks/`/`lib/` mirrors" below.
 
-The sidebar auto-discovers docs entries: `lib/get-components.ts` lists every `.tsx` file in `registry/dga/ui/` that (a) isn't in its `ignored` list (currently `_registry`, `sidebar`, `sheet`, `direction`, `utils`) and (b) has a matching `app/<name>/page.mdx` route. A component with no doc route simply won't appear in the sidebar, even if it's a valid registry item.
+### Docs page conventions
+
+**Every code snippet in a docs page must be syntax highlighted — always use `<CodeBlock />`, never a triple-backtick fence.** `next.config.ts` runs MDX through `mdxRs` (the Rust compiler), which does not support JS rehype plugins, so `rehype-pretty-code`/Shiki can't be wired into the MDX pipeline. A fenced block therefore renders through the plain `pre` override in `app/mdx-components.tsx` — a dark box with uniform `text-zinc-50`, i.e. monochrome. `components/docs/code-block.tsx` is the only path that highlights (it runs Shiki client-side). Props: `code` (required), `language` (default `"tsx"`), `filename`, `showLineNumbers`, `highlightLines`.
+
+**Where to put the snippet string:** inline `code={`...`}` is fine _only_ when the snippet contains no blank lines. A blank line inside a template literal terminates MDX's ESM block — everything after it is parsed as markdown, and Prettier then strips the indentation out of your code sample. For any multi-line snippet with blank lines (imports separated from a function body, etc.), put it in a sibling `snippets.ts` and import it — see `app/sonner/snippets.ts` and `app/direction/snippets.ts`.
+
+**Every docs page must survive conversion to plain markdown.** "Copy page" and "View as Markdown" (`components/docs/copy-page-menu.tsx` → `app/api/docs/[[...slug]]/route.ts`) re-serve each page as markdown for LLM consumption, via `lib/mdx-to-plain.ts`. That converter understands exactly three things: prose/tables, `<CodeBlock />` (rewritten to a fenced block, with `code={identifier}` resolved against the page's `snippets.ts`), and self-closing demo tags whose function is found in the page's `demos.tsx` (inlined as its source). **Anything else — a custom wrapper component, a demo defined outside `demos.tsx`, a `code` prop that isn't a template literal or a bare `snippets.ts` identifier — is silently dropped from the markdown view.** So when adding a new docs construct, either keep it to those three shapes or teach `lib/mdx-to-plain.ts` about it; there's no error to warn you, the content just disappears. Verify with `curl localhost:3000/api/docs/<slug>`.
+
+Each documented component page also ends with an `## RTL Support` section — see "RTL / direction" below.
+
+The sidebar auto-discovers docs entries: `lib/get-components.ts` lists every `.tsx` file in `registry/dga/ui/` that (a) isn't in its `ignored` list (currently `_registry`, `sidebar`, `sheet`, `utils`) and (b) has a matching `app/<name>/page.mdx` route. A component with no doc route simply won't appear in the sidebar, even if it's a valid registry item.
 
 ### Styling and design tokens
 
@@ -66,7 +76,7 @@ The sidebar auto-discovers docs entries: `lib/get-components.ts` lists every `.t
 
 ### RTL / direction
 
-`rtl: true` in `components.json` — this registry supports Arabic RTL layouts. `registry/dga/ui/direction.tsx` wraps Radix's `Direction` primitive (`DirectionProvider`/`useDirection`); components that need direction-awareness should consume this rather than reading `dir` off the DOM directly. Docs pages typically embed a `<DirectionToggle />` (from `components/docs/`) so RTL behavior can be previewed live.
+`rtl: true` in `components.json` — this registry supports Arabic RTL layouts. `registry/dga/ui/direction.tsx` wraps Radix's `Direction` primitive (`DirectionProvider`/`useDirection`); components that need direction-awareness should consume this rather than reading `dir` off the DOM directly. Each docs page ends with an `## RTL Support` section rendering a static demo (`<NameRtl />` in that page's `demos.tsx`) with `dir="rtl"` and Arabic sample text. For direction-aware components (tabs, select, radio-group, tooltip, carousel), wrap that demo in `<DirectionProvider dir="rtl">` as well: those components resolve direction from prop → context → `"ltr"` and then write the resolved value as `dir` on their own root, which **overrides** the wrapper — so without the provider they render fully LTR, not just behave that way. Components that aren't direction-aware (badge, card, table, collapsible, checkbox) write no `dir` and inherit the wrapper normally.
 
 ### Path aliases (`components.json` / `tsconfig.json`)
 

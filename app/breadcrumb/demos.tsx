@@ -1,5 +1,7 @@
 "use client"
 
+import Link from "next/link"
+
 import {
   Breadcrumb,
   BreadcrumbEllipsis,
@@ -92,26 +94,34 @@ export function BreadcrumbCollapsed() {
 /* ═══════════════════════════════════════════
    4 — Multi-Line Labels
 ═══════════════════════════════════════════ */
+/* Constrained width so the labels actually wrap — the point of the demo.
+   BreadcrumbList already carries `flex-wrap wrap-break-word`. */
 export function BreadcrumbLongLabels() {
   return (
     <div className="bg-background rounded-lg border p-6">
-      <Breadcrumb>
-        <BreadcrumbList>
-          <BreadcrumbItem>
-            <BreadcrumbLink href="#">Data Governance Portal</BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbLink href="#">
-              Compliance Monitoring Dashboard
-            </BreadcrumbLink>
-          </BreadcrumbItem>
-          <BreadcrumbSeparator />
-          <BreadcrumbItem>
-            <BreadcrumbPage>Monthly Summary</BreadcrumbPage>
-          </BreadcrumbItem>
-        </BreadcrumbList>
-      </Breadcrumb>
+      <div className="border-border/60 max-w-xs rounded-md border border-dashed p-4">
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="#">Data Governance Portal</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink href="#">
+                Compliance Monitoring Dashboard
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>Monthly Summary</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+      </div>
+      <p className="text-muted-foreground mt-3 text-xs">
+        The dashed box is a narrow container, included so the wrapping is
+        actually visible.
+      </p>
     </div>
   )
 }
@@ -122,22 +132,53 @@ export function BreadcrumbLongLabels() {
 export function BreadcrumbAsChild() {
   return (
     <div className="bg-background rounded-lg border p-6">
+      {/* `asChild` with a real router Link — these navigate client-side rather
+          than doing a full page load, which a plain <a> would. */}
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>
             <BreadcrumbLink asChild>
-              <a href="#">Home</a>
+              <Link href="/">Home</Link>
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
             <BreadcrumbLink asChild>
-              <a href="#">Settings</a>
+              <Link href="/breadcrumb">Breadcrumb</Link>
             </BreadcrumbLink>
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbPage>Preferences</BreadcrumbPage>
+            <BreadcrumbPage>As Child</BreadcrumbPage>
+          </BreadcrumbItem>
+        </BreadcrumbList>
+      </Breadcrumb>
+      <p className="text-muted-foreground mt-3 text-xs">
+        These are real links — the first two navigate client-side via{" "}
+        <code>next/link</code>.
+      </p>
+    </div>
+  )
+}
+
+/* ═══════════════════════════════════════════
+   6 — RTL Support
+═══════════════════════════════════════════ */
+export function BreadcrumbRtl() {
+  return (
+    <div className="bg-background rounded-lg border p-6" dir="rtl">
+      <Breadcrumb>
+        <BreadcrumbList>
+          <BreadcrumbItem>
+            <BreadcrumbLink href="#">الرئيسية</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbLink href="#">الخدمات</BreadcrumbLink>
+          </BreadcrumbItem>
+          <BreadcrumbSeparator />
+          <BreadcrumbItem>
+            <BreadcrumbPage>التقارير</BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>

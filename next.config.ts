@@ -16,13 +16,13 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 31536000,
     deviceSizes: [384, 640, 750, 828, 1080, 1200, 1920],
     imageSizes: [32, 48, 64, 96, 128, 256, 384],
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "placehold.co",
-        pathname: "/**",
-      },
-    ],
+    // The logo-scroll demo serves SVG brand marks from `public/logos/`, and the
+    // Image Optimization API refuses SVG unless explicitly allowed. Everything
+    // it serves is first-party; the CSP and attachment disposition keep an SVG
+    // from executing scripts even so.
+    dangerouslyAllowSVG: true,
+    contentDispositionType: "attachment",
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   experimental: {
     // Use Rust MDX compiler with GFM support (tables, strikethrough, etc.)

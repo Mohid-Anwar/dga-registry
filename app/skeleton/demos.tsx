@@ -97,3 +97,27 @@ export function SkeletonForm() {
     </div>
   )
 }
+
+/* ═══════════════════════════════════════════
+   6 — RTL Support
+═══════════════════════════════════════════ */
+export function SkeletonRtl() {
+  return (
+    <div className="bg-background rounded-lg border p-6" dir="rtl">
+      <div className="space-y-4">
+        <div className="flex items-center gap-4">
+          <Skeleton className="size-12 rounded-full" />
+          <div className="space-y-2">
+            <Skeleton className="h-4 w-[160px]" />
+            <Skeleton className="h-4 w-[120px]" />
+          </div>
+        </div>
+        <div className="space-y-2">
+          <Skeleton className="h-4 w-[60px]" />
+          <Skeleton className="h-10 w-full" />
+        </div>
+        <Skeleton className="h-10 w-[100px]" />
+      </div>
+    </div>
+  )
+}

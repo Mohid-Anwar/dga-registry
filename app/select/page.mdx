@@ -1,4 +1,3 @@
-import { DirectionToggle } from "@/components/docs/direction-toggle"
 import { DocsLayout } from "@/components/docs/docs-layout"
 import { InstallCommand } from "@/components/docs/install-command"
 
@@ -7,6 +6,8 @@ import {
   SelectControlled,
   SelectForms,
   SelectGrouped,
+  SelectPlaceholderOption,
+  SelectRtl,
   SelectSizes,
   SelectValidation,
   SelectWidths,
@@ -24,8 +25,6 @@ export const metadata = {
 # Select
 
 Displays a list of options for the user to pick from — triggered by a button.
-
-<DirectionToggle />
 
 ## Installation
 
@@ -78,6 +77,23 @@ Real-world form scenarios using the Select component.
 Select with different width configurations.
 
 <SelectWidths />
+
+## Placeholder Option
+
+`SelectValue`'s `placeholder` only covers the _empty_ state — once a value is
+picked there's no way back to it, since Radix has no concept of an empty option.
+`SelectPlaceholderItem` adds one: it renders a muted, selectable row backed by an
+internal sentinel value, and `Select` maps that sentinel back to `""` in
+`onValueChange`, so your state never sees the sentinel.
+
+<SelectPlaceholderOption />
+
+## RTL Support
+
+Pass `dir="rtl"` so the dropdown aligns and keyboard navigation follows the visual
+order.
+
+<SelectRtl />
 
 ## Props
 

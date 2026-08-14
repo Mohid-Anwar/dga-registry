@@ -47,15 +47,24 @@ export function CopyPageMenu({ slug }: { slug: string }) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="outline" size="sm" className="gap-1.5">
+        {/* Collapses to the icon alone below `lg` — the label plus chevron costs
+            ~70px, which through phone and tablet widths is the difference
+            between the page title fitting in the header and being truncated to
+            nothing. The dropdown still carries every action either way. */}
+        <Button
+          variant="outline"
+          size="sm"
+          aria-label="Copy page"
+          className="gap-1.5 max-lg:w-8 max-lg:px-0"
+        >
           <HugeiconsIcon
             icon={copied ? Tick02Icon : Copy01Icon}
             className="size-4"
           />
-          Copy Page
+          <span className="max-lg:hidden">Copy Page</span>
           <HugeiconsIcon
             icon={ArrowDown01Icon}
-            className="size-3.5 opacity-60"
+            className="size-3.5 opacity-60 max-lg:hidden"
           />
         </Button>
       </DropdownMenuTrigger>

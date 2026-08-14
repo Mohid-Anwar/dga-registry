@@ -40,8 +40,13 @@ export function DocsShell({
         <SidebarProvider open={open} onOpenChange={handleOpenChange}>
           <CommandMenu components={components} />
           <AppSidebar components={components} />
-          <SidebarInset className="min-w-0 overflow-hidden">
-            <AppHeader />
+          {/* `h-svh` is what makes the inner <main> the scroll container, which
+              is in turn what keeps the header pinned. Without it the inset grows
+              to content height, the document scrolls, and the header scrolls
+              away with it — `sticky` on the header can't fix that, since this
+              element's `overflow-hidden` already makes it the sticky scrollport. */}
+          <SidebarInset className="h-svh min-w-0 overflow-hidden">
+            <AppHeader components={components} />
             <main className="min-w-0 flex-1 overflow-x-hidden overflow-y-auto">
               <div className="mx-auto max-w-full px-6 py-10">{children}</div>
               <footer className="border-t px-6 py-8">

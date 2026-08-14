@@ -128,36 +128,41 @@ const translations: Translations = {
   },
 }
 
+/* Targets resolve for real: local routes for what this site documents, Radix
+   docs for the primitives it doesn't yet have a page for. The previous
+   `/docs/primitives/*` paths don't exist in this app and 404'd. */
+const RADIX_DOCS = "https://www.radix-ui.com/primitives/docs/components"
+
 const components = [
   {
     titleKey: "alertDialog" as const,
     descriptionKey: "alertDialogDesc" as const,
-    href: "/docs/primitives/alert-dialog",
+    href: `${RADIX_DOCS}/alert-dialog`,
   },
   {
     titleKey: "hoverCard" as const,
     descriptionKey: "hoverCardDesc" as const,
-    href: "/docs/primitives/hover-card",
+    href: `${RADIX_DOCS}/hover-card`,
   },
   {
     titleKey: "progress" as const,
     descriptionKey: "progressDesc" as const,
-    href: "/docs/primitives/progress",
+    href: `${RADIX_DOCS}/progress`,
   },
   {
     titleKey: "scrollArea" as const,
     descriptionKey: "scrollAreaDesc" as const,
-    href: "/docs/primitives/scroll-area",
+    href: `${RADIX_DOCS}/scroll-area`,
   },
   {
     titleKey: "tabs" as const,
     descriptionKey: "tabsDesc" as const,
-    href: "/docs/primitives/tabs",
+    href: "/tabs",
   },
   {
     titleKey: "tooltip" as const,
     descriptionKey: "tooltipDesc" as const,
-    href: "/docs/primitives/tooltip",
+    href: "/tooltip",
   },
 ] as const
 
@@ -191,13 +196,13 @@ export function NavigationMenuRtl({ dir, lang }: NavigationMenuRtlProps) {
             data-lang={dir === "rtl" ? language : undefined}
           >
             <ul className="w-96">
-              <ListItem href="/docs" title={t.introduction}>
+              <ListItem href="/" title={t.introduction}>
                 {t.introductionDesc}
               </ListItem>
-              <ListItem href="/docs/installation" title={t.installation}>
+              <ListItem href="/installation/nextjs" title={t.installation}>
                 {t.installationDesc}
               </ListItem>
-              <ListItem href="/docs/primitives/typography" title={t.typography}>
+              <ListItem href="/badge" title={t.typography}>
                 {t.typographyDesc}
               </ListItem>
             </ul>
@@ -230,7 +235,7 @@ export function NavigationMenuRtl({ dir, lang }: NavigationMenuRtlProps) {
             className={navigationMenuTriggerStyle()}
             data-lang={dir === "rtl" ? language : undefined}
           >
-            <Link href="/docs">{t.docs}</Link>
+            <Link href="/">{t.docs}</Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
       </NavigationMenuList>

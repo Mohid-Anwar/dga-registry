@@ -1,0 +1,86 @@
+import { CodeBlock } from "@/components/docs/code-block"
+import { DocsLayout } from "@/components/docs/docs-layout"
+import { InstallCommand } from "@/components/docs/install-command"
+
+import { DirectionComparison } from "./demos"
+import { rootLayoutSnippet, useDirectionSnippet } from "./snippets"
+
+export const metadata = {
+  title: "Direction",
+  description:
+    "DGA Direction provider for React & Next.js. Supplies RTL/LTR direction context so components mirror both layout and behavior. Digital Government Authority Saudi Arabia design system.",
+}
+
+<DocsLayout>
+
+# Direction
+
+Supplies text direction to every component below it. This is what makes RTL work
+for interactive components — not just the `dir` attribute.
+
+## Installation
+
+<InstallCommand componentName="direction" />
+
+Most components pull this in automatically as a dependency, so you may already have it.
+
+## Why `dir="rtl"` alone isn't enough
+
+Direction-aware components resolve their direction in this order:
+
+1. An explicit `dir` prop on the component
+2. The nearest `DirectionProvider` in React context
+3. Fallback to `"ltr"`
+
+They then **write that resolved value as a `dir` attribute on their own root
+element** — which overrides any `dir` you set on an ancestor. A `dir="rtl"` wrapper
+does not reach them.
+
+So wrapping a tab list in `<div dir="rtl">` and nothing else leaves it resolving to
+`"ltr"`, stamping `dir="ltr"` on itself, and rendering left-to-right — layout and
+arrow-key order alike. Both panels below use identical markup inside the same
+`dir="rtl"` wrapper; only the second adds a `DirectionProvider`:
+
+<DirectionComparison />
+
+The good news is that this fails visibly rather than silently: the tab order is
+plainly wrong, rather than looking correct while behaving wrong.
+
+Components that aren't direction-aware — badge, card, skeleton, input, table,
+collapsible — never write a `dir` of their own, so they inherit from your wrapper
+exactly as you'd expect. That's why the `dir="rtl"` demos on those pages work
+without a provider.
+
+## Usage
+
+Wrap your app once, at the root, alongside the `dir` attribute:
+
+<CodeBlock language="tsx" filename="app/layout.tsx" code={rootLayoutSnippet} />
+
+Purely presentational components (badge, card, skeleton, input) only need the `dir`
+attribute. Anything with keyboard navigation or floating content — select, tabs,
+tooltip, radio group, dropdown, popover, carousel — needs the provider too.
+
+## Reading direction in your own components
+
+`useDirection()` returns the current direction, so custom components can mirror
+icons or swap logic without reading the DOM:
+
+<CodeBlock language="tsx" code={useDirectionSnippet} />
+
+## Props
+
+| Prop        | Type              | Default | Description                                       |
+| ----------- | ----------------- | ------- | ------------------------------------------------- |
+| `dir`       | `"ltr" \| "rtl"`  | —       | Direction supplied to all descendants             |
+| `direction` | `"ltr" \| "rtl"`  | —       | Alias for `dir`; takes precedence when both given |
+| `children`  | `React.ReactNode` | —       | Subtree that receives the direction context       |
+
+## Exports
+
+| Export              | Description                                          |
+| ------------------- | ---------------------------------------------------- |
+| `DirectionProvider` | Provides direction context to descendants            |
+| `useDirection`      | Reads the current direction, falling back to `"ltr"` |
+
+</DocsLayout>

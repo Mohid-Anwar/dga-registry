@@ -3,6 +3,7 @@
 import * as React from "react"
 
 import { Button } from "@/registry/dga/ui/button"
+import { DirectionProvider } from "@/registry/dga/ui/direction"
 import { FormField } from "@/registry/dga/ui/form-field"
 import { Input } from "@/registry/dga/ui/input"
 import {
@@ -167,5 +168,53 @@ export function FormFieldForm() {
         </form>
       </div>
     </div>
+  )
+}
+
+/* ═══════════════════════════════════════════
+   5 — RTL Support
+═══════════════════════════════════════════ */
+export function FormFieldRtl() {
+  return (
+    <DirectionProvider dir="rtl">
+      <div className="bg-background rounded-lg border p-6" dir="rtl">
+        <div className="flex flex-col gap-4">
+          <FormField label="اسم المحطة" name="station-name-rtl" required>
+            <Input
+              id="station-name-rtl"
+              name="station-name-rtl"
+              placeholder="مثال: الحائر"
+            />
+          </FormField>
+
+          <FormField
+            label="رمز المحطة"
+            name="station-code-rtl"
+            required
+            error="يجب ألا يقل عن ٣ أحرف"
+          >
+            <Input
+              id="station-code-rtl"
+              name="station-code-rtl"
+              aria-invalid
+              placeholder="مثال: RUH-01"
+            />
+          </FormField>
+
+          <FormField label="المنطقة" name="region-rtl" required>
+            <Select dir="rtl" name="region-rtl">
+              <SelectTrigger id="region-rtl" className="w-full">
+                <SelectValue placeholder="اختر المنطقة" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="riyadh">الرياض</SelectItem>
+                <SelectItem value="jeddah">جدة</SelectItem>
+                <SelectItem value="dammam">الدمام</SelectItem>
+              </SelectContent>
+            </Select>
+          </FormField>
+        </div>
+      </div>
+    </DirectionProvider>
   )
 }

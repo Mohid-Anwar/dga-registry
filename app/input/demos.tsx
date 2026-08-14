@@ -10,6 +10,7 @@ import { HugeiconsIcon } from "@hugeicons/react"
 
 import { Button } from "@/registry/dga/ui/button"
 import { Input } from "@/registry/dga/ui/input"
+import { toastSuccess } from "@/registry/dga/ui/sonner"
 
 /* ═══════════════════════════════════════════
    1 — Basic Input States
@@ -165,7 +166,13 @@ export function InputForms() {
         {/* Login Form */}
         <div className="border-border bg-card rounded-lg border p-6">
           <h3 className="mb-4 text-lg font-semibold">Login Form</h3>
-          <form className="space-y-4">
+          <form
+            className="space-y-4"
+            onSubmit={(e) => {
+              e.preventDefault()
+              toastSuccess("Signed in.", "Welcome back")
+            }}
+          >
             <div className="flex flex-col gap-2">
               <label htmlFor="login-email" className="text-sm font-medium">
                 Email
@@ -174,6 +181,8 @@ export function InputForms() {
                 id="login-email"
                 type="email"
                 placeholder="email@example.com"
+                autoComplete="email"
+                required
               />
             </div>
             <div className="flex flex-col gap-2">
@@ -184,6 +193,8 @@ export function InputForms() {
                 id="login-password"
                 type="password"
                 placeholder="Enter your password"
+                autoComplete="current-password"
+                required
               />
             </div>
             <Button type="submit" className="w-full">
@@ -195,19 +206,35 @@ export function InputForms() {
         {/* Registration Form */}
         <div className="border-border bg-card rounded-lg border p-6">
           <h3 className="mb-4 text-lg font-semibold">Registration Form</h3>
-          <form className="space-y-4">
+          <form
+            className="space-y-4"
+            onSubmit={(e) => {
+              e.preventDefault()
+              toastSuccess("Account created.", "Registered")
+            }}
+          >
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="flex flex-col gap-2">
                 <label htmlFor="first-name" className="text-sm font-medium">
                   First Name
                 </label>
-                <Input id="first-name" placeholder="John" />
+                <Input
+                  id="first-name"
+                  placeholder="John"
+                  autoComplete="given-name"
+                  required
+                />
               </div>
               <div className="flex flex-col gap-2">
                 <label htmlFor="last-name" className="text-sm font-medium">
                   Last Name
                 </label>
-                <Input id="last-name" placeholder="Doe" />
+                <Input
+                  id="last-name"
+                  placeholder="Doe"
+                  autoComplete="family-name"
+                  required
+                />
               </div>
             </div>
             <div className="flex flex-col gap-2">
@@ -218,13 +245,28 @@ export function InputForms() {
                 id="reg-email"
                 type="email"
                 placeholder="email@example.com"
+                autoComplete="email"
+                required
               />
             </div>
             <div className="flex flex-col gap-2">
               <label htmlFor="phone" className="text-sm font-medium">
                 Phone Number
               </label>
-              <Input id="phone" type="tel" placeholder="+1 (555) 000-0000" />
+              {/* `type="tel"` gets a phone keypad but no format check — the
+                  browser validates `email` and `url`, never `tel`. The pattern
+                  is what actually constrains it; `title` becomes the message
+                  shown when it fails. */}
+              <Input
+                id="phone"
+                type="tel"
+                placeholder="+1 (555) 000-0000"
+                autoComplete="tel"
+                inputMode="tel"
+                pattern="[+]?[0-9\s()-]{7,20}"
+                title="Digits, spaces, and ( ) + - only — at least 7 characters."
+                required
+              />
             </div>
             <Button type="submit" className="w-full">
               Create Account
@@ -352,6 +394,65 @@ export function InputAdvanced() {
             />
             <span className="bg-muted border-input text-muted-foreground inline-flex items-center rounded-e-md border border-s-0 px-3 text-sm">
               SAR
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+/* ═══════════════════════════════════════════
+   8 — RTL Support
+═══════════════════════════════════════════ */
+export function InputRtl() {
+  return (
+    <div className="bg-background rounded-lg border p-6" dir="rtl">
+      <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-2">
+          <label className="text-sm font-medium">الاسم الكامل</label>
+          <Input placeholder="أدخل الاسم الكامل" />
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <label className="text-sm font-medium">البريد الإلكتروني</label>
+          <div className="relative">
+            <HugeiconsIcon
+              icon={Mail01Icon}
+              className="text-muted-foreground absolute start-3 top-1/2 size-4 -translate-y-1/2"
+            />
+            <Input
+              className="ps-9"
+              type="email"
+              placeholder="name@example.com"
+            />
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <label className="text-sm font-medium">البحث</label>
+          <div className="flex gap-2">
+            <div className="relative flex-1">
+              <HugeiconsIcon
+                icon={Search01Icon}
+                className="text-muted-foreground absolute start-3 top-1/2 size-4 -translate-y-1/2"
+              />
+              <Input className="ps-9" placeholder="ابحث عن محطة..." />
+            </div>
+            <Button variant="outline">بحث</Button>
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-2">
+          <label className="text-sm font-medium">المبلغ</label>
+          <div className="flex">
+            <Input
+              className="rounded-e-none"
+              placeholder="أدخل المبلغ"
+              type="number"
+            />
+            <span className="bg-muted border-input text-muted-foreground inline-flex items-center rounded-e-md border border-s-0 px-3 text-sm">
+              ر.س
             </span>
           </div>
         </div>

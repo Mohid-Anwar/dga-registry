@@ -206,7 +206,12 @@ function CarouselPrevious({
       onClick={scrollPrev}
       {...props}
     >
-      <HugeiconsIcon icon={icon} />
+      {/* Horizontal buttons swap sides in RTL via -start/-end, so the arrow
+          glyph has to mirror too. Vertical keeps its rotate-90 orientation. */}
+      <HugeiconsIcon
+        icon={icon}
+        className={cn(orientation === "horizontal" && "rtl:rotate-180")}
+      />
       <span className="sr-only">Previous slide</span>
     </Button>
   )
@@ -237,7 +242,10 @@ function CarouselNext({
       onClick={scrollNext}
       {...props}
     >
-      <HugeiconsIcon icon={icon} />
+      <HugeiconsIcon
+        icon={icon}
+        className={cn(orientation === "horizontal" && "rtl:rotate-180")}
+      />
       <span className="sr-only">Next slide</span>
     </Button>
   )

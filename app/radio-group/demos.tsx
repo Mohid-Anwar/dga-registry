@@ -3,7 +3,9 @@
 import * as React from "react"
 
 import { Button } from "@/registry/dga/ui/button"
+import { DirectionProvider } from "@/registry/dga/ui/direction"
 import { RadioGroup, RadioGroupItem } from "@/registry/dga/ui/radio-group"
+import { toastSuccess } from "@/registry/dga/ui/sonner"
 
 /* ─── 1. Basic Radio Group ─── */
 export function RadioGroupBasic() {
@@ -261,7 +263,15 @@ export function RadioGroupControlled() {
               Showing <strong>{pollutant.toUpperCase()}</strong> data for{" "}
               <strong>{stationType}</strong> stations
             </p>
-            <Button className="mt-3" onClick={() => alert("Fetching data...")}>
+            <Button
+              className="mt-3"
+              onClick={() =>
+                toastSuccess(
+                  `Showing ${pollutant.toUpperCase()} readings for ${stationType} stations.`,
+                  "Query complete"
+                )
+              }
+            >
               Fetch Data
             </Button>
           </div>
@@ -398,7 +408,16 @@ export function RadioGroupForms() {
         {/* Data Query Form */}
         <div className="border-border bg-card rounded-lg border p-6">
           <h3 className="mb-4 text-lg font-semibold">Data Query Form</h3>
-          <form className="space-y-6">
+          <form
+            className="space-y-6"
+            onSubmit={(e) => {
+              e.preventDefault()
+              toastSuccess(
+                `Querying ${region || "all regions"}.`,
+                "Query submitted"
+              )
+            }}
+          >
             <div className="flex flex-col gap-3">
               <label className="text-sm font-medium">Select Region</label>
               <RadioGroup
@@ -517,7 +536,13 @@ export function RadioGroupForms() {
         {/* Settings Form */}
         <div className="border-border bg-card rounded-lg border p-6">
           <h3 className="mb-4 text-lg font-semibold">Alert Settings</h3>
-          <form className="space-y-6">
+          <form
+            className="space-y-6"
+            onSubmit={(e) => {
+              e.preventDefault()
+              toastSuccess("Alert settings saved.", "Saved")
+            }}
+          >
             <div className="flex flex-col gap-3">
               <label className="text-sm font-medium">Alert Frequency</label>
               <RadioGroup defaultValue="immediate">
@@ -661,5 +686,44 @@ export function RadioGroupGrid() {
         </RadioGroup>
       </div>
     </div>
+  )
+}
+
+/* ─── 8. RTL Support ─── */
+export function RadioGroupRtl() {
+  return (
+    <DirectionProvider dir="rtl">
+      <div className="bg-background rounded-lg border p-6" dir="rtl">
+        <div className="flex flex-col gap-3">
+          <label className="text-sm font-medium">اختر نوع المحطة</label>
+          <RadioGroup defaultValue="background" dir="rtl">
+            <div className="flex items-center gap-2">
+              <RadioGroupItem value="background" id="rtl-background" />
+              <label htmlFor="rtl-background" className="text-sm">
+                محطة خلفية
+              </label>
+            </div>
+            <div className="flex items-center gap-2">
+              <RadioGroupItem value="suburban" id="rtl-suburban" />
+              <label htmlFor="rtl-suburban" className="text-sm">
+                محطة ضاحية
+              </label>
+            </div>
+            <div className="flex items-center gap-2">
+              <RadioGroupItem value="traffic" id="rtl-traffic" />
+              <label htmlFor="rtl-traffic" className="text-sm">
+                محطة مرورية
+              </label>
+            </div>
+            <div className="flex items-center gap-2">
+              <RadioGroupItem value="industrial" id="rtl-industrial" />
+              <label htmlFor="rtl-industrial" className="text-sm">
+                محطة صناعية
+              </label>
+            </div>
+          </RadioGroup>
+        </div>
+      </div>
+    </DirectionProvider>
   )
 }

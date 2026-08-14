@@ -70,6 +70,9 @@ export function ChartRadarLabelCustom() {
             />
             <PolarAngleAxis
               dataKey="month"
+              // `value` is destructured only to keep it out of `props` — the
+              // label text comes from `chartData` below, not from the axis.
+              // eslint-disable-next-line @typescript-eslint/no-unused-vars
               tick={({ x, y, textAnchor, value, index, ...props }) => {
                 const data = chartData[index]
 

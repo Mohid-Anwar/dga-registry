@@ -1,4 +1,3 @@
-import { DirectionToggle } from "@/components/docs/direction-toggle"
 import { DocsLayout } from "@/components/docs/docs-layout"
 import { InstallCommand } from "@/components/docs/install-command"
 
@@ -21,8 +20,6 @@ export const metadata = {
 # Table
 
 A responsive table component with selection, tags, status indicators, links, and action buttons.
-
-<DirectionToggle />
 
 ## Installation
 
@@ -52,9 +49,10 @@ A minimal table with caption, header, body, and footer sections.
 
 <TableSimple />
 
-## RTL Table Preview
+## RTL Support
 
-Arabic data table with right-to-left text direction.
+Arabic data table with right-to-left text direction. Column order and cell
+alignment reverse automatically when `dir="rtl"` is set on a parent element.
 
 <TableRtlPreview />
 
