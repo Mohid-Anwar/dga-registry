@@ -1,5 +1,4 @@
 import { CodeBlock } from "@/components/docs/code-block"
-import { DirectionToggle } from "@/components/docs/direction-toggle"
 import { DocsLayout } from "@/components/docs/docs-layout"
 import { InstallCommand } from "@/components/docs/install-command"
 
@@ -8,6 +7,7 @@ import {
   InfiniteLogoScrollDirection,
   InfiniteLogoScrollHover,
   InfiniteLogoScrollRenderImage,
+  InfiniteLogoScrollRtl,
   InfiniteLogoScrollSpeed,
 } from "./demos"
 
@@ -22,8 +22,6 @@ export const metadata = {
 # Infinite Logo Scroll
 
 An auto-scrolling marquee of logos, with edge fades, a configurable direction and speed, and a slowdown on hover.
-
-<DirectionToggle />
 
 ## Installation
 
@@ -77,6 +75,13 @@ import { InfiniteLogoScroll } from "@/registry/dga/ui/infinite-logo-scroll"
   )}
 />`}
 />
+
+## RTL Support
+
+Surrounding copy aligns to the ambient text direction. The `direction` prop controls
+the scroll animation independently of text direction.
+
+<InfiniteLogoScrollRtl />
 
 ## Props
 

@@ -3,6 +3,7 @@
 import { StarIcon } from "@hugeicons/core-free-icons"
 import { toast } from "sonner"
 
+import { useIsMobile } from "@/hooks/use-mobile"
 import { useToasterPosition } from "@/components/docs/toaster-position-context"
 import { Button } from "@/registry/dga/ui/button"
 import {
@@ -140,18 +141,23 @@ const MOBILE_POSITIONS: MobilePosition[] = ["top", "bottom"]
 export function SonnerPositions() {
   const { position, setPosition, mobilePosition, setMobilePosition } =
     useToasterPosition()
+  /* Same 768px breakpoint the Toaster itself uses to pick which position
+     applies, so the disabled state always matches real behavior. */
+  const isMobile = useIsMobile()
 
   return (
     <div className="bg-background space-y-4 rounded-lg border p-6">
       <div className="space-y-2">
         <p className="text-muted-foreground text-xs font-medium">
-          Desktop position
+          Desktop position {isMobile && "(inactive at this width)"}
         </p>
-        <div className="grid grid-cols-3 gap-2">
+        <div className="grid grid-cols-2 gap-2 lg:grid-cols-3">
           {POSITIONS.map((pos) => (
             <Button
               key={pos}
               size="sm"
+              disabled={isMobile}
+              className="min-w-0 px-2 text-xs"
               variant={position === pos ? "default" : "outline"}
               onClick={() => {
                 if (pos !== position) {
@@ -173,13 +179,15 @@ export function SonnerPositions() {
       </div>
       <div className="space-y-2">
         <p className="text-muted-foreground text-xs font-medium">
-          Mobile position
+          Mobile position {!isMobile && "(inactive at this width)"}
         </p>
         <div className="grid grid-cols-2 gap-2">
           {MOBILE_POSITIONS.map((pos) => (
             <Button
               key={pos}
               size="sm"
+              disabled={!isMobile}
+              className="min-w-0 px-2 text-xs"
               variant={mobilePosition === pos ? "default" : "outline"}
               onClick={() => {
                 if (pos !== mobilePosition) {
@@ -203,9 +211,38 @@ export function SonnerPositions() {
         <code className="text-sm">{`<Toaster position="${position}" mobilePosition="${mobilePosition}" />`}</code>
       </div>
       <p className="text-muted-foreground text-xs">
-        In RTL mode, left↔right positions are auto-flipped. Resize below the
-        mobile breakpoint (768px) to preview the mobile position.
+        In RTL mode, left↔right positions are auto-flipped. Only one group
+        applies at a time — resize across the mobile breakpoint (768px) and the
+        other set becomes selectable.
       </p>
+    </div>
+  )
+}
+
+/* ═══════════════════════════════════════════
+   6 — RTL Support
+═══════════════════════════════════════════ */
+export function SonnerRtl() {
+  return (
+    <div className="bg-background flex flex-wrap gap-3 rounded-lg border p-6">
+      <Button
+        className="bg-[var(--background-background-success)] text-white hover:bg-[var(--colors-green700)]"
+        onClick={() => toastSuccess("تم حفظ التغييرات بنجاح.", "نجاح")}
+      >
+        نجاح
+      </Button>
+      <Button
+        className="bg-[var(--background-background-error)] text-white hover:bg-[var(--colors-red700)]"
+        onClick={() => toastError("حدث خطأ غير متوقع.", "خطأ")}
+      >
+        خطأ
+      </Button>
+      <Button
+        className="bg-[var(--background-background-info)] text-white hover:bg-[var(--colors-blue700)]"
+        onClick={() => toastInfo("يتوفر تحديث جديد.", "معلومات")}
+      >
+        معلومات
+      </Button>
     </div>
   )
 }

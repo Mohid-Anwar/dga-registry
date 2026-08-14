@@ -1,4 +1,4 @@
-import { DirectionToggle } from "@/components/docs/direction-toggle"
+import { CodeBlock } from "@/components/docs/code-block"
 import { DocsLayout } from "@/components/docs/docs-layout"
 import { InstallCommand } from "@/components/docs/install-command"
 
@@ -7,6 +7,7 @@ import {
   SkeletonCard,
   SkeletonForm,
   SkeletonProfile,
+  SkeletonRtl,
   SkeletonTable,
 } from "./demos"
 
@@ -21,8 +22,6 @@ export const metadata = {
 # Skeleton
 
 A placeholder preview of content before data loads. Uses a shimmer animation effect.
-
-<DirectionToggle />
 
 ## Installation
 
@@ -58,6 +57,13 @@ Loading placeholder for form inputs.
 
 <SkeletonForm />
 
+## RTL Support
+
+Placeholder blocks follow the ambient text direction, so loading states mirror the
+layout they stand in for.
+
+<SkeletonRtl />
+
 ## Props
 
 | Prop        | Type     | Default | Description                                     |
@@ -68,10 +74,11 @@ Loading placeholder for form inputs.
 
 The skeleton uses a shimmer animation with a gradient background. Customize dimensions using utility classes:
 
-```tsx
-<Skeleton className="h-4 w-[200px]" />        // Line
+<CodeBlock
+  language="tsx"
+  code={`<Skeleton className="h-4 w-[200px]" />          // Line
 <Skeleton className="h-12 w-12 rounded-full" /> // Circle
-<Skeleton className="h-[125px] rounded-xl" />  // Card image
-```
+<Skeleton className="h-[125px] rounded-xl" />   // Card image`}
+/>
 
 </DocsLayout>

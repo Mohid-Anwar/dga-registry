@@ -1,8 +1,6 @@
 import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 
-import { AppDirectionProvider } from "@/components/direction-context"
-
 import "./globals.css"
 
 const geistSans = Geist({
@@ -102,8 +100,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  let lang = "en"
-  const dir = lang === "ar" ? "rtl" : "ltr"
+  const lang = "en"
+  const dir = "ltr"
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -172,11 +170,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body>
-        <AppDirectionProvider defaultDirection={dir}>
-          {children}
-        </AppDirectionProvider>
-      </body>
+      <body>{children}</body>
     </html>
   )
 }

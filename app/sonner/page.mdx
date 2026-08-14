@@ -1,14 +1,25 @@
-import { DirectionToggle } from "@/components/docs/direction-toggle"
+import { CodeBlock } from "@/components/docs/code-block"
 import { DocsLayout } from "@/components/docs/docs-layout"
 import { InstallCommand } from "@/components/docs/install-command"
 
 import {
   SonnerCustomIcon,
   SonnerPositions,
+  SonnerRtl,
   SonnerShowToast,
   SonnerVariants,
   SonnerWithoutTitle,
 } from "./demos"
+import {
+  customIconSnippet,
+  positionPropSnippet,
+  rootLayoutSnippet,
+  rtlLayoutSnippet,
+  showToastSnippet,
+  toasterOffsetSnippet,
+  triggerSnippet,
+  useToasterOffsetSnippet,
+} from "./snippets"
 
 export const metadata = {
   title: "Sonner",
@@ -22,8 +33,6 @@ export const metadata = {
 
 Toast notification banners with five semantic variants, automatic RTL positioning, customizable icons, and mobile-responsive layout.
 
-<DirectionToggle />
-
 ## Installation
 
 <InstallCommand componentName="sonner" />
@@ -32,28 +41,9 @@ Toast notification banners with five semantic variants, automatic RTL positionin
 
 Add the `<Toaster />` component to your root layout, then call the toast helpers anywhere in your app.
 
-```tsx
-// app/layout.tsx
-import { Toaster } from "@/components/ui/sonner"
+<CodeBlock language="tsx" filename="app/layout.tsx" code={rootLayoutSnippet} />
 
-export default function RootLayout({ children }) {
-  return (
-    <html>
-      <body>
-        {children}
-        <Toaster />
-      </body>
-    </html>
-  )
-}
-```
-
-```tsx
-// Trigger a toast from any component
-import { toastSuccess } from "@/components/ui/sonner"
-
-toastSuccess("Changes saved successfully.", "Success")
-```
+<CodeBlock language="tsx" code={triggerSnippet} />
 
 ## Variants
 
@@ -79,15 +69,7 @@ Toasts can be shown with just a message — the title is optional.
 
 Use the `showToast` object for a convenient API:
 
-```tsx
-import { showToast } from "@/components/ui/sonner"
-
-showToast.error("Something went wrong.")
-showToast.warning("Check your input.", "Warning")
-showToast.success("Saved!", "Done")
-showToast.info("Update available.")
-showToast.neutral("3 pending items.")
-```
+<CodeBlock language="tsx" code={showToastSnippet} />
 
 <SonnerShowToast />
 
@@ -95,16 +77,7 @@ showToast.neutral("3 pending items.")
 
 Override the default icon for any variant by passing an `options` object:
 
-```tsx
-import { StarIcon } from "@hugeicons/core-free-icons"
-
-import { toastInfo } from "@/components/ui/sonner"
-
-toastInfo("You earned a gold star!", "Achievement", {
-  icon: StarIcon,
-  iconType: "solid",
-})
-```
+<CodeBlock language="tsx" code={customIconSnippet} />
 
 <SonnerCustomIcon />
 
@@ -123,66 +96,38 @@ Control where toasts appear with the `position` prop on `<Toaster />`. Click a p
 
 Sonner renders toasts full-width below the mobile breakpoint (768px), so `left`/`center`/`right` collapse to the same look there — only the edge matters. Use `mobilePosition` to pick `"top"` or `"bottom"` for that case:
 
-```tsx
-<Toaster position="bottom-right" mobilePosition="top" />
-```
+<CodeBlock language="tsx" code={positionPropSnippet} />
 
 <SonnerPositions />
 
 ## RTL Support
 
-The `<Toaster />` automatically flips `left`↔`right` positions when inside an RTL `<DirectionProvider />`. `mobilePosition` is unaffected since it only controls the top/bottom edge.
+Toast content renders in whatever language you pass it:
+
+<SonnerRtl />
+
+Positioning is separate. The `<Toaster />` is mounted once at your app root, so it
+can't inherit `dir` from the element that triggered the toast — it reads direction
+from context instead. Wrap your app in `<DirectionProvider dir="rtl">` and the
+`Toaster` flips `left`↔`right` automatically:
+
+<CodeBlock language="tsx" filename="app/layout.tsx" code={rtlLayoutSnippet} />
+
+With the provider in place, `position="top-right"` renders at the top **left** — the
+mirrored equivalent — so you specify positions once and they adapt per direction.
+Without it, toasts stay on the LTR side even though the rest of your UI is mirrored.
+
+`mobilePosition` is unaffected, since it only controls the top/bottom edge.
 
 ## Toaster Offset
 
 Use `<ToasterOffsetProvider>` and `<SetToasterOffset>` to dynamically push toasts below a fixed header:
 
-```tsx
-import {
-  SetToasterOffset,
-  Toaster,
-  ToasterOffsetProvider,
-} from "@/components/ui/sonner"
-
-function Layout({ children }) {
-  return (
-    <ToasterOffsetProvider>
-      <SetToasterOffset value={64} />
-      {children}
-      <Toaster />
-    </ToasterOffsetProvider>
-  )
-}
-```
+<CodeBlock language="tsx" code={toasterOffsetSnippet} />
 
 Or use the `useToasterOffset` hook to measure dynamically (e.g. from a header component):
 
-```tsx
-import { useEffect, useRef } from "react"
-
-import { useToasterOffset } from "@/components/ui/sonner"
-
-function AppHeader() {
-  const headerRef = useRef<HTMLElement>(null)
-  const { setOffset } = useToasterOffset()
-
-  useEffect(() => {
-    const el = headerRef.current
-    if (!el) return
-    const observer = new ResizeObserver(([entry]) => {
-      setOffset(Math.round(entry.contentRect.height))
-    })
-    setOffset(el.offsetHeight)
-    observer.observe(el)
-    return () => {
-      observer.disconnect()
-      setOffset(0)
-    }
-  }, [setOffset])
-
-  return <header ref={headerRef}>...</header>
-}
-```
+<CodeBlock language="tsx" code={useToasterOffsetSnippet} />
 
 ## Toaster Props
 

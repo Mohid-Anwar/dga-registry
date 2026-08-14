@@ -1,5 +1,5 @@
 import { CarouselPreview } from "@/components/docs/carousel-preview"
-import { DirectionToggle } from "@/components/docs/direction-toggle"
+import { CodeBlock } from "@/components/docs/code-block"
 import { DocsLayout } from "@/components/docs/docs-layout"
 import { InstallCommand } from "@/components/docs/install-command"
 
@@ -8,6 +8,7 @@ import {
   CarouselCustomIcons,
   CarouselDefault,
   CarouselMultiple,
+  CarouselRtl,
   CarouselVertical,
   CarouselWithApi,
 } from "./demos"
@@ -23,8 +24,6 @@ export const metadata = {
 # Carousel
 
 A carousel with motion and swipe built using Embla.
-
-<DirectionToggle />
 
 ## Installation
 
@@ -78,6 +77,29 @@ Use different icons for the navigation buttons.
   <CarouselCustomIcons />
 </CarouselPreview>
 
+## RTL Support
+
+When localizing the carousel for RTL languages, set the `direction` option in
+`opts` to match the text direction. This ensures the carousel scrolls in the
+correct direction.
+
+Pass `dir="rtl"` alongside it so both the layout and the underlying Embla scroll
+direction are reversed. The previous/next arrows swap sides and mirror their
+glyphs automatically.
+
+<CarouselRtl />
+
+<CodeBlock
+  language="tsx"
+  code={`<Carousel dir={dir} opts={{ direction: dir }}>
+  <CarouselContent>
+    <CarouselItem>...</CarouselItem>
+  </CarouselContent>
+  <CarouselPrevious />
+  <CarouselNext />
+</Carousel>`}
+/>
+
 ## Props
 
 | Component          | Prop          | Type                         | Default            | Description                     |
@@ -92,19 +114,5 @@ Use different icons for the navigation buttons.
 | `CarouselPrevious` | `icon`        | `HugeIcon`                   | `ArrowLeft01Icon`  | Custom icon                     |
 | `CarouselNext`     | `variant`     | `string`                     | `"outline"`        | Button variant                  |
 | `CarouselNext`     | `icon`        | `HugeIcon`                   | `ArrowRight01Icon` | Custom icon                     |
-
-## RTL Support
-
-When localizing the carousel for RTL languages, set the `direction` option in `opts` to match the text direction. This ensures the carousel scrolls in the correct direction.
-
-```tsx
-<Carousel dir={dir} opts={{ direction: dir }}>
-  <CarouselContent>
-    <CarouselItem>...</CarouselItem>
-  </CarouselContent>
-  <CarouselPrevious />
-  <CarouselNext />
-</Carousel>
-```
 
 </DocsLayout>

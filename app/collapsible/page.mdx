@@ -1,4 +1,3 @@
-import { DirectionToggle } from "@/components/docs/direction-toggle"
 import { DocsLayout } from "@/components/docs/docs-layout"
 import { InstallCommand } from "@/components/docs/install-command"
 
@@ -7,6 +6,7 @@ import {
   CollapsibleControlled,
   CollapsibleDefaultOpen,
   CollapsibleFAQ,
+  CollapsibleRtl,
 } from "./demos"
 
 export const metadata = {
@@ -20,8 +20,6 @@ export const metadata = {
 # Collapsible
 
 An interactive panel that expands and collapses its content, built on Radix `Collapsible`.
-
-<DirectionToggle />
 
 ## Installation
 
@@ -46,6 +44,12 @@ Drive `open` state externally instead of letting the trigger manage it.
 ## Default Open
 
 <CollapsibleDefaultOpen />
+
+## RTL Support
+
+Trigger content and chevron placement follow the ambient text direction.
+
+<CollapsibleRtl />
 
 ## Props
 

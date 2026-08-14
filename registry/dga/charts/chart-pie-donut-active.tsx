@@ -2,7 +2,7 @@
 
 import { ChartIncreaseIcon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
-import { Label, Pie, PieChart, Sector } from "recharts"
+import { Pie, PieChart, Sector } from "recharts"
 import { type PieSectorDataItem } from "recharts/types/polar/Pie"
 
 import {

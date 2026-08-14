@@ -52,7 +52,7 @@ pnpm lint
 pnpm build          # runs registry:build, then next build
 ```
 
-There is no automated test suite — verify UI changes manually in the dev server (check both LTR and RTL where relevant, via the `DirectionToggle` on docs pages).
+There is no automated test suite — verify UI changes manually in the dev server (check both LTR and RTL where relevant, via the `## RTL Support` section on docs pages).
 
 ## Pull requests
 

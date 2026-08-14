@@ -1,4 +1,3 @@
-import { DirectionToggle } from "@/components/docs/direction-toggle"
 import { DocsLayout } from "@/components/docs/docs-layout"
 import { InstallCommand } from "@/components/docs/install-command"
 
@@ -7,6 +6,7 @@ import {
   ButtonIconOnly,
   ButtonLeadingIcon,
   ButtonLoading,
+  ButtonRtl,
   ButtonSizes,
   ButtonTrailingIcon,
   ButtonVariants,
@@ -23,8 +23,6 @@ export const metadata = {
 # Button
 
 Displays a button or a component that looks like a button.
-
-<DirectionToggle />
 
 ## Installation
 
@@ -97,6 +95,13 @@ Use a spinning icon with `animate-spin` and disable the button.
 Both a leading and trailing icon in one button.
 
 <ButtonCombo />
+
+## RTL Support
+
+Icon placement and spacing follow the ambient text direction. Set `dir="rtl"` on a
+parent element to lay buttons out right-to-left.
+
+<ButtonRtl />
 
 ## Props
 

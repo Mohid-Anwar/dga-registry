@@ -1,4 +1,3 @@
-import { DirectionToggle } from "@/components/docs/direction-toggle"
 import { DocsLayout } from "@/components/docs/docs-layout"
 import { InstallCommand } from "@/components/docs/install-command"
 
@@ -11,6 +10,7 @@ import {
   TabsLineFadeEdges,
   TabsLineScrollable,
   TabsLineScrollableSnap,
+  TabsRtl,
   TabsVerticalDefault,
   TabsVerticalLine,
 } from "./demos"
@@ -26,8 +26,6 @@ export const metadata = {
 # Tabs
 
 A set of layered sections of content — known as tab panels — displayed one at a time.
-
-<DirectionToggle />
 
 ## Installation
 
@@ -92,6 +90,13 @@ A set of layered sections of content — known as tab panels — displayed one a
 `orientation="vertical" variant="line"`
 
 <TabsVerticalLine />
+
+## RTL Support
+
+Pass `dir="rtl"` so arrow-key navigation follows the visual tab order as well as the
+layout.
+
+<TabsRtl />
 
 ## TabsList Props
 

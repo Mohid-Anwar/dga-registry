@@ -2,13 +2,7 @@
 
 import { ChartIncreaseIcon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
-import {
-  PolarAngleAxis,
-  PolarGrid,
-  PolarRadiusAxis,
-  Radar,
-  RadarChart,
-} from "recharts"
+import { PolarGrid, PolarRadiusAxis, Radar, RadarChart } from "recharts"
 
 import {
   Card,

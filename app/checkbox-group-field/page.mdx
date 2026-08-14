@@ -1,4 +1,3 @@
-import { DirectionToggle } from "@/components/docs/direction-toggle"
 import { DocsLayout } from "@/components/docs/docs-layout"
 import { InstallCommand } from "@/components/docs/install-command"
 
@@ -6,6 +5,7 @@ import {
   CheckboxGroupFieldBasic,
   CheckboxGroupFieldError,
   CheckboxGroupFieldForm,
+  CheckboxGroupFieldRtl,
 } from "./demos"
 
 export const metadata = {
@@ -19,8 +19,6 @@ export const metadata = {
 # Checkbox Group Field
 
 A multi-select control that renders a grid of checkboxes under a shared label, serializes the selected values into `FormData` via hidden inputs, and shows a single error message for the whole group. Composes [`FormField`](/form-field) for its label/error layout.
-
-<DirectionToggle />
 
 ## Installation
 
@@ -37,6 +35,12 @@ A multi-select control that renders a grid of checkboxes under a shared label, s
 ## Form Example
 
 <CheckboxGroupFieldForm />
+
+## RTL Support
+
+Labels, options, and error messages align to the ambient text direction.
+
+<CheckboxGroupFieldRtl />
 
 ## Props
 

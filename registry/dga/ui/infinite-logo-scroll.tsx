@@ -111,9 +111,11 @@ export function InfiniteLogoScroll({
       onPointerEnter={onPointerEnter}
       onPointerLeave={onPointerLeave}
     >
-      {/* Fade edges */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-linear-to-r from-white to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-linear-to-l from-white to-transparent" />
+      {/* Fade edges — `from-background` rather than `from-white`, so the fade
+          matches whatever the track sits on instead of painting a light smudge
+          over a dark surface. */}
+      <div className="from-background pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-linear-to-r to-transparent" />
+      <div className="from-background pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-linear-to-l to-transparent" />
 
       <div ref={trackRef} className="flex h-full w-max will-change-transform">
         {[0, 1].map((copy) => (

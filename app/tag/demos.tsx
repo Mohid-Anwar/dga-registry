@@ -101,3 +101,28 @@ export function TagWithIcons() {
     </div>
   )
 }
+
+/* ═══════════════════════════════════════════
+   7 — RTL Support
+═══════════════════════════════════════════ */
+export function TagRtl() {
+  return (
+    <div className="bg-background space-y-4 rounded-lg border p-6" dir="rtl">
+      <div className="flex flex-wrap items-center gap-3">
+        <Tag variant="success">مكتمل</Tag>
+        <Tag variant="info">قيد المراجعة</Tag>
+        <Tag variant="warning">تحذير</Tag>
+        <Tag variant="error">مرفوض</Tag>
+        <Tag variant="neutral">مسودة</Tag>
+      </div>
+      <div className="flex flex-wrap items-center gap-3">
+        <Tag variant="success">
+          <HugeiconsIcon icon={Tick02Icon} /> موثّق
+        </Tag>
+        <Tag variant="info-outline">
+          <HugeiconsIcon icon={Tick02Icon} /> نشط
+        </Tag>
+      </div>
+    </div>
+  )
+}

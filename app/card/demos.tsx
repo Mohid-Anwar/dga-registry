@@ -34,6 +34,7 @@ export function CardImage() {
     <div className="bg-background rounded-lg border p-6">
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <Card className="border-amber-400">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={IMG_BG}
             alt="Background station"
@@ -53,6 +54,7 @@ export function CardImage() {
         </Card>
 
         <Card>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={IMG_SUBURBAN}
             alt="Suburban station"
@@ -72,6 +74,7 @@ export function CardImage() {
         </Card>
 
         <Card>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={IMG_TRAFFIC}
             alt="Traffic station"
@@ -91,6 +94,7 @@ export function CardImage() {
         </Card>
 
         <Card>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={IMG_MOBILE}
             alt="Mobile station"
@@ -201,6 +205,7 @@ export function CardDetail() {
     <div className="bg-background rounded-lg border p-6">
       <div className="grid gap-6 lg:grid-cols-2">
         <Card>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={IMG_BG}
             alt="Station image"
@@ -247,6 +252,7 @@ export function CardDetail() {
         </Card>
 
         <Card>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={IMG_SUBURBAN}
             alt="Station image"
@@ -480,6 +486,51 @@ export function CardMinimal() {
             <CardTitle>Kerb Distance</CardTitle>
             <CardDescription>15 m</CardDescription>
           </CardContent>
+        </Card>
+      </div>
+    </div>
+  )
+}
+
+/* ═══════════════════════════════════════════
+   7 — RTL Support
+═══════════════════════════════════════════ */
+export function CardRtl() {
+  return (
+    <div className="bg-background rounded-lg border p-6" dir="rtl">
+      <div className="grid gap-6 sm:grid-cols-2">
+        <Card>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={IMG_BG}
+            alt="محطة قياس"
+            className="aspect-video w-full rounded-xl object-cover"
+          />
+          <CardContent>
+            <CardTitle>محطة الرصد الخلفية</CardTitle>
+            <CardDescription>
+              محطات الرصد الخلفية لا تتأثر بشكل كبير بمصدر واحد، بل بمساهمة
+              متكاملة من جميع المصادر المحيطة.
+            </CardDescription>
+          </CardContent>
+          <CardFooter>
+            <Button size="sm">عرض المزيد</Button>
+          </CardFooter>
+        </Card>
+
+        <Card>
+          <CardContent>
+            <CardTitle>بيانات المحطة</CardTitle>
+            <CardDescription>
+              تحديث مستمر لقراءات جودة الهواء على مدار الساعة.
+            </CardDescription>
+          </CardContent>
+          <CardFooter className="gap-3">
+            <Button size="sm">التفاصيل</Button>
+            <Button size="sm" variant="outline">
+              تصدير
+            </Button>
+          </CardFooter>
         </Card>
       </div>
     </div>

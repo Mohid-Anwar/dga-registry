@@ -1,4 +1,3 @@
-import { DirectionToggle } from "@/components/docs/direction-toggle"
 import { DocsLayout } from "@/components/docs/docs-layout"
 import { InstallCommand } from "@/components/docs/install-command"
 
@@ -7,6 +6,7 @@ import {
   FileUploadFieldCustomRules,
   FileUploadFieldError,
   FileUploadFieldForm,
+  FileUploadFieldRtl,
 } from "./demos"
 
 export const metadata = {
@@ -20,8 +20,6 @@ export const metadata = {
 # File Upload Field
 
 A single-file upload control with a browse button, client-side MIME type/extension/size validation, and a remove-and-replace flow. Validation defaults to JPEG/PNG/PDF up to 2 MB, all overridable via props.
-
-<DirectionToggle />
 
 ## Installation
 
@@ -46,6 +44,13 @@ Override `maxSize`, `acceptedMimeTypes`, and `acceptedExtensions` to fit the upl
 ## Form Example
 
 <FileUploadFieldForm />
+
+## RTL Support
+
+Pass Arabic copy through the `labels` prop — the dropzone and file list align to
+the ambient text direction.
+
+<FileUploadFieldRtl />
 
 ## Props
 

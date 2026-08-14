@@ -4,6 +4,7 @@ import * as React from "react"
 
 import { Button } from "@/registry/dga/ui/button"
 import { Checkbox } from "@/registry/dga/ui/checkbox"
+import { toastSuccess } from "@/registry/dga/ui/sonner"
 
 /* ═══════════════════════════════════════════
    1 — Basic Checkbox States
@@ -146,7 +147,9 @@ export function CheckboxControlled() {
           <Button
             className="mt-3"
             disabled={!termsAccepted}
-            onClick={() => alert("Proceeding with registration!")}
+            onClick={() =>
+              toastSuccess("Terms accepted — continuing.", "Registration")
+            }
           >
             Continue
           </Button>
@@ -377,7 +380,10 @@ export function CheckboxPollutants() {
             className="mt-3"
             disabled={pollutants.length === 0}
             onClick={() =>
-              alert(`Monitoring: ${pollutants.join(", ").toUpperCase()}`)
+              toastSuccess(
+                `Monitoring ${pollutants.join(", ").toUpperCase()}.`,
+                "Monitoring started"
+              )
             }
           >
             Start Monitoring
@@ -398,7 +404,13 @@ export function CheckboxForms() {
         {/* User Preferences Form */}
         <div className="border-border bg-card rounded-lg border p-6">
           <h3 className="mb-4 text-lg font-semibold">User Preferences</h3>
-          <form className="space-y-4">
+          <form
+            className="space-y-4"
+            onSubmit={(e) => {
+              e.preventDefault()
+              toastSuccess("Preferences saved.", "Saved")
+            }}
+          >
             <fieldset className="space-y-3">
               <legend className="text-sm font-medium">
                 Data Display Options
@@ -457,7 +469,13 @@ export function CheckboxForms() {
         {/* Station Registration Form */}
         <div className="border-border bg-card rounded-lg border p-6">
           <h3 className="mb-4 text-lg font-semibold">Station Registration</h3>
-          <form className="space-y-4">
+          <form
+            className="space-y-4"
+            onSubmit={(e) => {
+              e.preventDefault()
+              toastSuccess("Station registered.", "Saved")
+            }}
+          >
             <fieldset className="space-y-3">
               <legend className="text-sm font-medium">
                 Available Equipment
@@ -544,59 +562,120 @@ export function CheckboxForms() {
 /* ═══════════════════════════════════════════
    7 — Checkbox in Lists
 ═══════════════════════════════════════════ */
+const LIST_STATIONS = [
+  {
+    id: "station-1",
+    name: "Prince Sultan Humanity City",
+    meta: "Riyadh • Background Station",
+  },
+  { id: "station-2", name: "Al Hair", meta: "Riyadh • Suburban Station" },
+  {
+    id: "station-3",
+    name: "Diplomatic Quarter",
+    meta: "Riyadh • Traffic Station",
+  },
+  {
+    id: "station-4",
+    name: "Jeddah Corniche",
+    meta: "Jeddah • Background Station",
+  },
+]
+
 export function CheckboxInLists() {
+  const [selected, setSelected] = React.useState<string[]>([])
+
+  const allSelected = selected.length === LIST_STATIONS.length
+  const someSelected = selected.length > 0 && !allSelected
+
+  const toggleRow = (id: string, checked: boolean) =>
+    setSelected((prev) =>
+      checked ? [...prev, id] : prev.filter((s) => s !== id)
+    )
+
   return (
     <div className="bg-background rounded-lg border">
       <div className="flex items-center gap-3 border-b p-4">
-        <Checkbox id="select-all" />
-        <label htmlFor="select-all" className="text-sm font-semibold">
+        <Checkbox
+          id="select-all"
+          /* Indeterminate whenever the selection is partial, so the header
+             reflects the rows rather than tracking its own state. */
+          checked={allSelected ? true : someSelected ? "indeterminate" : false}
+          onCheckedChange={(checked) =>
+            setSelected(checked === true ? LIST_STATIONS.map((s) => s.id) : [])
+          }
+        />
+        <label
+          htmlFor="select-all"
+          className="cursor-pointer text-sm font-semibold"
+        >
           Select All Stations
         </label>
       </div>
       <div className="divide-y">
-        <div className="hover:bg-accent/50 flex items-center gap-3 p-4">
-          <Checkbox id="station-1" />
-          <div className="flex-1">
-            <label htmlFor="station-1" className="text-sm font-medium">
-              Prince Sultan Humanity City
-            </label>
-            <p className="text-muted-foreground text-xs">
-              Riyadh • Background Station
-            </p>
+        {LIST_STATIONS.map((station) => (
+          <div
+            key={station.id}
+            className="hover:bg-accent/50 flex items-center gap-3 p-4"
+          >
+            <Checkbox
+              id={station.id}
+              checked={selected.includes(station.id)}
+              onCheckedChange={(checked) =>
+                toggleRow(station.id, checked === true)
+              }
+            />
+            <div className="flex-1">
+              <label
+                htmlFor={station.id}
+                className="cursor-pointer text-sm font-medium"
+              >
+                {station.name}
+              </label>
+              <p className="text-muted-foreground text-xs">{station.meta}</p>
+            </div>
           </div>
+        ))}
+      </div>
+    </div>
+  )
+}
+
+/* ═══════════════════════════════════════════
+   8 — RTL Support
+═══════════════════════════════════════════ */
+export function CheckboxRtl() {
+  return (
+    <div className="bg-background rounded-lg border p-6" dir="rtl">
+      <div className="flex flex-col gap-4">
+        <div className="flex items-center gap-2">
+          <Checkbox id="rtl-unchecked" />
+          <label htmlFor="rtl-unchecked" className="text-sm font-medium">
+            غير محدد
+          </label>
         </div>
-        <div className="hover:bg-accent/50 flex items-center gap-3 p-4">
-          <Checkbox id="station-2" />
-          <div className="flex-1">
-            <label htmlFor="station-2" className="text-sm font-medium">
-              Al Hair
-            </label>
-            <p className="text-muted-foreground text-xs">
-              Riyadh • Suburban Station
-            </p>
-          </div>
+        <div className="flex items-center gap-2">
+          <Checkbox id="rtl-checked" defaultChecked />
+          <label htmlFor="rtl-checked" className="text-sm font-medium">
+            محدد
+          </label>
         </div>
-        <div className="hover:bg-accent/50 flex items-center gap-3 p-4">
-          <Checkbox id="station-3" />
-          <div className="flex-1">
-            <label htmlFor="station-3" className="text-sm font-medium">
-              Diplomatic Quarter
-            </label>
-            <p className="text-muted-foreground text-xs">
-              Riyadh • Traffic Station
-            </p>
-          </div>
+        <div className="flex items-center gap-2">
+          <Checkbox id="rtl-disabled" disabled />
+          <label
+            htmlFor="rtl-disabled"
+            className="text-muted-foreground text-sm font-medium"
+          >
+            معطّل
+          </label>
         </div>
-        <div className="hover:bg-accent/50 flex items-center gap-3 p-4">
-          <Checkbox id="station-4" />
-          <div className="flex-1">
-            <label htmlFor="station-4" className="text-sm font-medium">
-              Jeddah Corniche
-            </label>
-            <p className="text-muted-foreground text-xs">
-              Jeddah • Background Station
-            </p>
-          </div>
+        <div className="flex items-center gap-2">
+          <Checkbox id="rtl-disabled-checked" disabled defaultChecked />
+          <label
+            htmlFor="rtl-disabled-checked"
+            className="text-muted-foreground text-sm font-medium"
+          >
+            معطّل ومحدد
+          </label>
         </div>
       </div>
     </div>

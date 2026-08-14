@@ -22,7 +22,7 @@ export function FileUploadFieldBasic() {
   const [file, setFile] = React.useState<File | null>(null)
 
   return (
-    <div className="bg-background rounded-lg border p-6">
+    <div className="bg-background mt-4 rounded-lg border p-6">
       <div className="flex flex-col gap-4">
         <FileUploadField
           name="certificate"
@@ -102,7 +102,7 @@ export function FileUploadFieldForm() {
   }
 
   return (
-    <div className="bg-background rounded-lg border p-6">
+    <div className="bg-background mt-4 rounded-lg border p-6">
       <div className="border-border bg-card rounded-lg border p-6">
         <h3 className="mb-4 text-lg font-semibold">Station Registration</h3>
         <form className="space-y-4" onSubmit={handleSubmit}>
@@ -120,6 +120,40 @@ export function FileUploadFieldForm() {
             <Button type="submit">Register Station</Button>
           </div>
         </form>
+      </div>
+    </div>
+  )
+}
+
+/* ═══════════════════════════════════════════
+   5 — RTL Support
+═══════════════════════════════════════════ */
+const LABELS_AR = {
+  title: "ارفع شهادة معايرة المحطة",
+  description: "ملفات PDF أو JPG أو PNG، بحد أقصى ٢ ميجابايت",
+  browse: "استعراض الملفات",
+  remove: "إزالة",
+  invalidType: "نوع الملف غير مدعوم",
+  tooLarge: "حجم الملف يتجاوز ٢ ميجابايت",
+  invalidExtension: "امتداد الملف غير مدعوم",
+}
+
+export function FileUploadFieldRtl() {
+  const [file, setFile] = React.useState<File | null>(null)
+
+  return (
+    <div className="bg-background rounded-lg border p-6" dir="rtl">
+      <div className="flex flex-col gap-4">
+        <FileUploadField
+          name="certificate-rtl"
+          labels={LABELS_AR}
+          onFileChange={setFile}
+        />
+        {file && (
+          <p className="text-muted-foreground text-sm">
+            الملف المحدد: <strong>{file.name}</strong>
+          </p>
+        )}
       </div>
     </div>
   )

@@ -1,8 +1,7 @@
-import { DirectionToggle } from "@/components/docs/direction-toggle"
 import { DocsLayout } from "@/components/docs/docs-layout"
 import { InstallCommand } from "@/components/docs/install-command"
 
-import { LightboxBasic, LightboxSingleImage } from "./demos"
+import { LightboxBasic, LightboxRtl, LightboxSingleImage } from "./demos"
 
 export const metadata = {
   title: "Lightbox",
@@ -15,8 +14,6 @@ export const metadata = {
 # Lightbox
 
 Displays an image in a fullscreen overlay with zoom, slideshow, and thumbnail navigation.
-
-<DirectionToggle />
 
 ## Installation
 
@@ -35,6 +32,16 @@ With a single image, navigation and slideshow controls are hidden — only zoom
 and close remain.
 
 <LightboxSingleImage />
+
+## RTL Support
+
+The thumbnail grid and surrounding copy align to the ambient text direction.
+
+<LightboxRtl />
+
+Note that the overlay itself is **not** direction-aware: it renders in a portal on
+`document.body`, outside your `dir="rtl"` subtree, so its arrows and slide order
+stay left-to-right regardless of the page direction.
 
 ## Props
 

@@ -1,4 +1,3 @@
-import { DirectionToggle } from "@/components/docs/direction-toggle"
 import { DocsLayout } from "@/components/docs/docs-layout"
 import { InstallCommand } from "@/components/docs/install-command"
 
@@ -6,6 +5,7 @@ import {
   TagOnColor,
   TagOutlineVariants,
   TagRounded,
+  TagRtl,
   TagSizes,
   TagVariants,
   TagWithIcons,
@@ -22,8 +22,6 @@ export const metadata = {
 # Tag
 
 Displays a tag used to label, categorize, or organize content using status colors.
-
-<DirectionToggle />
 
 ## Installation
 
@@ -75,6 +73,12 @@ Use `on-color` variants when the tag sits on top of a colored or dark background
 ## With Icons
 
 <TagWithIcons />
+
+## RTL Support
+
+Tags follow the ambient text direction, including leading icon placement.
+
+<TagRtl />
 
 ## Props
 

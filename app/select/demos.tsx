@@ -11,6 +11,7 @@ import {
 import { HugeiconsIcon } from "@hugeicons/react"
 
 import { Button } from "@/registry/dga/ui/button"
+import { DirectionProvider } from "@/registry/dga/ui/direction"
 import { FormField } from "@/registry/dga/ui/form-field"
 import {
   Select,
@@ -18,10 +19,12 @@ import {
   SelectGroup,
   SelectItem,
   SelectLabel,
+  SelectPlaceholderItem,
   SelectSeparator,
   SelectTrigger,
   SelectValue,
 } from "@/registry/dga/ui/select"
+import { toastSuccess } from "@/registry/dga/ui/sonner"
 
 /* ─── 1. Basic Select ─── */
 export function SelectBasic() {
@@ -371,7 +374,13 @@ export function SelectForms() {
         {/* Station Configuration Form */}
         <div className="border-border bg-card rounded-lg border p-6">
           <h3 className="mb-4 text-lg font-semibold">Station Configuration</h3>
-          <form className="space-y-4">
+          <form
+            className="space-y-4"
+            onSubmit={(e) => {
+              e.preventDefault()
+              toastSuccess("Configuration saved.", "Saved")
+            }}
+          >
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="flex flex-col gap-2">
                 <label htmlFor="station-type" className="text-sm font-medium">
@@ -436,7 +445,13 @@ export function SelectForms() {
         {/* Data Query Form */}
         <div className="border-border bg-card rounded-lg border p-6">
           <h3 className="mb-4 text-lg font-semibold">Data Query</h3>
-          <form className="space-y-4">
+          <form
+            className="space-y-4"
+            onSubmit={(e) => {
+              e.preventDefault()
+              toastSuccess("Query submitted.", "Fetching data")
+            }}
+          >
             <div className="flex flex-col gap-2">
               <label htmlFor="query-station" className="text-sm font-medium">
                 Station
@@ -578,5 +593,84 @@ export function SelectWidths() {
         </div>
       </div>
     </div>
+  )
+}
+
+/* ─── 9. Placeholder Option (clearable) ─── */
+export function SelectPlaceholderOption() {
+  const [value, setValue] = React.useState("")
+
+  return (
+    <div className="bg-background rounded-lg border p-6">
+      <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-2">
+          <label className="text-sm font-medium">Region</label>
+          <Select value={value} onValueChange={setValue}>
+            <SelectTrigger className="w-[280px]">
+              <SelectValue placeholder="Select a region" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectPlaceholderItem>Select a region</SelectPlaceholderItem>
+              <SelectItem value="riyadh">Riyadh</SelectItem>
+              <SelectItem value="jeddah">Jeddah</SelectItem>
+              <SelectItem value="dammam">Dammam</SelectItem>
+            </SelectContent>
+          </Select>
+        </div>
+        <p className="text-muted-foreground text-sm">
+          Selected value:{" "}
+          <strong>{value === "" ? "(empty string)" : value}</strong>
+        </p>
+      </div>
+    </div>
+  )
+}
+
+/* ─── 10. RTL Support ─── */
+export function SelectRtl() {
+  return (
+    <DirectionProvider dir="rtl">
+      <div className="bg-background rounded-lg border p-6" dir="rtl">
+        <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-2">
+            <label className="text-sm font-medium">نوع المحطة</label>
+            <Select dir="rtl">
+              <SelectTrigger className="w-[280px]">
+                <SelectValue placeholder="اختر نوع المحطة" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="background">خلفية</SelectItem>
+                <SelectItem value="suburban">ضاحية</SelectItem>
+                <SelectItem value="traffic">مرورية</SelectItem>
+                <SelectItem value="industrial">صناعية</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
+
+          <div className="flex flex-col gap-2">
+            <label className="text-sm font-medium">المنطقة</label>
+            <Select dir="rtl">
+              <SelectTrigger className="w-[280px]">
+                <SelectValue placeholder="اختر المنطقة" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectGroup>
+                  <SelectLabel>المناطق الرئيسية</SelectLabel>
+                  <SelectItem value="riyadh">الرياض</SelectItem>
+                  <SelectItem value="jeddah">جدة</SelectItem>
+                  <SelectItem value="dammam">الدمام</SelectItem>
+                </SelectGroup>
+                <SelectSeparator />
+                <SelectGroup>
+                  <SelectLabel>المناطق المقدسة</SelectLabel>
+                  <SelectItem value="makkah">مكة المكرمة</SelectItem>
+                  <SelectItem value="madinah">المدينة المنورة</SelectItem>
+                </SelectGroup>
+              </SelectContent>
+            </Select>
+          </div>
+        </div>
+      </div>
+    </DirectionProvider>
   )
 }

@@ -37,7 +37,10 @@ export function RecaptchaBasic() {
 ═══════════════════════════════════════════ */
 export function RecaptchaArabic() {
   return (
-    <div className="bg-background flex justify-center rounded-lg border p-6">
+    <div
+      className="bg-background flex justify-center rounded-lg border p-6"
+      dir="rtl"
+    >
       <RecaptchaWidget lang="ar" sitekey={TEST_SITE_KEY} />
     </div>
   )

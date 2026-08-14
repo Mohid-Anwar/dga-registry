@@ -1,4 +1,3 @@
-import { DirectionToggle } from "@/components/docs/direction-toggle"
 import { DocsLayout } from "@/components/docs/docs-layout"
 import { InstallCommand } from "@/components/docs/install-command"
 
@@ -10,6 +9,7 @@ import {
   RadioGroupForms,
   RadioGroupGrid,
   RadioGroupHorizontal,
+  RadioGroupRtl,
 } from "./demos"
 
 export const metadata = {
@@ -23,8 +23,6 @@ export const metadata = {
 # Radio Group
 
 A set of checkable buttons — known as radio buttons — where only one button can be checked at a time.
-
-<DirectionToggle />
 
 ## Installation
 
@@ -71,6 +69,13 @@ Real-world form scenarios using radio groups.
 Radio groups displayed in a grid for better space utilization.
 
 <RadioGroupGrid />
+
+## RTL Support
+
+Pass `dir="rtl"` so arrow-key navigation follows the visual order as well as the
+layout.
+
+<RadioGroupRtl />
 
 ## Props
 

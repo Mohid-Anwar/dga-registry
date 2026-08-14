@@ -94,7 +94,29 @@ Plus `accordion`, `alert`, `alert-dialog`, `aspect-ratio`, `avatar`, `button-gro
 
 ## RTL & Arabic support
 
-Direction handling is centralized in [`registry/dga/ui/direction.tsx`](./registry/dga/ui/direction.tsx), a thin wrapper over Radix's `Direction` primitive. Components read direction from context rather than the DOM, so RTL "just works" the moment you wrap your app in the provider — no per-component configuration. Every docs page ships a live `<DirectionToggle />` so you can flip between LTR and RTL and see the real component respond.
+Direction handling is centralized in [`registry/dga/ui/direction.tsx`](./registry/dga/ui/direction.tsx), a thin wrapper over Radix's `Direction` primitive. Every docs page has an `## RTL Support` section showing the real component rendered right-to-left with Arabic content.
+
+**Setting `dir="rtl"` alone is not enough.** Direction-aware components (tabs, select, radio group, tooltip, carousel) resolve direction from an explicit `dir` prop, then `DirectionProvider` context, then fall back to `"ltr"` — they never read the DOM `dir` attribute. They then write that resolved value onto their own root element, which **overrides** any `dir` you set on an ancestor.
+
+So `<html dir="rtl">` on its own leaves those components resolving to `"ltr"` and rendering left-to-right — both layout and arrow-key order — regardless of the wrapper. Wrap your app in both:
+
+```tsx
+import { DirectionProvider } from "@/components/ui/direction"
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="ar" dir="rtl">
+      <body>
+        <DirectionProvider dir="rtl">{children}</DirectionProvider>
+      </body>
+    </html>
+  )
+}
+```
+
+Components that aren't direction-aware (badge, card, skeleton, input, table, collapsible) never write a `dir` of their own, so they inherit from your wrapper and need nothing extra. Anything with keyboard navigation or floating content — select, tabs, tooltip, radio group, dropdown, popover, carousel — needs the provider.
+
+See the [`direction` docs](https://dga-registry.vercel.app/direction) for a side-by-side demo of the difference and the `useDirection` hook.
 
 ## Local development
 

@@ -1,4 +1,4 @@
-import { DirectionToggle } from "@/components/docs/direction-toggle"
+import { CodeBlock } from "@/components/docs/code-block"
 import { DocsLayout } from "@/components/docs/docs-layout"
 import { InstallCommand } from "@/components/docs/install-command"
 
@@ -7,6 +7,7 @@ import {
   InputBasicStates,
   InputFileUpload,
   InputForms,
+  InputRtl,
   InputSizing,
   InputTypes,
   InputWithIcons,
@@ -23,8 +24,6 @@ export const metadata = {
 # Input
 
 Displays a form input field or a component that looks like an input field.
-
-<DirectionToggle />
 
 ## Installation
 
@@ -48,9 +47,35 @@ Examples of inputs styled with icons using wrapper divs.
 
 <InputWithIcons />
 
+## Validation
+
+`Input` forwards every native constraint attribute — `required`, `pattern`,
+`min`/`max`, `minLength`/`maxLength` — so a form gets browser validation with no
+extra wiring. Worth knowing which types validate themselves and which don't:
+
+| Type     | Validated by the browser                       |
+| -------- | ---------------------------------------------- |
+| `email`  | Yes — must look like an address                |
+| `url`    | Yes — must be an absolute URL, scheme included |
+| `number` | Yes — numeric, plus `min` / `max` / `step`     |
+| `tel`    | **No** — only sets the on-screen keyboard      |
+| `text`   | No                                             |
+
+`type="tel"` is the trap: it switches a phone to a numeric keypad but accepts
+any string, since phone-number formats vary too much per country for a single
+built-in rule. Pair it with a `pattern`, and give a `title` — that string is
+what the browser shows when the pattern fails.
+
+<CodeBlock
+  language="tsx"
+  code={`<Input type="tel" inputMode="tel" pattern="[+]?[0-9\\s()-]{7,20}" title="Digits, spaces, and ( ) + - only — at least 7 characters." required />`}
+/>
+
 ## Form Examples
 
-Real-world form scenarios using the Input component.
+Real-world form scenarios using the Input component. The registration form below
+uses these attributes — submit it empty, or with a malformed phone number, to see
+the native messages.
 
 <InputForms />
 
@@ -71,6 +96,13 @@ File input with custom styling.
 Complex input patterns and combinations.
 
 <InputAdvanced />
+
+## RTL Support
+
+Icon affixes and prefix/suffix groups use logical properties (`ps-*`, `rounded-s-*`),
+so they flip automatically with the ambient text direction.
+
+<InputRtl />
 
 ## Props
 

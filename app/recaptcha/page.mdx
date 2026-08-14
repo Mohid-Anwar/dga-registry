@@ -2,7 +2,6 @@ import { InformationCircleIcon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
 
 import { CodeBlock } from "@/components/docs/code-block"
-import { DirectionToggle } from "@/components/docs/direction-toggle"
 import { DocsLayout } from "@/components/docs/docs-layout"
 import { InstallCommand } from "@/components/docs/install-command"
 import { Alert, AlertDescription, AlertTitle } from "@/registry/dga/ui/alert"
@@ -22,8 +21,6 @@ export const metadata = {
 Wraps Google's reCAPTCHA v2 checkbox widget, switching to a compact size on narrow
 viewports and forwarding the current locale.
 
-<DirectionToggle />
-
 ## Installation
 
 <InstallCommand componentName="recaptcha" />
@@ -40,15 +37,15 @@ The secret key is only used server-side, when you verify the token against Googl
 
 ## Basic Usage
 
-The demo below uses Google's public **test** site key, which always validates and
-renders a "for testing purposes only" watermark. It's meant for local development —
-swap in your own key pair before shipping.
+The demo below uses a configured reCAPTCHA site key. Make sure your site key is
+registered for the domain where this component is being used.
 
 <RecaptchaBasic />
 
-## Localized
+## RTL Support
 
-Pass a `lang` to match the widget's locale to the current page.
+Pass a `lang` to match the widget's locale to the current page. The widget renders
+its own Arabic copy — set `dir="rtl"` on a parent to align it within an RTL layout.
 
 <RecaptchaArabic />
 

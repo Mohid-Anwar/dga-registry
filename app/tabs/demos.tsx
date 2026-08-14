@@ -1,5 +1,6 @@
 "use client"
 
+import { DirectionProvider } from "@/registry/dga/ui/direction"
 import {
   Tabs,
   TabsContent,
@@ -15,6 +16,21 @@ function DemoContent({ value }: { value: string }) {
     </div>
   )
 }
+
+/** One `TabsContent` panel per value, so the body actually swaps on tab change. */
+function DemoPanels({ values }: { values: string[] }) {
+  return (
+    <>
+      {values.map((value) => (
+        <TabsContent key={value} value={value}>
+          <DemoContent value={value} />
+        </TabsContent>
+      ))}
+    </>
+  )
+}
+
+const BASIC_TABS = ["account", "password", "settings", "fourth"]
 
 const MANY_TABS = [
   "Account",
@@ -47,7 +63,7 @@ export function TabsDefault() {
         <TabsTrigger value="settings">Settings</TabsTrigger>
         <TabsTrigger value="fourth">Fourth</TabsTrigger>
       </TabsList>
-      <DemoContent value="account" />
+      <DemoPanels values={BASIC_TABS} />
     </Tabs>
   )
 }
@@ -64,7 +80,7 @@ export function TabsLine() {
         <TabsTrigger value="settings">Settings</TabsTrigger>
         <TabsTrigger value="fourth">Fourth</TabsTrigger>
       </TabsList>
-      <DemoContent value="account" />
+      <DemoPanels values={BASIC_TABS} />
     </Tabs>
   )
 }
@@ -82,7 +98,7 @@ export function TabsDefaultScrollable() {
           </TabsTrigger>
         ))}
       </TabsList>
-      <DemoContent value="Account" />
+      <DemoPanels values={MANY_TABS} />
     </Tabs>
   )
 }
@@ -100,7 +116,7 @@ export function TabsLineScrollable() {
           </TabsTrigger>
         ))}
       </TabsList>
-      <DemoContent value="Account" />
+      <DemoPanels values={MANY_TABS} />
     </Tabs>
   )
 }
@@ -118,7 +134,7 @@ export function TabsDefaultScrollableSnap() {
           </TabsTrigger>
         ))}
       </TabsList>
-      <DemoContent value="Account" />
+      <DemoPanels values={MANY_TABS} />
     </Tabs>
   )
 }
@@ -136,7 +152,7 @@ export function TabsLineScrollableSnap() {
           </TabsTrigger>
         ))}
       </TabsList>
-      <DemoContent value="Account" />
+      <DemoPanels values={MANY_TABS} />
     </Tabs>
   )
 }
@@ -154,7 +170,7 @@ export function TabsDefaultFadeEdges() {
           </TabsTrigger>
         ))}
       </TabsList>
-      <DemoContent value="Account" />
+      <DemoPanels values={MANY_TABS} />
     </Tabs>
   )
 }
@@ -172,7 +188,7 @@ export function TabsLineFadeEdges() {
           </TabsTrigger>
         ))}
       </TabsList>
-      <DemoContent value="Account" />
+      <DemoPanels values={MANY_TABS} />
     </Tabs>
   )
 }
@@ -189,7 +205,7 @@ export function TabsVerticalDefault() {
         <TabsTrigger value="settings">Settings</TabsTrigger>
         <TabsTrigger value="fourth">Fourth</TabsTrigger>
       </TabsList>
-      <DemoContent value="account" />
+      <DemoPanels values={BASIC_TABS} />
     </Tabs>
   )
 }
@@ -206,7 +222,46 @@ export function TabsVerticalLine() {
         <TabsTrigger value="settings">Settings</TabsTrigger>
         <TabsTrigger value="fourth">Fourth</TabsTrigger>
       </TabsList>
-      <DemoContent value="account" />
+      <DemoPanels values={BASIC_TABS} />
     </Tabs>
+  )
+}
+
+/* ═══════════════════════════════════════════
+   11 — RTL Support
+═══════════════════════════════════════════ */
+const RTL_TABS = [
+  { value: "account", label: "الحساب" },
+  { value: "password", label: "كلمة المرور" },
+  { value: "settings", label: "الإعدادات" },
+  { value: "billing", label: "الفوترة" },
+]
+
+export function TabsRtl() {
+  return (
+    <DirectionProvider dir="rtl">
+      <div className="bg-background rounded-lg border p-6" dir="rtl">
+        <Tabs defaultValue="account" dir="rtl" className="w-full">
+          <TabsList>
+            {RTL_TABS.map((tab) => (
+              <TabsTrigger key={tab.value} value={tab.value}>
+                {tab.label}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+          {RTL_TABS.map((tab) => (
+            <TabsContent key={tab.value} value={tab.value}>
+              <div className="border-border bg-muted/30 text-muted-foreground mt-4 rounded-md border p-4 text-sm">
+                محتوى تبويب{" "}
+                <span className="text-foreground font-semibold">
+                  {tab.label}
+                </span>
+                .
+              </div>
+            </TabsContent>
+          ))}
+        </Tabs>
+      </div>
+    </DirectionProvider>
   )
 }

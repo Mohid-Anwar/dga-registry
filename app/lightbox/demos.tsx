@@ -2,7 +2,15 @@
 
 import { useState } from "react"
 
+import { cn } from "@/lib/utils"
+import { DirectionProvider } from "@/registry/dga/ui/direction"
 import { Lightbox, type LightboxImage } from "@/registry/dga/ui/lightbox"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/registry/dga/ui/tooltip"
 
 const images: LightboxImage[] = [
   {
@@ -31,6 +39,42 @@ const images: LightboxImage[] = [
   },
 ]
 
+/**
+ * Clickable thumbnail. The tooltip is what tells a reader the image opens the
+ * overlay — nothing else about a static thumbnail says so.
+ */
+function Thumbnail({
+  image,
+  hint,
+  imageClassName,
+  onClick,
+}: {
+  image: LightboxImage
+  hint: string
+  imageClassName?: string
+  onClick: () => void
+}) {
+  return (
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <button
+          type="button"
+          className="cursor-pointer overflow-hidden rounded-lg transition-opacity hover:opacity-90"
+          onClick={onClick}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={image.thumbnail}
+            alt={image.alt}
+            className={cn("aspect-square w-full object-cover", imageClassName)}
+          />
+        </button>
+      </TooltipTrigger>
+      <TooltipContent>{hint}</TooltipContent>
+    </Tooltip>
+  )
+}
+
 /* ═══════════════════════════════════════════
    1 — Basic Gallery
 ═══════════════════════════════════════════ */
@@ -40,26 +84,21 @@ export function LightboxBasic() {
 
   return (
     <div className="bg-background rounded-lg border p-6">
-      <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-        {images.map((image, i) => (
-          <button
-            key={image.src}
-            type="button"
-            className="overflow-hidden rounded-lg"
-            onClick={() => {
-              setIndex(i)
-              setOpen(true)
-            }}
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={image.thumbnail}
-              alt={image.alt}
-              className="aspect-square w-full object-cover"
+      <TooltipProvider>
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+          {images.map((image, i) => (
+            <Thumbnail
+              key={image.src}
+              image={image}
+              hint="Click to open"
+              onClick={() => {
+                setIndex(i)
+                setOpen(true)
+              }}
             />
-          </button>
-        ))}
-      </div>
+          ))}
+        </div>
+      </TooltipProvider>
 
       <Lightbox
         images={images}
@@ -80,18 +119,14 @@ export function LightboxSingleImage() {
 
   return (
     <div className="bg-background rounded-lg border p-6">
-      <button
-        type="button"
-        className="overflow-hidden rounded-lg"
-        onClick={() => setOpen(true)}
-      >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={single[0].thumbnail}
-          alt={single[0].alt}
-          className="aspect-video w-full max-w-xs object-cover"
+      <TooltipProvider>
+        <Thumbnail
+          image={single[0]}
+          hint="Click to open"
+          imageClassName="aspect-video w-full max-w-xs"
+          onClick={() => setOpen(true)}
         />
-      </button>
+      </TooltipProvider>
 
       <Lightbox
         images={single}
@@ -100,5 +135,54 @@ export function LightboxSingleImage() {
         onClose={() => setOpen(false)}
       />
     </div>
+  )
+}
+
+/* ═══════════════════════════════════════════
+   3 — RTL Support
+═══════════════════════════════════════════ */
+const imagesAr: LightboxImage[] = [
+  { ...images[0], alt: "منظر جبلي" },
+  { ...images[1], alt: "ممر في الغابة" },
+  { ...images[2], alt: "بحيرة جبلية" },
+  { ...images[3], alt: "غابة مضاءة بالشمس" },
+]
+
+export function LightboxRtl() {
+  const [open, setOpen] = useState(false)
+  const [index, setIndex] = useState(0)
+
+  return (
+    /* Tooltip resolves direction from context, so the provider is what makes
+       its arrow and offset mirror — the wrapper's `dir` alone won't do it. */
+    <DirectionProvider dir="rtl">
+      <div className="bg-background rounded-lg border p-6" dir="rtl">
+        <p className="text-muted-foreground mb-3 text-sm">
+          اختر صورة لعرضها بالحجم الكامل.
+        </p>
+        <TooltipProvider>
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+            {imagesAr.map((image, i) => (
+              <Thumbnail
+                key={image.src}
+                image={image}
+                hint="اضغط للعرض"
+                onClick={() => {
+                  setIndex(i)
+                  setOpen(true)
+                }}
+              />
+            ))}
+          </div>
+        </TooltipProvider>
+
+        <Lightbox
+          images={imagesAr}
+          open={open}
+          index={index}
+          onClose={() => setOpen(false)}
+        />
+      </div>
+    </DirectionProvider>
   )
 }
